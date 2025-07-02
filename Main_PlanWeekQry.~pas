@@ -1,0 +1,2716 @@
+unit Main_PlanWeekQry;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, FrmGridBass, ExtCtrls, StdCtrls, DsFancyButton, cxStyles,
+  cxCustomData, cxGraphics, cxFilter, cxData, cxDataStorage, cxEdit, DB,
+  cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  dxmdaset, cxGridLevel, cxClasses, cxControls, cxGridCustomView, cxGrid,
+  cxTextEdit, cxDropDownEdit, cxCalendar, cxMaskEdit, cxContainer, cxLabel,
+  cxDBLookupComboBox, ADODB, cxButtonEdit, Grids, DBGrids, ComCtrls, RzShellDialogs,
+  ToolWin, ImgList, FR_DSet, FR_DBSet, FR_Class, cxRadioGroup, Buttons, StrUtils,
+  cxGroupBox, cxCheckBox, cxCurrencyEdit, RzPanel, RzSplit, RzTabs,IniFiles,
+  TFlatPanelUnit,Comobj, cxLookAndFeelPainters, cxSpinEdit, RzStatus,
+  ActnList, RzLabel, cxButtons,// cxLookAndFeelPainters,   cxButtons,  cxSpinEdit,  RzLabel, ActnList, RzStatus
+  cxTimeEdit, jpeg,
+  cxCheckComboBox, cxGridBandedTableView, cxGridDBBandedTableView, DBTables,
+  Menus, DBCtrls;
+
+type
+  TFrm_PlanWeekQry = class(TFrm_GridBass)
+    ImageList: TImageList;
+    frReport: TfrReport;
+    frDBDataSet: TfrDBDataSet;
+    PC_PlanWeek: TRzPageControl;
+    TS_Week: TRzTabSheet;
+    PanelBkGnd: TPanel;
+    Panel7: TPanel;
+    RSP_CList: TRzSizePanel;
+    Image2: TImage;
+    Label1: TLabel;
+    ToolBar_HItem: TToolBar;
+    TB_Ref_PlanWeek: TToolButton;
+    Label9: TLabel;
+    E_FClientFullName: TcxTextEdit;
+    TB_Exit: TToolButton;
+    TB_Prin: TToolButton;
+    RzSizePanel2: TRzSizePanel;
+    actionList: TActionList;
+    ActApp: TAction;
+    ActSave: TAction;
+    ActOut: TAction;
+    ActEdit: TAction;
+    ActDel: TAction;
+    Act_Submit: TAction;
+    Act_Audit: TAction;
+    stbBar: TRzStatusBar;
+    RzClockStatus1: TRzClockStatus;
+    RzKeyStatus1: TRzKeyStatus;
+    RzKeyStatus2: TRzKeyStatus;
+    RzKeyStatus3: TRzKeyStatus;
+    stbMsg: TRzFieldStatus;
+    SaveDialog1: TSaveDialog;
+    RzSizePanel4: TRzSizePanel;
+    Act_PC_ShipList: TAction;
+    PM: TPopupMenu;
+    N_Edit: TMenuItem;
+    N_Filter: TMenuItem;
+    N_Sort: TMenuItem;
+    N_Group: TMenuItem;
+    N_Set: TMenuItem;
+    N_Out: TMenuItem;
+    Act_Menu: TAction;
+    Act_Menu_Set: TAction;
+    MData_PTItem: TdxMemData;
+    StringField123: TStringField;
+    StringField124: TStringField;
+    StringField125: TStringField;
+    StringField126: TStringField;
+    StringField127: TStringField;
+    StringField128: TStringField;
+    StringField129: TStringField;
+    StringField130: TStringField;
+    StringField131: TStringField;
+    StringField132: TStringField;
+    StringField133: TStringField;
+    FloatField31: TFloatField;
+    FloatField32: TFloatField;
+    FloatField33: TFloatField;
+    StringField134: TStringField;
+    StringField135: TStringField;
+    StringField136: TStringField;
+    StringField137: TStringField;
+    StringField138: TStringField;
+    StringField139: TStringField;
+    IntegerField12: TIntegerField;
+    FloatField34: TFloatField;
+    FloatField35: TFloatField;
+    FloatField36: TFloatField;
+    DS_Mdata_PTItem: TDataSource;
+    DS_Mdata_PTList: TDataSource;
+    MData_PTList: TdxMemData;
+    StringField140: TStringField;
+    StringField141: TStringField;
+    StringField142: TStringField;
+    StringField143: TStringField;
+    StringField144: TStringField;
+    StringField145: TStringField;
+    StringField146: TStringField;
+    StringField147: TStringField;
+    StringField148: TStringField;
+    StringField149: TStringField;
+    StringField150: TStringField;
+    FloatField37: TFloatField;
+    FloatField38: TFloatField;
+    FloatField39: TFloatField;
+    StringField151: TStringField;
+    StringField152: TStringField;
+    StringField153: TStringField;
+    StringField154: TStringField;
+    StringField155: TStringField;
+    StringField156: TStringField;
+    IntegerField13: TIntegerField;
+    FloatField40: TFloatField;
+    FloatField41: TFloatField;
+    FloatField42: TFloatField;
+    PopupMenu1: TPopupMenu;
+    TS_PlanTask: TRzTabSheet;
+    PC_Week: TPageControl;
+    TS_Item: TTabSheet;
+    TS_Agent: TTabSheet;
+    TS_Date: TTabSheet;
+    RzSizePanel1: TRzSizePanel;
+    PC_TaskTree: TPageControl;
+    TS_TaskItem: TTabSheet;
+    ToolBar2: TToolBar;
+    TS_TaskAgent: TTabSheet;
+    TreeView1: TTreeView;
+    ToolBar3: TToolBar;
+    TS_TaskDate: TTabSheet;
+    MyTreeView_TaskItem: TTreeView;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Image1: TImage;
+    Label2: TLabel;
+    Label3: TLabel;
+    ToolBar5: TToolBar;
+    TB_Ref_TaskItem: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    cxTextEdit1: TcxTextEdit;
+    RzSizePanel3: TRzSizePanel;
+    RzSP_TaskItem: TRzSizePanel;
+    MData_TaskItem: TdxMemData;
+    StringField1: TStringField;
+    StringField2: TStringField;
+    StringField3: TStringField;
+    StringField4: TStringField;
+    StringField5: TStringField;
+    StringField6: TStringField;
+    StringField7: TStringField;
+    StringField8: TStringField;
+    StringField9: TStringField;
+    StringField10: TStringField;
+    StringField11: TStringField;
+    FloatField1: TFloatField;
+    FloatField2: TFloatField;
+    FloatField3: TFloatField;
+    StringField12: TStringField;
+    StringField13: TStringField;
+    StringField14: TStringField;
+    StringField15: TStringField;
+    StringField16: TStringField;
+    StringField17: TStringField;
+    IntegerField1: TIntegerField;
+    FloatField4: TFloatField;
+    FloatField5: TFloatField;
+    FloatField6: TFloatField;
+    DS_Mdata_TaskItem: TDataSource;
+    DS_Mdata_TaskList: TDataSource;
+    MData_TaskList: TdxMemData;
+    StringField18: TStringField;
+    StringField19: TStringField;
+    StringField20: TStringField;
+    StringField21: TStringField;
+    StringField22: TStringField;
+    StringField23: TStringField;
+    StringField24: TStringField;
+    StringField25: TStringField;
+    StringField26: TStringField;
+    StringField27: TStringField;
+    StringField28: TStringField;
+    FloatField7: TFloatField;
+    FloatField8: TFloatField;
+    FloatField9: TFloatField;
+    StringField29: TStringField;
+    StringField30: TStringField;
+    StringField31: TStringField;
+    StringField32: TStringField;
+    StringField33: TStringField;
+    StringField34: TStringField;
+    IntegerField2: TIntegerField;
+    FloatField10: TFloatField;
+    FloatField11: TFloatField;
+    FloatField12: TFloatField;
+    TS_PlanQry: TRzTabSheet;
+    RSP_Qry: TRzSizePanel;
+    PageView_Qry: TPageControl;
+    TS_ItemPlanDate: TTabSheet;
+    ToolBar6: TToolBar;
+    TS_PlanDate: TTabSheet;
+    TS_CarryOut: TTabSheet;
+    MyTreeView_Qry: TTreeView;
+    Panel3: TPanel;
+    Panel4: TPanel;
+    Image3: TImage;
+    Label4: TLabel;
+    Label5: TLabel;
+    ToolBar8: TToolBar;
+    TB_Ref_Qry: TToolButton;
+    ToolButton5: TToolButton;
+    cxTextEdit2: TcxTextEdit;
+    RzSizePanel7: TRzSizePanel;
+    cxGrid_Qry: TcxGrid;
+    cxGV_Qry: TcxGridDBTableView;
+    cxGL_Qry: TcxGridLevel;
+    DS_Mdata_Qry: TDataSource;
+    MData_Qry: TdxMemData;
+    StringField35: TStringField;
+    StringField36: TStringField;
+    StringField37: TStringField;
+    StringField38: TStringField;
+    StringField39: TStringField;
+    StringField40: TStringField;
+    StringField41: TStringField;
+    StringField42: TStringField;
+    StringField43: TStringField;
+    StringField44: TStringField;
+    StringField45: TStringField;
+    FloatField13: TFloatField;
+    FloatField14: TFloatField;
+    FloatField15: TFloatField;
+    StringField46: TStringField;
+    StringField47: TStringField;
+    StringField48: TStringField;
+    StringField49: TStringField;
+    StringField50: TStringField;
+    StringField51: TStringField;
+    IntegerField3: TIntegerField;
+    FloatField16: TFloatField;
+    FloatField17: TFloatField;
+    FloatField18: TFloatField;
+    Act_AgentShort_ItemPlanDate: TAction;
+    Act_AgentShort_Sort_ItemPlanDate: TAction;
+    Act_ItemPlanDate: TAction;
+    Act_AgentShort_PlanDate: TAction;
+    Act_AgentShort_Sort_PlanDate: TAction;
+    Act_PlanDate: TAction;
+    RzPanel1: TRzPanel;
+    CB_Wet: TcxComboBox;
+    CB_Qry: TcxComboBox;
+    Label7: TLabel;
+    Label6: TLabel;
+    Edit1: TEdit;
+    Act_AgentShort_CarryOut: TAction;
+    Act_AgentShort_Sort_CarryOut: TAction;
+    Act_PlanDate_CarryOut: TAction;
+    cxGrid_PTItem: TcxGrid;
+    cxGV_PTItem: TcxGridDBTableView;
+    FPlanYearWeek_PTItem: TcxGridDBColumn;
+    FPlanDateExtent_PTItem: TcxGridDBColumn;
+    FBranchItemNumber_PTItem: TcxGridDBColumn;
+    FBranchFileNo_PTItem: TcxGridDBColumn;
+    FDeliveryDate_PTItem: TcxGridDBColumn;
+    FFinishDate_PTItem: TcxGridDBColumn;
+    FPlanTaskItemDate_PTItem: TcxGridDBColumn;
+    FFactoryNum_PTItem: TcxGridDBColumn;
+    FPlanWeekWrite_PTItem: TcxGridDBColumn;
+    FPlanWeekWriteDate_PTItem: TcxGridDBColumn;
+    FClientFullName_PTItem: TcxGridDBColumn;
+    FClientShortName_PTItem: TcxGridDBColumn;
+    FProductName_PTItem: TcxGridDBColumn;
+    FItemModel_PTItem: TcxGridDBColumn;
+    FFileItemID_PTItem: TcxGridDBColumn;
+    FProductID_PTItem: TcxGridDBColumn;
+    FPlanWeekStatus_PTItem: TcxGridDBColumn;
+    FPlanWeekStatusNotes_PTItem: TcxGridDBColumn;
+    FPlanWeekWriteID_PTItem: TcxGridDBColumn;
+    FPlanWeekID_PTItem: TcxGridDBColumn;
+    cxGL_PTItem: TcxGridLevel;
+    cxGrid_PTList: TcxGrid;
+    cxGV_PTList: TcxGridDBTableView;
+    FPlanWeekPartsName_PTList: TcxGridDBColumn;
+    FMakeBOMWet_PTList: TcxGridDBColumn;
+    FLastMakePercent_PTList: TcxGridDBColumn;
+    FMakePercent_PTList: TcxGridDBColumn;
+    FTotalMakePercent_PTList: TcxGridDBColumn;
+    FLastShipPercent_PTList: TcxGridDBColumn;
+    FShipPercent_PTList: TcxGridDBColumn;
+    FTotalShipPercent_PTList: TcxGridDBColumn;
+    FMakeBOMPackQry_PTList: TcxGridDBColumn;
+    FLastPackQry_PTList: TcxGridDBColumn;
+    FPackQry_PTList: TcxGridDBColumn;
+    FTotalPackQry_PTList: TcxGridDBColumn;
+    FLastShipQry_PTList: TcxGridDBColumn;
+    FShipQry_PTList: TcxGridDBColumn;
+    FTotalShipQry_PTList: TcxGridDBColumn;
+    FPlanWeekPack_PTList: TcxGridDBColumn;
+    FWorkShop_PTList: TcxGridDBColumn;
+    FTeamName_PTList: TcxGridDBColumn;
+    FAgentShortName_PTList: TcxGridDBColumn;
+    FPlanPartsName_PTList: TcxGridDBColumn;
+    FPartsCode_PTList: TcxGridDBColumn;
+    FTeamID_PTList: TcxGridDBColumn;
+    FAgentID_PTList: TcxGridDBColumn;
+    FPlanWeekPartsID_PTList: TcxGridDBColumn;
+    cxGL_PTList: TcxGridLevel;
+    cxGrid_TaskList: TcxGrid;
+    cxGV_TaskList: TcxGridDBTableView;
+    FBranchItemNumber_TaskList: TcxGridDBColumn;
+    FPartsCode_TaskList: TcxGridDBColumn;
+    FPlanPartsName_TaskList: TcxGridDBColumn;
+    FAgentShortName_TaskList: TcxGridDBColumn;
+    FPlanWet_TaskList: TcxGridDBColumn;
+    FMakeWet_TaskList: TcxGridDBColumn;
+    FMakeFinshWet_TaskList: TcxGridDBColumn;
+    FMakeFinshPercent_TaskList: TcxGridDBColumn;
+    FShipFinshWet_TaskList: TcxGridDBColumn;
+    FShipFinshPercent_TaskList: TcxGridDBColumn;
+    FPlanPackQry_TaskList: TcxGridDBColumn;
+    FPackFinshQry_TaskList: TcxGridDBColumn;
+    FShipFinshQry_TaskList: TcxGridDBColumn;
+    FFinishDateShow_TaskList: TcxGridDBColumn;
+    FPlanDateShow_TaskList: TcxGridDBColumn;
+    FMakeFinshDate_TaskList: TcxGridDBColumn;
+    FShipFinshDate_TaskList: TcxGridDBColumn;
+    cxGL_TaskList: TcxGridLevel;
+    cxGrid_TaskItem: TcxGrid;
+    cxGV_TaskItem: TcxGridDBTableView;
+    cxGridDBColumn1: TcxGridDBColumn;
+    cxGridDBColumn2: TcxGridDBColumn;
+    cxGridDBColumn3: TcxGridDBColumn;
+    FPactFinishDate_PTItem: TcxGridDBColumn;
+    FPlanTaskStatusNotes: TcxGridDBColumn;
+    FPlanTaskWrite_PTItem: TcxGridDBColumn;
+    cxGridDBColumn4: TcxGridDBColumn;
+    cxGridDBColumn5: TcxGridDBColumn;
+    cxGridDBColumn6: TcxGridDBColumn;
+    FPlanner_PTItem: TcxGridDBColumn;
+    FArea_PTItem: TcxGridDBColumn;
+    cxGridDBColumn7: TcxGridDBColumn;
+    FPlanTaskRemark_PTItem: TcxGridDBColumn;
+    FPlanTaskWriteDate_PTItem: TcxGridDBColumn;
+    FPlanTaskSubmitDate_PTItem: TcxGridDBColumn;
+    FPlanTask_PTItem: TcxGridDBColumn;
+    FPlanTaskCheck_PTItem: TcxGridDBColumn;
+    cxGridDBColumn8: TcxGridDBColumn;
+    cxGridDBColumn9: TcxGridDBColumn;
+    FPlanTaskItemNum_PTItem: TcxGridDBColumn;
+    cxGridDBColumn10: TcxGridDBColumn;
+    cxGridDBColumn11: TcxGridDBColumn;
+    cxGridDBColumn12: TcxGridDBColumn;
+    FPlanTaskStatus_PTItem: TcxGridDBColumn;
+    cxGridDBColumn13: TcxGridDBColumn;
+    cxGridDBColumn14: TcxGridDBColumn;
+    cxGL_TaskItem: TcxGridLevel;
+    TS_TaskWrite: TTabSheet;
+    Act_Ref_TaskItem: TAction;
+    Act_Ref_PlanWeek: TAction;
+    Act_Ref_Qry: TAction;
+    Act_Sort_ItemPlanDate: TAction;
+    Act_Sort_PlanDate: TAction;
+    Act_Sort_CarryOut: TAction;
+    TS_PlanWeekDate: TTabSheet;
+    MyTreeView_PTItem: TTreeView;
+    FBranchItemNumber_PTList: TcxGridDBColumn;
+    FClientShortName_PTList: TcxGridDBColumn;
+    FPlanWeekPartsNumber_PTList: TcxGridDBColumn;
+    procedure FormResize(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure TB_EXITClick(Sender: TObject);
+    procedure MyTreeView_PTItemExpanding(Sender: TObject; Node: TTreeNode;
+      var AllowExpansion: Boolean);
+    procedure MyTreeView_PTItemChange(Sender: TObject; Node: TTreeNode);
+    procedure FormShow(Sender: TObject);
+    procedure Act_MenuExecute(Sender: TObject);
+    procedure Act_Menu_SetExecute(Sender: TObject);
+    procedure N_EditClick(Sender: TObject);
+    procedure N_FilterClick(Sender: TObject);
+    procedure N_SortClick(Sender: TObject);
+    procedure N_GroupClick(Sender: TObject);
+    procedure N_SetClick(Sender: TObject);
+    procedure N_OutClick(Sender: TObject);
+    procedure TB_Ref_PlanWeekClick(Sender: TObject);
+    procedure cxGV_PTItemFocusedRecordChanged(
+      Sender: TcxCustomGridTableView; APrevFocusedRecord,
+      AFocusedRecord: TcxCustomGridRecord;
+      ANewItemRecordFocusingChanged: Boolean);
+    procedure cxGV_PTListCustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
+    procedure cxGrid_PTItemContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
+    procedure cxGrid_PTListContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
+    procedure TB_Ref_TaskItemClick(Sender: TObject);
+    procedure MyTreeView_TaskItemChange(Sender: TObject; Node: TTreeNode);
+    procedure MyTreeView_TaskItemExpanding(Sender: TObject;
+      Node: TTreeNode; var AllowExpansion: Boolean);
+    procedure TB_Ref_QryClick(Sender: TObject);
+    procedure MyTreeView_QryExpanding(Sender: TObject; Node: TTreeNode;
+      var AllowExpansion: Boolean);
+    procedure MyTreeView_QryChange(Sender: TObject; Node: TTreeNode);
+    procedure Act_AgentShort_ItemPlanDateExecute(Sender: TObject);
+    procedure Act_AgentShort_Sort_ItemPlanDateExecute(Sender: TObject);
+    procedure Act_ItemPlanDateExecute(Sender: TObject);
+    procedure Act_AgentShort_PlanDateExecute(Sender: TObject);
+    procedure Act_AgentShort_Sort_PlanDateExecute(Sender: TObject);
+    procedure Act_PlanDateExecute(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure CB_WetPropertiesChange(Sender: TObject);
+    procedure PageView_QryChange(Sender: TObject);
+    procedure Act_AgentShort_CarryOutExecute(Sender: TObject);
+    procedure Act_AgentShort_Sort_CarryOutExecute(Sender: TObject);
+    procedure Act_PlanDate_CarryOutExecute(Sender: TObject);
+    procedure cxGV_TaskItemFocusedRecordChanged(
+      Sender: TcxCustomGridTableView; APrevFocusedRecord,
+      AFocusedRecord: TcxCustomGridRecord;
+      ANewItemRecordFocusingChanged: Boolean);
+    procedure Act_Ref_TaskItemExecute(Sender: TObject);
+    procedure PC_TaskTreeChange(Sender: TObject);
+    procedure Act_Ref_PlanWeekExecute(Sender: TObject);
+    procedure PC_WeekChange(Sender: TObject);
+    procedure Act_Ref_QryExecute(Sender: TObject);
+    procedure Act_Sort_ItemPlanDateExecute(Sender: TObject);
+    procedure Act_Sort_PlanDateExecute(Sender: TObject);
+    procedure Act_Sort_CarryOutExecute(Sender: TObject);
+    procedure cxGV_TaskListCustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
+    procedure cxGrid_TaskItemContextPopup(Sender: TObject;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure cxGrid_TaskListContextPopup(Sender: TObject;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure cxGrid_QryContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
+  private
+    P_List,P_Wet:String;
+    P_i:boolean;
+
+    { Private declarations }
+
+
+  public
+    P_state,P_PackNo,P_MaxID,P_Status:Integer;
+    ListFNumber_PTItem,ListFNumber_PTList:string;
+    P_Isleaf_PTList :Integer;
+    P_List_PTList:string;
+    GV,Gr,Gm,Mn:string;
+
+    { Public declarations }
+  end;
+
+var
+  Frm_PlanWeekQry: TFrm_PlanWeekQry;
+
+
+implementation
+
+uses FRMDATA,  COMMON, FrmSelect, ProgBar, PROGRASS, Main_Ship;
+
+{$R *.dfm}
+
+
+
+
+
+procedure TFrm_PlanWeekQry.FormResize(Sender: TObject);
+begin
+  inherited;
+  Self.Caption:=UserFDepartmentName+'生产周报查询';
+end;
+
+procedure TFrm_PlanWeekQry.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+  Action:=cafree;
+  Frm_PlanWeekQry:=nil;
+end;
+
+procedure TFrm_PlanWeekQry.TB_EXITClick(Sender: TObject);
+begin
+  inherited;
+  Self.Close;
+end;
+
+procedure TFrm_PlanWeekQry.MyTreeView_PTItemExpanding(Sender: TObject;
+  Node: TTreeNode; var AllowExpansion: Boolean);
+var
+  P :PTree;
+  qry:TADOquery;
+
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  If (Node = nil) or
+     (PTree(Node.Data).Flag <> cNoLoadFlag) or   // 1.加载标志
+     (not Node.HasChildren) or                   // 2.未有子
+     (Node.Count>0) then                         // 3.已有子节点
+     Exit;
+
+     If PC_Week.ActivePage=TS_Item then
+        qry.SQL.Text:='Select * from VT_PlanWeek_Item where FParentNumber= '''
+                     +PTree(Node.Data).ID+''' order by FNumber';
+     If PC_Week.ActivePage=TS_Date then
+        qry.SQL.Text:='Select * from VT_PlanWeek_Date where FParentNumber= '''
+                     +PTree(Node.Data).ID+''' order by FNumber';
+     If PC_Week.ActivePage=TS_Agent then
+        qry.SQL.Text:='Select * from VT_PlanWeek_Agent where FParentNumber= '''
+                     +PTree(Node.Data).ID+''' order by FNumber';
+     If PC_Week.ActivePage=TS_PlanWeekDate then
+        qry.SQL.Text:='Select * from VT_PlanWeek_Date where FParentNumber= '''
+                     +PTree(Node.Data).ID+''' order by FNumber';
+
+  qry.open;
+
+  PTree(Node.Data).Flag := cLoadFlag;                  // 设置已加载标志
+  while not qry.Eof do
+  begin
+    New(P);
+    P.ID := qry.FieldByName('FNumber').AsString;
+    P.ParentID := qry.FieldByName('FParentNumber').AsString;
+    P.FNumber:=qry.FieldByName('FNumber').AsString;
+    P.Caption := qry.FieldByName('FName').AsString;
+    P.Isleaf := qry.FieldByName('Isleaf').Value;
+    P.Flag := cNoLoadFlag;                            // 新节点，未加载标志
+    with MyTreeView_PTItem.Items.AddChildObject(Node,P.Caption,P) do
+    begin
+       HasChildren :=not qry.fieldbyname('Isleaf').value;
+    end;
+    qry.Next;
+  end;
+end;
+
+procedure TFrm_PlanWeekQry.MyTreeView_PTItemChange(Sender: TObject; Node: TTreeNode);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If Node = nil then Exit;
+  with PTree(Node.Data)^ do
+  begin
+    ListFNumber_PTList:=trim(PTree(Node.Data).FNumber);
+    P_List_PTList:=PTree(Node.Data).Caption;
+    P_Isleaf_PTList:=PTree(Node.Data).Isleaf;
+    mdata_PTList.DisableControls;
+    cxGV_PTList.DataController.DataModeController.GridMode:=True;
+    cxGV_PTList.DataController.DataModeController.SmartRefresh:=True;
+    If P_Isleaf_PTList>0 then
+    begin
+      If PC_Week.ActivePage=TS_Item then
+      begin
+        If MyItemListFieldWhere(qry,Mdata_PTItem,' *  ','V_PlanWeek','FFullNumber_Item',ListFNumber_PTList,' ','FBranchItemNumber,FPlanYearWeek') then
+           cxGvColumn(cxGv_PTItem,Mdata_PTItem);
+       // If MyItemListFieldWhere(qry,Mdata_PTList,' *  ','V_PlanWeekList','FFullNumber_Item',ListFNumber_PTList,' ','FBranchItemNumber,FPartsCode,FPlanPartsNumber,FPlanYearWeek') then
+       //    cxGvColumn(cxGv_PTList,Mdata_PTList);
+      end;
+      If PC_Week.ActivePage=TS_Date then
+      begin
+        If MyItemListFieldWhere(qry,Mdata_PTItem,' *  ','V_PlanWeek','FFullNumber_Date',ListFNumber_PTList,' ','FPlanYearWeek,FBranchItemNumber') then
+           cxGvColumn(cxGv_PTItem,Mdata_PTItem);
+       // If MyItemListFieldWhere(qry,Mdata_PTList,' *  ','V_PlanWeekList','FFullNumber_Date',ListFNumber_PTList,' ','FPlanYearWeek,FBranchItemNumber,FPartsCode,FPlanPartsNumber') then
+       //    cxGvColumn(cxGv_PTList,Mdata_PTList);
+      end;
+      If PC_Week.ActivePage=TS_Agent then
+      begin
+        If MyItemListFieldWhere(qry,Mdata_PTItem,' *  ','V_PlanWeek','FFullNumber_Agent',ListFNumber_PTList,' ','FBranchItemNumber,FPlanYearWeek') then
+           cxGvColumn(cxGv_PTItem,Mdata_PTItem);
+       // If MyItemListFieldWhere(qry,Mdata_PTList,' *  ','V_PlanWeekList','FFullNumber_Agent',ListFNumber_PTList,' ','FBranchItemNumber,FPartsCode,FPlanPartsNumber,FPlanYearWeek') then
+       //    cxGvColumn(cxGv_PTList,Mdata_PTList);
+      end;
+      If PC_Week.ActivePage=TS_PlanWeekDate then
+      begin
+        If MyItemListFieldWhere(qry,Mdata_PTItem,' *  ','V_PlanWeek','FFullNumber_PlanWeekDate',ListFNumber_PTList,' ','FFullNumber_PlanWeekDate') then
+           cxGvColumn(cxGv_PTItem,Mdata_PTItem);
+        If MyItemListFieldWhere(qry,Mdata_PTList,' *  ','V_PlanWeekList','FFullNumber_PlanWeekDate',ListFNumber_PTList,' ','FFullNumber_PlanWeekDate') then
+           cxGvColumn(cxGv_PTList,Mdata_PTList);
+      end;
+    end
+    else
+    begin
+      Mdata_PTItem.Close;
+      Mdata_PTList.Close;
+    end;
+    mdata_PTList.EnableControls;
+    cxGV_PTList.DataController.DataModeController.GridMode:=False;
+    cxGV_PTList.DataController.DataModeController.SmartRefresh:=False;
+
+ end;
+
+end;
+
+procedure TFrm_PlanWeekQry.FormShow(Sender: TObject);
+begin
+  inherited;
+  TB_Ref_PlanWeek.Click;
+end;
+
+procedure TFrm_PlanWeekQry.Act_MenuExecute(Sender: TObject);
+Var i:Integer;
+begin
+  //1、设置
+  If copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='取消设置' then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=False;
+    (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Filtering:=False;
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Editing:=False;
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Sorting:=False;
+    end;
+    Exit;
+  end;
+
+  //编辑
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='编辑')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=True;
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Editing:=True;
+    end;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='编辑')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=False;
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Editing:=False;
+    end;
+    Exit;
+  end;
+  //过滤
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='过滤')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=True;
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Filtering:=True;
+    end;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='过滤')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Filtering:=False;
+    end;
+    Exit;
+  end;
+  //排序
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='排序')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Sorting:=True;
+    end;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='排序')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Sorting:=False;
+    end;
+    Exit;
+  end;
+ // 分组
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='分组')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox:=True;
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='分组')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox:=False;
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    Exit;
+  end;
+  //导出
+  If copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='导出' then
+  begin
+    If (FindComponent(Gm) as TdxMemData).RecordCount>0 then
+       ExportToExcel((FindComponent(Gr) as TcxGrid),True,TRue)
+    else
+       Application.MessageBox(PChar('没有需要导出的数据！'), '错误', MB_OK +MB_ICONSTOP);
+    Exit;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_Menu_SetExecute(Sender: TObject);
+begin
+  inherited;
+  If (FindComponent(GV) as TcxGridDBTableView).Columns[1].Options.Filtering=True then
+     N_Filter.Checked:=True
+  else
+     N_Filter.Checked:=False;
+
+  If (FindComponent(GV) as TcxGridDBTableView).Columns[1].Options.Sorting=True then
+    N_Sort.Checked:=True
+  else
+    N_Sort.Checked:=False;
+
+  If (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox=True then
+    N_Group.Checked:=True
+  else
+    N_Group.Checked:=False;
+
+end;
+
+procedure TFrm_PlanWeekQry.N_EditClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_PlanWeekQry.N_FilterClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+
+end;
+
+procedure TFrm_PlanWeekQry.N_SortClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+
+end;
+
+procedure TFrm_PlanWeekQry.N_GroupClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+
+end;
+
+procedure TFrm_PlanWeekQry.N_SetClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+
+end;
+
+procedure TFrm_PlanWeekQry.N_OutClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+
+end;
+
+procedure TFrm_PlanWeekQry.TB_Ref_PlanWeekClick(Sender: TObject);
+begin
+  Act_Ref_PlanWeek.Execute;
+end;
+
+procedure TFrm_PlanWeekQry.cxGV_PTItemFocusedRecordChanged(
+  Sender: TcxCustomGridTableView; APrevFocusedRecord,
+  AFocusedRecord: TcxCustomGridRecord;
+  ANewItemRecordFocusingChanged: Boolean);
+var qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If (mData_PTItem['FPlanWeekID']<>0) and (mData_PTItem['FPlanWeekID']<>Null) then
+  begin
+    If MyItemListID(qry,Mdata_PTList,'V_PlanWeekList',' FPlanWeekID='+IntToStr(mData_PTItem['FPlanWeekID']),'FFullNumber',) then
+  end;
+
+end;
+
+procedure TFrm_PlanWeekQry.cxGV_PTListCustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+  If (PC_TaskTree.ActivePage=TS_Item) or (PC_TaskTree.ActivePage=TS_Date) or (PC_TaskTree.ActivePage=TS_Agent) then
+  begin
+    If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FTotalMakePercent_PTList.Index])=Null)
+       or (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FTotalShipPercent_PTList.Index])=Null) then
+       Exit;
+    If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FTotalMakePercent_PTList.Index])=100) then
+    begin
+      //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+      ACanvas.Canvas.Font.Color:=clBlue; //字体颜色
+      ACanvas.FillRect(AViewInfo.Bounds);
+    end;
+    If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FTotalMakePercent_PTList.Index])=100)
+       and (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FTotalShipPercent_PTList.Index])=100) then
+    begin
+      //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+      ACanvas.Canvas.Font.Color:=clGreen; //字体颜色
+      ACanvas.FillRect(AViewInfo.Bounds);
+    end;
+
+    If StrToFloat(AViewInfo.GridRecord.DisplayTexts[FTotalMakePercent_PTList.Index])<StrToFloat(AViewInfo.GridRecord.DisplayTexts[FTotalShipPercent_PTList.Index]) then
+    begin
+      //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+      ACanvas.Canvas.Font.Color:=clRed; //字体颜色
+      ACanvas.FillRect(AViewInfo.Bounds);
+    end;
+
+    If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FTotalMakePercent_PTList.Index])>100)
+       or (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FTotalShipPercent_PTList.Index])>100) then
+    begin
+      //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+      ACanvas.Canvas.Font.Color:=clRed; //字体颜色
+      ACanvas.FillRect(AViewInfo.Bounds);
+    end;
+  end;
+
+ //周报明细
+ { If PC_Tree.ActivePage=TS_PlanWeekDetail then
+  begin
+    If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakePartsPercent_PTList.Index])=Null)
+       or (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipPartsPercent_PTList.Index])=Null) then
+       Exit;
+    If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakePartsPercent_PTList.Index])=100) then
+    begin
+      //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+      ACanvas.Canvas.Font.Color:=clBlue; //字体颜色
+      ACanvas.FillRect(AViewInfo.Bounds);
+    end;
+    If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakePartsPercent_PTList.Index])=100)
+       and (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipPartsPercent_PTList.Index])=100) then
+    begin
+      //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+      ACanvas.Canvas.Font.Color:=clGreen; //字体颜色
+      ACanvas.FillRect(AViewInfo.Bounds);
+    end;
+
+    If StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakePartsPercent_PTList.Index])<StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipPartsPercent_PTList.Index]) then
+    begin
+      //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+      ACanvas.Canvas.Font.Color:=clRed; //字体颜色
+      ACanvas.FillRect(AViewInfo.Bounds);
+    end;
+
+    If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakePartsPercent_PTList.Index])>100)
+        or (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipPartsPercent_PTList.Index])>100) then
+    begin
+      //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+      ACanvas.Canvas.Font.Color:=clRed; //字体颜色
+      ACanvas.FillRect(AViewInfo.Bounds);
+    end;
+  end; }
+end;
+
+procedure TFrm_PlanWeekQry.cxGrid_PTItemContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+  inherited;
+  GV:='cxGV_PTItem';
+  Gm:='MData_PTItem';
+  Gr:='cxGrid_PTItem';
+   Act_Menu_Set.Execute;
+end;
+
+procedure TFrm_PlanWeekQry.cxGrid_PTListContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+  inherited;
+  GV:='cxGV_PTList';
+  Gm:='mdata_PTList';
+  Gr:='cxGrid_PTList';
+  Act_Menu_Set.Execute;
+
+end;
+
+procedure TFrm_PlanWeekQry.TB_Ref_TaskItemClick(Sender: TObject);
+
+begin
+  Act_Ref_TaskItem.Execute;
+end;
+
+procedure TFrm_PlanWeekQry.MyTreeView_TaskItemChange(Sender: TObject;
+  Node: TTreeNode);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If Node = nil then Exit;
+  with PTree(Node.Data)^ do
+  begin
+    ListFNumber_MList:=trim(PTree(Node.Data).FNumber);
+    P_List_MList:=PTree(Node.Data).Caption;
+    P_Isleaf_MList:=PTree(Node.Data).Isleaf;
+
+    mdata_TaskList.DisableControls;
+    cxGV_TaskList.DataController.DataModeController.GridMode:=True;
+    cxGV_TaskList.DataController.DataModeController.SmartRefresh:=True;
+    If PC_TaskTree.ActivePage=TS_TaskItem then
+    begin
+      RzSP_TaskItem.Visible:=True;
+      If P_Isleaf_MTList>=0 then
+      begin
+        If MyItemListFieldWhere(qry,Mdata_TaskItem,' *  ','V_PlanTaskItem','FFullNumber',ListFNumber_MList,' ','FFullNumber') then
+        cxGvColumn(cxGv_TaskItem,Mdata_TaskItem);
+      end
+      else
+      begin
+        Mdata_TaskItem.Close;
+        Mdata_TaskList.Close;
+      end;
+    end;
+    If PC_TaskTree.ActivePage=TS_TaskDate then
+    begin
+      RzSP_TaskItem.Visible:=True;
+      If P_Isleaf_MTList>=0 then
+      begin
+        If MyItemListFieldWhere(qry,Mdata_TaskItem,' *  ','V_PlanTaskItem','FFullNumber_FItemPlanDate',ListFNumber_MList,' ','FFullNumber_FItemPlanDate') then
+        cxGvColumn(cxGv_TaskItem,Mdata_TaskItem);
+      end
+      else
+      begin
+        Mdata_TaskItem.Close;
+        Mdata_TaskList.Close;
+      end;
+    end;
+   If PC_TaskTree.ActivePage=TS_TaskWrite then
+   begin
+     RzSP_TaskItem.Visible:=True;
+     If P_Isleaf_MTList>=0 then
+     begin
+       If MyItemListFieldWhere(qry,Mdata_TaskItem,' *  ','V_PlanTaskItem','FFullNumber_Write',ListFNumber_MList,' ','FFullNumber_Write') then
+       cxGvColumn(cxGv_TaskItem,Mdata_TaskItem);
+     end
+     else
+     begin
+       Mdata_TaskItem.Close;
+       Mdata_TaskList.Close;
+     end;
+   end;
+   If PC_TaskTree.ActivePage=TS_TaskAgent then
+   begin
+     P_Isleaf:=PTree(Node.Data).Isleaf;
+     RzSP_TaskItem.Visible:=True;
+     If P_Isleaf>=1 then
+     begin
+       Mdata_TaskItem.Close;
+       RzSP_TaskItem.Visible:=False;
+       If MyItemListFieldWhere(qry,Mdata_TaskList,' *  ','V_PlanTaskList','FFullNumber_AgentShortName',ListFNumber_MList,' ','FBranchItemNumber,FPartsCode,FPlanPartsNumber') then
+          cxGvColumn(cxGv_TaskList,Mdata_TaskList);
+      end
+      else
+      begin
+        RzSP_TaskItem.Visible:=True;
+        Mdata_TaskItem.Close;
+        Mdata_TaskList.Close;
+      end;
+    end;
+
+    mdata_TaskList.EnableControls;
+    cxGV_TaskList.DataController.DataModeController.GridMode:=False;
+    cxGV_TaskList.DataController.DataModeController.SmartRefresh:=False;
+
+ end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.MyTreeView_TaskItemExpanding(Sender: TObject;
+  Node: TTreeNode; var AllowExpansion: Boolean);
+var
+  P :PTree;
+  qry:TADOquery;
+
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  If (Node = nil) or
+     (PTree(Node.Data).Flag <> cNoLoadFlag) or   // 1.加载标志
+     (not Node.HasChildren) or                   // 2.未有子
+     (Node.Count>0) then                         // 3.已有子节点
+     Exit;
+
+     If PC_TaskTree.ActivePage=TS_TaskItem then
+        qry.SQL.Text:='Select * from VT_PlanTaskItem where FParentNumber= '''
+                     +PTree(Node.Data).ID+''' order by FNumber';
+     If PC_TaskTree.ActivePage=TS_TaskDate then
+        qry.SQL.Text:='Select * from VT_PlanTask_FItemPlanDate where FParentNumber= '''
+                     +PTree(Node.Data).ID+''' order by FNumber';
+     If PC_TaskTree.ActivePage=TS_TaskWrite then
+        qry.SQL.Text:='Select * from VT_PlanTask_Write where FParentNumber= '''
+                     +PTree(Node.Data).ID+''' order by FNumber';
+     If PC_TaskTree.ActivePage=TS_TaskAgent then
+        qry.SQL.Text:='Select * from VT_PlanTask_AgentName where FParentNumber= '''
+                     +PTree(Node.Data).ID+''' order by FNumber';
+
+  qry.open;
+
+  PTree(Node.Data).Flag := cLoadFlag;                  // 设置已加载标志
+  while not qry.Eof do
+  begin
+    New(P);
+    P.ID := qry.FieldByName('FNumber').AsString;
+    P.ParentID := qry.FieldByName('FParentNumber').AsString;
+    P.FNumber:=qry.FieldByName('FNumber').AsString;
+    P.Caption := qry.FieldByName('FName').AsString;
+    P.Isleaf := qry.FieldByName('Isleaf').Value;
+    P.Flag := cNoLoadFlag;                            // 新节点，未加载标志
+    with MyTreeView_TaskItem.Items.AddChildObject(Node,P.Caption,P) do
+    begin
+       HasChildren :=not qry.fieldbyname('Isleaf').value;
+    end;
+    qry.Next;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.TB_Ref_QryClick(Sender: TObject);
+
+begin
+  Act_Ref_Qry.Execute;
+end;
+
+procedure TFrm_PlanWeekQry.MyTreeView_QryExpanding(Sender: TObject;
+  Node: TTreeNode; var AllowExpansion: Boolean);
+var
+  P :PTree;
+  qry:TADOquery;
+
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  If (Node = nil) or
+     (PTree(Node.Data).Flag <> cNoLoadFlag) or   // 1.加载标志
+     (not Node.HasChildren) or                   // 2.未有子
+     (Node.Count>0) then                         // 3.已有子节点
+     Exit;
+
+   If PageView_Qry.ActivePage=TS_ItemPlanDate then
+     qry.SQL.Text:='Select * from VT_PlanTask_FItemPlanDate where FParentNumber= '''
+                  +PTree(Node.Data).ID+''' order by FNumber';
+   If PageView_Qry.ActivePage=TS_PlanDate then
+     qry.SQL.Text:='Select * from VT_PlanTask_PlanDate where FParentNumber= '''
+                  +PTree(Node.Data).ID+''' order by FNumber';
+   If PageView_Qry.ActivePage=TS_CarryOut then
+     qry.SQL.Text:='Select * from VT_PlanTask_CarryOut where FParentNumber= '''
+                  +PTree(Node.Data).ID+''' order by FNumber';
+
+  qry.open;
+
+  PTree(Node.Data).Flag := cLoadFlag;                  // 设置已加载标志
+  while not qry.Eof do
+  begin
+    New(P);
+    P.ID := qry.FieldByName('FNumber').AsString;
+    P.ParentID := qry.FieldByName('FParentNumber').AsString;
+    P.FNumber:=qry.FieldByName('FNumber').AsString;
+    P.Caption := qry.FieldByName('FName').AsString;
+    P.Isleaf := qry.FieldByName('Isleaf').Value;
+    P.Flag := cNoLoadFlag;                            // 新节点，未加载标志
+    with MyTreeView_Qry.Items.AddChildObject(Node,P.Caption,P) do
+    begin
+       HasChildren :=not qry.fieldbyname('Isleaf').value;
+    end;
+    qry.Next;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.MyTreeView_QryChange(Sender: TObject;
+  Node: TTreeNode);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If Node = nil then Exit;
+  with PTree(Node.Data)^ do
+  begin
+    ListFNumber_PTList:=trim(PTree(Node.Data).FNumber);
+    P_List_PTList:=PTree(Node.Data).Caption;
+    P_Isleaf_PTList:=PTree(Node.Data).Isleaf;
+    mdata_Qry.DisableControls;
+    cxGV_Qry.DataController.DataModeController.GridMode:=True;
+    cxGV_Qry.DataController.DataModeController.SmartRefresh:=True;
+    If P_Isleaf_PTList>0 then
+    begin
+      If PageView_Qry.ActivePage=TS_ItemPlanDate then
+      begin
+        If CB_Qry.Text='制作单位' then
+           Act_AgentShort_ItemPlanDate.Execute;
+        If CB_Qry.Text='制作单位+部件分类' then
+           Act_AgentShort_Sort_ItemPlanDate.Execute;
+        If CB_Qry.Text='排产日期' then
+           Act_ItemPlanDate.Execute;
+        If CB_Qry.Text='部件分类' then
+           Act_Sort_ItemPlanDate.Execute;
+
+      end;
+      If PageView_Qry.ActivePage=TS_PlanDate then
+      begin
+        If CB_Qry.Text='制作单位' then
+           Act_AgentShort_PlanDate.Execute;
+        If CB_Qry.Text='制作单位+部件分类' then
+           Act_AgentShort_Sort_PlanDate.Execute;
+        If CB_Qry.Text='排产日期' then
+           Act_PlanDate.Execute;
+        If CB_Qry.Text='部件分类' then
+           Act_Sort_PlanDate.Execute;
+      end;
+      If PageView_Qry.ActivePage=TS_CarryOut then
+      begin
+        If CB_Qry.Text='制作单位' then
+           Act_AgentShort_CarryOut.Execute;
+        If CB_Qry.Text='制作单位+部件分类' then
+           Act_AgentShort_Sort_CarryOut.Execute;
+        If CB_Qry.Text='排产日期' then
+           Act_PlanDate_CarryOut.Execute;
+        If CB_Qry.Text='部件分类' then
+           Act_Sort_CarryOut.Execute;
+      end;
+   end
+    else
+    begin
+      Mdata_Qry.Close;
+    end;
+    mdata_Qry.EnableControls;
+    cxGV_Qry.DataController.DataModeController.GridMode:=False;
+    cxGV_Qry.DataController.DataModeController.SmartRefresh:=False;
+
+ end;
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_AgentShort_ItemPlanDateExecute(Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FAgentNumber,FAgentShortName from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_FItemPlanDate like :FFullNumber_FItemPlanDate and FpartsSort=''本体''  '
+                      +' and FItemPlanDate is not null and FItemPlanDate<>'''' '
+                      +' and FAgentShortName is not null and FAgentShortName<>'''' '
+                      +' order by FAgentNumber,FAgentShortName ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_FItemPlanDate').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FAgentNumber,FAgentShortName,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and  FFullNumber_FItemPlanDate like :FFullNumber_FItemPlanDate and FpartsSort=''本体'' '
+               +' and FItemPlanDate is not null and FItemPlanDate<>'''' '
+               +' and FAgentShortName is not null and FAgentShortName<>'''' '
+               +'group by FAgentNumber,FAgentShortName,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FAgentShortName']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FAgentShortName']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+mdata_Qry['FAgentShortName']+') as '+mdata_Qry['FAgentShortName'];
+    colHeadStr2:=colHeadStr2+',isnull(case FAgentShortName when '''+mdata_Qry['FAgentShortName']+''' '
+               +'then isnull(Wet,0) end,0) as '+mdata_Qry['FAgentShortName']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FFullNumber_FItemPlanDate').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+      {
+      If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+         Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+      If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+         Column.Width:=length(Column.Caption)*15;
+       }
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_AgentShort_Sort_ItemPlanDateExecute(Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FAgentNumber,FAgentShortName,FPlanPartsSort from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_FItemPlanDate like :FFullNumber_FItemPlanDate and FpartsSort=''本体''   '
+                      +' and FItemPlanDate is not null and FItemPlanDate<>''''  '
+                      +' and FAgentShortName is not null and FAgentShortName<>''''  '
+                      +' and FPlanPartsSort is not null and FPlanPartsSort<>''''  '
+                      +' order by FAgentNumber,FAgentShortName,FPlanPartsSort ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_FItemPlanDate').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FAgentNumber,FAgentShortName,FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and  FFullNumber_FItemPlanDate like :FFullNumber_FItemPlanDate  and FpartsSort=''本体'' '
+               +' and FItemPlanDate is not null and FItemPlanDate<>''''  '
+               +' and FAgentShortName is not null and FAgentShortName<>''''  '
+               +' and FPlanPartsSort is not null and FPlanPartsSort<>''''  '
+               +'group by FAgentNumber,FAgentShortName,FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FAgentShortName']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FAgentShortName']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort']+') as '+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort'];
+    colHeadStr2:=colHeadStr2+',isnull(case FAgentShortName+FPlanPartsSort when '''+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort']+''' '
+               +'then isnull(Wet,0) end,0) as '+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FFullNumber_FItemPlanDate').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+
+     // If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+      //   Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+    //  If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+    //     Column.Width:=length(Column.Caption)*15;
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_ItemPlanDateExecute(Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FItemPlanDate from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_FItemPlanDate like :FFullNumber_FItemPlanDate and FpartsSort=''本体''  '
+                      +' and FItemPlanDate is not null and FItemPlanDate<>'''' '
+                      +' order by FItemPlanDate ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_FItemPlanDate').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FItemPlanDate,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and  FFullNumber_FItemPlanDate like :FFullNumber_FItemPlanDate and FpartsSort=''本体'' '
+               +' and FItemPlanDate is not null and FItemPlanDate<>'''' '
+               +'group by FItemPlanDate,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FItemPlanDate']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FItemPlanDate']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+'项目'+mdata_Qry['FItemPlanDate']+') as '+'项目'+mdata_Qry['FItemPlanDate'];
+    colHeadStr2:=colHeadStr2+',isnull(case FItemPlanDate when '''+mdata_Qry['FItemPlanDate']+''' '
+               +'then isnull(Wet,0) end,0) as '+'项目'+mdata_Qry['FItemPlanDate']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FFullNumber_FItemPlanDate').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+      {
+      If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+         Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+      If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+         Column.Width:=length(Column.Caption)*15;
+       }
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_AgentShort_PlanDateExecute(Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FAgentNumber,FAgentShortName from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_FPlanDate like :FFullNumber_FPlanDate and FpartsSort=''本体''  '
+                      +' and FPlanDate is not null and FPlanDate<>'''' '
+                      +' and FAgentShortName is not null and FAgentShortName<>'''' '
+                      +' order by FAgentNumber,FAgentShortName ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_FPlanDate').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FAgentNumber,FAgentShortName,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and  FFullNumber_FPlanDate like :FFullNumber_FPlanDate and FpartsSort=''本体'' '
+               +' and FPlanDate is not null and FPlanDate<>'''' '
+               +' and FAgentShortName is not null and FAgentShortName<>'''' '
+               +'group by FAgentNumber,FAgentShortName,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FAgentShortName']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FAgentShortName']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+mdata_Qry['FAgentShortName']+') as '+mdata_Qry['FAgentShortName'];
+    colHeadStr2:=colHeadStr2+',isnull(case FAgentShortName when '''+mdata_Qry['FAgentShortName']+''' '
+               +'then isnull(Wet,0) end,0) as '+mdata_Qry['FAgentShortName']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FFullNumber_FPlanDate').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+      {
+      If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+         Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+      If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+         Column.Width:=length(Column.Caption)*15;
+       }
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_AgentShort_Sort_PlanDateExecute(
+  Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FAgentNumber,FAgentShortName,FPlanPartsSort from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_FPlanDate like :FFullNumber_FPlanDate and FpartsSort=''本体''   '
+                      +' and FPlanDate is not null and FPlanDate<>'''' '
+                      +' and FAgentShortName is not null and FAgentShortName<>'''' '
+                      +' and FPlanPartsSort is not null and FPlanPartsSort<>'''' '
+                      +' order by FAgentNumber,FAgentShortName,FPlanPartsSort ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_FPlanDate').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FAgentNumber,FAgentShortName,FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and  FFullNumber_FPlanDate like :FFullNumber_FPlanDate  and FpartsSort=''本体'' '
+               +' and FPlanDate is not null and FPlanDate<>'''' '
+               +' and FAgentShortName is not null and FAgentShortName<>'''' '
+               +' and FPlanPartsSort is not null and FPlanPartsSort<>'''' '
+               +'group by FAgentNumber,FAgentShortName,FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FAgentShortName']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FAgentShortName']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort']+') as '+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort'];
+    colHeadStr2:=colHeadStr2+',isnull(case FAgentShortName+FPlanPartsSort when '''+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort']+''' '
+               +'then isnull(Wet,0) end,0) as '+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FFullNumber_FPlanDate').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+
+     // If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+      //   Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+    //  If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+    //     Column.Width:=length(Column.Caption)*15;
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_PlanDateExecute(Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FPlanDateYearMonth from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_FPlanDate like :FFullNumber_FPlanDate and FpartsSort=''本体''  '
+                      +' and FPlanDateYearMonth is not null and FPlanDateYearMonth<>'''' '
+                      +' order by FPlanDateYearMonth ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_FPlanDate').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FPlanDateYearMonth,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and  FFullNumber_FPlanDate like :FFullNumber_FPlanDate and FpartsSort=''本体'' '
+               +' and FPlanDateYearMonth is not null and FPlanDateYearMonth<>'''' '
+               +'group by FPlanDateYearMonth,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FPlanDateYearMonth']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FPlanDateYearMonth']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+'部件'+mdata_Qry['FPlanDateYearMonth']+') as '+'部件'+mdata_Qry['FPlanDateYearMonth'];
+    colHeadStr2:=colHeadStr2+',isnull(case FPlanDateYearMonth when '''+mdata_Qry['FPlanDateYearMonth']+''' '
+               +'then isnull(Wet,0) end,0) as '+'部件'+mdata_Qry['FPlanDateYearMonth']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FFullNumber_FPlanDate').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+      {
+      If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+         Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+      If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+         Column.Width:=length(Column.Caption)*15;
+       }
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.FormCreate(Sender: TObject);
+begin
+  inherited;
+  P_Wet:='FPlanWet';
+  PC_PlanWeek.ActivePageIndex:=0;
+  PC_TaskTree.ActivePageIndex:=0;
+  PC_TaskTree.ActivePageIndex:=0;
+  PageView_Qry.ActivePageIndex:=0;
+  Act_Ref_TaskItem.Execute;
+  Act_Ref_PlanWeek.Execute;
+  Act_Ref_Qry.Execute;
+
+end;
+
+procedure TFrm_PlanWeekQry.CB_WetPropertiesChange(Sender: TObject);
+begin
+  inherited;
+  If CB_Wet.Text='预估重量' then
+     P_Wet:='FPlanWet';
+  If CB_Wet.Text='部件重量' then
+     P_Wet:='FMakeWet';
+  If CB_Wet.Text='完工重量' then
+     P_Wet:='FMakeFinshWet';
+
+end;
+
+procedure TFrm_PlanWeekQry.PageView_QryChange(Sender: TObject);
+begin
+  Act_Ref_Qry.Execute;
+end;
+
+procedure TFrm_PlanWeekQry.Act_AgentShort_CarryOutExecute(Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FAgentNumber,FAgentShortName from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_CarryOut like :FFullNumber_CarryOut and FpartsSort=''本体''  '
+                      +' and FCarryOut is not null and FCarryOut<>'''' '
+                      +' and FAgentShortName is not null and FAgentShortName<>'''' '
+                      +' order by FAgentNumber,FAgentShortName ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_CarryOut').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FAgentNumber,FAgentShortName,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and FFullNumber_CarryOut like '''+ListFNumber_PTList+'%'' and FpartsSort=''本体'' '
+               +' and FCarryOut is not null and FCarryOut<>'''' '
+               +' and FAgentShortName is not null and FAgentShortName<>'''' '
+               +' group by FAgentNumber,FAgentShortName,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FAgentShortName']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FAgentShortName']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+mdata_Qry['FAgentShortName']+') as '+mdata_Qry['FAgentShortName'];
+    colHeadStr2:=colHeadStr2+',isnull(case FAgentShortName when '''+mdata_Qry['FAgentShortName']+''' '
+               +'then isnull(Wet,0) end,0) as '+mdata_Qry['FAgentShortName']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    //qry.Parameters.FindParam('FFullNumber_CarryOut').value:=''''+ListFNumber_PTList+'%''';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+      {
+      If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+         Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+      If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+         Column.Width:=length(Column.Caption)*15;
+       }
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_AgentShort_Sort_CarryOutExecute(
+  Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FAgentNumber,FAgentShortName,FPlanPartsSort from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_CarryOut like :FFullNumber_CarryOut and FpartsSort=''本体''   '
+                      +' and FItemPlanDate is not null and FItemPlanDate<>''''  '
+                      +' and FAgentShortName is not null and FAgentShortName<>''''  '
+                      +' and FPlanPartsSort is not null and FPlanPartsSort<>'''' '
+                      +' and FCarryOut is not null and FCarryOut<>'''' '
+                      +' order by FAgentNumber,FAgentShortName,FPlanPartsSort ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_CarryOut').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FAgentNumber,FAgentShortName,FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and  FFullNumber_CarryOut like '''+ListFNumber_PTList+'%''  and FpartsSort=''本体'' '
+               +' and FItemPlanDate is not null and FItemPlanDate<>''''  '
+               +' and FAgentShortName is not null and FAgentShortName<>''''  '
+               +' and FPlanPartsSort is not null and FPlanPartsSort<>'''' '
+               +' and FCarryOut is not null and FCarryOut<>'''' '
+               +'group by FAgentNumber,FAgentShortName,FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FAgentShortName']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FAgentShortName']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort']+') as '+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort'];
+    colHeadStr2:=colHeadStr2+',isnull(case FAgentShortName+FPlanPartsSort when '''+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort']+''' '
+               +'then isnull(Wet,0) end,0) as '+mdata_Qry['FAgentShortName']+mdata_Qry['FPlanPartsSort']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+   // qry.Parameters.FindParam('FFullNumber_CarryOut').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+
+     // If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+      //   Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+    //  If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+    //     Column.Width:=length(Column.Caption)*15;
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_PlanDate_CarryOutExecute(Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FPlanDateYearMonth from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_CarryOut like :FFullNumber_CarryOut and FpartsSort=''本体''  '
+                      +' and FPlanDateYearMonth is not null and FPlanDateYearMonth<>''''  order by FPlanDateYearMonth ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_CarryOut').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FPlanDateYearMonth,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and  FFullNumber_CarryOut like '''+ListFNumber_PTList+'%'' and FpartsSort=''本体''   and FPlanDateYearMonth<>'''' '
+               +'group by FPlanDateYearMonth,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FPlanDateYearMonth']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FPlanDateYearMonth']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+'D'+mdata_Qry['FPlanDateYearMonth']+') as '+'D'+mdata_Qry['FPlanDateYearMonth'];
+    colHeadStr2:=colHeadStr2+',isnull(case FPlanDateYearMonth when '''+mdata_Qry['FPlanDateYearMonth']+''' '
+               +'then isnull(Wet,0) end,0) as '+'D'+mdata_Qry['FPlanDateYearMonth']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    //qry.Parameters.FindParam('FFullNumber_CarryOut').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+end;
+
+procedure TFrm_PlanWeekQry.cxGV_TaskItemFocusedRecordChanged(
+  Sender: TcxCustomGridTableView; APrevFocusedRecord,
+  AFocusedRecord: TcxCustomGridRecord;
+  ANewItemRecordFocusingChanged: Boolean);
+var qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If (mData_TaskItem['FPlanTaskItemID']<>0) and (mData_TaskItem['FPlanTaskItemID']<>Null) then
+  begin
+    If MyItemListID(qry,Mdata_TaskList,'V_PlanTaskList',' FPlanTaskItemID='+IntToStr(mData_TaskItem['FPlanTaskItemID']),'FFullNumber',) then
+  end;
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_Ref_TaskItemExecute(Sender: TObject);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  If PC_TaskTree.ActivePage=TS_TaskItem then
+  begin
+    If UserFDepartmentsort=1 then //事业部
+    begin
+      If not TreeVeiwListWhere(qry,MyTreeView_TaskItem,'VT_PlanTaskItem',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+        Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+    end;
+  end;
+  If PC_TaskTree.ActivePage=TS_TaskDate then
+  begin
+    If UserFDepartmentsort=1 then //事业部
+    begin
+      If not TreeVeiwListWhere(qry,MyTreeView_TaskItem,'VT_PlanTask_FItemPlanDate',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+        Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+    end;
+  end;
+  If PC_TaskTree.ActivePage=TS_TaskWrite then
+  begin
+    If UserFDepartmentsort=1 then //事业部
+    begin
+      If not TreeVeiwListWhere(qry,MyTreeView_TaskItem,'VT_PlanTask_Write',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+        Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+    end;
+  end;
+  If PC_TaskTree.ActivePage=TS_TaskAgent then
+  begin
+    If UserFDepartmentsort=1 then //事业部
+    begin
+      If not TreeVeiwListWhere(qry,MyTreeView_TaskItem,'VT_PlanTask_AgentName',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+        Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+    end;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.PC_TaskTreeChange(Sender: TObject);
+begin
+  inherited;
+  Act_Ref_TaskItem.Execute;
+end;
+
+procedure TFrm_PlanWeekQry.Act_Ref_PlanWeekExecute(Sender: TObject);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  If PC_Week.ActivePage=TS_Item then
+  begin
+    If UserFDepartmentsort=1 then //事业部
+    begin
+      If not TreeVeiwListWhere(qry,MyTreeView_PTItem,'VT_PlanWeek_Item',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+        Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+    end;
+  end;
+  If PC_Week.ActivePage=TS_Date then
+  begin
+    If UserFDepartmentsort=1 then //事业部
+    begin
+      If not TreeVeiwListWhere(qry,MyTreeView_PTItem,'VT_PlanWeek_Date',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+        Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+    end;
+  end;
+  If PC_Week.ActivePage=TS_Agent then
+  begin
+    If UserFDepartmentsort=1 then //事业部
+    begin
+      If not TreeVeiwListWhere(qry,MyTreeView_PTItem,'VT_PlanWeek_Agent',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+        Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+    end;
+  end;
+   If PC_Week.ActivePage=TS_PlanWeekDate then
+  begin
+    If UserFDepartmentsort=1 then //事业部
+    begin
+      If not TreeVeiwListWhere(qry,MyTreeView_PTItem,'VT_PlanWeek_Date',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+        Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+    end;
+  end;
+
+end;
+
+procedure TFrm_PlanWeekQry.PC_WeekChange(Sender: TObject);
+begin
+  inherited;
+  Act_Ref_PlanWeek.Execute;
+end;
+
+procedure TFrm_PlanWeekQry.Act_Ref_QryExecute(Sender: TObject);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If PageView_Qry.ActivePage=TS_ItemPlanDate then
+  begin
+    If not TreeVeiwListWhere(qry,MyTreeView_Qry,'VT_PlanTask_FItemPlanDate',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+       Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+  end;
+  If PageView_Qry.ActivePage=TS_PlanDate then
+  begin
+    If not TreeVeiwListWhere(qry,MyTreeView_Qry,'VT_PlanTask_PlanDate',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+       Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+  end;
+  If PageView_Qry.ActivePage=TS_CarryOut then
+  begin
+    If not TreeVeiwListWhere(qry,MyTreeView_Qry,'VT_PlanTask_CarryOut',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+       Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_Sort_ItemPlanDateExecute(Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FPlanPartsSort from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_FItemPlanDate like :FFullNumber_FItemPlanDate and FpartsSort=''本体''  '
+                      +' and FItemPlanDate is not null and FItemPlanDate<>'''' '
+                      +' and FAgentShortName is not null and FAgentShortName<>'''' '
+                      +' and FPlanPartsSort is not null and FPlanPartsSort<>'''' '
+                      +' order by FPlanPartsSort ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_FItemPlanDate').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and  FFullNumber_FItemPlanDate like :FFullNumber_FItemPlanDate and FpartsSort=''本体'' '
+               +' and FItemPlanDate is not null and FItemPlanDate<>'''' '
+               +' and FAgentShortName is not null and FAgentShortName<>'''' '
+               +' and FPlanPartsSort is not null and FPlanPartsSort<>'''' '
+               +'group by FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FPlanPartsSort']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FPlanPartsSort']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+mdata_Qry['FPlanPartsSort']+') as '+mdata_Qry['FPlanPartsSort'];
+    colHeadStr2:=colHeadStr2+',isnull(case FPlanPartsSort when '''+mdata_Qry['FPlanPartsSort']+''' '
+               +'then isnull(Wet,0) end,0) as '+mdata_Qry['FPlanPartsSort']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FFullNumber_FItemPlanDate').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+      {
+      If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+         Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+      If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+         Column.Width:=length(Column.Caption)*15;
+       }
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_Sort_PlanDateExecute(Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FPlanPartsSort from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_FPlanDate like :FFullNumber_FPlanDate and FpartsSort=''本体''  '
+                      +' and FPlanDate is not null and FPlanDate<>'''' '
+                      +' and FAgentShortName is not null and FAgentShortName<>'''' '
+                      +' and FPlanPartsSort is not null and FPlanPartsSort<>'''' '
+                      +' order by FPlanPartsSort ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_FPlanDate').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and  FFullNumber_FPlanDate like :FFullNumber_FPlanDate and FpartsSort=''本体'' '
+               +' and FPlanDate is not null and FPlanDate<>'''' '
+               +' and FAgentShortName is not null and FAgentShortName<>'''' '
+               +' and FPlanPartsSort is not null and FPlanPartsSort<>'''' '
+               +'group by FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FPlanPartsSort']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FPlanPartsSort']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+mdata_Qry['FPlanPartsSort']+') as '+mdata_Qry['FPlanPartsSort'];
+    colHeadStr2:=colHeadStr2+',isnull(case FPlanPartsSort when '''+mdata_Qry['FPlanPartsSort']+''' '
+               +'then isnull(Wet,0) end,0) as '+mdata_Qry['FPlanPartsSort']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FFullNumber_FPlanDate').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+      {
+      If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+         Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+      If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+         Column.Width:=length(Column.Caption)*15;
+       }
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+
+end;
+
+procedure TFrm_PlanWeekQry.Act_Sort_CarryOutExecute(Sender: TObject);
+var qry,qry_Loop: TADOQuery;
+    DS_qry:TDataSource;
+    colHeadStr1,colHeadStr2,colHeadStr3,colHeadStr:string;
+    LoopInt:Integer;
+    Column: TcxGridDBColumn;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  qry_Loop:=TADOQuery.Create(Self);
+  qry_Loop.ConnectionString:=mdlData.ReadConnStr;
+  DS_qry:=TDataSource.Create(Self);
+
+  DS_qry.DataSet:=qry;
+  cxGV_Qry.DataController.DataSource:=DS_Qry;
+  cxGV_Qry.DataController.DataSource.DataSet:=qry;
+
+
+  try
+    qry_Loop.SQL.Text:='select distinct FPlanPartsSort from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+                      +' and FFullNumber_CarryOut like :FFullNumber_CarryOut and FpartsSort=''本体''  '
+                      +' and FCarryOut is not null and FCarryOut<>'''' '
+                      +' and FAgentShortName is not null and FAgentShortName<>'''' '
+                      +' order by FPlanPartsSort ';
+    qry_Loop.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry_Loop.Parameters.FindParam('FFullNumber_CarryOut').value:=ListFNumber_PTList+'%';
+    qry_Loop.Open;
+  finally
+    ;
+  end;
+  If qry_Loop.RecordCount<=0 then
+     Exit
+  else
+  begin
+    mdata_Qry.CopyFromDataSet(qry_Loop);
+    mdata_Qry.Open;
+  end;
+  colHeadStr1:='';
+  colHeadStr2:='';
+  colHeadStr3:=' from (select FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName,'
+               +'(sum(isnull('+P_Wet+',0))) as Wet from V_PlanTaskList where FDepartmentID=:FDepartmentID '
+               +' and FFullNumber_CarryOut like '''+ListFNumber_PTList+'%'' and FpartsSort=''本体'' '
+               +' and FCarryOut is not null and FCarryOut<>'''' '
+               +' and FAgentShortName is not null and FAgentShortName<>'''' '
+               +' group by FPlanPartsSort,FProductNum,FBranchItemNumber,FClientFullName) as a ';
+
+  mdata_Qry.First;
+  while not mdata_Qry.eof do
+  begin
+    If mdata_Qry['FPlanPartsSort']='' then
+    begin
+      mdata_Qry.Edit;
+      mdata_Qry['FPlanPartsSort']:='空白';
+      mdata_Qry.Post
+    end;
+    colHeadStr1:=colHeadStr1+',sum('+mdata_Qry['FPlanPartsSort']+') as '+mdata_Qry['FPlanPartsSort'];
+    colHeadStr2:=colHeadStr2+',isnull(case FPlanPartsSort when '''+mdata_Qry['FPlanPartsSort']+''' '
+               +'then isnull(Wet,0) end,0) as '+mdata_Qry['FPlanPartsSort']+' ';
+
+    mdata_Qry.Next;
+  end;
+
+  colHeadStr:='select FBranchItemNumber as 图号,FClientFullName as 用户名称'
+             +colHeadStr1+',FProductNum as 产品编号 from (select FProductNum,FBranchItemNumber,FClientFullName '
+             +colHeadStr2+colHeadStr3
+             +' ) as b group by FProductNum,FBranchItemNumber,FClientFullName '
+             +'order by FProductNum,FBranchItemNumber,FClientFullName ';
+  try
+    Edit1.Text:=colHeadStr;
+    qry.SQL.Text:=colHeadStr;
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    //qry.Parameters.FindParam('FFullNumber_CarryOut').value:=''''+ListFNumber_PTList+'%''';
+    qry.Open;
+  finally
+    ;
+  end;
+
+  If qry.RecordCount<=0 then
+     Exit
+  else
+  begin
+    cxGV_Qry.ClearItems;
+    for  LoopInt:=0 to  qry.FieldCount-1 do
+    begin
+      Column:=cxGV_Qry.CreateColumn;
+      Column.DataBinding.FieldName:=qry.Fields[LoopInt].FieldName;
+      Column.Caption:=qry.Fields[LoopInt].FieldName;
+      Column.FooterAlignmentHorz:=taCenter;
+      Column.HeaderAlignmentHorz:=taCenter;
+      Column.HeaderGlyphAlignmentHorz:=taCenter;
+      {
+      If length(qry.Fields[LoopInt].AsString)*15>length(Column.Caption)*15 then
+         Column.Width:=length(qry.Fields[LoopInt].AsString)*15;
+      If length(qry.Fields[LoopInt].AsString)*15<=length(Column.Caption)*15 then
+         Column.Width:=length(Column.Caption)*15;
+       }
+      If LoopInt=1 then
+         Column.Width:=650
+      else
+         Column.Width:=300;
+      column.Visible:=True;
+      Column.Options.Filtering:=False;
+      Column.Options.Editing:=False;
+    end;
+  end;
+
+
+end;
+
+procedure TFrm_PlanWeekQry.cxGV_TaskListCustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+  If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakeFinshPercent_TaskList.Index])=Null) or
+     (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipFinshPercent_TaskList.Index])=Null) then
+     Exit;
+
+
+  If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakeFinshPercent_TaskList.Index])=100) then
+  begin
+    //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+    ACanvas.Canvas.Font.Color:=clBlue; //字体颜色
+    ACanvas.FillRect(AViewInfo.Bounds);
+  end;
+  If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakeFinshPercent_TaskList.Index])=100)
+     and (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipFinshPercent_TaskList.Index])=100) then
+  begin
+    //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+    ACanvas.Canvas.Font.Color:=clGreen; //字体颜色
+    ACanvas.FillRect(AViewInfo.Bounds);
+  end;
+
+  If StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakeFinshPercent_TaskList.Index])<StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipFinshPercent_TaskList.Index]) then
+  begin
+    //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+    ACanvas.Canvas.Font.Color:=clRed; //字体颜色
+    ACanvas.FillRect(AViewInfo.Bounds);
+  end;
+
+  If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakeFinshPercent_TaskList.Index])>100)
+     or (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipFinshPercent_TaskList.Index])>100) then
+  begin
+    //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+    ACanvas.Canvas.Font.Color:=clRed; //字体颜色
+    ACanvas.FillRect(AViewInfo.Bounds);
+  end;
+
+end;
+
+procedure TFrm_PlanWeekQry.cxGrid_TaskItemContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+  inherited;
+  GV:='cxGV_TaskItem';
+  Gm:='mdata_TaskItem';
+  Gr:='cxGrid_TaskItem';
+  Act_Menu_Set.Execute;
+end;
+
+procedure TFrm_PlanWeekQry.cxGrid_TaskListContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+  inherited;
+  GV:='cxGV_TaskList';
+  Gm:='mdata_TaskList';
+  Gr:='cxGrid_TaskList';
+  Act_Menu_Set.Execute;
+end;
+
+procedure TFrm_PlanWeekQry.cxGrid_QryContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+  inherited;
+  GV:='cxGV_Qry';
+  Gm:='mdata_Qry';
+  Gr:='cxGrid_Qry';
+  Act_Menu_Set.Execute;
+end;
+
+end.
+
+

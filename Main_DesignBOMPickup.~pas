@@ -1,0 +1,1109 @@
+unit Main_DesignBOMPickup;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, FrmGridBass, ExtCtrls, StdCtrls, DsFancyButton, cxStyles,
+  cxCustomData, cxGraphics, cxFilter, cxData, cxDataStorage, cxEdit, DB,
+  cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  dxmdaset, cxGridLevel, cxClasses, cxControls, cxGridCustomView, cxGrid,
+  cxTextEdit, cxDropDownEdit, cxCalendar, cxMaskEdit, cxContainer, cxLabel,
+  cxDBLookupComboBox, ADODB, cxButtonEdit, Grids, DBGrids, ComCtrls,registry,
+  ToolWin, ImgList, FR_DSet, FR_DBSet, FR_Class, cxRadioGroup, Buttons,
+  cxGroupBox, cxCheckBox, RzShellDialogs,PROGRASS,  cxCurrencyEdit, RzTabs, cxLookupEdit, cxDBLookupEdit,IniFiles,
+  jpeg;
+
+type
+  TFrm_DesignBOMPickup = class(TFrm_GridBass)
+    MData: TdxMemData;
+    DS_Mdata: TDataSource;
+    ImageList: TImageList;
+    Panel1: TPanel;
+    ToolBar1: TToolBar;
+    ToolButton5: TToolButton;
+    ToolButton1: TToolButton;
+    TB_EXIT: TToolButton;
+    MDatacpth: TStringField;
+    MDatacpmc: TStringField;
+    MDatacpxh: TStringField;
+    MDatadah: TStringField;
+    MDatajsdj: TStringField;
+    MDatadjrq: TStringField;
+    MDatalkdh: TStringField;
+    MDatapqgy: TStringField;
+    MDataclf: TStringField;
+    MDatagz: TStringField;
+    MDataglf: TStringField;
+    MDataclfje: TStringField;
+    MDatagzje: TStringField;
+    MDataglfje: TStringField;
+    MDatabz: TStringField;
+    MDatajssl: TStringField;
+    MDatajsje: TStringField;
+    MDatayfmc: TStringField;
+    OpenDialog1: TOpenDialog;
+    SaveDialog1: TSaveDialog;
+    TB_Input: TToolButton;
+    E_th1: TcxButtonEdit;
+    TB_Update: TToolButton;
+    TB_sh: TToolButton;
+    ToolButton3: TToolButton;
+    TB_cl: TToolButton;
+    V_K3: TADOTable;
+    DS_K3: TDataSource;
+    RzPageControl1: TRzPageControl;
+    TabSheet1: TRzTabSheet;
+    TabSheet2: TRzTabSheet;
+    cxGrid: TcxGrid;
+    cxGV: TcxGridDBTableView;
+    xh: TcxGridDBColumn;
+    TH: TcxGridDBColumn;
+    mc: TcxGridDBColumn;
+    gg: TcxGridDBColumn;
+    djjz: TcxGridDBColumn;
+    ssth: TcxGridDBColumn;
+    SL: TcxGridDBColumn;
+    clbh: TcxGridDBColumn;
+    GB: TcxGridDBColumn;
+    clmc: TcxGridDBColumn;
+    clgg: TcxGridDBColumn;
+    cxGL: TcxGridLevel;
+    cxGridK3: TcxGrid;
+    cxGVK3: TcxGridDBTableView;
+    FNumber: TcxGridDBColumn;
+    FName: TcxGridDBColumn;
+    FModel: TcxGridDBColumn;
+    UnitName: TcxGridDBColumn;
+    cxGLK3: TcxGridLevel;
+    MData2: TdxMemData;
+    DS_MData2: TDataSource;
+    TB_In: TToolButton;
+    CB_2: TcxCheckBox;
+    CB_3: TcxCheckBox;
+    CB_4: TcxCheckBox;
+    CB_5: TcxCheckBox;
+    TB_Down: TToolButton;
+    E_th2: TcxComboBox;
+    clmcgg: TcxGridDBColumn;
+    A4: TcxGridDBColumn;
+    zsl: TcxGridDBColumn;
+    Remark: TcxGridDBColumn;
+    bjjb: TcxGridDBColumn;
+    cl: TcxGridDBColumn;
+    ToolButton2: TToolButton;
+    ToolButton4: TToolButton;
+    DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
+    ToolButton6: TToolButton;
+    Code: TcxGridDBColumn;
+    E_FClientFullName: TcxComboBox;
+    E_FItemModel: TcxComboBox;
+    Button1: TButton;
+    FItemId: TcxGridDBColumn;
+    procedure FormResize(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure TB_EXITClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure TB_InputClick(Sender: TObject);
+    procedure MDataAfterEdit(DataSet: TDataSet);
+    procedure TB_shClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure ToolButton3Click(Sender: TObject);
+    procedure TB_clClick(Sender: TObject);
+    procedure TB_InClick(Sender: TObject);
+    procedure E_th1PropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure TB_DownClick(Sender: TObject);
+    procedure CB_2PropertiesChange(Sender: TObject);
+    procedure E_th11DblClick(Sender: TObject);
+    procedure ToolButton2Click(Sender: TObject);
+    procedure ToolButton4Click(Sender: TObject);
+    procedure ToolButton6Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    function GetDsnFile: string;
+    function GetTempFile: string;
+    procedure WriteODBC(IniFile: TIniFile);
+    procedure WriteDbFile(IniFile: TIniFile; DbFile: string);
+
+    { Private declarations }
+ protected
+    FFullFileName: string;
+    property DsnFile:string read GetDsnFile;
+    property TempFile:string read GetTempFile;
+    function ReadSourceConnStr: string;
+  public
+    P_i:boolean;
+    m_stopFileName,P_FItemListId,P_FFullNumber,p_FItemNo,p_Code:string;
+
+    { Public declarations }
+  end;
+
+var
+  Frm_DesignBOMPickup: TFrm_DesignBOMPickup;
+
+implementation
+
+uses FRMDATA, FrmMain, Common, FrmSelect, ProgBar;
+
+{$R *.dfm}
+function TFrm_DesignBOMPickup.GetDsnFile: string;
+const
+ schema = 'schema.ini';
+begin
+ result := ExtractfileDir(Application.ExeName)+'\'+schema;
+end;
+
+function TFrm_DesignBOMPickup.GetTempFile: string;
+const
+ cTempFile='imp.txt';
+begin
+ result:=ExtractfileDir(Application.ExeName)+'\'+cTempFile;
+end;
+
+procedure TFrm_DesignBOMPickup.WriteODBC(IniFile: TIniFile);
+const
+  ODBC = 'ODBC';
+begin
+  iniFile.WriteString(ODBC, 'DRIVER', 'Microsoft Text-Treiber (*.txt; *.csv)');
+  iniFile.WriteString(ODBC, 'UserCommitSync', 'Yes');
+  iniFile.WriteString(ODBC, 'SafeTransactions', '0');
+  iniFile.WriteString(ODBC, 'PageTimeout', '5');
+  iniFile.WriteString(ODBC, 'MaxScanRows', '25');
+  iniFile.WriteString(ODBC, 'FIL', 'text');
+  iniFile.WriteString(ODBC, 'Extensions', 'txt,csv,tab,asc');
+  iniFile.WriteString(ODBC, 'DriverId', '27');
+  iniFile.WriteString(ODBC, 'DefaultDir', ExtractfileDir(Application.ExeName)+'\');
+end;
+
+procedure TFrm_DesignBOMPickup.WriteDbFile(IniFile: TIniFile; DbFile: string);
+begin
+  iniFile.WriteString(DBFile, 'ColNameHeader', 'true');
+  iniFile.WriteString(DBFile, 'Format', 'TabDelimited');
+  iniFile.WriteString(DBFile, 'MaxScanRows', '25');
+  iniFile.WriteString(DBFile, 'CharacterSet', 'OEM');
+  iniFile.WriteString(DBFile, 'Col1', 'xh Integer');
+  iniFile.WriteString(DBFile, 'Col2', 'A4 char');
+  iniFile.WriteString(DBFile, 'Col3', 'th char');
+  iniFile.WriteString(DBFile, 'Col4', 'mc char');
+  iniFile.WriteString(DBFile, 'Col5', 'gg char');
+  iniFile.WriteString(DBFile, 'Col6', 'cl char');
+  iniFile.WriteString(DBFile, 'Col7', 'ssth char');
+
+  iniFile.WriteString(DBFile, 'Col8', 'sl Currency');
+  iniFile.WriteString(DBFile, 'Col9', 'zsl Currency');
+  iniFile.WriteString(DBFile, 'Col10', 'djjz Currency');
+
+  iniFile.WriteString(DBFile, 'Col11', 'Remark char');
+  iniFile.WriteString(DBFile, 'Col12', 'bjjb char');
+
+{
+  iniFile.WriteString(DBFile, 'ColNameHeader', 'true');
+  iniFile.WriteString(DBFile, 'Format', 'TabDelimited');
+  iniFile.WriteString(DBFile, 'MaxScanRows', '25');
+  iniFile.WriteString(DBFile, 'CharacterSet', 'OEM');
+  iniFile.WriteString(DBFile, 'Col1', '序号 Integer');
+  iniFile.WriteString(DBFile, 'Col2', '幅面 char');
+  iniFile.WriteString(DBFile, 'Col3', '代号 char');
+  iniFile.WriteString(DBFile, 'Col4', '名称 char');
+  iniFile.WriteString(DBFile, 'Col5', '规格 char');
+  iniFile.WriteString(DBFile, 'Col6', '材料 char');
+  iniFile.WriteString(DBFile, 'Col7', '所属代号 char');
+
+  iniFile.WriteString(DBFile, 'Col8', '所属数量 Currency');
+  iniFile.WriteString(DBFile, 'Col9', '总数量 Currency');
+  iniFile.WriteString(DBFile, 'Col10', '单件重量 Currency');
+
+  iniFile.WriteString(DBFile, 'Col11', '备注 char');
+  iniFile.WriteString(DBFile, 'Col12', '部件级别 char');
+}
+
+end;
+
+function TFrm_DesignBOMPickup.ReadSourceConnStr: string;
+const
+  Conn1 = 'Provider=MSDASQL.1;Persist Security Info=False;';
+  Conn2 = 'Extended Properties="DefaultDir=%s'; //%s-文本文件路径
+  Conn3 = ';Driver={Microsoft Text-Treiber (*.txt; *.csv)};DriverId=27;';
+  Conn4 = 'Extensions=txt,csv,tab,asc;FIL=text;FILEDSN=%s'; //%s-DSN文件名
+  Conn5 = ';MaxScanRows=25;UserCommitSync=Yes;"';
+var
+  connStr: string;
+begin
+  connStr := conn1 + conn2 + conn3 + conn4 + conn5;
+  result := format(connStr, [ExtractfileDir(Application.ExeName),DsnFile]);
+
+end;
+
+procedure TFrm_DesignBOMPickup.FormResize(Sender: TObject);
+begin
+  inherited;
+  L_title.Caption:='设计文本操作';
+  Self.Caption:='设计文本操作';
+
+end;
+
+procedure TFrm_DesignBOMPickup.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+  Action:=cafree;
+  Frm_DesignBOMPickup:=nil;
+end;
+
+procedure TFrm_DesignBOMPickup.TB_EXITClick(Sender: TObject);
+begin
+  inherited;
+  self.Close;
+end;
+
+procedure TFrm_DesignBOMPickup.FormCreate(Sender: TObject);
+begin
+  inherited;
+  P_i:=True;
+  Panel_down.Height:=40;
+  V_k3.Active:=True;
+//  V_BOMclk.Active:=True;
+end;
+
+procedure TFrm_DesignBOMPickup.TB_InputClick(Sender: TObject);
+var
+  proc:TADOStoredProc;
+  qry,qry1: TADOQuery;
+begin
+//导入一级图号
+
+  proc:=TADOStoredProc.Create(self);
+  proc.Connection:=mdlData.conn;
+  proc.CommandTimeout:=500;
+
+  qry:=TADOQuery.Create(self);
+  qry.Connection:=mdlData.conn;
+  qry.CommandTimeout:=500;
+
+  qry1:=TADOQuery.Create(Self);
+  qry1.Connection:=mdlData.conn;
+  qry1.CommandTimeout:=500;
+{
+  try
+    qry.SQL.Text:='Select * from T_Public where th=:th';
+    qry.Parameters.FindParam('th').Value:=Trim(E_th1.Text));
+    qry.Open;
+  finally
+     ;
+  end;
+  
+  If qry.RecordCount<1 then
+  begin
+    try
+      qry.SQL.Text:='Insert into T_Public(th,mc,gg,IsLeaf) '
+                   +'values(:th,:mc,:gg,:IsLeaf)';
+      qry.Parameters.FindParam('th').Value:=Trim(E_th1.Text);
+      qry.Parameters.FindParam('mc').Value:=Trim(E_FClientFullName.Text);
+      qry.Parameters.FindParam('gg').Value:=Trim(E_FItemModel.Text);
+      qry.Parameters.FindParam('IsLeaf').Value:=0;
+    finally
+      ;
+    end;
+  end;
+
+  try
+    qry.SQL.Text:='Select * from V_DesignBOM_Structure where FFullNumber=:FFullNumber';
+    qry.Parameters.FindParam('FFullNumber').Value:=Copy(P_FFullNumber,1,4);
+    qry.Open;
+  finally
+     ;
+  end;
+  If qry.RecordCount<1 then
+  begin
+    try
+      qry.SQL.Text:='Insert into T_DesignBOM_Structure(th,mc,gg,IsLeaf) '
+                   +'values(:th,:mc,:gg,:IsLeaf)';
+      qry.Parameters.FindParam('th').Value:=Trim(E_th1.Text);
+      qry.Parameters.FindParam('mc').Value:=Trim(E_FClientFullName.Text);
+      qry.Parameters.FindParam('gg').Value:=Trim(E_FItemModel.Text);
+      qry.Parameters.FindParam('IsLeaf').Value:=0;
+    finally
+      ;
+    end;
+  end;
+}
+
+  If not ShowMsg('是导入公共表？','提示信息') then
+    Exit;
+
+  ShowPrograss('正在导入公共表，请稍候……',self);
+  try
+    proc.ProcedureName:='P_Imp_Public;1';
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=10;
+      name := '@UserNum';
+      value:=UserNum;
+    end;
+
+    proc.ExecProc;
+    finally
+     ;
+  end;
+  Messagedlg('数据已导入公共表!',mtInformation,[mbok],0);
+  proc.Free;
+
+
+
+  ShowPrograss('正在准备将数据导入设计BOM，请稍候……',self);
+  proc:=TADOStoredProc.Create(self);
+  proc.Connection:=mdlData.conn;
+  proc.CommandTimeout:=500;
+
+  try
+    proc.ProcedureName:='P_Imp_Structure;1';
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=10;
+      name := '@UserNum';
+      value:=UserNum;
+    end;
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=10;
+      name := '@TopNum';
+      value:=P_FItemNo;
+    end;   
+    proc.ExecProc;
+    finally
+     ;
+  end;
+
+  E_th1.SetFocus;
+  proc.Free;
+  TB_Input.Visible:=False;
+  Messagedlg('数据已成功导入设计BOM!',mtInformation,[mbok],0);
+
+end;
+
+procedure TFrm_DesignBOMPickup.MDataAfterEdit(DataSet: TDataSet);
+begin
+  inherited;
+  DataSet['IsEdit']:=True;
+  Tb_Update.Visible:=True;
+end;
+
+procedure TFrm_DesignBOMPickup.TB_shClick(Sender: TObject);
+var
+  qry:TADOQuery;
+  proc:TADOStoredProc;
+  P_gg:string;
+  IsEdit:bool;
+begin
+  proc:=TADOStoredProc.Create(self);
+  proc.Connection:=mdlData.conn;
+  proc.CommandTimeout:=500;
+
+  qry:=TADOQuery.Create(self);
+  qry.Connection:=mdlData.conn;
+  qry.CommandTimeout:=500;
+
+  If not ShowMsg('是对本体院设计定额进行数据规范？','提示信息') then
+    Exit;
+  ShowPrograss('正在对本体院设计定额进行数据规范，请稍候……',self);
+//插入通用件  数据规范
+  try
+    proc.ProcedureName:='SP_TempDesignText_General;1';
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@UserNum';
+      value:=UserNum;
+    end;
+    proc.ExecProc;
+    finally
+     ;
+  end;
+
+
+//紧固件省略值
+{  try
+    proc.ProcedureName:='P_GBT;1';
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=10;
+      name := '@UserNum';
+      value:=UserNum;
+    end;
+    proc.ExecProc;
+    finally
+     ;
+  end;
+ }
+
+  //固定重复图号处理
+  try
+    qry.SQL.Text:='select Code,IsEdit=cast(0 as bit),th,mc,gg,FNumber,FName,FModel,ssth,sl '
+                 +'from V_Temp_DesignText where usernum=:usernum and (th=''TB52901.0-1W'' or th=''T516-1'') and ssth like ''TB%'' '
+                 +'union '
+                 +'select Code,IsEdit=cast(0 as bit),th,mc,gg,FNumber,FName,FModel,ssth,sl '
+                 +'from V_Temp_DesignText where th=''TB52901.0'' or th=''TB53001.0'' or th=''TB53002.0'' ';
+    qry.Parameters[0].Value:=UserNum;
+    qry.Open;
+  finally
+     ;
+  end;
+
+
+  If qry.RecordCount>0 then
+  begin
+    Mdata.CopyFromDataSet(qry);
+    Mdata.Active:=True;
+    mdata.First;
+
+    while not mdata.Eof do
+    begin
+      P_gg:=mdata['gg'];
+      mdata.Next;
+      If Trim(mdata['gg'])='' then
+      begin
+        mdata.Edit;
+        mdata['gg']:=P_gg;
+        mdata.Post;
+      end
+      else
+      begin
+        mdata.Edit;
+        mdata['gg']:=mdata['gg']+'/'+P_gg;
+        mdata.Post;
+      end;
+      mdata.Next;
+    end;
+
+    //更新
+    with mdata do
+    begin
+      mData.DisableControls;
+      First;
+      qry:=TADOQuery.Create(Self);
+      try
+        qry.Connection:=mdlData.conn;
+        qry.SQL.Text:='update T_Temp_DesignText set gg=:gg where Code=:Code';
+        while not mdata.EoF do
+        begin
+          IsEdit:=mData.FieldByName('IsEdit').AsBoolean;
+          If IsEdit then
+          begin
+            qry.Parameters[0].Value:=Trim(mData['gg']);
+            qry.Parameters[1].Value:=mData['Code'];
+            qry.ExecSQL;
+          end;
+          next;
+        end;
+      finally
+        ;
+      end;
+    end;
+    mData.EnableControls;
+  end;
+
+
+  try
+    qry.SQL.Text:='Select * from V_Temp_DesignText where UserNUm=:UserNum and FNumber='''' '
+                 +'and (cl<>'''' or th like ''GB/T%'')';
+    qry.Parameters[0].Value:=UserNUm;
+    qry.Open;
+   finally
+     ;
+  end;
+  If qry.RecordCount>0 then
+  begin
+    Messagedlg('以下材料不规范！',mtInformation,[mbok],0);
+    mdata.CopyFromDataSet(qry);
+    cxGvColumn(cxGv,Mdata);
+    mdata.Active:=True;
+    DS_Mdata.DataSet:=Mdata;
+    cxGV.DataController.DataSource:=DS_Mdata;
+    Exit;
+  end;
+
+
+  //重复图号处理
+  try
+    proc.ProcedureName:='P_TempBOM_TF;1';
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@UserNUM';
+      value:=UserNUM;
+    end;
+    proc.Open;
+    finally
+     ;
+  end;
+  DS_Mdata.DataSet:=Mdata;
+  cxGV.DataController.DataSource:=DS_Mdata;
+  mdata.CopyFromDataSet(proc);
+  Mdata.Active:=True;
+  If Mdata.RecordCount>0 then
+  begin
+    cxGvColumn(cxGv,Mdata);
+    Messagedlg('存在重复图号！',mtInformation,[mbok],0);
+    Exit;
+  end;
+
+
+  //长代码       重量计算
+  proc:=TADOStoredProc.Create(self);
+  proc.Connection:=mdlData.conn;
+  try
+    proc.ProcedureName:='SP_TempTable_Disposal;1';
+    //proc.ProcedureName:='SP_TempTable_Disposal_20080612bak;1';
+
+
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@UserName';
+      value:=UserNum;
+    end;
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@FItemListId';
+      value:=P_FItemListId;
+    end;
+    proc.ExecProc;
+    finally
+     ;
+  end;
+ // 计算重量
+{  try
+    proc.ProcedureName:='P_Temp_DesignText_CountWeight;1';
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@UserNum';
+      value:=UserNUM;
+    end;
+    proc.ExecProc;
+  finally
+     ;
+  end;
+ }
+  try
+    qry.SQL.Text:='select * from V_Temp_DesignText where UserNum='''+UserNum+''' order by xh';
+    qry.Open;
+  finally
+     ;
+  end;
+  cxGV.DataController.DataSource.DataSet:=mdata;
+  mdata.CopyFromDataSet(qry);
+  mdata.Active:=True;
+
+
+
+  Messagedlg('数据审核通过!',mtInformation,[mbok],0);
+  proc.Free;
+  qry.Free;
+
+  Self.TB_inputClick(sender);
+end;
+
+procedure TFrm_DesignBOMPickup.FormShow(Sender: TObject);
+var
+  qry:TADOQuery;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.Connection:=mdlData.conn;
+  //执行K3物料更新 zsi add 2007-06-05 Start
+  qry.SQL.text:='exec UpdataK3ItemId';
+  qry.ExecSQL;
+  qry.close;
+  qry.SQL.Clear;
+  // 执行K3物料更新 zsi add 2007-06-05 End
+ 
+end;
+
+procedure TFrm_DesignBOMPickup.ToolButton3Click(Sender: TObject);
+begin
+  inherited;
+  ExportToExcel(cxGrid,True,TRue);
+end;
+
+procedure TFrm_DesignBOMPickup.TB_clClick(Sender: TObject);
+var
+  qry:TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.Connection:=mdlData.conn;
+  try
+    qry.SQL.Text:='Select * from V_Temp_DesignText where (UserNum='''+UserNum+''' and FNumber='''') '
+                 +'and (cl<>'''' or th like ''GB/T%'')';
+    qry.Open;
+   finally
+     ;
+  end;
+  If qry.RecordCount>0 then
+  begin
+    Messagedlg('如下材料不规范！',mtInformation,[mbok],0);
+    mdata.CopyFromDataSet(qry);
+    mdata.Active:=True;
+    Exit;
+  end
+  else
+  begin
+    TB_sh.Visible:=True;
+    TB_input.Visible:=True;
+  end;
+  clmc.Options.Editing:=True;
+  clgg.Options.Editing:=True;
+
+end;
+
+procedure TFrm_DesignBOMPickup.TB_InClick(Sender: TObject);
+Var qry:TADOQuery;
+   // P_mc,P_gg:string;
+//    IsEdit:bool;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.Connection:=mdlData.conn;
+  qry.CommandTimeout:=500;
+  If ShowMsg('是否导入本体院设计文本？','提示信息') then
+  begin
+    qry.SQL.Text:='Delete from T_Temp_DesignText where UserNum=:UserNum';
+    qry.Parameters.FindParam('UserNum').Value:=UserNum;
+    qry.ExecSQL;
+    Application.CreateForm(TFrm_progbar,Frm_progbar);
+    Frm_progbar.ProgressBar.Max:=mdata.RecordCount;
+    Frm_progbar.P_message.Caption:='正在提取本体院设计文本，请稍候……';
+    Frm_progbar.Show;
+    qry.SQL.Text:='Insert into T_Temp_DesignText(xh,A4,th,mc,gg,cl,ssth,sl,zsl,djjz,djde,Remark,bjjb,UserNum) '
+                 +'Values(:xh,:A4,:th,:mc,:gg,:cl,:ssth,:sl,:zsl,:djjz,:djde,:Remark,:bjjb,:UserNum)';
+    qry.ExecSQL;
+    with mdata do
+    begin
+      DisableControls;
+      First;
+      while not eof do
+      begin
+        with qry do
+        begin
+          Parameters.FindParam('xh').Value:=mdata['xh'];
+          Parameters.FindParam('A4').Value:=mdata['A4'];
+          Parameters.FindParam('th').Value:=mdata['th'];
+          Parameters.FindParam('mc').Value:=mdata['mc'];
+          Parameters.FindParam('gg').Value:=mdata.FieldByName('gg').asstring;
+          Parameters.FindParam('cl').Value:=mdata['cl'];
+          Parameters.FindParam('ssth').Value:=mdata['ssth'];
+          Parameters.FindParam('sl').Value:=mdata['sl'];
+          Parameters.FindParam('zsl').Value:=mdata['zsl'];
+          Parameters.FindParam('djjz').Value:=mdata['djjz'];
+          Parameters.FindParam('djde').Value:=mdata['djjz'];
+          Parameters.FindParam('Remark').Value:=mdata['Remark'];
+          Parameters.FindParam('bjjb').Value:=mdata['bjjb'];
+          Parameters.FindParam('UserNum').Value:=UserNum;
+          ExecSQL;
+        end;
+        Frm_progbar.ProgressBar.StepIt;
+        application.ProcessMessages;
+        next;
+      end;
+      EnableControls;
+      Frm_progbar.Close;
+    end;
+    try
+      qry.SQL.Text:='delete from T_Temp_DesignText where isnull(xh,0)=0 or (isnull(sl,0)=0 and isnull(djjz,0)=0)';
+      qry.ExecSQL;
+    finally
+       ;
+    end;
+    Messagedlg('本体院设计文本已成功提取！',mtInformation,[mbok],0);
+  end;
+
+  Self.TB_shClick(sender);
+  //TB_sh.Visible:=True;
+  //TB_input.Visible:=True;
+  qry.Free;
+
+end;
+
+procedure TFrm_DesignBOMPickup.E_th1PropertiesButtonClick(Sender: TObject;
+  AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+    dlgOpen: TRzOpenDialog;
+    Filter,SelCaption,tmp:string;
+    iniFile: TIniFile;
+    tbADoSource:TADoTable;
+
+begin
+  qry:=TADOQuery.Create(self);
+  qry.Connection:=mdlData.conn;
+  qry.CommandTimeout:=500;
+  try
+    qry.SQL.Text:='Select * from ('
+                 +'Select distinct FItemNo,FItemNumber,FPartsCode,FPartsCodeID,FpartsNumber,FProductName as th,'''' as ssth,'''' as mc,'''' as FFullNumber,0 as leaf,0 as FItemListId,FClientFullName,FItemModel from V_ItemList '
+                 +'union '
+                 +'Select distinct FItemNo,FItemNumber,FPartsCode,FPartsCodeID,FpartsNumber,FItemNumber as th,FProductName as ssth,FClientFullName as mc,'''' as FFullNumber,0 as leaf,0 as FItemListId,FClientFullName,FItemModel from V_ItemList '
+                 +'union '
+                 +'Select distinct FItemNo,FItemNumber,FPartsCode,FPartsCodeID,FpartsNumber,FItemNumber+''/''+FPartsCode as th,FItemNumber as ssth,FPartsName as mc,FFullNumber,1 as leaf,FItemListId,FClientFullName,FItemModel from V_ItemList where FIsFinsh=0 '
+                 +') as t order by FPartsCodeID,leaf,ssth,th';
+    qry.Open;
+  finally
+     ;
+  end;
+  selValue:=select('请选择产品类型','th','ssth','th','th;mc',qry);
+  If (Length(selValue)>0) and (qry.FieldByName('leaf').Value=1) then
+  begin
+    E_th1.Text:=qry.FieldByName('FItemNumber').AsString;
+    E_th2.Text:=qry.FieldByName('FpartsNumber').AsString;
+    E_FClientFullName.Text:=qry.FieldByName('FClientFullName').AsString;
+    E_FItemModel.Text:=qry.FieldByName('FItemModel').AsString;
+    P_FItemListId:=qry.FieldByName('FItemListId').AsString;
+    P_FFullNumber:=qry.FieldByName('FFullNumber').AsString;
+    P_FItemNo:=qry.FieldByName('FItemNo').AsString;
+
+  end
+  else
+    Messagedlg('请选择明细！',mtInformation,[mbok],0);
+
+ //插入一级图号
+//     T_Public
+  try
+    qry.SQL.Text:='Select distinct th from T_Public where th=:th';
+    qry.Parameters[0].Value:=Trim(E_th1.Text);
+    qry.Open;
+  finally
+     ;
+  end;
+  If qry.RecordCount<1 then
+  begin
+    try
+      qry.SQL.Text:='Insert into T_Public (th,mc,gg,FItemID,FName,FModel,UnitName,djjz,IsLeaf) '
+                   +'Values(:th,:mc,:gg,:FItemID,:FName,:FModel,:UnitName,:djjz,:IsLeaf)';
+      qry.Parameters.FindParam('th').Value:=Trim(E_th1.Text);
+      qry.Parameters.FindParam('mc').Value:=Trim(E_FClientFullName.Text);
+      qry.Parameters.FindParam('gg').Value:=Trim(E_FItemModel.Text);
+      qry.Parameters.FindParam('FItemID').Value:=0;
+      qry.Parameters.FindParam('FName').Value:='';
+      qry.Parameters.FindParam('FModel').Value:='';
+      qry.Parameters.FindParam('UnitName').Value:='';
+      qry.Parameters.FindParam('djjz').Value:=0;
+      qry.Parameters.FindParam('IsLeaf').Value:=0;
+      qry.ExecSQL;
+    finally
+       ;
+    end;
+  end;
+
+//  T_DesignBOM_Structure
+
+  try
+    qry.SQL.Text:='Select id from T_Public where th=:th';
+    qry.Parameters[0].Value:=Trim(E_th1.Text);
+    qry.Open;
+  finally
+     ;
+  end;
+  If qry.RecordCount>0 then
+    P_Code:=qry.FieldByName('id').Value;
+
+
+  try
+    qry.SQL.Text:='Select distinct FFullNumber from V_DesignBOM_Structure where FFullNumber=:FFullNumber';
+    qry.Parameters[0].Value:=p_FItemNo;
+    qry.Open;
+  finally
+     ;
+  end;
+
+  If qry.RecordCount<1 then
+  begin
+    try
+      qry.SQL.Text:='Insert into T_DesignBOM_Structure(Code,Parent,PartID,sl,FFullNumber,zsl,FFullName) '
+                   +'Values(:Code,:Parent,:PartID,:sl,:FullNumber,:zsl,:FFullName)';
+      qry.Parameters.FindParam('Code').Value:=P_Code;
+      qry.Parameters.FindParam('Parent').Value:=0;
+      qry.Parameters.FindParam('PartID').Value:=0;
+      qry.Parameters.FindParam('sl').Value:=1;
+      qry.Parameters.FindParam('FFullNumber').Value:=p_FItemNo;
+      qry.Parameters.FindParam('zsl').Value:=1;
+      qry.Parameters.FindParam('FFullName').Value:=Trim(E_th1.Text)+','+Trim(E_FClientFullName.Text)+';';
+      qry.ExecSQL;
+    finally
+       ;
+    end;
+  end;
+
+
+//是否存在    
+
+  try
+    qry.SQL.Text:='Select distinct FFullNumber from V_DesignBOM_Structure where FFullNumber like '''+P_FFullNumber+'%''';
+    qry.Open;
+  finally
+     ;
+  end;
+  If qry.RecordCount>0 then
+  begin
+    Messagedlg('图号【'+Trim(E_th1.Text)+'】【.'+Trim(E_th2.Text)+'】已存在无法导入！',mtInformation,[mbok],0);
+    Exit;
+  end;
+
+  begin
+    dlgOpen:=TRzOpenDialog.Create(Application);
+    try
+      Filter:='';
+      selCaption:='';
+      Filter:='文本文件|*.txt;*.csv|所有文件|*.*';
+      dlgOpen.Title:='选择部件的导入文件';
+      dlgOpen.Filter:=Filter;
+    if not dlgOpen.Execute then exit;
+    self.FFullFileName:=dlgOpen.FileName;
+    finally
+    dlgOpen.Free;
+    Application.ProcessMessages;
+  end;
+   if FileExists(TempFile) then
+   if not FileSetReadonly(TempFile,False) then
+     exit;
+   if not CopyFile(PChar(FFullFileName),PChar(TempFile),false) then
+     exit;
+   if FileExists(DsnFile) then
+   try
+     DeleteFile(DsnFile);
+   finally
+     ;
+   end;
+
+
+   iniFile := TIniFile.Create(DsnFile);
+   try
+     WriteODBC(IniFile);
+     tmp:=ExtractFileName(TempFile);
+     WriteDbFile(IniFile,tmp);
+     tbADoSource:=TADoTable.Create(self);
+     tbADoSource.ConnectionString:=ReadSourceConnStr;
+     tbADoSource.TableName:=format('[%s]',[tmp]);
+     tbADoSource.Active:=true;
+    // aaa:=tbADoSource.RecordCount;
+     DataSource1.DataSet:=tbADoSource;
+     cxGV.DataController.DataSource.DataSet:=tbADoSource;
+     mdata.CopyFromDataSet(DataSource1.DataSet);
+     mdata.Active;
+   except
+   end;
+ end;
+ qry.Free;
+ Self.TB_InClick(sender);
+end;
+
+procedure TFrm_DesignBOMPickup.TB_DownClick(Sender: TObject);
+begin
+  inherited;
+  If P_i then
+  begin
+    Panel_down.Height:=80;
+    TB_Down.Caption:='取消设置';
+    P_i:=False;
+  end
+  else
+  begin
+    Panel_down.Height:=40;
+    TB_Down.Caption:='设置';
+    CB_2.Checked:=False;
+    CB_3.Checked:=False;
+    CB_4.Checked:=False;
+    CB_5.Checked:=False;
+    P_i:=True;
+  end;
+
+end;
+
+procedure TFrm_DesignBOMPickup.CB_2PropertiesChange(Sender: TObject);
+Var i:Integer;
+begin
+  If CB_3.Checked=True then
+     cxGV.OptionsData.Editing:=True
+  else
+     cxGV.OptionsData.Editing:=False;
+
+  for i:=0 to cxGv.ColumnCount-1 do
+  begin
+    If CB_2.Checked=True then
+      cxGv.Columns[i].Options.Filtering:=True
+    else
+      cxGv.Columns[i].Options.Filtering:=False;
+
+    If CB_3.Checked=True then
+      cxGv.Columns[i].Options.Editing:=True
+    else
+      cxGv.Columns[i].Options.Editing:=False;
+
+    If CB_4.Checked=True then
+      cxGv.Columns[i].Options.Sorting:=True
+    else
+      cxGv.Columns[i].Options.Sorting:=False;
+
+    If CB_5.Checked=True then
+      cxGv.OptionsView.GroupByBox:=True
+    else
+      cxGv.OptionsView.GroupByBox:=False;
+  end;
+
+end;
+
+procedure TFrm_DesignBOMPickup.E_th11DblClick(Sender: TObject);
+begin
+  inherited;
+  TB_sh.Visible:=True;
+  TB_cl.Visible:=True;
+  TB_Input.Visible:=True;
+end;
+
+procedure TFrm_DesignBOMPickup.ToolButton2Click(Sender: TObject);
+var
+  qry:TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.Connection:=mdlData.conn;
+  try
+    qry.SQL.Text:='Select * from 公共表 where 代号 in '
+                 +'(select 代号 from 公共表 group by 代号 having count(代号)>1) order by 代号 ';
+    qry.Open;
+   finally
+     ;
+  end;
+  cxGV.DataController.DataSource.DataSet:=qry;
+  cxGvAutoQry(cxGv,qry);
+end;
+
+procedure TFrm_DesignBOMPickup.ToolButton4Click(Sender: TObject);
+var
+  qry:TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.Connection:=mdlData.conn;
+  try
+    qry.SQL.Text:='Select * from V_Temp_Structure order by ssth,th';
+    qry.Open;
+   finally
+     ;
+  end;
+  cxGV.DataController.DataSource.DataSet:=qry;
+  cxGvAutoQry(cxGv,qry);
+
+end;
+
+procedure TFrm_DesignBOMPickup.ToolButton6Click(Sender: TObject);
+var
+  qry:TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.Connection:=mdlData.conn;
+  try
+    qry.SQL.Text:='Select IsEdit=cast(0 as bit),* '
+                 +'from V_Temp_DesignText where  UserNum='''+UserNum+'''';
+    qry.Open;
+   finally
+     ;
+  end;
+  cxGV.DataController.DataSource.DataSet:=mdata;
+  mdata.CopyFromDataSet(qry);
+  mdata.Active:=True;
+  qry.Free;
+
+  
+end;
+
+procedure TFrm_DesignBOMPickup.Button1Click(Sender: TObject);
+Var qry:TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.Connection:=mdlData.conn;
+  qry.CommandTimeout:=500;
+//     T_Public
+  try
+    qry.SQL.Text:='Select distinct th from T_Public where th=:th';
+    qry.Parameters[0].Value:=Trim(E_th1.Text);
+    qry.Open;
+  finally
+     ;
+  end;
+  If qry.RecordCount<1 then
+  begin
+    try
+      qry.SQL.Text:='Insert into T_Public (th,mc,gg,FItemID,FName,FModel,UnitName,djjz,IsLeaf) '
+                   +'Values(:th,:mc,:gg,:FItemID,:FName,:FModel,:UnitName,:djjz,:IsLeaf)';
+      qry.Parameters.FindParam('th').Value:=Trim(E_th1.Text);
+      qry.Parameters.FindParam('mc').Value:=Trim(E_FClientFullName.Text);
+      qry.Parameters.FindParam('gg').Value:=Trim(E_FItemModel.Text);
+      qry.Parameters.FindParam('FItemID').Value:=0;
+      qry.Parameters.FindParam('FName').Value:='';
+      qry.Parameters.FindParam('FModel').Value:='';
+      qry.Parameters.FindParam('UnitName').Value:='';
+      qry.Parameters.FindParam('djjz').Value:=0;
+      qry.Parameters.FindParam('IsLeaf').Value:=0;
+      qry.ExecSQL;
+    finally
+       ;
+    end;
+  end;
+
+//  T_DesignBOM_Structure
+
+  try
+    qry.SQL.Text:='Select id from T_Public where th=:th';
+    qry.Parameters[0].Value:=Trim(E_th1.Text);
+    qry.Open;
+  finally
+     ;
+  end;
+  If qry.RecordCount>0 then
+    P_Code:=qry.FieldByName('id').Value;
+
+
+  try
+    qry.SQL.Text:='Select distinct FFullNumber from V_DesignBOM_Structure where FFullNumber=:FFullNumber';
+    qry.Parameters[0].Value:=p_FItemNo;
+    qry.Open;
+  finally
+     ;
+  end;
+
+  If qry.RecordCount<1 then
+  begin
+    try
+      qry.SQL.Text:='Insert into T_DesignBOM_Structure(Code,Parent,PartID,sl,FullNumber,zsl,FFullName) '
+                   +'Values(:Code,:Parent,:PartID,:sl,:FullNumber,:zsl,:FFullName)';
+      qry.Parameters.FindParam('Code').Value:=P_Code;
+      qry.Parameters.FindParam('Parent').Value:=0;
+      qry.Parameters.FindParam('PartID').Value:=0;
+      qry.Parameters.FindParam('sl').Value:=1;
+      qry.Parameters.FindParam('FullNumber').Value:=p_FItemNo;
+      qry.Parameters.FindParam('zsl').Value:=1;
+      qry.Parameters.FindParam('FFullName').Value:=Trim(E_th1.Text)+','+Trim(E_FClientFullName.Text)+';';
+      qry.ExecSQL;
+    finally
+       ;
+    end;
+  end;
+
+end;
+
+end.

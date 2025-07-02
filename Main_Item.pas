@@ -1,0 +1,1120 @@
+unit Main_Item;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, FrmGridBass, ExtCtrls, StdCtrls, DsFancyButton, cxStyles,
+  cxCustomData, cxGraphics, cxFilter, cxData, cxDataStorage, cxEdit, DB,
+  cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  dxmdaset, cxGridLevel, cxClasses, cxControls, cxGridCustomView, cxGrid,
+  cxTextEdit, cxDropDownEdit, cxCalendar, cxMaskEdit, cxContainer, cxLabel,
+  cxDBLookupComboBox, ADODB, cxButtonEdit, Grids, DBGrids, ComCtrls, RzShellDialogs,
+  ToolWin, ImgList, FR_DSet, FR_DBSet, FR_Class, cxRadioGroup, Buttons,
+  cxGroupBox, cxCheckBox, cxCurrencyEdit, RzPanel, RzSplit, RzTabs,IniFiles,
+  TFlatPanelUnit, cxLookAndFeelPainters, cxButtons, cxTimeEdit, jpeg,
+  cxEditRepositoryItems, cxSpinEdit, ActnList, Menus;
+
+type
+  TFrm_Item = class(TFrm_GridBass)
+    MData: TdxMemData;
+    DS_Mdata: TDataSource;
+    ImageList: TImageList;
+    Panel1: TPanel;
+    ToolBar1: TToolBar;
+    ToolButton5: TToolButton;
+    ToolButton1: TToolButton;
+    TB_Prin: TToolButton;
+    TB_EXIT: TToolButton;
+    frReport: TfrReport;
+    frDBDataSet: TfrDBDataSet;
+    RzSizePanel1: TRzSizePanel;
+    PC_2: TRzPageControl;
+    TS_Brow: TRzTabSheet;
+    TB_Ref: TToolButton;
+    TB_App: TToolButton;
+    TB_Edit: TToolButton;
+    TB_Del: TToolButton;
+    PanelBkGnd: TPanel;
+    Panel_button: TPanel;
+    Bevel_button: TBevel;
+    OKBtn: TcxButton;
+    CancelBtn: TcxButton;
+    cxGrid: TcxGrid;
+    cxGV: TcxGridDBTableView;
+    FProductName: TcxGridDBColumn;
+    cxGL: TcxGridLevel;
+    MyTreeView: TTreeView;
+    FItemId: TcxGridDBColumn;
+    FItemNo: TcxGridDBColumn;
+    FPactNo: TcxGridDBColumn;
+    FFileNo: TcxGridDBColumn;
+    FClientFullName: TcxGridDBColumn;
+    FItemNumber: TcxGridDBColumn;
+    FItemModel: TcxGridDBColumn;
+    FClientShortName: TcxGridDBColumn;
+    FItemLb: TcxGridDBColumn;
+    MDataFItemNo: TStringField;
+    MDataFPactNo: TStringField;
+    MDataFFileNo: TStringField;
+    MDataFItemNumber: TStringField;
+    MDataFClientFullName: TStringField;
+    MDataFClientShortName: TStringField;
+    MDataFProductName: TStringField;
+    MDataFItemModel: TStringField;
+    MDataFItemLb: TStringField;
+    MDataFDesignDate: TStringField;
+    FProductID: TcxGridDBColumn;
+    MDataFProductID: TStringField;
+    MDataFsjdw: TStringField;
+    MDataFsjr: TStringField;
+    MDataFjsr: TStringField;
+    MDataFgdrq: TStringField;
+    Image3: TImage;
+    MDataFDesignName: TStringField;
+    MDataFPlace: TStringField;
+    FDesignLeader: TcxGridDBColumn;
+    FItemQry: TcxGridDBColumn;
+    EditRepository: TcxEditRepository;
+    ImageComboLanguages: TcxEditRepositoryImageComboBoxItem;
+    ImageComboCommunication: TcxEditRepositoryImageComboBoxItem;
+    SpinItemYears: TcxEditRepositorySpinItem;
+    DateItemStartWorkFrom: TcxEditRepositoryDateItem;
+    FDesignLeaderID: TcxGridDBColumn;
+    MDataFDesignLeaderID: TIntegerField;
+    FDesignNo: TcxGridDBColumn;
+    PM: TPopupMenu;
+    N_Edit: TMenuItem;
+    N_Filter: TMenuItem;
+    N_Sort: TMenuItem;
+    N_Group: TMenuItem;
+    N_Set: TMenuItem;
+    N_Out: TMenuItem;
+    actionList: TActionList;
+    ActApp: TAction;
+    ActSave: TAction;
+    ActOut: TAction;
+    ActEdit: TAction;
+    ActDel: TAction;
+    Act_Submit: TAction;
+    Act_Audit: TAction;
+    Act_Set_Close: TAction;
+    Act_Set_Open: TAction;
+    Act_Menu: TAction;
+    Act_Menu_Set: TAction;
+    Act_MaxID: TAction;
+    procedure FormResize(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure TB_EXITClick(Sender: TObject);
+    procedure MyTreeViewChange(Sender: TObject; Node: TTreeNode);
+    procedure MyTreeViewExpanding(Sender: TObject; Node: TTreeNode;
+      var AllowExpansion: Boolean);
+    procedure TB_RefClick(Sender: TObject);
+    procedure OKBtnClick(Sender: TObject);
+    procedure TB_AppClick(Sender: TObject);
+    procedure TB_EditClick(Sender: TObject);
+    procedure TB_DelClick(Sender: TObject);
+    procedure CancelBtnClick(Sender: TObject);
+    procedure FPartsNamePropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure FPartsAliasPropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure FProductNamePropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure FormCreate(Sender: TObject);
+    procedure FClientShortNamePropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure FormShow(Sender: TObject);
+    procedure Set_Open;
+    procedure Set_Close;
+    procedure cxGVCustomDrawPartBackground(Sender: TcxGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxCustomGridCellViewInfo;
+      var ADone: Boolean);
+    procedure FDesignLeaderPropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure FDesignLeaderPropertiesEditValueChanged(Sender: TObject);
+    procedure N_EditClick(Sender: TObject);
+    procedure N_FilterClick(Sender: TObject);
+    procedure N_SortClick(Sender: TObject);
+    procedure N_GroupClick(Sender: TObject);
+    procedure N_SetClick(Sender: TObject);
+    procedure N_OutClick(Sender: TObject);
+    procedure Act_MenuExecute(Sender: TObject);
+    procedure Act_Menu_SetExecute(Sender: TObject);
+    procedure cxGridContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
+  private
+    ListItemFNumber,P_th:String;
+    P_FProductID:Integer;
+    P_i:boolean;
+
+
+
+    { Private declarations }
+    function AddRd:bool;
+    function EditRd:bool;
+    function DelRd:bool;
+
+  public
+    P_state:integer;
+    GV,Gr,Gm,Mn:string;
+    { Public declarations }
+  end;
+
+var
+  Frm_Item: TFrm_Item;
+
+
+implementation
+
+uses FRMDATA, FRMMAIN, COMMON, FrmSelect, ProgBar, PROGRASS;
+
+{$R *.dfm}
+procedure TFrm_Item.Set_Open;
+begin
+  TB_Ref.Visible:=False;
+  TB_App.Visible:=False;
+  TB_Edit.Visible:=False;
+  TB_Del.Visible:=False;
+  MyTreeView.Enabled:=False;
+
+  OKBtn.Visible:=True;
+  CancelBtn.Visible:=True;
+  cxGV.OptionsData.Editing:=True;
+
+  FFileNo.Options.Editing:=True;
+  FItemNumber.Options.Editing:=True;
+  FClientFullName.Options.Editing:=True;
+  FClientShortName.Options.Editing:=True;
+  FProductName.Options.Editing:=True;
+  FItemModel.Options.Editing:=True;
+  FPactNo.Options.Editing:=True;
+  FDesignLeader.Options.Editing:=True;
+  FItemQry.Options.Editing:=True;
+  FDesignNo.Options.Editing:=True;
+
+end;
+
+procedure TFrm_Item.Set_Close;
+begin
+  TB_Ref.Visible:=True;
+  TB_App.Visible:=True;
+  TB_Edit.Visible:=True;
+  TB_Del.Visible:=True;
+  MyTreeView.Enabled:=True;
+
+  OKBtn.Visible:=False;
+  CancelBtn.Visible:=False;
+  cxGV.OptionsData.Editing:=False;
+
+end;
+
+function TFrm_Item.DelRd: bool;
+var
+ qry: TADOQuery;
+begin
+  //result:=False;
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  try
+    qry.SQL.Text:='Delete from T_Item where FItemNo=:FItemNo';
+    with qry.Parameters do
+    begin
+      FindParam('FItemNo').value:=mdata['FItemNo'];
+    end;
+    result:=qry.ExecSQL>=1;
+  finally
+    qry.Free;
+  end;
+end;
+
+function TFrm_Item.AddRd: bool;
+var
+  qry: TADOQuery;
+
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  result:=False;
+
+  If mData.RecordCount<=0 then
+  begin
+    result:=True;
+    Exit;
+  end;
+  try
+    qry.SQL.Text:='Insert into T_Item(FItemNo,FPactNo,FFileNo,FClientFullName,FClientShortName,FProductId,FItemNumber,FItemModel,FDesignNo,FDepartmentID,FDesignLeaderID,FItemQry) '
+                 +'values(:FItemNo,:FPactNo,:FFileNo,:FClientFullName,:FClientShortName,:FProductId,:FItemNumber,:FItemModel,:FDesignNo,:FDepartmentID,:FDesignLeaderID,:FItemQry)';
+     mData.First;
+     while not mData.eof do
+     begin
+       If (mData['FItemNo']<>'') and (mData['FProductId']<>0) and (mData['FItemNumber']<>'') then
+       begin
+         If qry.Active then qry.Close;
+         with qry.Parameters do
+         begin
+           FindParam('FItemNo').value:=mdata['FItemNo'];
+           FindParam('FPactNo').value:=mdata['FPactNo'];
+           FindParam('FFileNo').value:=mdata['FFileNo'];
+           FindParam('FClientFullName').value:=mdata['FClientFullName'];
+           FindParam('FClientShortName').value:=mdata['FClientShortName'];
+           FindParam('FProductId').value:=mdata['FProductId'];
+           FindParam('FItemNumber').value:=Trim(mdata['FItemNumber']);
+           FindParam('FItemModel').value:=mdata['FItemModel'];
+           FindParam('FDesignNo').value:=mdata['FDesignNo'];
+           FindParam('FDepartmentID').value:=UserFDepartmentID;
+           FindParam('FDesignLeaderID').value:=mdata['FDesignLeaderID'];
+           FindParam('FItemQry').value:=mdata['FItemQry'];
+        end;
+         result:=qry.ExecSQL>=1;
+         if not result then break;
+       end;
+       mData.Next;
+
+     end;
+   finally
+     qry.Free;
+   end;
+end;
+
+
+function TFrm_Item.EditRd:bool;
+var
+  qry: TADOQuery;
+
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  //result:=False;
+
+  If mData.RecordCount<=0 then
+  begin
+    result:=True;
+    Exit;
+  end;
+
+  mData.Edit;
+  mData.Post;
+
+
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  result:=False;
+
+  If mData.RecordCount<=0 then
+  begin
+    result:=True;
+    Exit;
+  end;
+  try
+    qry.SQL.Text:='Update T_Item set FItemNo=:FItemNo,FPactNo=:FPactNo,FFileNo=:FFileNo,FClientFullName=:FClientFullName,'
+                 +'FClientShortName=:FClientShortName,FProductId=:FProductId,FItemNumber=:FItemNumber,FItemModel=:FItemModel,'
+                 +'FDesignNo=:FDesignNo,FDepartmentID=:FDepartmentID,FDesignLeaderID=:FDesignLeaderID,FItemQry=:FItemQry '
+                 +'where FItemID=:FItemID';
+     mData.First;
+
+     while not mData.eof do
+     begin
+       If (mData['FItemNo']<>'') and (mData['FProductId']<>0) and (mData['FItemNumber']<>'') then
+       begin
+         If qry.Active then qry.Close;
+         with qry.Parameters do
+         begin
+           FindParam('FItemNo').value:=Trim(mdata['FItemNo']);
+           FindParam('FPactNo').value:=Trim(mdata['FPactNo']);
+           FindParam('FFileNo').value:=Trim(mdata['FFileNo']);
+           FindParam('FClientFullName').value:=Trim(mdata['FClientFullName']);
+           FindParam('FClientShortName').value:=Trim(mdata['FClientShortName']);
+           FindParam('FProductId').value:=mdata['FProductId'];
+           FindParam('FItemNumber').value:=Trim(mdata['FItemNumber']);
+           FindParam('FItemModel').value:=Trim(mdata['FItemModel']);
+           FindParam('FDesignNo').value:=mdata['FDesignNo'];
+           FindParam('FDepartmentID').value:=UserFDepartmentID;
+           FindParam('FDesignLeaderID').value:=mdata['FDesignLeaderID'];
+           FindParam('FItemQry').value:=mdata['FItemQry'];
+           FindParam('FItemID').value:=mdata['FItemID'];
+          end;
+         result:=qry.ExecSQL>=1;
+         if not result then break;
+       end;
+       mData.Next;
+
+     end;
+   finally
+     qry.Free;
+   end;
+end;
+
+
+procedure TFrm_Item.FormResize(Sender: TObject);
+begin
+  inherited;
+  L_title.Caption:='项目信息操作';
+  Self.Caption:='项目信息操作';
+
+end;
+
+procedure TFrm_Item.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+  Action:=cafree;
+  Frm_Item:=nil;
+end;
+
+procedure TFrm_Item.TB_EXITClick(Sender: TObject);
+begin
+  inherited;
+  self.Close;
+end;
+
+procedure TFrm_Item.MyTreeViewChange(Sender: TObject; Node: TTreeNode);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  If Node = nil then Exit;
+  with PTree(Node.Data)^ do
+  begin
+    ListItemFNumber:=PTree(Node.Data).FNumber;
+    P_th:=PTree(Node.Data).Caption;
+    If not MyItemList(qry,Mdata,'V_Item','FNumber',ListItemFNumber,'FNumber') then
+    begin
+      mdata.Open;
+      cxGvColumn(cxGv,Mdata);
+    end;
+  end;
+
+end;
+
+procedure TFrm_Item.MyTreeViewExpanding(Sender: TObject;
+  Node: TTreeNode; var AllowExpansion: Boolean);
+var
+  P :PTree;
+  qry:TADOquery;
+
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  If (Node = nil) or
+     (PTree(Node.Data).Flag <> cNoLoadFlag) or   // 1.加载标志
+     (not Node.HasChildren) or                   // 2.未有子
+     (Node.Count>0) then                         // 3.已有子节点
+     Exit;
+
+  qry.SQL.Text:='Select FProductId,FNumber, FParentNumber,FName,'
+               +'Isleaf from VT_Item where FParentNumber= '''
+               +PTree(Node.Data).ID+''' order by FNumber';
+
+  qry.open;
+
+  PTree(Node.Data).Flag := cLoadFlag;                  // 设置已加载标志
+  while not qry.Eof do
+  begin
+    New(P);
+    P.ID := qry.FieldByName('FNumber').AsString;
+    P.ParentID := qry.FieldByName('FParentNumber').AsString;
+    P.FNumber:=qry.FieldByName('FNumber').AsString;
+    P.Th:=qry.FieldByName('FProductId').AsString;
+    P.Caption := qry.FieldByName('FName').AsString;
+    P.Flag := cNoLoadFlag;                            // 新节点，未加载标志
+    with MyTreeView.Items.AddChildObject(Node,P.Caption,P) do
+    begin
+       HasChildren :=not qry.fieldbyname('Isleaf').value;
+    end;
+    qry.Next;
+  end;
+
+
+end;
+
+procedure TFrm_Item.TB_RefClick(Sender: TObject);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If UserFDepartmentsort=1 then //事业部
+  begin
+     If not TreeVeiwListWhere(qry,MyTreeView,'VT_Item',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+        Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+  end;
+  If UserFDepartmentsort=2 then   //子公司
+  begin
+    If not TreeVeiwListWhere(qry,MyTreeView,'VT_Item',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+      Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+  end;
+  If UserFDepartmentsort=3 then   //公共平台
+  begin
+    If not TreeVeiwListWhere(qry,MyTreeView,'VT_Item',' ') then
+    Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+  end;
+
+
+
+
+{  If not TreeVeiwListUserID(qry,MyTreeView,'VT_Item',UserFDepartmentID) then
+  begin
+    Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+  end;
+ }
+end;
+
+procedure TFrm_Item.OKBtnClick(Sender: TObject);
+var qry: TADOQuery;
+
+begin
+  cxGV.OptionsData.Editing:=True;
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  mData.Edit;
+  mData.Post;
+  If (mData['FItemNumber']='')  or (mData['FItemNumber']=Null) then
+  begin
+    application.MessageBox('图号不允许空！请重新输入','系统提示',MB_ICONERROR);
+    Exit;
+  end;
+
+  If P_state =0 then
+  begin
+    try
+      qry.SQL.Text:='Select * from V_Item where FItemNo=:FItemNo';
+      qry.Parameters.FindParam('FItemNo').Value:=mdata['FItemNo'];
+      qry.Open;
+      If qry.RecordCount>0 then
+      begin
+         application.MessageBox('项目代号重复！请重新选择','系统提示',MB_ICONERROR);
+         Exit;
+      end;
+    finally
+       ;
+    end;
+    try
+      qry.SQL.Text:='Select * from V_Item where FItemNumber=:FItemNumber';
+      qry.Parameters.FindParam('FItemNumber').Value:=mdata['FItemNumber'];
+      qry.Open;
+      If qry.RecordCount>0 then
+      begin
+         application.MessageBox('项目图号重复！请重新选择','系统提示',MB_ICONERROR);
+         Exit;
+      end;
+    finally
+       ;
+    end;
+
+  end;
+
+  If P_state=0 then
+  begin
+    If application.MessageBox('是否要保存添加的数据？','提示',MB_ICONINFORMATION+MB_YESNO)<>6 then
+       Exit;
+    If AddRd then //增加数据
+    begin
+      If application.MessageBox('录入数据已保存,还要继续录入吗？','提示',MB_ICONINFORMATION+MB_YESNO)=6 then
+      begin
+        TB_App.Click ;
+      end
+      else
+      begin
+        inherited;
+        CancelBtn.Click;
+      end;
+    end;
+  end;
+
+  If P_state=1 then //修改数据
+  begin
+    If application.MessageBox('是否要保存所作修改？','提示',MB_ICONINFORMATION+MB_YESNO)<>6 then
+       Exit;
+    If EditRd then   //修改数据
+    begin
+      application.MessageBox('修改记录已保存','系统提示',MB_ICONINFORMATION);
+      inherited;
+    end
+    else
+      application.MessageBox('修改记录保存失败！','系统提示',MB_ICONWARNING);
+    CancelBtn.Click;
+  end;
+  qry.Free;
+
+
+end;
+
+
+
+procedure TFrm_Item.TB_AppClick(Sender: TObject);
+var
+ qry:TADOquery;
+ proc:TADOStoredProc;
+ i:Integer;
+ P_FProductName:string;
+begin
+  proc:=TADOStoredProc.Create(self);
+  proc.ConnectionString:=mdlData.ReadConnStr;
+  proc.CommandTimeout:=500;
+  i:=0;
+  P_state :=0;
+  L_title.Caption:='项目信息新增';
+  Self.Set_Open;
+
+
+
+  qry:=TAdoQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  //2024-1-01改取最大号
+ { try
+    qry.SQL.Text:='Update T_MaxNum  set FMaxNum=FMaxNum+1 where FTableName=''T_Item''';
+    qry.ExecSQL;
+  finally
+    ;
+  end;
+
+  try
+    qry.SQL.Text:='Select * from T_MaxNum where FTableName=''T_Item''';
+    qry.Open;
+  finally
+     ;
+  end;
+  If qry.RecordCount>0 then
+     i:=qry.FieldByName('FMaxNum').Value
+  else
+     i:=1;
+  }
+  //2024-1-01改取最大号
+  try
+    proc.ProcedureName:='P_GetICMaxNum_New;1';
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftInteger;
+      Direction := pdoutput;
+      size:=255;
+      name := '@FInterID';
+      value:=0;
+
+    end;
+     proc.ExecProc;
+     i:=proc.Parameters.FindParam('@FInterID').Value;
+     proc.Free;
+
+  finally
+     ;
+  end;
+
+
+
+
+  If mData.RecordCount>0 then
+  begin
+    P_FProductName:=mData['FProductName'];
+    P_FProductID:=mData['FProductID'];
+  end;
+
+  //生成空记录
+  try
+    qry.SQL.Text:='Select * from V_Item where FItemId=:FItemId';
+    qry.Parameters.FindParam('FItemId').value:= 0;
+    qry.Open;
+  finally
+    ;
+  end;
+  mData.CopyFromDataSet(qry);
+
+
+//  If mData.Active then mData.Close;
+
+  mData.Open;
+  mData.Edit;
+  mData['FItemNo']:=Format('%.4d',[i]);
+  mData['FProductName']:=P_FProductName;
+  mData['FProductID']:=P_FProductID;
+  mData['FItemQry']:=1;
+  mData.Post;
+
+
+end;
+
+procedure TFrm_Item.TB_EditClick(Sender: TObject);
+
+begin
+  P_state :=1;
+  If (mdata.RecordCount<1) then
+    Exit;
+  If mdata.RecordCount<>1 then
+  begin
+    application.MessageBox('只允许修改单个记录！请重新选择!','系统提示',MB_ICONINFORMATION);
+    Exit;
+  end;
+
+  L_title.Caption:='项目信息修改';
+  Self.Set_Open;
+end;
+
+procedure TFrm_Item.TB_DelClick(Sender: TObject);
+var
+  qry:TADOQuery;
+
+begin
+  qry:=TAdoQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If (mdata.RecordCount<1) then
+    Exit;
+
+  If mdata.RecordCount<>1 then
+  begin
+    application.MessageBox('只允许删除单个记录！请重新选择!','系统提示',MB_ICONINFORMATION);
+    Exit;
+  end;
+
+  qry:=TAdoQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  try
+    qry.SQL.Text:='Select * from V_DesignBOM_Structure where FFullNumber like :FFullNumber';
+    qry.Parameters.FindParam('FFullNumber').Value:=mdata['FItemNo']+'%';
+    qry.Open;
+  finally
+     ;
+  end;
+  if qry.RecordCount>0 then
+  begin
+    application.MessageBox(Pchar('项目【'+Trim(Mdata['FItemNumber'])+'】【'+Trim(Mdata['FItemNo'])+'】已导入数据不允许删除！'),'系统提示',MB_ICONINFORMATION);
+    Exit;
+  end;
+
+
+  try
+    qry.SQL.Text:='Select * from V_ItemList where FItemID=:FItemID';
+    qry.Parameters.FindParam('FItemID').Value:=mdata['FItemID'];
+    qry.Open;
+  finally
+     ;
+  end;
+  if qry.RecordCount>0 then
+  begin
+    application.MessageBox(Pchar('项目【'+Trim(Mdata['FItemNumber'])+'】已生成项目明细,请先删除项目明细！'),'系统提示',MB_ICONINFORMATION);
+    Exit;
+  end;
+
+
+
+
+  If application.MessageBox(Pchar('警告：是否删除产品类别为：【'+Trim(Mdata['FItemNumber'])+'】【'+Trim(Mdata['FItemNo'])+'】的单据？'+chr(13)+chr(13)
+                           +'删除数据操作将不可恢复，确定要删除本单据吗？'),'警告提示',MB_ICONINFORMATION+MB_YESNO)=6 then
+  If application.MessageBox(Pchar('警告：是否删除产品类别为：【'+Trim(Mdata['FItemNumber'])+'】【'+Trim(Mdata['FItemNo'])+'】的单据？'+chr(13)+chr(13)
+                           +'删除数据操作将不可恢复，确定要删除本单据吗？'),'再次警告提示',MB_ICONINFORMATION+MB_YESNO)=6 then
+
+  begin
+    //单据删除
+    If not DelRd then
+    begin
+      application.MessageBox('删除单据失败！','系统提示',MB_ICONINFORMATION);
+      mdlData.conn.RollbackTrans;
+      Exit;
+    end;
+    mdata.Close;
+    //TB_ref.Click;
+
+  end;
+  qry.Free;
+end;
+
+procedure TFrm_Item.CancelBtnClick(Sender: TObject);
+begin
+  inherited;
+  L_title.Caption:='项目信息';
+  Self.Set_Close;
+end;
+
+procedure TFrm_Item.FPartsNamePropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  try
+    qry.SQL.Text:='select distinct FPartsCode,FPartsName from V_ProductParts order by FPartsCode';
+    qry.Open;
+  finally
+     ;
+  end;
+  selValue:=select('请选择部件类别','FPartsName','FPartsName','FPartsName','FPartsCode;FPartsName',qry);
+  If Length(selValue)>0 then
+  begin
+    (Sender as TcxButtonEdit).EditingText:=qry.FieldByName('FPartsName').AsString
+  end;
+
+end;
+
+procedure TFrm_Item.FPartsAliasPropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  try
+    qry.SQL.Text:='select distinct FPartsCode,FPartsAlias from V_ProductParts order by FPartsCode';
+    qry.Open;
+  finally
+     ;
+  end;
+  selValue:=select('请选择部件别名','FPartsAlias','FPartsAlias','FPartsAlias','FPartsCode;FPartsAlias',qry);
+  If Length(selValue)>0 then
+  begin
+    (Sender as TcxButtonEdit).EditingText:=qry.FieldByName('FPartsAlias').AsString
+  end;
+
+end;
+
+procedure TFrm_Item.FProductNamePropertiesButtonClick(Sender: TObject;
+  AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  try
+    qry.SQL.Text:='select * from VT_Product where FDepartmentID=:FDepartmentID order by FNumber';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Open;
+  finally
+     ;
+  end;
+  selValue:=select('请选择产品类别','FNumber','FParentNumber','FNumber','FNumber;FProductName',qry);
+  If Length(selValue)>0 then
+  begin
+    mdata.Edit;
+    mdata['FProductID']:=qry.FieldByName('FProductID').AsString;
+    mdata['FProductName']:=qry.FieldByName('FProductName').AsString;
+    mdata.Post;
+  end;
+
+end;
+
+procedure TFrm_Item.FormCreate(Sender: TObject);
+begin
+  inherited;
+  TB_App.Visible:= mdlData.PermissionCheckRights(TFrm_Item.ClassName,'新增');
+  TB_Edit.Visible:= mdlData.PermissionCheckRights(TFrm_Item.ClassName,'修改');
+  TB_Del.Visible:= mdlData.PermissionCheckRights(TFrm_Item.ClassName,'删除');
+  TB_Prin.Visible:= mdlData.PermissionCheckRights(TFrm_Item.ClassName,'打印');
+
+end;
+
+procedure TFrm_Item.FClientShortNamePropertiesButtonClick(Sender: TObject;
+  AButtonIndex: Integer);
+begin
+  inherited;
+    mdata.Edit;
+    mdata['FClientShortName']:=mdata['FClientFullName'];
+    mdata.Post;
+end;
+
+procedure TFrm_Item.FormShow(Sender: TObject);
+begin
+  inherited;
+  TB_Ref.Click;
+end;
+
+procedure TFrm_Item.cxGVCustomDrawPartBackground(Sender: TcxGridTableView;
+  ACanvas: TcxCanvas; AViewInfo: TcxCustomGridCellViewInfo;
+  var ADone: Boolean);
+//var   AViewInfo:string;
+begin
+  inherited;
+  AViewInfo.Text:='动态设置 GroupBox 的显示内容';
+  ACanvas.FillRect(AViewInfo.Bounds);
+
+
+end;
+
+procedure TFrm_Item.FDesignLeaderPropertiesButtonClick(Sender: TObject;
+  AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  mdata.Edit;
+  mdata.Post;
+  try
+    qry.SQL.Text:='select distinct NumID,mc from T_systemuser where FDepartmentID=:FDepartmentID and mc like :mc and gw like ''%设总'' order by mc';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('mc').value:='%'+mdata['FDesignLeader']+'%';
+    qry.Open;
+  finally
+     ;
+  end;
+  If qry.RecordCount=1 then
+  begin
+    mdata.Edit;
+    mdata['FDesignLeaderID']:=qry.FieldByName('NumID').AsInteger;
+    mdata['FDesignLeader']:=qry.FieldByName('mc').AsString;
+    mdata.Post;
+  end
+  else
+  begin
+    selValue:=select('请选择设总','mc','mc','mc','mc',qry);
+    If Length(selValue)>0 then
+    begin
+      mdata.Edit;
+      mdata['FDesignLeaderID']:=qry.FieldByName('NumID').AsInteger;
+      mdata['FDesignLeader']:=qry.FieldByName('mc').AsString;
+      mdata.Post;
+    end
+    else
+    begin
+      application.MessageBox('请选择明细！','系统提示',MB_ICONINFORMATION);
+      Exit;
+    end;
+  end;
+  If qry.RecordCount=0 then
+      application.MessageBox('查无此人！','系统提示',MB_ICONINFORMATION);
+
+
+end;
+
+procedure TFrm_Item.FDesignLeaderPropertiesEditValueChanged(
+  Sender: TObject);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  mdata.Edit;
+  mdata.post;
+  if (Trim(mdata['FDesignLeader'])='') or (Trim(mdata['FDesignLeader'])=Null) or (Trim(mdata['FDesignLeader'])='设总')  then
+  begin
+    mdata.Edit;
+    mdata['FDesignLeaderID']:=0;
+    mdata.post;
+  end;
+  try
+    qry.SQL.Text:='select distinct NumID,mc from T_systemuser where FDepartmentID=:FDepartmentID and mc like :mc and gw like ''%设总'' order by mc';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('mc').value:='%'+mdata['FDesignLeader']+'%';
+    qry.Open;
+  finally
+     ;
+  end;
+  If qry.RecordCount=0 then
+  begin
+    mdata.Edit;
+    mdata['FDesignLeaderID']:=0;
+    mdata.post;
+    application.MessageBox('查无此人！','系统提示',MB_ICONINFORMATION);
+    Exit
+  end;
+  If qry.RecordCount=1 then
+  begin
+    mdata.Edit;
+    mdata['FDesignLeaderID']:=qry.FieldByName('NumID').AsInteger;
+    mdata['FDesignLeader']:=qry.FieldByName('mc').AsString;
+    mdata.post;
+  end;
+ { else
+  begin
+    selValue:=select('请选择设总','mc','mc','mc','mc',qry);
+    If Length(selValue)>0 then
+    begin
+      mdata.Edit;
+      mdata['FDesignLeaderID']:=qry.FieldByName('NumID').AsInteger;
+      mdata['FDesignLeader']:=qry.FieldByName('mc').AsString;
+      mdata.Post;
+    end
+    else
+    begin
+      application.MessageBox('请选择明细！','系统提示',MB_ICONINFORMATION);
+      Exit;
+    end;
+  end;
+   }
+end;
+
+procedure TFrm_Item.N_EditClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_Item.N_FilterClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_Item.N_SortClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_Item.N_GroupClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_Item.N_SetClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_Item.N_OutClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_Item.Act_MenuExecute(Sender: TObject);
+Var i:Integer;
+begin
+  //1、设置
+  If copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='取消设置' then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=False;
+    (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Filtering:=False;
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Editing:=False;
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Sorting:=False;
+    end;
+    Exit;
+  end;
+
+  //编辑
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='编辑')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=True;
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Editing:=True;
+    end;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='编辑')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=False;
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Editing:=False;
+    end;
+    Exit;
+  end;
+  //过滤
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='过滤')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=True;
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Filtering:=True;
+    end;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='过滤')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Filtering:=False;
+    end;
+    Exit;
+  end;
+  //排序
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='排序')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Sorting:=True;
+    end;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='排序')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Sorting:=False;
+    end;
+    Exit;
+  end;
+ // 分组
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='分组')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox:=True;
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='分组')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox:=False;
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    Exit;
+  end;
+  //导出
+  If copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='导出' then
+  begin
+    If (FindComponent(Gm) as TdxMemData).RecordCount>0 then
+       ExportToExcel((FindComponent(Gr) as TcxGrid),True,TRue)
+    else
+       Application.MessageBox(PChar('没有需要导出的数据！'), '错误', MB_OK +MB_ICONSTOP);
+    Exit;
+  end;
+
+
+end;
+
+procedure TFrm_Item.Act_Menu_SetExecute(Sender: TObject);
+begin
+  inherited;
+  If (FindComponent(GV) as TcxGridDBTableView).Columns[1].Options.Filtering=True then
+     N_Filter.Checked:=True
+  else
+     N_Filter.Checked:=False;
+
+  If (FindComponent(GV) as TcxGridDBTableView).Columns[1].Options.Sorting=True then
+    N_Sort.Checked:=True
+  else
+    N_Sort.Checked:=False;
+
+  If (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox=True then
+    N_Group.Checked:=True
+  else
+    N_Group.Checked:=False;
+
+end;
+
+procedure TFrm_Item.cxGridContextPopup(Sender: TObject; MousePos: TPoint;
+  var Handled: Boolean);
+begin
+  inherited;
+  GV:='cxGV';
+  Gm:='mdata';
+  Gr:='cxGrid';
+  Act_Menu_Set.Execute;
+end;
+
+end.

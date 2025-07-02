@@ -1,0 +1,54 @@
+inherited Frm_bassDialogs: TFrm_bassDialogs
+  Left = 632
+  Top = 94
+  HorzScrollBar.Range = 0
+  VertScrollBar.Range = 0
+  BorderStyle = bsDialog
+  Caption = 'Frm_bassDialogs'
+  ClientHeight = 282
+  ClientWidth = 415
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 12
+  inherited PanelBkGnd: TPanel
+    Width = 415
+    Height = 282
+    object Panel_button: TPanel
+      Left = 0
+      Top = 233
+      Width = 415
+      Height = 49
+      Align = alBottom
+      BevelOuter = bvNone
+      ParentColor = True
+      TabOrder = 0
+      object Bevel_button: TBevel
+        Left = 29
+        Top = 1
+        Width = 356
+        Height = 2
+      end
+      object OKBtn: TcxButton
+        Left = 126
+        Top = 16
+        Width = 75
+        Height = 25
+        Caption = #30830#23450'[&O]'
+        TabOrder = 0
+        LookAndFeel.Kind = lfUltraFlat
+        LookAndFeel.NativeStyle = False
+      end
+      object CancelBtn: TcxButton
+        Left = 214
+        Top = 16
+        Width = 75
+        Height = 25
+        Caption = #21462#28040'[&C]'
+        TabOrder = 1
+        OnClick = CancelBtnClick
+        LookAndFeel.Kind = lfUltraFlat
+        LookAndFeel.NativeStyle = False
+      end
+    end
+  end
+end

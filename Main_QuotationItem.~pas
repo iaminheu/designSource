@@ -1,0 +1,2289 @@
+unit Main_QuotationItem;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, FrmGridBass, ExtCtrls, StdCtrls, DsFancyButton, cxStyles,
+  cxCustomData, cxGraphics, cxFilter, cxData, cxDataStorage, cxEdit, DB,
+  cxDBData, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  dxmdaset, cxGridLevel, cxClasses, cxControls, cxGridCustomView, cxGrid,
+  cxTextEdit, cxDropDownEdit, cxCalendar, cxMaskEdit, cxContainer, cxLabel,
+  cxDBLookupComboBox, ADODB, cxButtonEdit, Grids, DBGrids, ComCtrls, RzShellDialogs,
+  ToolWin, ImgList, FR_DSet, FR_DBSet, FR_Class, cxRadioGroup, Buttons, StrUtils,
+  cxGroupBox, cxCheckBox, cxCurrencyEdit, RzPanel, RzSplit, RzTabs,IniFiles,
+  TFlatPanelUnit,Comobj, cxLookAndFeelPainters, cxSpinEdit, RzStatus,
+  ActnList, RzLabel, cxButtons,// cxLookAndFeelPainters,   cxButtons,  cxSpinEdit,  RzLabel, ActnList, RzStatus
+  cxTimeEdit, jpeg, cxCheckComboBox, cxGridBandedTableView, cxGridDBBandedTableView, DBTables,
+  Menus;
+
+type
+  TFrm_QuotationItem = class(TFrm_GridBass)
+    ImageList: TImageList;
+    frReport: TfrReport;
+    frDBDataSet: TfrDBDataSet;
+    PC_Ship: TRzPageControl;
+    TS_Ship: TRzTabSheet;
+    PanelBkGnd: TPanel;
+    Panel7: TPanel;
+    RSP_CList: TRzSizePanel;
+    ToolBar_HItem: TToolBar;
+    TB_App: TToolButton;
+    TB_Del: TToolButton;
+    TB_Ref: TToolButton;
+    Label9: TLabel;
+    E_FClientFullName: TcxTextEdit;
+    TB_Edit: TToolButton;
+    TB_Exit: TToolButton;
+    RzSizePanel2: TRzSizePanel;
+    TB_Submit: TToolButton;
+    TB_Check: TToolButton;
+    actionList: TActionList;
+    ActApp: TAction;
+    ActSave: TAction;
+    ActOut: TAction;
+    ActEdit: TAction;
+    ActDel: TAction;
+    Act_Submit: TAction;
+    Act_Audit: TAction;
+    stbBar: TRzStatusBar;
+    RzClockStatus1: TRzClockStatus;
+    RzKeyStatus1: TRzKeyStatus;
+    RzKeyStatus2: TRzKeyStatus;
+    RzKeyStatus3: TRzKeyStatus;
+    stbMsg: TRzFieldStatus;
+    SaveDialog1: TSaveDialog;
+    Act_Status_M: TAction;
+    RzSizePanel4: TRzSizePanel;
+    Act_Set_Open_M: TAction;
+    Act_Set_Close_M: TAction;
+    Act_Set_Close: TAction;
+    Act_Set_Open: TAction;
+    Act_PC_ShipList: TAction;
+    PM: TPopupMenu;
+    N_Edit: TMenuItem;
+    N_Filter: TMenuItem;
+    N_Sort: TMenuItem;
+    N_Group: TMenuItem;
+    N_Set: TMenuItem;
+    N_Out: TMenuItem;
+    Act_Menu: TAction;
+    Act_Menu_Set: TAction;
+    MData_Item: TdxMemData;
+    DS_Mdata_Item: TDataSource;
+    DS_Mdata_List: TDataSource;
+    MData_List: TdxMemData;
+    cxGrid_Item: TcxGrid;
+    cxGV_Item: TcxGridDBTableView;
+    FPaymentType_Item: TcxGridDBColumn;
+    FFileNo_Item: TcxGridDBColumn;
+    FItemNumber_Item: TcxGridDBColumn;
+    FClientFullName_Item: TcxGridDBColumn;
+    FClientShortName_Item: TcxGridDBColumn;
+    FProductName_Item: TcxGridDBColumn;
+    FItemModel_Item: TcxGridDBColumn;
+    cxGL_Item: TcxGridLevel;
+    MyTreeView_Item: TTreeView;
+    PopupMenu1: TPopupMenu;
+    Act_MaxID: TAction;
+    Act_Sel: TAction;
+    FFileItemID_Item: TcxGridDBColumn;
+    cxGrid_List: TcxGrid;
+    cxGV_List: TcxGridDBTableView;
+    FTakegg_List: TcxGridDBColumn;
+    FTakemc_List: TcxGridDBColumn;
+    cxGL_List: TcxGridLevel;
+    FProductID_Item: TcxGridDBColumn;
+    FQuotationItemID_List: TcxGridDBColumn;
+    FArrivalDate_Item: TcxGridDBColumn;
+    FTotalAmount_List: TcxGridDBColumn;
+    FQuotationStatus_Item: TcxGridDBColumn;
+    FQuotationStatusNotes_Item: TcxGridDBColumn;
+    FQuotationWriteDate_Item: TcxGridDBColumn;
+    FQuotationWrite_Item: TcxGridDBColumn;
+    Act_Edit: TAction;
+    Image2: TImage;
+    P_Btn: TPanel;
+    CancelBtn_M: TcxButton;
+    OKBtn_M: TcxButton;
+    FQuotationItemID_Item: TcxGridDBColumn;
+    FPrice_List: TcxGridDBColumn;
+    ADOProc: TADOStoredProc;
+    DS_ADOProc: TDataSource;
+    FTakedw_List: TcxGridDBColumn;
+    Act_Check: TAction;
+    FSupplierID_Item: TcxGridDBColumn;
+    FArrivalAddress_Item: TcxGridDBColumn;
+    FLeadTime_Item: TcxGridDBColumn;
+    FOfferPeriod_Item: TcxGridDBColumn;
+    FSupplierName_Item: TcxGridDBColumn;
+    FQuotationDate_Item: TcxGridDBColumn;
+    FQuotationListID_List: TcxGridDBColumn;
+    FQuotationNum_Item: TcxGridDBColumn;
+    FApprovalStuffNumber_List: TcxGridDBColumn;
+    FApprovalStuffID_List: TcxGridDBColumn;
+    FApprovalStuffRemak_List: TcxGridDBColumn;
+    Act_MaxNum: TAction;
+    FTakeDemand_List: TcxGridDBColumn;
+    FQuotationType_Item: TcxGridDBColumn;
+    TB_XJD: TToolButton;
+    FApprovalItemNum_Item: TcxGridDBColumn;
+    FApprovalItemID_Item: TcxGridDBColumn;
+    FQuotationNo_Item: TcxGridDBColumn;
+    FApprovalListID_List: TcxGridDBColumn;
+    FQuotationListRemark_List: TcxGridDBColumn;
+    FProductList_Item: TcxGridDBColumn;
+    FApprovalStuffSortID_Item: TcxGridDBColumn;
+    FISApproval_Item: TcxGridDBColumn;
+    Act_FQuotationType: TAction;
+    Act_FQuotationStatus: TAction;
+    FTakeGBT_List: TcxGridDBColumn;
+    FTakeSumQry_List: TcxGridDBColumn;
+    FTakeDesign_List: TcxGridDBColumn;
+    FTakeListReMark_List: TcxGridDBColumn;
+    TB_BJD: TToolButton;
+    procedure FormResize(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure TB_EXITClick(Sender: TObject);
+    procedure TB_AppClick(Sender: TObject);
+    procedure TB_DelClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure MyTreeView_ItemExpanding(Sender: TObject; Node: TTreeNode;
+      var AllowExpansion: Boolean);
+    procedure MyTreeView_ItemChange(Sender: TObject; Node: TTreeNode);
+    procedure TB_RefClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure OKBtn_MClick(Sender: TObject);
+    procedure CancelBtn_MClick(Sender: TObject);
+    procedure SelCancelBtnClick(Sender: TObject);
+    procedure TB_EditLListClick(Sender: TObject);
+    procedure Act_Set_Open_MExecute(Sender: TObject);
+    procedure Act_Set_Close_MExecute(Sender: TObject);
+    procedure Act_MenuExecute(Sender: TObject);
+    procedure Act_Menu_SetExecute(Sender: TObject);
+    procedure N_EditClick(Sender: TObject);
+    procedure N_FilterClick(Sender: TObject);
+    procedure N_SortClick(Sender: TObject);
+    procedure N_GroupClick(Sender: TObject);
+    procedure N_SetClick(Sender: TObject);
+    procedure N_OutClick(Sender: TObject);
+    procedure Act_MaxIDExecute(Sender: TObject);
+    procedure Act_Status_MExecute(Sender: TObject);
+    procedure cxGrid_ItemContextPopup(Sender: TObject; MousePos: TPoint;
+      var Handled: Boolean);
+    procedure cxGV_ListCustomDrawCell(Sender: TcxCustomGridTableView;
+      ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
+      var ADone: Boolean);
+    procedure MData_ListBeforePost(DataSet: TDataSet);
+    procedure cxGV_ItemFocusedRecordChanged(
+      Sender: TcxCustomGridTableView; APrevFocusedRecord,
+      AFocusedRecord: TcxCustomGridRecord;
+      ANewItemRecordFocusingChanged: Boolean);
+    procedure Act_CheckExecute(Sender: TObject);
+    procedure Act_SubmitExecute(Sender: TObject);
+    procedure TB_EditClick(Sender: TObject);
+    procedure FQuotationStuffName_ListPropertiesButtonClick(
+      Sender: TObject; AButtonIndex: Integer);
+    procedure FSupplierName_ItemPropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure Act_MaxNumExecute(Sender: TObject);
+    procedure FPaymentType_ItemPropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure FArrivalAddress_ItemPropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure FLeadTime_ItemPropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure FOfferPeriod_ItemPropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure TB_XJDClick(Sender: TObject);
+    procedure FApprovalItemNum_ItemPropertiesButtonClick(Sender: TObject;
+      AButtonIndex: Integer);
+    procedure Act_FQuotationTypeExecute(Sender: TObject);
+    procedure Act_FQuotationStatusExecute(Sender: TObject);
+    procedure TB_BJDClick(Sender: TObject);
+  private
+    P_List,P_Wet,P_Sort:String;
+    P_i:boolean;
+
+
+    { Private declarations }
+    function AddMain:bool;
+    function AddList:bool;
+    function AddRd:bool;
+    function EditRd:bool;
+    function DelRd:bool;
+
+
+
+  public
+    P_state,P_PackNo,P_MaxID,P_Status:Integer;
+    ListFNumber_PTItem,ListFNumber_PTList,P_MaxNum:string;
+    P_Isleaf_PTList :Integer;
+    P_List_PTList:string;
+    GV,Gr,Gm,Mn:string;
+    AFirstColumnStyle: TcxStyle;
+    { Public declarations }
+  end;
+
+var
+  Frm_QuotationItem: TFrm_QuotationItem;
+
+
+implementation
+
+uses FRMDATA, COMMON, FrmSelect, ProgBar, PROGRASS, Main_Ship;
+
+{$R *.dfm}
+
+
+function TFrm_QuotationItem.DelRd: bool;
+var
+ qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  try
+    qry.SQL.Text:='Delete from T_QuotationItem where FQuotationItemID=:FQuotationItemID';
+    qry.Parameters.FindParam('FQuotationItemID').value:=MData_Item['FQuotationItemID'];
+    result:=qry.ExecSQL>=0;
+  finally
+    ;
+  end;
+  qry.Free;
+end;
+
+
+function TFrm_QuotationItem.AddMain: bool;
+var
+ qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  Act_MaxID.Execute;//取最大ID
+  Act_MaxNum.Execute;//取最大NUm
+  try
+    qry.SQL.Text:='Insert into T_QuotationItem(FQuotationItemID,FISApproval,FQuotationType,FQuotationDate,FQuotationNo,FApprovalItemID,FSupplierID,FPaymentType,'
+                 +'FLeadTime,FOfferPeriod,FQuotationItemRermark,FQuotationStatus,FQuotationWriteID,FQuotationWriteDate,FDepartmentID) '
+                 +'values(:FQuotationItemID,:FISApproval,:FQuotationType,:FQuotationDate,:FQuotationNo,:FApprovalItemID,:FSupplierID,:FPaymentType,'
+                 +':FLeadTime,:FOfferPeriod,:FQuotationItemRermark,:FQuotationStatus,:FQuotationWriteID,:FQuotationWriteDate,:FDepartmentID)';
+    with qry.Parameters do
+    begin
+       FindParam('FQuotationItemID').value:=P_MaxID;
+       FindParam('FQuotationType').value:=mData_Item['FQuotationType'];
+       FindParam('FQuotationDate').value:=Date();
+       If P_state=0 then //新增
+          FindParam('FQuotationNo').value:=P_MaxNUm;
+       If P_state=1 then //修改
+          FindParam('FQuotationNo').value:=mData_Item['FQuotationNo'];
+
+       FindParam('FApprovalItemID').value:=mData_Item['FApprovalItemID'];
+       FindParam('FISApproval').value:=mData_Item['FISApproval'];
+       FindParam('FSupplierID').value:=mData_Item['FSupplierID'];
+       FindParam('FPaymentType').value:=mData_Item['FPaymentType'];
+       FindParam('FLeadTime').value:=mData_Item['FLeadTime'];
+       FindParam('FOfferPeriod').value:=mData_Item['FOfferPeriod'];
+       FindParam('FQuotationItemRermark').value:=mData_Item['FQuotationItemRermark'];
+       FindParam('FQuotationStatus').value:=0;
+       FindParam('FQuotationWriteID').value:=UserNumID;
+       FindParam('FQuotationWriteDate').value:=Date();
+       FindParam('FDepartmentID').value:=UserFDepartmentID;
+     end;
+     result:=qry.ExecSQL>=1;
+  finally
+     ;
+  end;
+  mData_Item.Edit;
+  mData_Item['FQuotationItemID']:=P_MaxID;
+  mData_Item.Post;
+
+  qry.Free;
+end;
+
+function TFrm_QuotationItem.AddList: bool;
+var
+  qry: TADOQuery;
+  i:Integer;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  result:=False;
+
+  If mData_List.RecordCount<=0 then
+  begin
+    result:=True;
+    Exit;
+  end;
+  try
+     qry.SQL.Text:='Insert into T_QuotationList(FQuotationItemID,FApprovalListID,FBrand,FPrice) '
+                  +'values(:FQuotationItemID,:FApprovalListID,:FBrand,:FPrice)';
+     mData_List.First;
+     while not mData_List.eof do
+     begin
+      // If ((mData_List['FPrice']<>0) and (mData_List['FPrice']<>Null)) then
+       begin
+         If qry.Active then qry.Close;
+         with qry.Parameters do
+         begin
+           qry.Parameters.FindParam('FQuotationItemID').value:= P_MaxID;
+           qry.Parameters.FindParam('FApprovalListID').value:= mData_List['FApprovalListID'];
+           qry.Parameters.FindParam('FBrand').value:= mData_List['FBrand'];
+           qry.Parameters.FindParam('FPrice').value:= mData_List['FPrice'];
+         end;
+         result:=qry.ExecSQL>=1;
+         if not result then break;
+       end;
+       mData_List.Next;
+     end;
+   finally
+     qry.Free;
+   end;
+
+end;
+
+
+function TFrm_QuotationItem.AddRd: bool;
+var
+ qry:TADOQuery;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  result:=False;
+
+  MData_Item.Edit;
+  MData_Item.Post;
+
+  mdata_List.Edit;
+  mdata_List.Post;
+  If mdata_List.RecordCount<=0 then
+  begin
+    result:=True;
+    Exit;
+  end;
+
+  mdlData.conn.BeginTrans;
+  try
+    if AddMain then  //1   主表新增
+    begin
+      result:=True;
+      if AddList then //2    明细表新增
+      begin
+        result:=True;
+        mdlData.conn.CommitTrans;
+      end
+      else
+      begin
+        result:=False;
+        mdlData.conn.RollbackTrans;
+      end
+    end
+    else
+    begin
+      result:=False;
+      mdlData.conn.RollbackTrans;
+    end
+  except
+    Application.MessageBox('新增数据失败，请重试。', '保存错误', 0 or MB_ICONINFORMATION);
+    mdlData.Conn.RollBackTrans;
+  end;
+
+end;
+
+
+function TFrm_QuotationItem.EditRd:bool;
+var
+ qry:TADOQuery;
+begin
+  qry:=TADOQuery.Create(Self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  mdlData.conn.BeginTrans;
+  try
+    if DelRd then  //1  主表删除
+    begin
+      result:=True;
+      if AddMain then //2  主表新增
+      begin
+        result:=True;
+        if AddList then //3  附表新增
+        begin
+          result:=True;
+          mdlData.conn.CommitTrans;
+        end
+        else
+        begin
+          result:=False;
+          mdlData.conn.RollbackTrans;
+        end
+      end
+      else
+      begin
+        result:=False;
+        mdlData.conn.RollbackTrans;
+      end
+    end
+    else
+    begin
+      result:=False;
+      mdlData.conn.RollbackTrans;
+    end
+  except
+    Application.MessageBox('保存数据失败，请重试。', '保存错误', 0 or MB_ICONINFORMATION);
+    mdlData.Conn.RollBackTrans;
+  end;
+
+end;
+
+
+
+procedure TFrm_QuotationItem.FormResize(Sender: TObject);
+begin
+  inherited;
+  Self.Caption:=UserFDepartmentName+'报价单';
+end;
+
+procedure TFrm_QuotationItem.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  inherited;
+  Action:=cafree;
+  Frm_QuotationItem:=nil;
+end;
+
+procedure TFrm_QuotationItem.TB_EXITClick(Sender: TObject);
+begin
+  inherited;
+  Self.Close;
+end;
+
+procedure TFrm_QuotationItem.TB_AppClick(Sender: TObject);
+Var qry: TADOQuery;
+    i,j:Integer;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  P_state :=0; //新增
+  mdata_Item.Close;
+  mdata_List.Close;
+
+  try
+    qry.SQL.Text:='select * from V_QuotationItem with(nolock) where FQuotationItemID=0';
+    qry.Open;
+  finally
+     ;
+  end;
+  mdata_Item.CopyFromDataSet(qry);
+  mdata_Item.Active:=True;
+  mdata_Item.Append;
+  mdata_Item.Edit;
+  mdata_Item['FISApproval']:=1;
+  mdata_Item['FQuotationType']:='报价单';
+  mdata_Item.Post;
+
+  try
+    qry.SQL.Text:='select * from V_QuotationList with(nolock) where FQuotationItemID=0';
+    qry.Open;
+  finally
+     ;
+  end;
+  mdata_List.CopyFromDataSet(qry);
+ { for i:=1 to 5 do
+  begin
+    mdata_List.Append;
+    mdata_List['FApprovalStuffID']:=0;
+    mdata_List['FTakeGBT']:='';
+    mdata_List['FTakemc']:='';
+    mdata_List['FTakegg']:='';
+    mdata_List['FTakedw']:='';
+    mdata_List.Post;
+  end;  }
+
+  Act_Set_Open_M.Execute;
+
+end;
+
+procedure TFrm_QuotationItem.TB_DelClick(Sender: TObject);
+var
+  qry:TADOQuery;
+begin
+  qry:=TAdoQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+{  try
+    qry.SQL.Text:='select * from T_PlanWeek with(nolock) where FFileItemID=:FFileItemID and FAgentID=:FAgentID';
+    qry.Parameters.FindParam('FFileItemID').value:=MData_PTItem['FFileItemID'];
+    qry.Parameters.FindParam('FAgentID').value:=UserFDepartmentID;
+    qry.Open;
+  finally
+     ;
+  end;
+  If qry.RecordCount>0 then
+  begin
+    application.MessageBox('此项目已生成生产周报不允许删除！','系统提示',MB_ICONINFORMATION);
+    Exit;
+  end;}
+
+  If application.MessageBox(Pchar('警告：是否删除'+P_List_PTList+'的报价单信息？'+chr(13)+chr(13)
+                                 +'删除数据操作将不可恢复，确定要删除吗？'),'警告提示',MB_ICONINFORMATION+MB_YESNO)=6 then
+  If application.MessageBox(Pchar('再次警告：是否删除：'+P_List_PTList+'的报价单信息？'+chr(13)+chr(13)
+                                 +'删除数据操作将不可恢复，确定要删除吗？'),'再次警告提示',MB_ICONINFORMATION+MB_YESNO)=6 then
+
+  mdlData.conn.BeginTrans;
+  begin
+    //单据删除
+    If not DelRd then
+    begin
+      application.MessageBox('删除单据失败！','系统提示',MB_ICONINFORMATION);
+      mdlData.conn.RollbackTrans;
+      Exit;
+    end;
+    mdlData.conn.CommitTrans;
+  end;
+  mdata_Item.Close;
+  mdata_List.Close;
+  qry.Free;
+
+end;
+
+procedure TFrm_QuotationItem.FormCreate(Sender: TObject);
+begin
+  inherited;
+  TB_App.Visible:= mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'新增');
+  P_state:=2;
+
+end;
+
+procedure TFrm_QuotationItem.MyTreeView_ItemExpanding(Sender: TObject;
+  Node: TTreeNode; var AllowExpansion: Boolean);
+var
+  P :PTree;
+  qry:TADOquery;
+
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  If (Node = nil) or
+     (PTree(Node.Data).Flag <> cNoLoadFlag) or   // 1.加载标志
+     (not Node.HasChildren) or                   // 2.未有子
+     (Node.Count>0) then                         // 3.已有子节点
+     Exit;
+  qry.SQL.Text:='Select * from VT_QuotationItem_Write with(nolock) where FParentNumber= '''
+               +PTree(Node.Data).ID+''' order by FNumber';
+  qry.open;
+
+  PTree(Node.Data).Flag := cLoadFlag;                  // 设置已加载标志
+  while not qry.Eof do
+  begin
+    New(P);
+    P.ID := qry.FieldByName('FNumber').AsString;
+    P.ParentID := qry.FieldByName('FParentNumber').AsString;
+    P.FNumber:=qry.FieldByName('FNumber').AsString;
+    P.Caption := qry.FieldByName('FName').AsString;
+    P.Isleaf := qry.FieldByName('Isleaf').Value;
+    P.Flag := cNoLoadFlag;                            // 新节点，未加载标志
+    with MyTreeView_Item.Items.AddChildObject(Node,P.Caption,P) do
+    begin
+       HasChildren :=not qry.fieldbyname('Isleaf').value;
+    end;
+    qry.Next;
+  end;
+end;
+
+procedure TFrm_QuotationItem.MyTreeView_ItemChange(Sender: TObject; Node: TTreeNode);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If Node = nil then Exit;
+  with PTree(Node.Data)^ do
+  begin
+    ListFNumber_PTList:=trim(PTree(Node.Data).FNumber);
+    P_List_PTList:=PTree(Node.Data).Caption;
+    P_Isleaf_PTList:=PTree(Node.Data).Isleaf;
+    mdata_List.DisableControls;
+    cxGV_List.DataController.DataModeController.GridMode:=True;
+    cxGV_List.DataController.DataModeController.SmartRefresh:=True;
+    If P_Isleaf_PTList>=0 then
+    begin
+      If MyItemListFieldWhere(qry,Mdata_Item,' *  ','V_QuotationItem','FFullNumber_Write',ListFNumber_PTList,' ','FFullNumber_Write') then
+         cxGvColumn(cxGv_Item,Mdata_Item);
+    end
+    else
+    begin
+      Mdata_Item.Close;
+      Mdata_List.Close;
+    end;
+   { If P_Isleaf_PTList=1 then
+    begin
+      If mData_Item['FQuotationStatus']=0 then
+      begin
+        TB_XJD.Visible:=True;
+        TB_BJD.Visible:=False;
+      end;
+      If mData_Item['FQuotationStatus']>0 then
+      begin
+        TB_XJD.Visible:=False;
+        TB_BJD.Visible:=True;
+      end;
+    end;
+    }
+    Act_Status_M.Execute;  //权限设置
+    mdata_List.EnableControls;
+    cxGV_List.DataController.DataModeController.GridMode:=False;
+    cxGV_List.DataController.DataModeController.SmartRefresh:=False;
+
+ end;
+
+end;
+
+procedure TFrm_QuotationItem.TB_RefClick(Sender: TObject);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If not TreeVeiwListWhere(qry,MyTreeView_Item,'VT_QuotationItem_Write',' and FDepartmentID='+IntToStr(UserFDepartmentID)) then
+      Application.MessageBox(PChar('树型结构显示错误，请联系系统开发人员'), '错误', MB_OK +MB_ICONSTOP);
+end;
+
+procedure TFrm_QuotationItem.FormShow(Sender: TObject);
+begin
+  inherited;
+  TB_Ref.Click;
+end;
+
+procedure TFrm_QuotationItem.OKBtn_MClick(Sender: TObject);
+var qry: TADOQuery;
+    P_FBalanceNum:String;
+    i:Integer;
+    I_index,P_FPlanWeekPartsID:Integer;
+    P_FPlanWeekPartsAdd:string;
+
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  MData_Item.open;
+  MData_Item.Edit;
+  MData_Item.Post;
+
+  if (MData_Item['FQuotationType']='') or (MData_Item['FQuotationType']=null)  then
+  begin
+    application.MessageBox('报价类型不能为空！','系统提示',MB_ICONWARNING);
+    Exit;
+  end;
+  if (MData_Item['FApprovalItemID']=0) or (MData_Item['FApprovalItemID']=null)  then
+  begin
+    application.MessageBox('评审报批表不能为空！','系统提示',MB_ICONWARNING);
+    Exit;
+  end;
+  if (MData_Item['FSupplierID']=0) or (MData_Item['FSupplierID']=null)  then
+  begin
+    application.MessageBox('供应商不能为空！','系统提示',MB_ICONWARNING);
+    Exit;
+  end;
+
+
+  mdata_List.open;
+  mdata_List.Edit;
+  mdata_List.Post;
+
+  If P_state=0 then
+  begin
+    If application.MessageBox('是否要保存添加的数据？','提示',MB_ICONINFORMATION+MB_YESNO)<>6 then
+    begin
+      CancelBtn_M.Click;
+      Exit;
+    end;
+    If AddRd then //增加数据
+    begin
+      If application.MessageBox('录入数据已保存,还要继续录入吗？','提示',MB_ICONINFORMATION+MB_YESNO)=6 then
+      begin
+        mdata_Item.Edit;
+        mdata_Item['FSupplierID']:=0;
+        mdata_Item['FSupplierName']:='';
+        mdata_Item.Post;
+      end
+      else
+      begin
+        CancelBtn_M.Click;
+        Exit;
+      end;
+    end;
+  end;
+  If P_state=1 then //修改数据
+  begin
+    If application.MessageBox('是否要保存所作修改？','提示',MB_ICONINFORMATION+MB_YESNO)<>6 then
+    begin
+      CancelBtn_M.Click;
+      Exit;
+    end;
+    If EditRd then   //修改数据
+    begin
+      application.MessageBox('修改记录已保存','系统提示',MB_ICONINFORMATION);
+      CancelBtn_M.Click;
+    end
+    else
+      application.MessageBox('修改记录保存失败！','系统提示',MB_ICONWARNING);
+  end;
+  MyTreeView_Item.Enabled:=True;
+  cxGrid_Item.Enabled:=True;
+  qry.Free;
+
+end;
+
+procedure TFrm_QuotationItem.CancelBtn_MClick(Sender: TObject);
+begin
+  inherited;
+ // If (P_state=0) and (mData_PTItem['FPlanWeekDetailID']=0 or mData_PTItem['FPlanWeekDetailID']=null ) then
+  begin
+    MData_Item.Close;
+    MData_List.Close;
+  end;
+  Act_Set_Close_M.Execute;
+end;
+
+procedure TFrm_QuotationItem.SelCancelBtnClick(Sender: TObject);
+begin
+  inherited;
+  PC_Ship.ActivePage:=TS_Ship;
+  TS_Ship.TabEnabled:=True;
+
+end;
+
+procedure TFrm_QuotationItem.TB_EditLListClick(Sender: TObject);
+var
+   AFirstColumnStyle: TcxStyle;
+begin
+  inherited;
+  P_state:=1;
+end;
+
+procedure TFrm_QuotationItem.Act_Set_Open_MExecute(Sender: TObject);
+var AFirstColumnStyle: TcxStyle;
+begin
+  inherited;
+  MyTreeView_Item.Enabled:=False;
+  RSP_CList.Enabled:=False;
+  P_Btn.Visible:=True;
+  OkBtn_M.Visible:=True;
+  CancelBtn_M.Visible:=True;
+  ToolBar_HItem.Visible:=False;
+  cxGV_Item.OptionsData.Editing:=True;
+  cxGV_List.OptionsData.Editing:=True;
+
+  FISApproval_Item.Options.Editing:=True;
+  FQuotationType_Item.Options.Editing:=True;
+  FApprovalItemNum_Item.Options.Editing:=True;
+  FPaymentType_Item.Options.Editing:=True;
+  FArrivalAddress_Item.Options.Editing:=True;
+  FArrivalDate_Item.Options.Editing:=True;
+  FLeadTime_Item.Options.Editing:=True;
+  FOfferPeriod_Item.Options.Editing:=True;
+  FSupplierName_Item.Options.Editing:=True;
+
+  FPrice_List.Options.Editing:=True;
+
+Act_FQuotationType.Execute;
+
+  If P_state<>1 then  //修改
+  begin
+    cxGV_Item.OptionsData.Editing:=True;
+    FItemNumber_Item.Options.Editing:=True;
+  end;
+
+  cxGV_List.OptionsData.Editing:=True;
+{
+    //列颜色
+  AFirstColumnStyle := TcxStyle.Create(Self);
+  AFirstColumnStyle.Color := clMenu; //底色
+  AFirstColumnStyle.TextColor := clBlue;        //字体颜色
+
+  cxGV_PTList.Columns[FMakeBOMWet_PTList.Index].Styles.Content := AFirstColumnStyle;
+  cxGV_PTList.Columns[FMakeBOMPackQry_PTList.Index].Styles.Content := AFirstColumnStyle;
+  cxGV_PTList.Columns[FTeamName_PTList.Index].Styles.Content := AFirstColumnStyle;
+  cxGV_PTList.Columns[Sel_PTList.Index].Styles.Content := AFirstColumnStyle;
+  cxGV_PTList.Columns[FPlanWeekPartsAdd_PTList.Index].Styles.Content := AFirstColumnStyle;
+ }
+end;
+
+procedure TFrm_QuotationItem.Act_Set_Close_MExecute(Sender: TObject);
+var
+   AFirstColumnStyle: TcxStyle;
+begin
+  inherited;
+     //列颜色
+  {AFirstColumnStyle := TcxStyle.Create(Self);
+  AFirstColumnStyle.Color := clWindow; //底色
+  AFirstColumnStyle.TextColor := clWindowText;        //字体颜色
+
+  cxGV_List.Columns[FMakeBOMWet_PTList.Index].Styles.Content := AFirstColumnStyle;
+  cxGV_List.Columns[FMakeBOMPackQry_PTList.Index].Styles.Content := AFirstColumnStyle;
+  cxGV_List.Columns[FTeamName_PTList.Index].Styles.Content := AFirstColumnStyle;
+  cxGV_List.Columns[Sel_PTList.Index].Styles.Content := AFirstColumnStyle;
+  cxGV_List.Columns[FPlanWeekPartsAdd_PTList.Index].Styles.Content := AFirstColumnStyle;
+  }
+  PC_Ship.Enabled:=True;
+
+  RSP_CList.Enabled:=True;
+
+  MyTreeView_Item.Enabled:=True;
+  P_Btn.Visible:=False;
+
+  cxGV_Item.OptionsData.Editing:=False;
+  cxGV_List.OptionsData.Editing:=False;
+
+
+  ToolBar_HItem.Visible:=True;
+
+
+  P_state:=2;
+
+
+end;
+
+procedure TFrm_QuotationItem.Act_MenuExecute(Sender: TObject);
+Var i:Integer;
+begin
+  //1、设置
+  If copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='取消设置' then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=False;
+    (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Filtering:=False;
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Editing:=False;
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Sorting:=False;
+    end;
+    Exit;
+  end;
+
+  //编辑
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='编辑')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=True;
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Editing:=True;
+    end;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='编辑')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=False;
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Editing:=False;
+    end;
+    Exit;
+  end;
+  //过滤
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='过滤')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsData.Editing:=True;
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Filtering:=True;
+    end;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='过滤')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Filtering:=False;
+    end;
+    Exit;
+  end;
+  //排序
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='排序')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Sorting:=True;
+    end;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='排序')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    for i:=0 to (FindComponent(GV) as TcxGridDBTableView).ColumnCount-1 do
+    begin
+      (FindComponent(GV) as TcxGridDBTableView).Columns[i].Options.Sorting:=False;
+    end;
+    Exit;
+  end;
+ // 分组
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='分组')
+     and ((FindComponent(Mn) as TMenuItem).Checked=False) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox:=True;
+    (FindComponent(Mn) as TMenuItem).Checked:=True;
+    Exit;
+  end;
+  If (copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='分组')
+     and ((FindComponent(Mn) as TMenuItem).Checked=True) then
+  begin
+    (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox:=False;
+    (FindComponent(Mn) as TMenuItem).Checked:=False;
+    Exit;
+  end;
+  //导出
+  If copy((FindComponent(Mn) as TMenuItem).Caption,1,pos('(',(FindComponent(Mn) as TMenuItem).Caption)-1)='导出' then
+  begin
+    If (FindComponent(Gm) as TdxMemData).RecordCount>0 then
+       ExportToExcel((FindComponent(Gr) as TcxGrid),True,TRue)
+    else
+       Application.MessageBox(PChar('没有需要导出的数据！'), '错误', MB_OK +MB_ICONSTOP);
+    Exit;
+  end;
+
+end;
+
+procedure TFrm_QuotationItem.Act_Menu_SetExecute(Sender: TObject);
+begin
+  inherited;
+  If (FindComponent(GV) as TcxGridDBTableView).Columns[1].Options.Filtering=True then
+     N_Filter.Checked:=True
+  else
+     N_Filter.Checked:=False;
+
+  If (FindComponent(GV) as TcxGridDBTableView).Columns[1].Options.Sorting=True then
+    N_Sort.Checked:=True
+  else
+    N_Sort.Checked:=False;
+
+  If (FindComponent(GV) as TcxGridDBTableView).OptionsView.GroupByBox=True then
+    N_Group.Checked:=True
+  else
+    N_Group.Checked:=False;
+end;
+
+procedure TFrm_QuotationItem.N_EditClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_QuotationItem.N_FilterClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_QuotationItem.N_SortClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_QuotationItem.N_GroupClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_QuotationItem.N_SetClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_QuotationItem.N_OutClick(Sender: TObject);
+begin
+  inherited;
+   Mn:=TMenuItem(Sender).Name;
+   Act_Menu.Execute;
+end;
+
+procedure TFrm_QuotationItem.Act_MaxIDExecute(Sender: TObject);
+var
+  proc:TADOStoredProc;
+begin
+  proc:=TADOStoredProc.Create(self);
+  proc.ConnectionString:=mdlData.ReadConnStr;
+  proc.CommandTimeout:=500;
+
+  try
+    proc.ProcedureName:='P_GetMaxID;1';
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@TableName';
+      value:='T_QuotationItem';
+    end;
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftInteger;
+      Direction := pdoutput;
+      size:=255;
+      name := '@FInterID';
+      value:=0;
+    end;
+    proc.ExecProc;
+    P_MaxID:=proc.Parameters.FindParam('@FInterID').Value;
+    proc.Free;
+  finally
+     ;
+  end;
+end;
+
+procedure TFrm_QuotationItem.Act_Status_MExecute(Sender: TObject);
+var
+  qry:TADOquery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  TB_Submit.Visible:=False;
+  TB_Check.Visible:=False;
+  TB_Edit.Visible:=False;
+  TB_Del.Visible:=False;
+
+  //制单者是本人
+  try
+    qry.SQL.Text:='Select distinct FQuotationStatus,FQuotationWriteID from V_QuotationItem with(nolock) '
+                 +'where FDepartmentID=:FDepartmentID and FFullNumber_Write like :FFullNumber_Write';
+    qry.Parameters.FindParam('FDepartmentID').value:= UserFDepartmentID;
+    qry.Parameters.FindParam('FFullNumber_Write').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+   //制单者是本人
+
+  If (qry.RecordCount=1) and (qry.FieldByName('FQuotationStatus').AsInteger=0)
+      and (qry.FieldByName('FQuotationWriteID').AsInteger=UserNumID) then
+  begin
+    If mdata_Item.RecordCount=0 then
+    begin
+      TB_Del.Visible:=False;
+      TB_Submit.Visible:=False;
+    end;
+    If mdata_Item.RecordCount>0 then
+    begin
+      TB_Submit.Visible:=mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'提交');
+      TB_Submit.Caption:='批量提交';
+      TB_Del.Visible:=False;
+    end;
+    If mdata_Item.RecordCount=1 then
+    begin
+      TB_Edit.Visible:=mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'修改');
+      TB_Del.Visible:=mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'删除');
+      TB_Submit.Visible:=mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'提交');
+      TB_Submit.Caption:='提交';
+    end;
+    Exit;
+  end;
+
+   //提交者是本人
+  If (qry.RecordCount=1) and (qry.FieldByName('FQuotationStatus').AsInteger=1)
+     and (qry.FieldByName('FQuotationWriteID').AsInteger=UserNumID) then
+  begin
+    TB_Submit.Visible:=mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'提交');
+    If mdata_Item.RecordCount=0 then
+       TB_Submit.Visible:=False;
+    If mdata_Item.RecordCount>0 then
+    begin
+      TB_Submit.Caption:='批量提交撤回';
+      TB_Check.Visible:=mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'校对');
+      TB_Check.Caption:='批量校对';
+    end;
+    If mdata_Item.RecordCount=1 then
+    begin
+      TB_Submit.Caption:='提交撤回';
+      TB_Check.Visible:=mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'校对');
+      TB_Check.Caption:='校对';
+    end;
+    TB_Edit.Visible:=False;
+    TB_Del.Visible:=False;
+    Exit;
+  end;
+
+   //校对
+  try
+    qry.SQL.Text:='Select distinct FQuotationStatus from V_QuotationItem with(nolock) where FDepartmentID=:FDepartmentID and FFullNumber_Write like :FFullNumber_Write';
+    qry.Parameters.FindParam('FDepartmentID').value:= UserFDepartmentID;
+    qry.Parameters.FindParam('FFullNumber_Write').value:=ListFNumber_PTList+'%';
+    qry.Open;
+  finally
+    ;
+  end;
+  If (qry.RecordCount>1)  then
+     Exit;
+  If (qry.RecordCount=1) and (qry.FieldByName('FQuotationStatus').AsInteger=1) then
+  begin
+    If mdata_Item.RecordCount=0 then
+    begin
+      TB_Check.Visible:=False;
+    end;
+    If mdata_Item.RecordCount>0 then
+    begin
+      TB_Check.Visible:=mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'校对');
+      TB_Check.Caption:='批量校对';
+    end;
+    If mdata_Item.RecordCount=1 then
+    begin
+      TB_Check.Visible:=mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'校对');
+      TB_Check.Caption:='校对';
+    end;
+    Exit;
+  end;
+
+
+  If (qry.RecordCount=1) and (qry.FieldByName('FQuotationStatus').AsInteger=2) then
+  begin
+    TB_Check.Visible:=mdlData.CheckFrmRights(TFrm_QuotationItem.ClassName,'校对');
+    If mdata_Item.RecordCount=0 then
+       TB_Check.Visible:=False;
+    If mdata_Item.RecordCount>0 then
+       TB_Check.Caption:='批量校对撤回';
+    If mdata_Item.RecordCount=1 then
+       TB_Check.Caption:='校对撤回';
+    Exit;
+  end;
+end;
+
+procedure TFrm_QuotationItem.cxGrid_ItemContextPopup(Sender: TObject;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+  inherited;
+  GV:='cxGV_Item';
+  Gm:='mdata_Item';
+  Gr:='cxGrid_Item';
+  Act_Menu_Set.Execute;
+end;
+
+procedure TFrm_QuotationItem.cxGV_ListCustomDrawCell(
+  Sender: TcxCustomGridTableView; ACanvas: TcxCanvas;
+  AViewInfo: TcxGridTableDataCellViewInfo; var ADone: Boolean);
+begin
+  inherited;
+ { If P_state<>2   then
+     Exit;
+  If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakePartsPercent_PTList.Index])=Null)
+     or (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipPartsPercent_PTList.Index])=Null) then
+     Exit;
+
+  If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakePartsPercent_PTList.Index])=100) then
+  begin
+    //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+    ACanvas.Canvas.Font.Color:=clBlue; //字体颜色
+    ACanvas.FillRect(AViewInfo.Bounds);
+  end;
+  If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakePartsPercent_PTList.Index])=100)
+     and (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipPartsPercent_PTList.Index])=100) then
+  begin
+    //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+    ACanvas.Canvas.Font.Color:=clGreen; //字体颜色
+    ACanvas.FillRect(AViewInfo.Bounds);
+  end;
+
+  If StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakePartsPercent_PTList.Index])<StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipPartsPercent_PTList.Index]) then
+  begin
+    //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+    ACanvas.Canvas.Font.Color:=clRed; //字体颜色
+    ACanvas.FillRect(AViewInfo.Bounds);
+  end;
+
+  If (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakePartsPercent_PTList.Index])>100)
+     or (StrToFloat(AViewInfo.GridRecord.DisplayTexts[FShipPartsPercent_PTList.Index])>100) then
+  begin
+    //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+    ACanvas.Canvas.Font.Color:=clRed; //字体颜色
+    ACanvas.FillRect(AViewInfo.Bounds);
+  end;
+
+  If StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakeBOMPackQry_PTList.Index])
+     <StrToFloat(AViewInfo.GridRecord.DisplayTexts[FMakeShipQry_PTList.Index]) then
+  begin
+    //ACanvas.Canvas.brush.Color := clInactiveCaptionText;     //设置行颜色
+    ACanvas.Canvas.Font.Color:=clRed; //字体颜色
+    ACanvas.FillRect(AViewInfo.Bounds);
+  end; }
+end;
+
+procedure TFrm_QuotationItem.MData_ListBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+  If DataSet['FTakeSumQry']=Null then
+     DataSet['FTakeSumQry']:=0;
+  If DataSet['FPrice']=Null then
+     DataSet['FPrice']:=0;
+  DataSet['FTotalAmount']:=round(DataSet['FTakeSumQry']*DataSet['FPrice']*100)/100;
+end;
+
+procedure TFrm_QuotationItem.cxGV_ItemFocusedRecordChanged(
+  Sender: TcxCustomGridTableView; APrevFocusedRecord,
+  AFocusedRecord: TcxCustomGridRecord;
+  ANewItemRecordFocusingChanged: Boolean);
+var qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  If  P_state=2 then   //不在新增修改状态
+  begin
+    begin
+      If (mData_Item['FQuotationItemID']<>0) and (mData_Item['FQuotationItemID']<>Null) then
+      begin
+        Act_Status_M.Execute;  //权限设置
+        If MyItemListID(qry,Mdata_List,'V_QuotationList',' FQuotationItemID='+IntToStr(mData_Item['FQuotationItemID']),'FFullNumber',) then
+      end;
+    end;
+    If mData_Item['FQuotationStatus']=0 then
+    begin
+      TB_XJD.Visible:=True;
+      TB_BJD.Visible:=False;
+    end;
+    If mData_Item['FQuotationStatus']>0 then
+    begin
+      TB_XJD.Visible:=False;
+      TB_BJD.Visible:=True;
+    end;
+
+  end;
+end;
+
+procedure TFrm_QuotationItem.Act_CheckExecute(Sender: TObject);
+var
+ qry:TADOquery;
+begin
+  qry:=TAdoQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  P_state:=3;
+  If (TB_Check.Caption='校对') or (TB_Check.Caption='批量校对') then
+  begin
+    If application.MessageBox(Pchar('系统提示：是否对周报明细：'+P_List_PTList+'的单据进行校对？'+chr(13)+chr(13)
+                                   +'确定要校对对本单据吗？'),'系统提示',MB_ICONINFORMATION+MB_YESNO)=6 then
+    begin
+      MData_Item.First;
+      while not MData_Item.eof do
+      begin
+        try
+          qry.SQL.Text:='Update T_QuotationItem Set FQuotationStatus=2,FQuotationSubmitDate=:FQuotationSubmitDate '
+                       +' where FQuotationItemID=:FQuotationItemID';
+          qry.Parameters.FindParam('FQuotationSubmitDate').value:= now();
+          qry.Parameters.FindParam('FQuotationItemID').value:=MData_Item['FQuotationItemID'];
+          qry.ExecSQL;
+        finally
+          ;
+        end;
+        MData_Item.Edit;
+        MData_Item['FQuotationStatus']:=2;
+        MData_Item['FQuotationStatus']:='校对';
+        MData_Item['FQuotationSubmitDate']:=now();
+        MData_Item.Post;
+        MData_Item.Next;
+      end;
+      If MData_Item.RecordCount=1 then
+      begin
+        application.MessageBox('校对完毕！','系统提示',MB_ICONINFORMATION);
+        TB_Check.Caption:='校对撤回';
+      end;
+      If MData_Item.RecordCount>1 then
+      begin
+        application.MessageBox('批量校对完毕！','系统提示',MB_ICONINFORMATION);
+        TB_Check.Caption:='批量校对撤回';
+      end;
+      Act_Status_M.Execute;  //权限设置
+    end;
+    P_state:=2;
+    Exit;
+  end;
+  If (TB_Check.Caption='校对撤回') or (TB_Check.Caption='批量校对撤回')  then
+  begin
+    If application.MessageBox(Pchar('系统提示：是否对周报明细：'+P_List_PTList+'的单据进行校对撤回？'+chr(13)+chr(13)
+                                     +'确定要对本单据校对撤回吗？'),'系统提示',MB_ICONINFORMATION+MB_YESNO)=6 then
+    begin
+      MData_Item.First;
+      while not MData_Item.eof do
+      begin
+        try
+          qry.SQL.Text:='Update T_QuotationItem Set FQuotationStatus=1,FQuotationSubmitDate=:FQuotationSubmitDate '
+                       +'where FQuotationItemID=:FQuotationItemID';
+          qry.Parameters.FindParam('FQuotationSubmitDate').value:= Null;
+          qry.Parameters.FindParam('FQuotationItemID').value:= MData_Item['FQuotationItemID'];
+          qry.ExecSQL;
+        finally
+          ;
+        end;
+        MData_Item.Edit;
+        MData_Item['FQuotationStatus']:=1;
+        MData_Item['FQuotationStatusNotes']:='提交';
+        MData_Item['FQuotationSubmitDate']:=Null;
+        MData_Item.Post;
+        MData_Item.Next;
+      end;
+      If MData_Item.RecordCount=1 then
+      begin
+        application.MessageBox('校对撤回完毕！','系统提示',MB_ICONINFORMATION);
+        TB_Check.Caption:='校对';
+      end;
+      If MData_Item.RecordCount>1 then
+      begin
+        application.MessageBox('批量校对撤回完毕！','系统提示',MB_ICONINFORMATION);
+        TB_Check.Caption:='批量校对';
+      end;
+      Act_Status_M.Execute;  //权限设置
+    end;
+    P_state:=2;
+    Exit;
+  end;
+end;
+
+procedure TFrm_QuotationItem.Act_SubmitExecute(Sender: TObject);
+var
+ qry:TADOquery;
+begin
+  qry:=TAdoQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  P_state:=3;
+  If (TB_Submit.Caption='提交') or (TB_Submit.Caption='批量提交') then
+  begin
+    If application.MessageBox(Pchar('系统提示：是否对周报明细：'+P_List_PTList+'的单据进行提交？'+chr(13)+chr(13)
+                                   +'确定要提交对本单据吗？'),'系统提示',MB_ICONINFORMATION+MB_YESNO)=6 then
+    begin
+      MData_Item.First;
+      while not MData_Item.eof do
+      begin
+        try
+          qry.SQL.Text:='Update T_QuotationItem Set FQuotationStatus=1,FQuotationSubmitDate=:FQuotationSubmitDate  where FQuotationItemID=:FQuotationItemID';
+          qry.Parameters.FindParam('FQuotationSubmitDate').value:= now();
+          qry.Parameters.FindParam('FQuotationItemID').value:=MData_Item['FQuotationItemID'];
+          qry.ExecSQL;
+        finally
+          ;
+        end;
+        MData_Item.Edit;
+        MData_Item['FQuotationStatus']:=1;
+        MData_Item['FQuotationStatusNotes']:='提交';
+        MData_Item['FQuotationSubmitDate']:=now();
+        MData_Item.Post;
+        MData_Item.Next;
+      end;
+      If MData_Item.RecordCount=1 then
+      begin
+        application.MessageBox('提交完毕！','系统提示',MB_ICONINFORMATION);
+        TB_Submit.Caption:='提交撤回';
+      end;
+      If MData_Item.RecordCount>1 then
+      begin
+        application.MessageBox('批量提交完毕！','系统提示',MB_ICONINFORMATION);
+        TB_Submit.Caption:='批量提交撤回';
+      end;
+    end;
+    P_state:=2;
+    Exit;
+  end;
+  If (TB_Submit.Caption='提交撤回') or (TB_Submit.Caption='批量提交撤回')  then
+  begin
+    If application.MessageBox(Pchar('系统提示：是否对周报明细：'+P_List_PTList+'的单据进行提交撤回？'+chr(13)+chr(13)
+                                     +'确定要对本单据提交撤回吗？'),'系统提示',MB_ICONINFORMATION+MB_YESNO)=6 then
+    begin
+      MData_Item.First;
+      while not MData_Item.eof do
+      begin
+        try
+          qry.SQL.Text:='Update T_QuotationItem Set FQuotationStatus=0,FQuotationSubmitDate=:FQuotationSubmitDate where FQuotationItemID=:FQuotationItemID';
+          qry.Parameters.FindParam('FQuotationSubmitDate').value:= Null;
+          qry.Parameters.FindParam('FQuotationItemID').value:= MData_Item['FQuotationItemID'];
+          qry.ExecSQL;
+        finally
+          ;
+        end;
+        MData_Item.Edit;
+        MData_Item['FQuotationStatus']:=0;
+        MData_Item['FQuotationStatusNotes']:='填单';
+        MData_Item['FQuotationSubmitDate']:=Null;
+        MData_Item.Post;
+        MData_Item.Next;
+      end;
+      If MData_Item.RecordCount=1 then
+      begin
+        application.MessageBox('提交撤回完毕！','系统提示',MB_ICONINFORMATION);
+        TB_Submit.Caption:='提交';
+      end;
+      If MData_Item.RecordCount>1 then
+      begin
+        application.MessageBox('批量提交撤回完毕！','系统提示',MB_ICONINFORMATION);
+        TB_Submit.Caption:='批量提交';
+      end;
+    end;
+    P_state:=2;
+    Exit;
+  end;
+end;
+
+procedure TFrm_QuotationItem.TB_EditClick(Sender: TObject);
+begin
+  inherited;
+  P_state :=1;
+  Act_Set_Open_M.Execute;
+  L_title.Caption:=UserFDepartmentName+'报价单修改';
+end;
+
+procedure TFrm_QuotationItem.FQuotationStuffName_ListPropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  mData_List.Edit;
+  mData_List.Post;
+  If mData_List['FTakemc']=Null then
+  begin
+    mData_List.Edit;
+    mData_List['FTakemc']:='';
+    mData_List.Post;
+  end;
+  try
+    qry.SQL.Text:='select * from  V_ApprovalStuff with(nolock) '
+                 +' where FDepartmentID=:FDepartmentID and FTakemc like :FTakemc order by FApprovalStuffNumber ';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FTakemc').value:='%'+mData_List['FTakemc']+'%';
+    qry.Open;
+  finally
+   ;
+  end;
+
+  selValue:=select('选择供货品名','FApprovalStuffNumber','FApprovalStuffParentNumber','FApprovalStuffNumber','FTakeGBT;FTakemc;FTakegg;FTakedw',qry);
+  If (Length(selValue)>0) then
+  begin
+    mData_List.Edit;
+    mData_List['FApprovalStuffID']:=qry.FieldByName('FApprovalStuffID').Value;
+    mData_List['FTakeGBT']:=qry.FieldByName('FTakeGBT').Value;
+    mData_List['FTakemc']:=qry.FieldByName('FTakemc').Value;
+    mData_List['FTakegg']:=qry.FieldByName('FTakegg').Value;
+    mData_List['FTakedw']:=qry.FieldByName('FTakedw').Value;
+    mData_List['FApprovalStuffRemak']:=qry.FieldByName('FApprovalStuffRemak').Value;
+    mData_List.Post;
+  end;
+end;
+
+procedure TFrm_QuotationItem.FSupplierName_ItemPropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  mData_Item.Edit;
+  mData_Item.Post;
+  If mData_Item['FSupplierName']=Null then
+  begin
+    mData_Item.Edit;
+    mData_Item['FSupplierName']:='';
+    mData_Item.Post;
+  end;
+  try
+    qry.SQL.Text:='select * from  V_SupplierProductList with(nolock) '
+                 +' where FDepartmentID=:FDepartmentID and FApprovalStuffSortID=:FApprovalStuffSortID '
+                 +' and FSupplierID not in (select distinct FSupplierID from T_QuotationItem where FApprovalItemID=:FApprovalItemID ) '
+                 +' order by FSupplierName ';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FApprovalStuffSortID').value:=mData_Item['FApprovalStuffSortID'];
+    qry.Parameters.FindParam('FApprovalItemID').value:=mData_Item['FApprovalItemID'];
+    qry.Open;
+  finally
+   ;
+  end;
+
+  selValue:=select('选择供应商名称','FSupplierName','FSupplierName','FSupplierName','FSupplierName',qry);
+  If (Length(selValue)>0) then
+  begin
+    mData_Item.Edit;
+    mData_Item['FSupplierID']:=qry.FieldByName('FSupplierID').Value;
+    mData_Item['FSupplierName']:=qry.FieldByName('FSupplierName').Value;
+    mData_Item.Post;
+  end;
+end;
+
+procedure TFrm_QuotationItem.Act_MaxNumExecute(Sender: TObject);
+var
+  proc:TADOStoredProc;
+begin
+  proc:=TADOStoredProc.Create(self);
+  proc.ConnectionString:=mdlData.ReadConnStr;
+  proc.CommandTimeout:=500;
+
+  try
+    proc.ProcedureName:='P_GetDateMaxNum;1';
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@TableDate';
+      value:=Date();
+    end;
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@TableName';
+      value:='T_QuotationItem';
+    end;
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@DateFiled';
+      value:='FQuotationDate';
+    end;
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@NumFiled';
+      value:='FQuotationNo';
+    end;
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdinput;
+      size:=20;
+      name := '@FDepartmentFiled';
+      value:='FDepartmentID';
+    end;
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftInteger;
+      Direction := pdinput;
+      size:=20;
+      name := '@FDepartmentID';
+      value:=UserFDepartmentID;
+    end;
+
+    with proc.Parameters.AddParameter do
+    begin
+      DataType := ftString;
+      Direction := pdoutput;
+      size:=255;
+      name := '@FInterID';
+      value:=0;
+    end;
+    proc.ExecProc;
+    P_MaxNUm:=proc.Parameters.FindParam('@FInterID').Value;
+    proc.Free;
+  finally
+     ;
+  end;
+end;
+
+procedure TFrm_QuotationItem.FPaymentType_ItemPropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  mData_Item.Edit;
+  mData_Item.Post;
+  If mData_Item['FPaymentType']=Null then
+  begin
+    mData_Item.Edit;
+    mData_Item['FPaymentType']:='';
+    mData_Item.Post;
+  end;
+  try
+    qry.SQL.Text:='select * from  V_QuotationItem with(nolock) '
+                 +' where FDepartmentID=:FDepartmentID and FPaymentType like :FPaymentType order by FPaymentType ';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FPaymentType').value:='%'+mData_Item['FPaymentType']+'%';
+    qry.Open;
+  finally
+   ;
+  end;
+  If qry.RecordCount=1 then
+  begin
+    mData_Item.Edit;
+    mData_Item['FPaymentType']:=qry.FieldByName('FPaymentType').Value;
+    mData_Item.Post;
+    Exit;
+  end
+  else
+  begin
+    selValue:=select('选择付款方式','FPaymentType','FPaymentType','FPaymentType','FPaymentType',qry);
+    If (Length(selValue)>0) then
+    begin
+      mData_Item.Edit;
+      mData_Item['FPaymentType']:=qry.FieldByName('FPaymentType').Value;
+      mData_Item.Post;
+    end;
+  end;
+end;
+
+procedure TFrm_QuotationItem.FArrivalAddress_ItemPropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  mData_Item.Edit;
+  mData_Item.Post;
+  If mData_Item['FArrivalAddress']=Null then
+  begin
+    mData_Item.Edit;
+    mData_Item['FArrivalAddress']:='';
+    mData_Item.Post;
+  end;
+  try
+    qry.SQL.Text:='select * from  V_QuotationItem with(nolock) '
+                 +' where FDepartmentID=:FDepartmentID and FArrivalAddress like :FArrivalAddress order by FArrivalAddress ';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FArrivalAddress').value:='%'+mData_Item['FArrivalAddress']+'%';
+    qry.Open;
+  finally
+   ;
+  end;
+
+  If qry.RecordCount=1 then
+  begin
+    mData_Item.Edit;
+    mData_Item['FArrivalAddress']:=qry.FieldByName('FArrivalAddress').Value;
+    mData_Item.Post;
+    Exit;
+  end
+  else
+  begin
+    selValue:=select('选择到货地址','FArrivalAddress','FArrivalAddress','FArrivalAddress','FArrivalAddress',qry);
+    If (Length(selValue)>0) then
+    begin
+      mData_Item.Edit;
+      mData_Item['FArrivalAddress']:=qry.FieldByName('FArrivalAddress').Value;
+      mData_Item.Post;
+    end;
+  end;
+end;
+
+procedure TFrm_QuotationItem.FLeadTime_ItemPropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  mData_Item.Edit;
+  mData_Item.Post;
+  If mData_Item['FLeadTime']=Null then
+  begin
+    mData_Item.Edit;
+    mData_Item['FLeadTime']:='';
+    mData_Item.Post;
+  end;
+  try
+    qry.SQL.Text:='select * from  V_QuotationItem with(nolock) '
+                 +' where FDepartmentID=:FDepartmentID and FLeadTime like :FLeadTime order by FLeadTime ';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FLeadTime').value:='%'+mData_Item['FLeadTime']+'%';
+    qry.Open;
+  finally
+   ;
+  end;
+
+  If qry.RecordCount=1 then
+  begin
+    mData_Item.Edit;
+    mData_Item['FLeadTime']:=qry.FieldByName('FLeadTime').Value;
+    mData_Item.Post;
+    Exit;
+  end
+  else
+  begin
+    selValue:=select('选择供货周期','FLeadTime','FLeadTime','FLeadTime','FLeadTime',qry);
+    If (Length(selValue)>0) then
+    begin
+      mData_Item.Edit;
+      mData_Item['FLeadTime']:=qry.FieldByName('FLeadTime').Value;
+      mData_Item.Post;
+    end;
+  end;
+end;
+
+procedure TFrm_QuotationItem.FOfferPeriod_ItemPropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+var selValue : string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  mData_Item.Edit;
+  mData_Item.Post;
+  If mData_Item['FOfferPeriod']=Null then
+  begin
+    mData_Item.Edit;
+    mData_Item['FOfferPeriod']:='';
+    mData_Item.Post;
+  end;
+  try
+    qry.SQL.Text:='select * from  V_QuotationItem with(nolock) '
+                 +' where FDepartmentID=:FDepartmentID and FOfferPeriod like :FOfferPeriod order by FOfferPeriod ';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FOfferPeriod').value:='%'+mData_Item['FOfferPeriod']+'%';
+    qry.Open;
+  finally
+   ;
+  end;
+
+  If qry.RecordCount=1 then
+  begin
+    mData_Item.Edit;
+    mData_Item['FOfferPeriod']:=qry.FieldByName('FOfferPeriod').Value;
+    mData_Item.Post;
+    Exit;
+  end
+  else
+  begin
+    selValue:=select('选择报价有效期','FOfferPeriod','FOfferPeriod','FOfferPeriod','FOfferPeriod',qry);
+    If (Length(selValue)>0) then
+    begin
+      mData_Item.Edit;
+      mData_Item['FOfferPeriod']:=qry.FieldByName('FOfferPeriod').Value;
+      mData_Item.Post;
+    end;
+  end;
+end;
+
+procedure TFrm_QuotationItem.TB_XJDClick(Sender: TObject);
+var
+  Query_Sp:TADOStoredProc;
+  i,h,k,s,n,ReNum,ReNumLoop,R_Count,ReNumH:Integer;
+  ExcelApp,MyWorkBook,mysheet,vLastSheet: Variant;
+  filepath,savefilepath,Sqlstr,copystart,copyend,copystart1,aa,copystart_H,copyend_H,copystart1_H:string;
+  RepSpace:String;//合并单元格
+  ListQry:Tadoquery;
+  qry,qry1:TADOquery;
+begin
+  qry:=TAdoQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  qry1:=TAdoQuery.Create(self);
+  qry1.ConnectionString:=mdlData.ReadConnStr;
+
+
+  filepath:=Extractfilepath(application.ExeName)+'电袋询价单模版.xls';
+  if (MData_Item.Active) and (MData_Item.recordcount>0) then
+  Begin
+    SaveDialog1.FileName:=UserFDepartmentShortName+'电袋询价单('+MData_Item['FQuotationNum']+')';
+    SaveDialog1.Filter:='.xls';
+    SaveDialog1.Execute;
+
+    if (MData_Item.FieldByName('FQuotationNum').AsString<>'') Or (MData_Item.FieldByName('FQuotationNum').AsString<>Null) then
+        savefilepath:=SaveDialog1.FileName+'.xls';
+
+    if FileExists(savefilepath) then
+    begin
+      DeleteFile(savefilepath) ;
+    end;
+    stbMsg.Caption:='提示信息：正在导出电袋询价单:'+'【'+MData_Item.FieldByName('FQuotationNum').AsString+'】';
+    stbBar.Refresh;
+
+    ExcelApp:= CreateOleObject('Excel.Application' );
+    ExcelApp.DisplayAlerts:=False;                  //不显示提示框
+    MyWorkBook:=ExcelApp.WorkBooks.Open( filepath );   //打开模版
+    //ExcelApp.Visible:=True;
+
+    try
+      qry.SQL.Text:='select distinct FQuotationNum from V_QuotationItem with(nolock) where FDepartMentID=:FDepartMentID and FQuotationNum=:FQuotationNum';
+      qry.Parameters.FindParam('FDepartMentID').value:=UserFDepartmentID;
+      qry.Parameters.FindParam('FQuotationNum').value:=MData_Item['FQuotationNum'];
+      qry.Open;
+    finally
+      ;
+    end;
+
+    If qry.RecordCount>0 then
+       k:=2
+    else
+       Exit;
+
+   qry.First;
+   while not qry.eof do
+   begin
+     try
+       qry1.SQL.Text:='Select * from V_QuotationList as a with(nolock) where FDepartMentID=:FDepartMentID and FQuotationNum=:FQuotationNum ';
+       qry1.Parameters.FindParam('FDepartMentID').value:=UserFDepartmentID;
+       qry1.Parameters.FindParam('FQuotationNum').value:=MData_Item['FQuotationNum'];
+       qry1.Open;
+     finally
+       ;
+     end;
+     if qry1.RecordCount>0 then
+     begin
+       mdata_List.Close;
+       mdata_List.CopyFromDataSet(qry1);
+     end;
+     vLastSheet:=MyWorkBook.Sheets[MyWorkBook.Sheets.Count];
+     MyWorkBook.Sheets[1].Copy(EmptyParam,vLastSheet);
+     MyWorkBook.WorkSheets[k].Name:=IntToStr(k)+mdata_Item['FQuotationNum'];
+     MyWorkBook.WorkSheets[k].Activate;
+
+
+      //标题
+      //MyWorkBook.WorkSheets[k].Cells[1,1].Value:=AnsiReplaceStr(MyWorkBook.WorkSheets[k].Cells[1,1].Value,'A',UserFDepartmentName); //公司名称
+
+      //MyWorkBook.WorkSheets[k].Cells[8,3].Value := '【'+Trim(mdata_PTItem.FieldByName('FPlanYearWeek').AsString)+'】周【'+Trim(mdata_PTItem.FieldByName('FPlanDateExtent').AsString)+'】';
+
+
+
+     MyWorkBook.WorkSheets[k].Cells[4,8].Value:=mdata_Item.FieldByName('FQuotationWrite').AsString; //联系人
+     MyWorkBook.WorkSheets[k].Cells[5,8].Value:=mdata_Item.FieldByName('Outsidephone').AsString; //电话
+     MyWorkBook.WorkSheets[k].Cells[6,8].Value:=mdata_Item.FieldByName('FFax').AsString; //传真
+     MyWorkBook.WorkSheets[k].Cells[7,8].Value:=mdata_Item.FieldByName('FMail').AsString; //邮件
+
+
+     MyWorkBook.WorkSheets[k].Cells[8,3].Value:=mdata_Item.FieldByName('FClientShortName').AsString; //项目名称
+     MyWorkBook.WorkSheets[k].Cells[8,8].Value:=mdata_Item.FieldByName('FPaymentType').AsString; //付款方式
+     MyWorkBook.WorkSheets[k].Cells[9,3].Value:=mdata_Item.FieldByName('FArrivalAddress').AsString; //到货地址
+     MyWorkBook.WorkSheets[k].Cells[9,8].Value:=mdata_Item.FieldByName('FArrivalDate').AsString; //到货时间
+     MyWorkBook.WorkSheets[k].Cells[10,3].Value:=mdata_Item.FieldByName('FOfferPeriod').AsString; //报价有效期
+     MyWorkBook.WorkSheets[k].Cells[10,8].Value:=mdata_Item.FieldByName('FLeadTime').AsString; //供货周期
+     MyWorkBook.WorkSheets[k].Cells[11,8].Value:=mdata_Item.FieldByName('FQuotationDate').AsString; //报价时间
+
+
+     //循环行开始
+      i:=13;
+
+       //工作薄名称
+      MyWorkBook.WorkSheets[k].Name:=mdata_Item.FieldByName('FQuotationNum').AsString;
+      copystart:='A'+IntToStr(i);
+      if mdata_List.recordcount>0 then
+      Begin
+        if mdata_List.recordcount>1 then
+        Begin
+          copystart:='A'+IntToStr(i);
+          copystart1:='A'+IntToStr(i+1);
+          copyend:='J'+IntToStr(i);  //区域  A:J
+          ReNum:=mdata_List.recordcount-1;//记录个数
+          while ReNum>0 do
+          Begin
+            ExcelApp.ActiveSheet.Range[copystart+':'+copyend].Copy;
+            ExcelApp.ActiveSheet.Rows[i+1].Insert;
+            ExcelApp.ActiveSheet.Range[copystart1].PasteSpecial;
+            Renum:=Renum-1;
+          end;
+        end
+        else
+        Begin
+          R_Count:=mdata_List.recordcount;
+        end;
+        mdata_List.first;
+        while not mdata_List.eof do
+        Begin
+          MyWorkBook.WorkSheets[k].Cells[i,1].Value := i-13+1;
+          MyWorkBook.WorkSheets[k].Cells[i,2].Value := mdata_List.FieldByName('FTakemc').AsString+mdata_List.FieldByName('FTakeGBT').AsString;
+          MyWorkBook.WorkSheets[k].Cells[i,5].Value := mdata_List.FieldByName('FTakegg').AsString;
+          MyWorkBook.WorkSheets[k].Cells[i,6].Value := mdata_List.FieldByName('FTakedw').AsString;
+          MyWorkBook.WorkSheets[k].Cells[i,7].Value := mdata_List.FieldByName('FTakeSumQry').AsString;
+          MyWorkBook.WorkSheets[k].Cells[i,8].Value := mdata_List.FieldByName('FPrice').AsString;
+          MyWorkBook.WorkSheets[k].Cells[i,9].Value := mdata_List.FieldByName('FTotalAmount').AsString;
+          mdata_List.next;
+          i:=i+1;
+        end;
+        //合计
+        MyWorkBook.WorkSheets[k].Cells[i,9].Value := '=SUM(I14:I'+IntToStr(i-1)+')'; //合计重量
+        ExcelApp.Rows[i+1].RowHeight:=140;    //说明行固定行高
+      end;
+
+        //合并循环行开始
+      try
+        qry1.SQL.Text:='Select FDepartmentID,FItemID,count(*) as n from V_QuotationList with(nolock) '
+                      +' where FDepartmentID=:FDepartmentID and FItemID=:FItemID '
+                      +' group by FDepartmentID,FItemID '
+                      +' order by FDepartmentID,FItemID ' ;
+        qry1.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+        qry1.Parameters.FindParam('FItemID').value:=mdata_Item['FItemID'];
+        qry1.Open;
+      finally
+        ;
+      end;
+      If qry1.RecordCount>0 then
+      begin
+        qry1.First;
+        i:=13;
+        h:=1;
+        while not qry1.eof do
+        begin
+          //合并单元格
+        {  n:=qry1.FieldByName('n').Value;
+          RepSpace:=GetRepRange(i,10)+':'+GetRepRange(i+n-1,10);
+          ExcelApp.Range[RepSpace].Select;
+          ExcelApp.Selection.Merge;
+          }
+           //加边框线
+          RepSpace:=GetRepRange(i,10)+':'+GetRepRange(i+n-1,10);
+          ExcelApp.ActiveSheet.Range[RepSpace].Borders.LineStyle:=1;
+          qry1.Next;
+          i:=i+n;
+          h:=h+1;
+        end;
+      end;
+
+      //加边框线
+        RepSpace:=GetRepRange(i,10)+':'+GetRepRange(i,10);
+        ExcelApp.ActiveSheet.Range[RepSpace].Borders.LineStyle:=1;
+
+      qry.Next ;
+      ExcelApp.Visible:=True;
+      MyWorkBook.WorkSheets[k].PrintPreview;  //打印
+      k:=k+1;
+    end;
+    MyWorkBook.WorkSheets[1].delete; //删除模版
+    stbMsg.Caption:='提示信息：电袋询价单:'+'【'+mdata_Item.FieldByName('FQuotationNum').AsString+'】的信息导出完成!';
+    stbBar.Refresh;
+    MyWorkBook.saveas(savefilepath);
+    MyWorkBook.Close;
+    ExcelApp.Quit;
+    ExcelApp:=Unassigned;
+  end
+  else
+  Begin
+    Application.MessageBox(PChar('没有可导出的数据，请重新选择'), '数据引出错误', MB_OK + MB_ICONSTOP);
+    Exit;
+  End;
+end;
+
+procedure TFrm_QuotationItem.FApprovalItemNum_ItemPropertiesButtonClick(
+  Sender: TObject; AButtonIndex: Integer);
+var selValue: string;
+    qry: TADOQuery;
+begin
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  mData_Item.Edit;
+  mData_Item.Post;
+  If mData_Item['FApprovalItemNum']=Null then
+  begin
+    mData_Item.Edit;
+    mData_Item['FApprovalItemNum']:='';
+    mData_Item.Post;
+  end;
+  try
+    qry.SQL.Text:='select * from  VT_ApprovalItem with(nolock) '
+                 +' where FDepartmentID=:FDepartmentID  ';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Open;
+  finally
+   ;
+  end;
+  selValue:=select('选择审报批单号','FNumber','FParentNumber','FNumber','FName',qry);
+  If (Length(selValue)>0)  and (qry.FieldByName('Isleaf').Value<>0) then
+  begin
+    mData_Item.Edit;
+    mData_Item['FApprovalItemID']:=qry.FieldByName('FApprovalItemID').Value;
+    mData_Item.Post;
+  end;
+  try
+    qry.SQL.Text:='select * from  V_ApprovalItem with(nolock) where FDepartmentID=:FDepartmentID and FApprovalItemID=:FApprovalItemID ';
+    qry.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+    qry.Parameters.FindParam('FApprovalItemID').value:=mData_Item['FApprovalItemID'];
+    qry.Open;
+  finally
+   ;
+  end;
+  If qry.RecordCount>0 then
+  begin
+    mData_Item.Edit;
+    mData_Item['FApprovalItemNum']:=qry.FieldByName('FApprovalItemNum').Value;
+    mData_Item['FItemNumber']:=qry.FieldByName('FItemNumber').Value;
+    mData_Item['FClientShortName']:=qry.FieldByName('FClientShortName').Value;
+    mData_Item['FItemModel']:=qry.FieldByName('FItemModel').Value;
+    mData_Item['FClientFullName']:=qry.FieldByName('FClientFullName').Value;
+    mData_Item['FFileNo']:=qry.FieldByName('FFileNo').Value;
+    mData_Item['FItemModel']:=qry.FieldByName('FItemModel').Value;
+    mData_Item['FApprovalStuffSortID']:=qry.FieldByName('FApprovalStuffSortID').Value;
+    mData_Item['FApprovalStuffSort']:=qry.FieldByName('FApprovalStuffSort').Value;
+    mData_Item.Post;
+  end;
+  try
+    qry.SQL.Text:='select *,'''' as FBrand,'''' as FQuotationListRemark,0.00 as FPrice,0.00 as FTotalAmount from  V_ApprovalList with(nolock) where FApprovalItemID=:FApprovalItemID ';
+    qry.Parameters.FindParam('FApprovalItemID').value:=mData_Item['FApprovalItemID'];
+    qry.Open;
+  finally
+   ;
+  end;
+  mData_List.CopyFromDataSet(qry);
+  mData_List.Active:=True;
+ // mData_List.Open;
+end;
+
+procedure TFrm_QuotationItem.Act_FQuotationTypeExecute(Sender: TObject);
+var qry: TADOQuery;
+begin
+  inherited;
+  qry:=TADOQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  try
+    qry.SQL.Text:='select distinct FQuotationType from T_QuotationItem order by FQuotationType ';
+    qry.Open;
+  finally
+   ;
+  end;
+  (FQuotationType_Item.Properties as TcxComboBoxProperties).Items.Clear;
+  qry.First;
+  while not qry.Eof do
+  begin
+    if length(trim(qry.fieldbyname('FQuotationType').AsString))<>0 then
+    begin
+       (FQuotationType_Item.Properties as TcxComboBoxProperties).Items.Add(qry.fieldbyname('FQuotationType').AsString);
+    end;
+    qry.Next;
+  end;
+end;
+
+procedure TFrm_QuotationItem.Act_FQuotationStatusExecute(Sender: TObject);
+var
+ qry:TADOquery;
+begin
+  qry:=TAdoQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+  MData_Item.First;
+  while not MData_Item.eof do
+  begin
+    try
+      qry.SQL.Text:='Update T_QuotationItem Set FQuotationStatus=2,FQuotationCheckID=:FQuotationCheckID,'
+                   +'FQuotationCheckDate=:FQuotationCheckDate where FApprovalItemID=:FApprovalItemID';
+      qry.Parameters.FindParam('FQuotationCheckID').value:=UserNumID;
+      qry.Parameters.FindParam('FQuotationCheckDate').value:= now();
+      qry.Parameters.FindParam('FApprovalItemID').value:=MData_Item['FApprovalItemID'];
+      qry.ExecSQL;
+     finally
+       ;
+     end;
+  end;
+end;
+
+procedure TFrm_QuotationItem.TB_BJDClick(Sender: TObject);
+var
+  Query_Sp:TADOStoredProc;
+  i,h,k,s,n,ReNum,ReNumLoop,R_Count,ReNumH:Integer;
+  ExcelApp,MyWorkBook,mysheet,vLastSheet: Variant;
+  filepath,savefilepath,Sqlstr,copystart,copyend,copystart1,aa,copystart_H,copyend_H,copystart1_H:string;
+  RepSpace:String;//合并单元格
+  ListQry:Tadoquery;
+  qry,qry1:TADOquery;
+begin
+  qry:=TAdoQuery.Create(self);
+  qry.ConnectionString:=mdlData.ReadConnStr;
+
+  qry1:=TAdoQuery.Create(self);
+  qry1.ConnectionString:=mdlData.ReadConnStr;
+
+
+  filepath:=Extractfilepath(application.ExeName)+'电袋报价单模版.xls';
+  if (MData_Item.Active) and (MData_Item.recordcount>0) then
+  Begin
+    SaveDialog1.FileName:=UserFDepartmentShortName+'电袋报价单('+MData_Item['FQuotationNum']+')';
+    SaveDialog1.Filter:='.xls';
+    SaveDialog1.Execute;
+
+    if (MData_Item.FieldByName('FQuotationNum').AsString<>'') Or (MData_Item.FieldByName('FQuotationNum').AsString<>Null) then
+        savefilepath:=SaveDialog1.FileName+'.xls';
+
+    if FileExists(savefilepath) then
+    begin
+      DeleteFile(savefilepath) ;
+    end;
+    stbMsg.Caption:='提示信息：正在导出电袋报价单:'+'【'+MData_Item.FieldByName('FQuotationNum').AsString+'】';
+    stbBar.Refresh;
+
+    ExcelApp:= CreateOleObject('Excel.Application' );
+    ExcelApp.DisplayAlerts:=False;                  //不显示提示框
+    MyWorkBook:=ExcelApp.WorkBooks.Open( filepath );   //打开模版
+    //ExcelApp.Visible:=True;
+
+    try
+      qry.SQL.Text:='select distinct FQuotationNum from V_QuotationItem with(nolock) where FDepartMentID=:FDepartMentID and FQuotationNum=:FQuotationNum';
+      qry.Parameters.FindParam('FDepartMentID').value:=UserFDepartmentID;
+      qry.Parameters.FindParam('FQuotationNum').value:=MData_Item['FQuotationNum'];
+      qry.Open;
+    finally
+      ;
+    end;
+
+    If qry.RecordCount>0 then
+       k:=2
+    else
+       Exit;
+
+   qry.First;
+   while not qry.eof do
+   begin
+     try
+       qry1.SQL.Text:='Select * from V_QuotationList as a with(nolock) where FDepartMentID=:FDepartMentID and FQuotationNum=:FQuotationNum ';
+       qry1.Parameters.FindParam('FDepartMentID').value:=UserFDepartmentID;
+       qry1.Parameters.FindParam('FQuotationNum').value:=MData_Item['FQuotationNum'];
+       qry1.Open;
+     finally
+       ;
+     end;
+     if qry1.RecordCount>0 then
+     begin
+       mdata_List.Close;
+       mdata_List.CopyFromDataSet(qry1);
+     end;
+     vLastSheet:=MyWorkBook.Sheets[MyWorkBook.Sheets.Count];
+     MyWorkBook.Sheets[1].Copy(EmptyParam,vLastSheet);
+     MyWorkBook.WorkSheets[k].Name:=IntToStr(k)+mdata_Item['FQuotationNum'];
+     MyWorkBook.WorkSheets[k].Activate;
+
+
+      //标题
+      //MyWorkBook.WorkSheets[k].Cells[1,1].Value:=AnsiReplaceStr(MyWorkBook.WorkSheets[k].Cells[1,1].Value,'A',UserFDepartmentName); //公司名称
+
+      //MyWorkBook.WorkSheets[k].Cells[8,3].Value := '【'+Trim(mdata_PTItem.FieldByName('FPlanYearWeek').AsString)+'】周【'+Trim(mdata_PTItem.FieldByName('FPlanDateExtent').AsString)+'】';
+
+     MyWorkBook.WorkSheets[k].Cells[3,4].Value:=mdata_Item.FieldByName('FSupplierName').AsString; //
+    // MyWorkBook.WorkSheets[k].Cells[4,4].Value:=mdata_Item.FieldByName('FAgentName').AsString; //
+     MyWorkBook.WorkSheets[k].Cells[5,3].Value:=mdata_Item.FieldByName('FAgentMobilePhone').AsString; //
+     MyWorkBook.WorkSheets[k].Cells[6,3].Value:=mdata_Item.FieldByName('FAgentFax').AsString; //
+     MyWorkBook.WorkSheets[k].Cells[7,3].Value:=mdata_Item.FieldByName('FAgentEmail').AsString; //
+
+
+     MyWorkBook.WorkSheets[k].Cells[4,8].Value:=mdata_Item.FieldByName('FQuotationWrite').AsString; //联系人
+     MyWorkBook.WorkSheets[k].Cells[5,8].Value:=mdata_Item.FieldByName('Outsidephone').AsString; //电话
+     MyWorkBook.WorkSheets[k].Cells[6,8].Value:=mdata_Item.FieldByName('FFax').AsString; //传真
+     MyWorkBook.WorkSheets[k].Cells[7,8].Value:=mdata_Item.FieldByName('FMail').AsString; //邮件
+
+
+     MyWorkBook.WorkSheets[k].Cells[8,3].Value:=mdata_Item.FieldByName('FClientShortName').AsString; //项目名称
+     MyWorkBook.WorkSheets[k].Cells[8,8].Value:=mdata_Item.FieldByName('FPaymentType').AsString; //付款方式
+     MyWorkBook.WorkSheets[k].Cells[9,3].Value:=mdata_Item.FieldByName('FArrivalAddress').AsString; //到货地址
+     MyWorkBook.WorkSheets[k].Cells[9,8].Value:=mdata_Item.FieldByName('FArrivalDate').AsString; //到货时间
+     MyWorkBook.WorkSheets[k].Cells[10,3].Value:=mdata_Item.FieldByName('FOfferPeriod').AsString; //报价有效期
+     MyWorkBook.WorkSheets[k].Cells[10,8].Value:=mdata_Item.FieldByName('FLeadTime').AsString; //供货周期
+     MyWorkBook.WorkSheets[k].Cells[11,8].Value:=mdata_Item.FieldByName('FQuotationDate').AsString; //报价时间
+
+      //MyWorkBook.WorkSheets[k].Cells[9,13].Value:=mdata_PTItem.FieldByName('FPlanWeekWrite').AsString; //制单
+
+
+
+     //循环行开始
+      i:=13;
+
+       //工作薄名称
+      MyWorkBook.WorkSheets[k].Name:=mdata_Item.FieldByName('FQuotationNum').AsString;
+      copystart:='A'+IntToStr(i);
+      if mdata_List.recordcount>0 then
+      Begin
+        if mdata_List.recordcount>1 then
+        Begin
+          copystart:='A'+IntToStr(i);
+          copystart1:='A'+IntToStr(i+1);
+          copyend:='J'+IntToStr(i);  //区域  A:J
+          //ReNum:=mdata_PTList.recordcount-1+(10-((mdata_List.RecordCount+1) mod 25));//记录个数加空白个数
+          ReNum:=mdata_List.recordcount-1;//记录个数
+          while ReNum>0 do
+          Begin
+            ExcelApp.ActiveSheet.Range[copystart+':'+copyend].Copy;
+            ExcelApp.ActiveSheet.Rows[i+1].Insert;
+            ExcelApp.ActiveSheet.Range[copystart1].PasteSpecial;
+            Renum:=Renum-1;
+          end;
+        end
+        else
+        Begin
+          R_Count:=mdata_List.recordcount;
+        end;
+        mdata_List.first;
+        while not mdata_List.eof do
+        Begin
+          MyWorkBook.WorkSheets[k].Cells[i,1].Value := i-13+1;
+          MyWorkBook.WorkSheets[k].Cells[i,2].Value := mdata_List.FieldByName('FTakemc').AsString+mdata_List.FieldByName('FTakeGBT').AsString;
+          MyWorkBook.WorkSheets[k].Cells[i,5].Value := mdata_List.FieldByName('FTakegg').AsString;
+          MyWorkBook.WorkSheets[k].Cells[i,6].Value := mdata_List.FieldByName('FTakedw').AsString;
+          MyWorkBook.WorkSheets[k].Cells[i,7].Value := mdata_List.FieldByName('FTakeSumQry').AsString;
+          MyWorkBook.WorkSheets[k].Cells[i,8].Value := mdata_List.FieldByName('FPrice').AsString;
+          MyWorkBook.WorkSheets[k].Cells[i,9].Value := mdata_List.FieldByName('FTotalAmount').AsString;
+          mdata_List.next;
+          i:=i+1;
+        end;
+        //合计
+        MyWorkBook.WorkSheets[k].Cells[i,9].Value := '=SUM(I14:I'+IntToStr(i-1)+')'; //合计重量
+        ExcelApp.Rows[i+1].RowHeight:=140;    //说明行固定行高
+      end;
+
+        //合并循环行开始
+      try
+        qry1.SQL.Text:='Select FDepartmentID,FItemID,count(*) as n from V_QuotationList with(nolock) '
+                      +' where FDepartmentID=:FDepartmentID and FItemID=:FItemID '
+                      +' group by FDepartmentID,FItemID '
+                      +' order by FDepartmentID,FItemID ' ;
+        qry1.Parameters.FindParam('FDepartmentID').value:=UserFDepartmentID;
+        qry1.Parameters.FindParam('FItemID').value:=mdata_Item['FItemID'];
+        qry1.Open;
+      finally
+        ;
+      end;
+      If qry1.RecordCount>0 then
+      begin
+        qry1.First;
+        i:=13;
+        h:=1;
+        while not qry1.eof do
+        begin
+          //合并单元格
+        {  n:=qry1.FieldByName('n').Value;
+          RepSpace:=GetRepRange(i,10)+':'+GetRepRange(i+n-1,10);
+          ExcelApp.Range[RepSpace].Select;
+          ExcelApp.Selection.Merge;
+          }
+           //加边框线
+          RepSpace:=GetRepRange(i,10)+':'+GetRepRange(i+n-1,10);
+          ExcelApp.ActiveSheet.Range[RepSpace].Borders.LineStyle:=1;
+          qry1.Next;
+          i:=i+n;
+          h:=h+1;
+        end;
+      end;
+
+      //加边框线
+        RepSpace:=GetRepRange(i,10)+':'+GetRepRange(i,10);
+        ExcelApp.ActiveSheet.Range[RepSpace].Borders.LineStyle:=1;
+
+      qry.Next ;
+      ExcelApp.Visible:=True;
+      MyWorkBook.WorkSheets[k].PrintPreview;  //打印
+      k:=k+1;
+    end;
+    MyWorkBook.WorkSheets[1].delete; //删除模版
+    stbMsg.Caption:='提示信息：电袋报价单:'+'【'+mdata_Item.FieldByName('FQuotationNum').AsString+'】的信息导出完成!';
+    stbBar.Refresh;
+    MyWorkBook.saveas(savefilepath);
+    MyWorkBook.Close;
+    ExcelApp.Quit;
+    ExcelApp:=Unassigned;
+  end
+  else
+  Begin
+    Application.MessageBox(PChar('没有可导出的数据，请重新选择'), '数据引出错误', MB_OK + MB_ICONSTOP);
+    Exit;
+  End;
+end;
+
+end.
+
+

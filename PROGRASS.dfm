@@ -1,0 +1,72 @@
+object Frm_prograss: TFrm_prograss
+  Left = 508
+  Top = 319
+  BorderIcons = []
+  BorderStyle = bsNone
+  Caption = 'frm_progress'
+  ClientHeight = 89
+  ClientWidth = 557
+  Color = clTeal
+  DefaultMonitor = dmMainForm
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = #23435#20307
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnActivate = FormActivate
+  OnDeactivate = FormDeactivate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 12
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 557
+    Height = 89
+    Align = alClient
+    TabOrder = 0
+    object Panel3: TPanel
+      Left = 17
+      Top = 16
+      Width = 528
+      Height = 61
+      BevelInner = bvRaised
+      BevelOuter = bvLowered
+      TabOrder = 1
+      object RzLED: TRzLEDDisplay
+        Left = 2
+        Top = 12
+        Width = 88
+        Height = 32
+        BorderColor = clBlack
+        BorderOuter = fsBump
+        Alignment = taCenter
+        Caption = '00:00'
+        SegOffColor = clBlack
+      end
+    end
+    object P_message: TPanel
+      Left = 112
+      Top = 25
+      Width = 422
+      Height = 40
+      BevelInner = bvRaised
+      BevelOuter = bvLowered
+      Caption = #31995#32479#27491#22312#35835#21462#25968#25454#65292#35831#31245#20505#8230#8230
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = #23435#20307
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 208
+    Top = 32
+  end
+end

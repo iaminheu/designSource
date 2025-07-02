@@ -1,0 +1,61 @@
+object Frm_progbar: TFrm_progbar
+  Left = 338
+  Top = 216
+  BorderIcons = []
+  BorderStyle = bsNone
+  Caption = 'frm_progress'
+  ClientHeight = 130
+  ClientWidth = 385
+  Color = clTeal
+  DefaultMonitor = dmMainForm
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = #23435#20307
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  PixelsPerInch = 96
+  TextHeight = 12
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 385
+    Height = 130
+    Align = alClient
+    TabOrder = 0
+    object Panel3: TPanel
+      Left = 17
+      Top = 16
+      Width = 354
+      Height = 105
+      BevelInner = bvRaised
+      BevelOuter = bvLowered
+      TabOrder = 1
+      object ProgressBar: TProgressBar
+        Left = 13
+        Top = 63
+        Width = 331
+        Height = 16
+        Step = 1
+        TabOrder = 0
+      end
+    end
+    object P_message: TPanel
+      Left = 28
+      Top = 25
+      Width = 334
+      Height = 42
+      BevelInner = bvRaised
+      BevelOuter = bvLowered
+      Caption = #31995#32479#27491#22312#35835#21462#25968#25454#65292#35831#31245#20505#8230#8230
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = #23435#20307
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+    end
+  end
+end

@@ -1,0 +1,156 @@
+inherited Frm_Edit_pwd: TFrm_Edit_pwd
+  Left = 420
+  Caption = 'Frm_Edit_pwd'
+  ClientHeight = 310
+  ClientWidth = 413
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label10: TLabel [0]
+    Left = 33
+    Top = 342
+    Width = 48
+    Height = 13
+    Caption = #38754'    '#31215#65306
+  end
+  inherited PanelBkGnd: TPanel
+    Width = 413
+    Height = 310
+    inherited Panel_button: TPanel
+      Top = 256
+      Width = 413
+      inherited Bevel_button: TBevel
+        Left = 28
+        Width = 373
+      end
+      inherited OKBtn: TcxButton
+        Left = 114
+        Caption = #30830#35748'[&D]'
+        TabOrder = 1
+        OnClick = OKBtnClick
+      end
+      inherited CancelBtn: TcxButton
+        Left = 217
+        TabOrder = 0
+      end
+    end
+    object FlatPanel1: TFlatPanel
+      Left = 23
+      Top = 31
+      Width = 370
+      Height = 194
+      ParentColor = True
+      TabOrder = 1
+      UseDockManager = True
+      object Label3: TLabel
+        Left = 16
+        Top = 17
+        Width = 92
+        Height = 13
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = #24403#21069#29992#25143'ID'#21495#65306
+      end
+      object Label2: TLabel
+        Left = 16
+        Top = 47
+        Width = 99
+        Height = 13
+        AutoSize = False
+        Caption = #24403#21069#25805#20316#21592#65306
+      end
+      object L_name: TLabel
+        Left = 201
+        Top = 47
+        Width = 52
+        Height = 13
+        Alignment = taCenter
+        Caption = #26410#30693#29992#25143
+        Font.Charset = GB2312_CHARSET
+        Font.Color = clBlue
+        Font.Height = -13
+        Font.Name = #23435#20307
+        Font.Style = []
+        ParentFont = False
+      end
+      object Label1: TLabel
+        Left = 16
+        Top = 77
+        Width = 101
+        Height = 18
+        AutoSize = False
+        Caption = #35831#36755#20837#26087#23494#30721#65306
+      end
+      object Label4: TLabel
+        Left = 16
+        Top = 107
+        Width = 101
+        Height = 18
+        AutoSize = False
+        Caption = #35831#36755#20837#26032#23494#30721#65306
+      end
+      object Label5: TLabel
+        Left = 16
+        Top = 138
+        Width = 125
+        Height = 18
+        AutoSize = False
+        Caption = #35831#36755#20837#26032#23494#30721#30830#35748#65306
+      end
+      object E_ID: TcxTextEdit
+        Left = 148
+        Top = 13
+        Width = 183
+        Height = 21
+        Enabled = False
+        TabOrder = 0
+      end
+      object E_Password: TcxTextEdit
+        Left = 148
+        Top = 76
+        Width = 183
+        Height = 21
+        Hint = #35831#36755#20837'6'#20301#25968#20197#20869#30340#23494#30721#65281
+        ParentShowHint = False
+        Properties.EchoMode = eemPassword
+        ShowHint = True
+        TabOrder = 1
+        OnExit = E_PasswordExit
+        OnKeyDown = E_PasswordKeyDown
+      end
+      object N_Password: TcxTextEdit
+        Left = 148
+        Top = 106
+        Width = 183
+        Height = 21
+        Hint = #35831#36755#20837'6'#20301#25968#20197#20869#30340#23494#30721#65281
+        Enabled = False
+        ParentShowHint = False
+        Properties.EchoMode = eemPassword
+        ShowHint = True
+        TabOrder = 2
+        OnExit = N_PasswordExit
+        OnKeyDown = N_PasswordKeyDown
+      end
+      object W_Password: TcxTextEdit
+        Left = 148
+        Top = 137
+        Width = 183
+        Height = 21
+        Hint = #35831#36755#20837'6'#20301#25968#20197#20869#30340#23494#30721#65281
+        Enabled = False
+        ParentShowHint = False
+        Properties.EchoMode = eemPassword
+        ShowHint = True
+        TabOrder = 3
+        OnExit = W_PasswordExit
+      end
+    end
+  end
+  object ADOQuery: TADOQuery
+    Connection = mdlData.conn
+    Parameters = <>
+    Left = 4
+    Top = 6
+  end
+end

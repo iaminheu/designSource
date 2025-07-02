@@ -1,0 +1,8773 @@
+inherited Frm_DepBOMQry: TFrm_DepBOMQry
+  Left = 271
+  Top = 207
+  Caption = #23376#20844#21496#26597#35810
+  ClientHeight = 595
+  ClientWidth = 1120
+  OldCreateOrder = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited Image: TImage
+    Width = 1120
+  end
+  inherited L_title: TLabel
+    Left = -16
+    Top = 28
+    Width = 1281
+    Caption = #36890#29992#25968#25454#30331#35760
+  end
+  inherited P_back: TPanel
+    Width = 1120
+    Height = 574
+    inherited P_main: TPanel
+      Width = 1114
+      Height = 568
+      inherited Panel_down: TPanel
+        Top = 526
+        Width = 1112
+        Height = 40
+        inherited Bevel_bass: TBevel
+          Width = 1112
+        end
+        object stbBar: TRzStatusBar
+          Left = 0
+          Top = 21
+          Width = 1112
+          Height = 19
+          BorderInner = fsNone
+          BorderOuter = fsNone
+          BorderSides = [sdLeft, sdTop, sdRight, sdBottom]
+          BorderWidth = 0
+          TabOrder = 0
+          object RzClockStatus1: TRzClockStatus
+            Left = 0
+            Top = 0
+            Width = 128
+            Height = 19
+            Align = alLeft
+            Format = 'yyyy'#24180'mm'#26376'dd'#26085'hh:nn'
+          end
+          object RzKeyStatus1: TRzKeyStatus
+            Left = 128
+            Top = 0
+            Height = 19
+            Align = alLeft
+            KeyStrings.CapsLock = #22823#20889
+            KeyStrings.NumLock = #25968#23383
+            KeyStrings.ScrollLock = #28378#21160
+            KeyStrings.Insert = #25554#20837
+            KeyStrings.Overwrite = #25913#20889
+            Alignment = taCenter
+          end
+          object RzKeyStatus2: TRzKeyStatus
+            Left = 173
+            Top = 0
+            Height = 19
+            Align = alLeft
+            Key = tkNumLock
+            KeyStrings.CapsLock = 'CAPS'
+            KeyStrings.NumLock = #25968#23383
+            KeyStrings.ScrollLock = 'SCR'
+            KeyStrings.Insert = #25554#20837
+            KeyStrings.Overwrite = 'Overwrite'
+            Alignment = taCenter
+          end
+          object RzKeyStatus3: TRzKeyStatus
+            Left = 218
+            Top = 0
+            Height = 19
+            Align = alLeft
+            Key = tkInsert
+            KeyStrings.CapsLock = 'CAPS'
+            KeyStrings.NumLock = 'NUM'
+            KeyStrings.ScrollLock = 'SCR'
+            KeyStrings.Insert = #25554#20837
+            KeyStrings.Overwrite = #25913#20889
+            Alignment = taCenter
+          end
+          object stbMsg: TRzFieldStatus
+            Left = 263
+            Top = 0
+            Width = 849
+            Height = 19
+            Align = alClient
+            FieldLabel = #24403#21069#20449#24687
+            Caption = #29366#24577#20449#24687
+          end
+        end
+        object CB_Out: TcxCheckBox
+          Left = 349
+          Top = 2
+          Width = 51
+          Height = 21
+          ParentColor = False
+          Properties.DisplayUnchecked = 'False'
+          Properties.Caption = #23548#20986
+          Style.BorderColor = 8623776
+          Style.BorderStyle = ebsSingle
+          Style.Color = 14935011
+          TabOrder = 1
+        end
+        object CB_Print: TcxCheckBox
+          Left = 267
+          Top = 1
+          Width = 51
+          Height = 21
+          ParentColor = False
+          Properties.DisplayUnchecked = 'False'
+          Properties.Caption = #25171#21360
+          Style.BorderColor = 8623776
+          Style.BorderStyle = ebsSingle
+          Style.Color = 14935011
+          TabOrder = 2
+        end
+      end
+      object PC_Main: TRzPageControl
+        Left = 0
+        Top = 0
+        Width = 1112
+        Height = 526
+        ActivePage = TS_DesignBOM
+        Align = alClient
+        TabIndex = 0
+        TabOrder = 1
+        TabOrientation = toBottom
+        TabStyle = tsDoubleSlant
+        FixedDimension = 19
+        object TS_DesignBOM: TRzTabSheet
+          Color = 14935011
+          Caption = #35774#35745'BOM'
+          object RzSizePanel2: TRzSizePanel
+            Left = 0
+            Top = 0
+            Width = 303
+            Height = 505
+            Color = 14935011
+            HotSpotVisible = True
+            SizeBarWidth = 7
+            TabOrder = 0
+            VisualStyle = vsGradient
+            object MyTreeView_DBOM: TTreeView
+              Left = 0
+              Top = 0
+              Width = 295
+              Height = 505
+              Align = alClient
+              AutoExpand = True
+              Ctl3D = False
+              Indent = 19
+              ParentCtl3D = False
+              TabOrder = 0
+              OnChange = MyTreeView_DBOMChange
+              OnExpanding = MyTreeView_DBOMExpanding
+            end
+          end
+          object Panel6: TPanel
+            Left = 303
+            Top = 0
+            Width = 807
+            Height = 505
+            Align = alClient
+            BevelOuter = bvNone
+            Ctl3D = True
+            ParentCtl3D = False
+            TabOrder = 1
+            object Panel8: TPanel
+              Left = 0
+              Top = 0
+              Width = 1358
+              Height = 49
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 0
+            end
+            object Panel9: TPanel
+              Left = 0
+              Top = 0
+              Width = 807
+              Height = 41
+              Align = alTop
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 1
+              object ToolBar2: TToolBar
+                Left = 0
+                Top = 0
+                Width = 807
+                Height = 35
+                AutoSize = True
+                ButtonHeight = 35
+                ButtonWidth = 55
+                Caption = 'ToolBar1'
+                EdgeBorders = []
+                Flat = True
+                Font.Charset = ANSI_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = #23435#20307
+                Font.Style = []
+                Images = ImageList
+                ParentFont = False
+                ShowCaptions = True
+                TabOrder = 0
+                object ToolBar3: TToolBar
+                  Left = 0
+                  Top = 0
+                  Width = 1341
+                  Height = 35
+                  AutoSize = True
+                  ButtonHeight = 35
+                  ButtonWidth = 55
+                  Caption = 'ToolBar1'
+                  EdgeBorders = []
+                  Flat = True
+                  Font.Charset = ANSI_CHARSET
+                  Font.Color = clWindowText
+                  Font.Height = -12
+                  Font.Name = #23435#20307
+                  Font.Style = []
+                  Images = ImageList
+                  ParentFont = False
+                  ShowCaptions = True
+                  TabOrder = 0
+                  object TB_Ref_DBOM: TToolButton
+                    Left = 0
+                    Top = 0
+                    AutoSize = True
+                    Caption = #21047#26032'[&R]'
+                    ImageIndex = 4
+                    OnClick = TB_Ref_DBOMClick
+                  end
+                  object ToolButton5: TToolButton
+                    Left = 53
+                    Top = 0
+                    AutoSize = True
+                    Caption = #35760#24405#21047#26032
+                    ImageIndex = 10
+                    OnClick = ToolButton5Click
+                  end
+                  object ToolButton15: TToolButton
+                    Left = 112
+                    Top = 0
+                    Width = 8
+                    Caption = 'ToolButton5'
+                    ImageIndex = 4
+                    Style = tbsSeparator
+                  end
+                  object ToolButton18: TToolButton
+                    Left = 120
+                    Top = 0
+                    Width = 8
+                    Caption = 'ToolButton1'
+                    ImageIndex = 9
+                    Style = tbsSeparator
+                  end
+                  object TB_Exit: TToolButton
+                    Left = 128
+                    Top = 0
+                    AutoSize = True
+                    Caption = #36864#20986'[&E]'
+                    ImageIndex = 7
+                    OnClick = TB_ExitClick
+                  end
+                end
+                object ToolButton9: TToolButton
+                  Left = 1341
+                  Top = 0
+                  Cursor = crHandPoint
+                  AutoSize = True
+                  Caption = #35774#32622'[&D]'
+                  ImageIndex = 17
+                  Wrap = True
+                end
+                object ToolButton8: TToolButton
+                  Left = 0
+                  Top = 35
+                  Width = 8
+                  Caption = 'ToolButton5'
+                  ImageIndex = 4
+                  Style = tbsSeparator
+                end
+              end
+            end
+            object PC_DBOM: TRzPageControl
+              Left = 0
+              Top = 41
+              Width = 807
+              Height = 464
+              ActivePage = TS_DBOM
+              Align = alClient
+              TabIndex = 0
+              TabOrder = 2
+              OnChange = PC_DBOMChange
+              FixedDimension = 19
+              object TS_DBOM: TRzTabSheet
+                Caption = #35774#35745#23450#39069
+                object cxGrid_DBOM: TcxGrid
+                  Left = 0
+                  Top = 0
+                  Width = 803
+                  Height = 441
+                  Align = alClient
+                  PopupMenu = PM
+                  TabOrder = 0
+                  OnContextPopup = cxGrid_DBOMContextPopup
+                  object cxGV_DBOM: TcxGridDBTableView
+                    DataController.DataModeController.GridMode = True
+                    DataController.DataModeController.SmartRefresh = True
+                    DataController.DataSource = DS_Mdata_DBOM
+                    DataController.Summary.DefaultGroupSummaryItems = <>
+                    DataController.Summary.FooterSummaryItems = <
+                      item
+                        Format = #23567#35745#65306'0.0000'
+                        Kind = skSum
+                        FieldName = 'FSumSuttle'
+                        Column = FSumSuttle_1
+                      end
+                      item
+                        Format = #23567#35745#65306'0.0000'
+                        Kind = skSum
+                        FieldName = 'FQry'
+                        Column = FQry_1
+                      end
+                      item
+                        Format = #23567#35745#65306'0.0000'
+                        Kind = skSum
+                        FieldName = 'FSuttle'
+                        Column = FSuttle_1
+                      end
+                      item
+                        Format = #23567#35745#65306'0.0000'
+                        Kind = skSum
+                        FieldName = 'FSumQry'
+                        Column = FSumQry_1
+                      end>
+                    DataController.Summary.SummaryGroups = <>
+                    NavigatorButtons.ConfirmDelete = False
+                    NavigatorButtons.PriorPage.Visible = False
+                    NavigatorButtons.NextPage.Visible = False
+                    NavigatorButtons.Insert.Visible = False
+                    NavigatorButtons.Delete.Visible = False
+                    NavigatorButtons.Edit.Visible = False
+                    NavigatorButtons.Post.Visible = False
+                    NavigatorButtons.Cancel.Visible = False
+                    NavigatorButtons.Refresh.Visible = False
+                    NavigatorButtons.SaveBookmark.Visible = False
+                    NavigatorButtons.GotoBookmark.Visible = False
+                    NavigatorButtons.Filter.Visible = False
+                    OptionsData.CancelOnExit = False
+                    OptionsData.Deleting = False
+                    OptionsData.DeletingConfirmation = False
+                    OptionsData.Editing = False
+                    OptionsData.Inserting = False
+                    OptionsView.Navigator = True
+                    OptionsView.Footer = True
+                    OptionsView.GroupByBox = False
+                    object FCode_1: TcxGridDBColumn
+                      Caption = #32423#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 30
+                      DataBinding.FieldName = 'FCode'
+                    end
+                    object th_1: TcxGridDBColumn
+                      Caption = #22270#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 119
+                      DataBinding.FieldName = 'th'
+                    end
+                    object mc_1: TcxGridDBColumn
+                      Caption = #21517#31216
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 113
+                      DataBinding.FieldName = 'mc'
+                    end
+                    object gg_1: TcxGridDBColumn
+                      Caption = #35268#26684
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 125
+                      DataBinding.FieldName = 'gg'
+                    end
+                    object FModel_1: TcxGridDBColumn
+                      Caption = #26448#26009#35268#26684
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 110
+                      DataBinding.FieldName = 'FModel'
+                    end
+                    object FQry_1: TcxGridDBColumn
+                      Caption = #25968#37327
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 39
+                      DataBinding.FieldName = 'FQry'
+                    end
+                    object FSumQry_1: TcxGridDBColumn
+                      Caption = #24635#25968#37327
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 0
+                      Properties.DisplayFormat = '0'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 41
+                      DataBinding.FieldName = 'FSumQry'
+                    end
+                    object FSuttle_1: TcxGridDBColumn
+                      Caption = #35774#35745#20928#37325
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.DisplayFormat = '0.0000;-0.0000'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 86
+                      DataBinding.FieldName = 'FSuttle'
+                    end
+                    object FSumSuttle_1: TcxGridDBColumn
+                      Caption = #20928#37325#21512#35745
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.DisplayFormat = '0.0000;-0.0000'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 82
+                      DataBinding.FieldName = 'FSumSuttle'
+                    end
+                    object FPartsSort: TcxGridDBColumn
+                      Caption = #37096#20214#31867#21035
+                      PropertiesClassName = 'TcxButtonEditProperties'
+                      Properties.Buttons = <
+                        item
+                          Default = True
+                          Kind = bkEllipsis
+                        end>
+                      Properties.OnButtonClick = FPartsSortPropertiesButtonClick
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 125
+                      DataBinding.FieldName = 'FPartsSort'
+                    end
+                    object FWorkParts: TcxGridDBColumn
+                      Caption = #20837#24211#31867#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 108
+                      DataBinding.FieldName = 'FWorkParts'
+                    end
+                    object FMakeParts: TcxGridDBColumn
+                      Caption = #29983#20135#31867#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 105
+                      DataBinding.FieldName = 'FMakeParts'
+                    end
+                    object FManageParts: TcxGridDBColumn
+                      Caption = #20225#31649#31867#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taRightJustify
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 103
+                      DataBinding.FieldName = 'FManageParts'
+                    end
+                    object ssth_1: TcxGridDBColumn
+                      Caption = #25152#23646#22270#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 91
+                      DataBinding.FieldName = 'ssth'
+                    end
+                    object y_FSuttle: TcxGridDBColumn
+                      Caption = #25442#31639#20928#37325
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.DisplayFormat = '0.0000;-0.0000'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 81
+                      DataBinding.FieldName = 'y_FSuttle'
+                    end
+                    object c_FSuttle: TcxGridDBColumn
+                      Caption = #25442#31639#20928#37325#24046
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.DisplayFormat = '0.0000;-0.0000'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 76
+                      DataBinding.FieldName = 'c_FSuttle'
+                    end
+                    object FMaterialRate: TcxGridDBColumn
+                      Caption = #25442#31639#29575
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.ValidateOnEnter = True
+                      Properties.IsDisplayFormatAssigned = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 41
+                      DataBinding.FieldName = 'FMaterialRate'
+                    end
+                    object FNumber: TcxGridDBColumn
+                      Caption = #26448#26009#32534#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 124
+                      DataBinding.FieldName = 'FNumber'
+                    end
+                    object FName_1: TcxGridDBColumn
+                      Caption = #26448#26009#21517#31216
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 88
+                      DataBinding.FieldName = 'FName'
+                    end
+                    object UnitName_1: TcxGridDBColumn
+                      Caption = #21333#20301
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 29
+                      DataBinding.FieldName = 'UnitName'
+                    end
+                    object y_FNumber: TcxGridDBColumn
+                      Caption = #25442#31639#32534#30721
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 96
+                      DataBinding.FieldName = 'y_FNumber'
+                    end
+                    object y_FModel: TcxGridDBColumn
+                      Caption = #25442#31639#35268#26684
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 130
+                      DataBinding.FieldName = 'y_FModel'
+                    end
+                    object FPriceQry: TcxGridDBColumn
+                      Caption = #35745#20215#25968#37327
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 53
+                      DataBinding.FieldName = 'FPriceQry'
+                    end
+                    object FUse: TcxGridDBColumn
+                      Caption = #21033#29992#29575
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DisplayFormat = '0.00'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 41
+                      DataBinding.FieldName = 'FUse'
+                    end
+                    object FRation: TcxGridDBColumn
+                      Caption = #21333#20214#23450#39069
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.DisplayFormat = '0.0000;-0.0000'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 86
+                      DataBinding.FieldName = 'FRation'
+                    end
+                    object y_FRation: TcxGridDBColumn
+                      Caption = #25442#31639#23450#39069
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 86
+                      DataBinding.FieldName = 'y_FRation'
+                    end
+                    object FFullNumber_1: TcxGridDBColumn
+                      Caption = #38271#20195#30721
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      SortOrder = soAscending
+                      Width = 146
+                      DataBinding.FieldName = 'FFullNumber'
+                    end
+                    object ssFullNumber_1: TcxGridDBColumn
+                      Caption = #25152#23646#38271#20195#30721
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 165
+                      DataBinding.FieldName = 'ssFullNumber'
+                    end
+                    object Remark_1: TcxGridDBColumn
+                      Caption = #22791#27880
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 88
+                      DataBinding.FieldName = 'Remark'
+                    end
+                    object FDesignRemark_1: TcxGridDBColumn
+                      Caption = #35774#35745#22791#27880
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 106
+                      DataBinding.FieldName = 'FDesignRemark'
+                    end
+                    object FFullName_1: TcxGridDBColumn
+                      Caption = #20840#21517#31216
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 333
+                      DataBinding.FieldName = 'FFullName'
+                    end
+                    object FItemNumber: TcxGridDBColumn
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 68
+                      DataBinding.FieldName = 'FItemNumber'
+                    end
+                    object FPartsCode: TcxGridDBColumn
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 60
+                      DataBinding.FieldName = 'FPartsCode'
+                    end
+                  end
+                  object cxGL_DBOM: TcxGridLevel
+                    GridView = cxGV_DBOM
+                  end
+                end
+              end
+              object TS_DBOM_Sum: TRzTabSheet
+                Caption = #27719#24635#25253#34920
+                object cxGrid_DBOM_Sum: TcxGrid
+                  Left = 0
+                  Top = 0
+                  Width = 803
+                  Height = 341
+                  Align = alClient
+                  PopupMenu = PM
+                  TabOrder = 0
+                  OnContextPopup = cxGrid_DBOM_SumContextPopup
+                  object cxGV_DBOM_Sum: TcxGridDBTableView
+                    DataController.DataSource = DS_Mdata_DBOM_Sum
+                    DataController.Summary.DefaultGroupSummaryItems = <>
+                    DataController.Summary.FooterSummaryItems = <
+                      item
+                        Format = #23567#35745#65306'0.0000'
+                        Kind = skSum
+                        FieldName = 'FSumSuttle'
+                        Column = cxGridDBColumn11
+                      end
+                      item
+                        Format = #23567#35745#65306'0.0000'
+                        Kind = skSum
+                        FieldName = 'FQry'
+                        Column = cxGridDBColumn10
+                      end
+                      item
+                        Format = #23567#35745#65306'0.0000'
+                        Kind = skSum
+                        FieldName = 'FSuttle'
+                        Column = cxGridDBColumn8
+                      end
+                      item
+                        Format = #23567#35745#65306'0.0000'
+                        Kind = skSum
+                        FieldName = 'FSumQry'
+                        Column = cxGridDBColumn7
+                      end>
+                    DataController.Summary.SummaryGroups = <>
+                    NavigatorButtons.ConfirmDelete = False
+                    NavigatorButtons.PriorPage.Visible = False
+                    NavigatorButtons.NextPage.Visible = False
+                    NavigatorButtons.Insert.Visible = False
+                    NavigatorButtons.Delete.Visible = False
+                    NavigatorButtons.Edit.Visible = False
+                    NavigatorButtons.Post.Visible = False
+                    NavigatorButtons.Cancel.Visible = False
+                    NavigatorButtons.Refresh.Visible = False
+                    NavigatorButtons.SaveBookmark.Visible = False
+                    NavigatorButtons.GotoBookmark.Visible = False
+                    NavigatorButtons.Filter.Visible = False
+                    OptionsData.CancelOnExit = False
+                    OptionsData.Deleting = False
+                    OptionsData.DeletingConfirmation = False
+                    OptionsData.Editing = False
+                    OptionsData.Inserting = False
+                    OptionsView.Navigator = True
+                    OptionsView.Footer = True
+                    OptionsView.GroupByBox = False
+                    object cxGridDBColumn1: TcxGridDBColumn
+                      Caption = #32423#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 30
+                      DataBinding.FieldName = 'FCode'
+                    end
+                    object cxGridDBColumn2: TcxGridDBColumn
+                      Caption = #22270#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 119
+                      DataBinding.FieldName = 'th'
+                    end
+                    object cxGridDBColumn3: TcxGridDBColumn
+                      Caption = #21517#31216
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 113
+                      DataBinding.FieldName = 'mc'
+                    end
+                    object cxGridDBColumn4: TcxGridDBColumn
+                      Caption = #35268#26684
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 125
+                      DataBinding.FieldName = 'gg'
+                    end
+                    object FParts_1: TcxGridDBColumn
+                      Caption = #27719#24635#37096#20214#31867#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 131
+                      DataBinding.FieldName = 'FParts'
+                    end
+                    object FNumber_1: TcxGridDBColumn
+                      Caption = #26448#26009#32534#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 124
+                      DataBinding.FieldName = 'FNumber'
+                    end
+                    object cxGridDBColumn5: TcxGridDBColumn
+                      Caption = #26448#26009#21517#31216
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 88
+                      DataBinding.FieldName = 'FName'
+                    end
+                    object cxGridDBColumn6: TcxGridDBColumn
+                      Caption = #26448#26009#35268#26684
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 110
+                      DataBinding.FieldName = 'FModel'
+                    end
+                    object cxGridDBColumn7: TcxGridDBColumn
+                      Caption = #24635#25968#37327
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 0
+                      Properties.DisplayFormat = '0'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 41
+                      DataBinding.FieldName = 'FSumQry'
+                    end
+                    object cxGridDBColumn8: TcxGridDBColumn
+                      Caption = #35774#35745#20928#37325
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.DisplayFormat = '0.0000;-0.0000'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 86
+                      DataBinding.FieldName = 'FSuttle'
+                    end
+                    object cxGridDBColumn9: TcxGridDBColumn
+                      Caption = #25152#23646#22270#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 91
+                      DataBinding.FieldName = 'ssth'
+                    end
+                    object cxGridDBColumn10: TcxGridDBColumn
+                      Caption = #25968#37327
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 39
+                      DataBinding.FieldName = 'FQry'
+                    end
+                    object FManageParts_1: TcxGridDBColumn
+                      Caption = #20225#31649#31867#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taRightJustify
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 103
+                      DataBinding.FieldName = 'FManageParts'
+                    end
+                    object FWorkParts_1: TcxGridDBColumn
+                      Caption = #20837#24211#31867#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 98
+                      DataBinding.FieldName = 'FWorkParts'
+                    end
+                    object FPartsSort_1: TcxGridDBColumn
+                      Caption = #37096#20214#31867#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 125
+                      DataBinding.FieldName = 'FPartsSort'
+                    end
+                    object cxGridDBColumn11: TcxGridDBColumn
+                      Caption = #20928#37325#21512#35745
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.DisplayFormat = '0.0000;-0.0000'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 82
+                      DataBinding.FieldName = 'FSumSuttle'
+                    end
+                    object y_FSuttle_1: TcxGridDBColumn
+                      Caption = #25442#31639#20928#37325
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.DisplayFormat = '0.0000;-0.0000'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 81
+                      DataBinding.FieldName = 'y_FSuttle'
+                    end
+                    object c_FSuttle_1: TcxGridDBColumn
+                      Caption = #25442#31639#20928#37325#24046
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.DisplayFormat = '0.0000;-0.0000'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 76
+                      DataBinding.FieldName = 'c_FSuttle'
+                    end
+                    object FMaterialRate_1: TcxGridDBColumn
+                      Caption = #25442#31639#29575
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.ValidateOnEnter = True
+                      Properties.IsDisplayFormatAssigned = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 41
+                      DataBinding.FieldName = 'FMaterialRate'
+                    end
+                    object cxGridDBColumn12: TcxGridDBColumn
+                      Caption = #21333#20301
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 29
+                      DataBinding.FieldName = 'UnitName'
+                    end
+                    object y_FNumber_1: TcxGridDBColumn
+                      Caption = #25442#31639#32534#30721
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 96
+                      DataBinding.FieldName = 'y_FNumber'
+                    end
+                    object y_FModel_1: TcxGridDBColumn
+                      Caption = #25442#31639#35268#26684
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 130
+                      DataBinding.FieldName = 'y_FModel'
+                    end
+                    object FPriceQry_1: TcxGridDBColumn
+                      Caption = #35745#20215#25968#37327
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 53
+                      DataBinding.FieldName = 'FPriceQry'
+                    end
+                    object FUse_1: TcxGridDBColumn
+                      Caption = #21033#29992#29575
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DisplayFormat = '0.00'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 41
+                      DataBinding.FieldName = 'FUse'
+                    end
+                    object FRation_1: TcxGridDBColumn
+                      Caption = #21333#20214#23450#39069
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 4
+                      Properties.DisplayFormat = '0.0000;-0.0000'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 86
+                      DataBinding.FieldName = 'FRation'
+                    end
+                    object y_FRation_1: TcxGridDBColumn
+                      Caption = #25442#31639#23450#39069
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 86
+                      DataBinding.FieldName = 'y_FRation'
+                    end
+                    object cxGridDBColumn13: TcxGridDBColumn
+                      Caption = #38271#20195#30721
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      SortOrder = soAscending
+                      Width = 146
+                      DataBinding.FieldName = 'FFullNumber'
+                    end
+                    object cxGridDBColumn14: TcxGridDBColumn
+                      Caption = #25152#23646#38271#20195#30721
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 165
+                      DataBinding.FieldName = 'ssFullNumber'
+                    end
+                    object cxGridDBColumn15: TcxGridDBColumn
+                      Caption = #22791#27880
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 88
+                      DataBinding.FieldName = 'Remark'
+                    end
+                    object cxGridDBColumn16: TcxGridDBColumn
+                      Caption = #20840#21517#31216
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 333
+                      DataBinding.FieldName = 'FFullName'
+                    end
+                  end
+                  object cxGL_DBOM_Sum: TcxGridLevel
+                    GridView = cxGV_DBOM_Sum
+                  end
+                end
+                object Panel11: TPanel
+                  Left = 0
+                  Top = 341
+                  Width = 803
+                  Height = 100
+                  Align = alBottom
+                  BevelOuter = bvNone
+                  ParentColor = True
+                  TabOrder = 1
+                  object Bevel5: TBevel
+                    Left = 0
+                    Top = 5
+                    Width = 1105
+                    Height = 4
+                  end
+                  object CB_DBOM_Parts: TcxComboBox
+                    Left = 138
+                    Top = 22
+                    Width = 107
+                    Height = 21
+                    ImeName = #20013#25991' ('#31616#20307') - '#24494#36719#25340#38899#36755#20837#27861' 3.0 '#29256
+                    Properties.Items.Strings = (
+                      #26448#26009
+                      #37096#20214
+                      #37096#20214#31867#21035
+                      #20225#31649#37096#20214#31867#21035
+                      #20837#24211#37096#20214#31867#21035
+                      #29983#20135#37096#20214#31867#21035
+                      #20108#32423#22270#21495
+                      #19968#32423#22270#21495)
+                    Properties.OnChange = cxComboBox1PropertiesChange
+                    Style.BorderColor = 8623776
+                    Style.BorderStyle = ebsSingle
+                    Style.Color = 15658734
+                    Style.ButtonTransparency = ebtHideInactive
+                    TabOrder = 0
+                    Text = #20225#31649#37096#20214#31867#21035
+                  end
+                  object RzRG_1: TRzRadioGroup
+                    Left = 16
+                    Top = 16
+                    Width = 113
+                    Height = 65
+                    Caption = #32479#35745#26465#20214
+                    ItemIndex = 0
+                    Items.Strings = (
+                      #37096#20214#27719#24635
+                      #26448#26009#27719#24635)
+                    TabOrder = 1
+                  end
+                end
+              end
+            end
+          end
+        end
+        object TS_WorkBOM: TRzTabSheet
+          Color = 14935011
+          Caption = #29983#20135'BOM'
+          object PanelBkGnd: TPanel
+            Left = 225
+            Top = 0
+            Width = 885
+            Height = 505
+            Align = alClient
+            BevelOuter = bvNone
+            Ctl3D = True
+            ParentCtl3D = False
+            TabOrder = 0
+            object Panel2: TPanel
+              Left = 0
+              Top = 0
+              Width = 1358
+              Height = 49
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 0
+            end
+            object Panel7: TPanel
+              Left = 0
+              Top = 0
+              Width = 885
+              Height = 41
+              Align = alTop
+              AutoSize = True
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 1
+              object ToolBar1: TToolBar
+                Left = 0
+                Top = 0
+                Width = 1142
+                Height = 41
+                Align = alNone
+                ButtonHeight = 35
+                ButtonWidth = 55
+                Caption = 'ToolBar1'
+                EdgeBorders = []
+                Font.Charset = ANSI_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = #23435#20307
+                Font.Style = []
+                Images = ImageList
+                ParentFont = False
+                ShowCaptions = True
+                TabOrder = 0
+                object TB_Ref_MBOM: TToolButton
+                  Left = 0
+                  Top = 2
+                  AutoSize = True
+                  Caption = #21047#26032'[&R]'
+                  ImageIndex = 4
+                  OnClick = TB_Ref_MBOMClick
+                end
+                object ToolButton3: TToolButton
+                  Left = 53
+                  Top = 2
+                  AutoSize = True
+                  Caption = #37319#36141#28165#21333
+                  ImageIndex = 6
+                  OnClick = ToolButton3Click
+                end
+                object ToolButton2: TToolButton
+                  Left = 112
+                  Top = 2
+                  AutoSize = True
+                  Caption = #36864#20986'[&E]'
+                  ImageIndex = 7
+                  OnClick = TB_ExitClick
+                end
+              end
+            end
+            object Panel10: TPanel
+              Left = 0
+              Top = 41
+              Width = 885
+              Height = 464
+              Align = alClient
+              TabOrder = 2
+              object PC_MakeBOM: TRzPageControl
+                Left = 1
+                Top = 1
+                Width = 883
+                Height = 462
+                ActivePage = TS_MakeBOM_MX
+                Align = alClient
+                TabIndex = 0
+                TabOrder = 0
+                OnChange = PC_MakeBOMChange
+                FixedDimension = 19
+                object TS_MakeBOM_MX: TRzTabSheet
+                  Caption = #29983#20135#23450#39069#26126#32454
+                  object cxGrid_MBOM: TcxGrid
+                    Left = 0
+                    Top = 0
+                    Width = 879
+                    Height = 439
+                    Align = alClient
+                    PopupMenu = PM
+                    TabOrder = 0
+                    OnContextPopup = cxGrid_MBOMContextPopup
+                    object cxGV_MBOM: TcxGridDBTableView
+                      DataController.DataSource = DS_Mdata_MBOM
+                      DataController.Summary.DefaultGroupSummaryItems = <>
+                      DataController.Summary.FooterSummaryItems = <
+                        item
+                          Format = '0.0000'
+                          Kind = skSum
+                          FieldName = 'FSumSuttle'
+                          Column = FSumSuttle
+                        end
+                        item
+                          Format = '0.0000'
+                          FieldName = 'FQry'
+                          Column = FQry
+                        end
+                        item
+                          Format = '0.0000'
+                          Kind = skSum
+                          FieldName = 'FSuttle'
+                          Column = FSuttle
+                        end>
+                      DataController.Summary.SummaryGroups = <>
+                      NavigatorButtons.ConfirmDelete = False
+                      NavigatorButtons.PriorPage.Visible = False
+                      NavigatorButtons.NextPage.Visible = False
+                      NavigatorButtons.Insert.Visible = False
+                      NavigatorButtons.Delete.Visible = False
+                      NavigatorButtons.Edit.Visible = False
+                      NavigatorButtons.Post.Visible = False
+                      NavigatorButtons.Cancel.Visible = False
+                      NavigatorButtons.Refresh.Visible = False
+                      NavigatorButtons.SaveBookmark.Visible = False
+                      NavigatorButtons.GotoBookmark.Visible = False
+                      NavigatorButtons.Filter.Visible = False
+                      OptionsData.CancelOnExit = False
+                      OptionsData.Deleting = False
+                      OptionsData.DeletingConfirmation = False
+                      OptionsData.Inserting = False
+                      OptionsView.Navigator = True
+                      OptionsView.Footer = True
+                      OptionsView.GroupByBox = False
+                      object Num: TcxGridDBColumn
+                        Caption = #24207#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 29
+                        DataBinding.FieldName = 'Num'
+                      end
+                      object FCode: TcxGridDBColumn
+                        Caption = #32423#21035
+                        PropertiesClassName = 'TcxButtonEditProperties'
+                        Properties.Buttons = <
+                          item
+                            Default = True
+                            Kind = bkEllipsis
+                          end>
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 30
+                        DataBinding.FieldName = 'FCode'
+                      end
+                      object th: TcxGridDBColumn
+                        Caption = #22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 119
+                        DataBinding.FieldName = 'th'
+                      end
+                      object mc: TcxGridDBColumn
+                        Caption = #21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 113
+                        DataBinding.FieldName = 'mc'
+                      end
+                      object gg: TcxGridDBColumn
+                        Caption = #35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 125
+                        DataBinding.FieldName = 'gg'
+                      end
+                      object FName: TcxGridDBColumn
+                        Caption = #26448#26009#21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 88
+                        DataBinding.FieldName = 'FName'
+                      end
+                      object FModel: TcxGridDBColumn
+                        Caption = #26448#26009#35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 110
+                        DataBinding.FieldName = 'FModel'
+                      end
+                      object FQry: TcxGridDBColumn
+                        Caption = #25968#37327
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 39
+                        DataBinding.FieldName = 'FQry'
+                      end
+                      object FSumQry: TcxGridDBColumn
+                        Caption = #24635#25968#37327
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 0
+                        Properties.DisplayFormat = '0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'FSumQry'
+                      end
+                      object FSuttle: TcxGridDBColumn
+                        Caption = #35774#35745#20928#37325
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 86
+                        DataBinding.FieldName = 'FSuttle'
+                      end
+                      object FSumSuttle: TcxGridDBColumn
+                        Caption = #20928#37325#21512#35745
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 82
+                        DataBinding.FieldName = 'FSumSuttle'
+                      end
+                      object model: TcxGridDBColumn
+                        Caption = #23610#23544
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 70
+                        DataBinding.FieldName = 'model'
+                      end
+                      object FProcess: TcxGridDBColumn
+                        Caption = #29983#20135#24037#33402
+                        PropertiesClassName = 'TcxButtonEditProperties'
+                        Properties.Buttons = <
+                          item
+                            Default = True
+                            Kind = bkEllipsis
+                          end>
+                        Properties.OnButtonClick = FProcessPropertiesButtonClick
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 133
+                        DataBinding.FieldName = 'FProcess'
+                      end
+                      object long: TcxGridDBColumn
+                        Caption = #38271
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'long'
+                      end
+                      object width: TcxGridDBColumn
+                        Caption = #23485
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 39
+                        DataBinding.FieldName = 'width'
+                      end
+                      object FProductID: TcxGridDBColumn
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        DataBinding.FieldName = 'FProductID'
+                      end
+                      object ssth: TcxGridDBColumn
+                        Caption = #25152#23646#22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 91
+                        DataBinding.FieldName = 'ssth'
+                      end
+                      object UnitName: TcxGridDBColumn
+                        Caption = #21333#20301
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 29
+                        DataBinding.FieldName = 'UnitName'
+                      end
+                      object FFullNumber: TcxGridDBColumn
+                        Caption = #38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        SortOrder = soAscending
+                        Width = 146
+                        DataBinding.FieldName = 'FFullNumber'
+                      end
+                      object ssFullNumber: TcxGridDBColumn
+                        Caption = #25152#23646#38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 165
+                        DataBinding.FieldName = 'ssFullNumber'
+                      end
+                      object FDesignRemark: TcxGridDBColumn
+                        Caption = #35774#35745#22791#27880
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 96
+                        DataBinding.FieldName = 'FDesignRemark'
+                      end
+                      object js: TcxGridDBColumn
+                        Caption = 'is'
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 20
+                        DataBinding.FieldName = 'js'
+                      end
+                      object FMakeBOMID: TcxGridDBColumn
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 95
+                        DataBinding.FieldName = 'FMakeBOMID'
+                      end
+                      object FPartsNumber: TcxGridDBColumn
+                        Caption = #37096#20214#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 41
+                        DataBinding.FieldName = 'FPartsNumber'
+                      end
+                      object FFullName: TcxGridDBColumn
+                        Caption = #20840#21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 312
+                        DataBinding.FieldName = 'FFullName'
+                      end
+                    end
+                    object cxGL_MBOM: TcxGridLevel
+                      GridView = cxGV_MBOM
+                    end
+                  end
+                end
+                object TS_MakeBOM_Sum: TRzTabSheet
+                  Caption = #29983#20135#23450#39069#27719#24635#25253#34920
+                  object cxGrid_MBOM_Sum: TcxGrid
+                    Left = 0
+                    Top = 0
+                    Width = 879
+                    Height = 398
+                    Align = alClient
+                    PopupMenu = PM
+                    TabOrder = 0
+                    OnContextPopup = cxGrid_MBOM_SumContextPopup
+                    object cxGV_MBOM_Sum: TcxGridDBTableView
+                      DataController.DataSource = DS_Mdata_MBOM_Sum
+                      DataController.Summary.DefaultGroupSummaryItems = <>
+                      DataController.Summary.FooterSummaryItems = <
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSumSuttle'
+                          Column = FSumSuttle_Sum
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FQry'
+                          Column = FQry_Sum
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSuttle'
+                          Column = FSuttle_Sum
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSumQry'
+                          Column = FSumQry_Sum
+                        end>
+                      DataController.Summary.SummaryGroups = <>
+                      NavigatorButtons.ConfirmDelete = False
+                      NavigatorButtons.PriorPage.Visible = False
+                      NavigatorButtons.NextPage.Visible = False
+                      NavigatorButtons.Insert.Visible = False
+                      NavigatorButtons.Delete.Visible = False
+                      NavigatorButtons.Edit.Visible = False
+                      NavigatorButtons.Post.Visible = False
+                      NavigatorButtons.Cancel.Visible = False
+                      NavigatorButtons.Refresh.Visible = False
+                      NavigatorButtons.SaveBookmark.Visible = False
+                      NavigatorButtons.GotoBookmark.Visible = False
+                      NavigatorButtons.Filter.Visible = False
+                      OptionsData.CancelOnExit = False
+                      OptionsData.Deleting = False
+                      OptionsData.DeletingConfirmation = False
+                      OptionsData.Editing = False
+                      OptionsData.Inserting = False
+                      OptionsView.Navigator = True
+                      OptionsView.Footer = True
+                      OptionsView.GroupByBox = False
+                      object FParts_Sum: TcxGridDBColumn
+                        Caption = #27719#24635#37096#20214#31867#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 131
+                        DataBinding.FieldName = 'FParts'
+                      end
+                      object FCode_Sum: TcxGridDBColumn
+                        Caption = #32423#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 32
+                        DataBinding.FieldName = 'FCode'
+                      end
+                      object th_Sum: TcxGridDBColumn
+                        Caption = #22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 119
+                        DataBinding.FieldName = 'th'
+                      end
+                      object mc_Sum: TcxGridDBColumn
+                        Caption = #21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 114
+                        DataBinding.FieldName = 'mc'
+                      end
+                      object gg_Sum: TcxGridDBColumn
+                        Caption = #35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 125
+                        DataBinding.FieldName = 'gg'
+                      end
+                      object ssth_Sum: TcxGridDBColumn
+                        Caption = #25152#23646#22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 91
+                        DataBinding.FieldName = 'ssth'
+                      end
+                      object FQry_Sum: TcxGridDBColumn
+                        Caption = #25968#37327
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 39
+                        DataBinding.FieldName = 'FQry'
+                      end
+                      object FSuttle_Sum: TcxGridDBColumn
+                        Caption = #35774#35745#20928#37325
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 114
+                        DataBinding.FieldName = 'FSuttle'
+                      end
+                      object FRation_Sum: TcxGridDBColumn
+                        Caption = #21333#20214#23450#39069
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 86
+                        DataBinding.FieldName = 'FRation'
+                      end
+                      object FSumQry_Sum: TcxGridDBColumn
+                        Caption = #24635#25968#37327
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 0
+                        Properties.DisplayFormat = '0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'FSumQry'
+                      end
+                      object FSumSuttle_Sum: TcxGridDBColumn
+                        Caption = #20928#37325#21512#35745
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 82
+                        DataBinding.FieldName = 'FSumSuttle'
+                      end
+                      object FNumber_Sum: TcxGridDBColumn
+                        Caption = #26448#26009#32534#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 124
+                        DataBinding.FieldName = 'FNumber'
+                      end
+                      object FName_Sum: TcxGridDBColumn
+                        Caption = #26448#26009#21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 119
+                        DataBinding.FieldName = 'FName'
+                      end
+                      object FModel_Sum: TcxGridDBColumn
+                        Caption = #26448#26009#35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 110
+                        DataBinding.FieldName = 'FModel'
+                      end
+                      object UnitName_Sum: TcxGridDBColumn
+                        Caption = #21333#20301
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 29
+                        DataBinding.FieldName = 'UnitName'
+                      end
+                      object FMaterialRate_Sum: TcxGridDBColumn
+                        Caption = #25442#31639#29575
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.ValidateOnEnter = True
+                        Properties.IsDisplayFormatAssigned = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'FMaterialRate'
+                      end
+                      object y_FNumber_Sum: TcxGridDBColumn
+                        Caption = #25442#31639#32534#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 96
+                        DataBinding.FieldName = 'y_FNumber'
+                      end
+                      object y_FModel_Sum: TcxGridDBColumn
+                        Caption = #25442#31639#35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 130
+                        DataBinding.FieldName = 'y_FModel'
+                      end
+                      object y_FSuttle_Sum: TcxGridDBColumn
+                        Caption = #25442#31639#20928#37325
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 81
+                        DataBinding.FieldName = 'y_FSuttle'
+                      end
+                      object c_FSuttle_Sum: TcxGridDBColumn
+                        Caption = #25442#31639#20928#37325#24046
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 76
+                        DataBinding.FieldName = 'c_FSuttle'
+                      end
+                      object FUse_Sum: TcxGridDBColumn
+                        Caption = #21033#29992#29575
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DisplayFormat = '0.00'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 41
+                        DataBinding.FieldName = 'FUse'
+                      end
+                      object y_FRation_Sum: TcxGridDBColumn
+                        Caption = #25442#31639#23450#39069
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 86
+                        DataBinding.FieldName = 'y_FRation'
+                      end
+                      object FPriceQry_Sum: TcxGridDBColumn
+                        Caption = #35745#20215#25968#37327
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 53
+                        DataBinding.FieldName = 'FPriceQry'
+                      end
+                      object FFullNumber_Sum: TcxGridDBColumn
+                        Caption = #38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        SortOrder = soAscending
+                        Width = 146
+                        DataBinding.FieldName = 'FFullNumber'
+                      end
+                      object ssFullNumber_Sum: TcxGridDBColumn
+                        Caption = #25152#23646#38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 165
+                        DataBinding.FieldName = 'ssFullNumber'
+                      end
+                      object FPartsSort_Sum: TcxGridDBColumn
+                        Caption = #37096#20214#31867#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 125
+                        DataBinding.FieldName = 'FPartsSort'
+                      end
+                    end
+                    object cxGL_MBOM_Sum: TcxGridLevel
+                      GridView = cxGV_MBOM_Sum
+                    end
+                  end
+                  object Panel12: TPanel
+                    Left = 0
+                    Top = 398
+                    Width = 879
+                    Height = 41
+                    Align = alBottom
+                    BevelOuter = bvNone
+                    ParentColor = True
+                    TabOrder = 1
+                    object Bevel2: TBevel
+                      Left = 0
+                      Top = 5
+                      Width = 1105
+                      Height = 4
+                    end
+                    object cxCheckBox1: TcxCheckBox
+                      Left = 411
+                      Top = 17
+                      Width = 51
+                      Height = 21
+                      ParentColor = False
+                      Properties.DisplayUnchecked = 'False'
+                      Properties.Caption = #25171#21360
+                      State = cbsChecked
+                      Style.BorderColor = 8623776
+                      Style.BorderStyle = ebsSingle
+                      Style.Color = 14935011
+                      TabOrder = 0
+                    end
+                    object CB_Parts_MBOM: TcxComboBox
+                      Left = 127
+                      Top = 14
+                      Width = 107
+                      Height = 21
+                      ImeName = #20013#25991' ('#31616#20307') - '#24494#36719#25340#38899#36755#20837#27861' 3.0 '#29256
+                      Properties.Items.Strings = (
+                        #39033#30446
+                        #37096#20214
+                        #29983#20135#31867#21035
+                        '')
+                      Properties.OnChange = CB_Parts_MBOMPropertiesChange
+                      Style.BorderColor = 8623776
+                      Style.BorderStyle = ebsSingle
+                      Style.Color = 15658734
+                      Style.ButtonTransparency = ebtHideInactive
+                      TabOrder = 1
+                      Text = #29983#20135#37096#20214#31867#21035
+                    end
+                    object CB_Switch_MBOM: TcxComboBox
+                      Left = 241
+                      Top = 13
+                      Width = 107
+                      Height = 21
+                      ImeName = #20013#25991' ('#31616#20307') - '#24494#36719#25340#38899#36755#20837#27861' 3.0 '#29256
+                      Properties.Items.Strings = (
+                        #38477#32791#25351#20196'(2'#21495')'
+                        #38477#32791#25351#20196'(3'#21495')'
+                        #38477#32791#25351#20196'(4'#21495')'
+                        #38477#32791#25351#20196'(98)')
+                      Properties.OnChange = CB_Switch_MBOMPropertiesChange
+                      Style.BorderColor = 8623776
+                      Style.BorderStyle = ebsSingle
+                      Style.Color = 15658734
+                      Style.ButtonTransparency = ebtHideInactive
+                      TabOrder = 2
+                      Text = #38477#32791#25351#20196'(98)'
+                    end
+                    object CB_Type_MBOM: TcxComboBox
+                      Left = 15
+                      Top = 14
+                      Width = 107
+                      Height = 21
+                      ImeName = #20013#25991' ('#31616#20307') - '#24494#36719#25340#38899#36755#20837#27861' 3.0 '#29256
+                      Properties.Items.Strings = (
+                        #37096#20214#27719#24635
+                        #26448#26009#27719#24635
+                        #26126#32454#28165#21333)
+                      Properties.OnChange = CB_Type_MBOMPropertiesChange
+                      Style.BorderColor = 8623776
+                      Style.BorderStyle = ebsSingle
+                      Style.Color = 15658734
+                      Style.ButtonTransparency = ebtHideInactive
+                      TabOrder = 3
+                      Text = #26126#32454#28165#21333
+                    end
+                  end
+                end
+              end
+            end
+          end
+          object RzSizePanel4: TRzSizePanel
+            Left = 0
+            Top = 0
+            Width = 225
+            Height = 505
+            Color = 14935011
+            HotSpotVisible = True
+            SizeBarWidth = 7
+            TabOrder = 1
+            VisualStyle = vsGradient
+            object MyTreeView_MBOM: TTreeView
+              Left = 0
+              Top = 0
+              Width = 217
+              Height = 505
+              Align = alClient
+              AutoExpand = True
+              Ctl3D = False
+              Indent = 19
+              ParentCtl3D = False
+              TabOrder = 0
+              OnChange = MyTreeView_MBOMChange
+              OnExpanding = MyTreeView_MBOMExpanding
+            end
+          end
+        end
+        object TS_MakeBOM: TRzTabSheet
+          Color = 14935011
+          Caption = #29983#20135#20316#19994#34920
+          object Panel3: TPanel
+            Left = 228
+            Top = 0
+            Width = 882
+            Height = 505
+            Align = alClient
+            BevelOuter = bvNone
+            Ctl3D = True
+            ParentCtl3D = False
+            TabOrder = 0
+            object Panel4: TPanel
+              Left = 0
+              Top = 0
+              Width = 1358
+              Height = 49
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 0
+            end
+            object Panel5: TPanel
+              Left = 0
+              Top = 0
+              Width = 882
+              Height = 41
+              Align = alTop
+              AutoSize = True
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 1
+              object ToolBar4: TToolBar
+                Left = 0
+                Top = 0
+                Width = 1142
+                Height = 41
+                Align = alNone
+                ButtonHeight = 35
+                ButtonWidth = 67
+                Caption = 'ToolBar1'
+                EdgeBorders = []
+                Font.Charset = ANSI_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = #23435#20307
+                Font.Style = []
+                Images = ImageList
+                ParentFont = False
+                ShowCaptions = True
+                TabOrder = 0
+                object TB_Ref_MList: TToolButton
+                  Left = 0
+                  Top = 2
+                  AutoSize = True
+                  Caption = #21047#26032'[&R]'
+                  ImageIndex = 4
+                  OnClick = TB_Ref_MListClick
+                end
+                object TB_MakeList: TToolButton
+                  Left = 53
+                  Top = 2
+                  AutoSize = True
+                  Caption = #29983#20135#20316#19994#34920
+                  ImageIndex = 6
+                  Visible = False
+                  OnClick = TB_MakeListClick
+                end
+                object TB_MakeCut: TToolButton
+                  Left = 124
+                  Top = 2
+                  AutoSize = True
+                  Caption = #29983#20135#19979#26009#34920
+                  ImageIndex = 6
+                  Visible = False
+                  OnClick = TB_MakeCutClick
+                end
+                object TB_MakePick: TToolButton
+                  Left = 195
+                  Top = 2
+                  AutoSize = True
+                  Caption = #29677#32452#39046#26009#21333
+                  ImageIndex = 6
+                  Visible = False
+                  OnClick = TB_MakePickClick
+                end
+                object ToolButton19: TToolButton
+                  Left = 266
+                  Top = 2
+                  AutoSize = True
+                  Caption = #36864#20986'[&E]'
+                  ImageIndex = 7
+                  OnClick = TB_ExitClick
+                end
+              end
+            end
+            object RzPanel1: TRzPanel
+              Left = 0
+              Top = 41
+              Width = 882
+              Height = 464
+              Align = alClient
+              TabOrder = 2
+              object PC_MakeList: TPageControl
+                Left = 2
+                Top = 154
+                Width = 878
+                Height = 308
+                ActivePage = TS_MakeList
+                Align = alClient
+                MultiLine = True
+                TabOrder = 0
+                OnChange = PC_MakeListChange
+                object TS_MakeList: TTabSheet
+                  Caption = #29983#20135#20316#19994#34920
+                  object cxGrid_MList: TcxGrid
+                    Left = 0
+                    Top = 0
+                    Width = 870
+                    Height = 280
+                    Align = alClient
+                    PopupMenu = PM
+                    TabOrder = 0
+                    OnContextPopup = cxGrid_MListContextPopup
+                    object cxGV_MList: TcxGridDBTableView
+                      DataController.DataSource = DS_Mdata_MList
+                      DataController.Summary.DefaultGroupSummaryItems = <>
+                      DataController.Summary.FooterSummaryItems = <
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSumSuttle'
+                          Column = FSumSuttle_2
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          FieldName = 'FQry'
+                          Column = FQry_2
+                        end>
+                      DataController.Summary.SummaryGroups = <>
+                      NavigatorButtons.ConfirmDelete = False
+                      NavigatorButtons.PriorPage.Visible = False
+                      NavigatorButtons.NextPage.Visible = False
+                      NavigatorButtons.Insert.Visible = False
+                      NavigatorButtons.Delete.Visible = False
+                      NavigatorButtons.Edit.Visible = False
+                      NavigatorButtons.Post.Visible = False
+                      NavigatorButtons.Cancel.Visible = False
+                      NavigatorButtons.Refresh.Visible = False
+                      NavigatorButtons.SaveBookmark.Visible = False
+                      NavigatorButtons.GotoBookmark.Visible = False
+                      NavigatorButtons.Filter.Visible = False
+                      OptionsData.CancelOnExit = False
+                      OptionsData.Deleting = False
+                      OptionsData.DeletingConfirmation = False
+                      OptionsData.Inserting = False
+                      OptionsView.Navigator = True
+                      OptionsView.Footer = True
+                      OptionsView.GroupByBox = False
+                      object IsEdit_2: TcxGridDBColumn
+                        Caption = #8730
+                        PropertiesClassName = 'TcxCheckBoxProperties'
+                        Properties.DisplayUnchecked = 'False'
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 33
+                        DataBinding.FieldName = 'IsEdit'
+                      end
+                      object FCode_2: TcxGridDBColumn
+                        Caption = #32423#21035
+                        PropertiesClassName = 'TcxButtonEditProperties'
+                        Properties.Buttons = <
+                          item
+                            Default = True
+                            Kind = bkEllipsis
+                          end>
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 30
+                        DataBinding.FieldName = 'FCode'
+                      end
+                      object th_2: TcxGridDBColumn
+                        Caption = #22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 119
+                        DataBinding.FieldName = 'th'
+                      end
+                      object mc_2: TcxGridDBColumn
+                        Caption = #21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 113
+                        DataBinding.FieldName = 'mc'
+                      end
+                      object FModel_2: TcxGridDBColumn
+                        Caption = #26448#26009#35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 110
+                        DataBinding.FieldName = 'FModel'
+                      end
+                      object FQry_2: TcxGridDBColumn
+                        Caption = #25968#37327
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 39
+                        DataBinding.FieldName = 'FQry'
+                      end
+                      object FSumQry_2: TcxGridDBColumn
+                        Caption = #24635#25968#37327
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 0
+                        Properties.DisplayFormat = '0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'FSumQry'
+                      end
+                      object FSuttle_2: TcxGridDBColumn
+                        Caption = #35774#35745#20928#37325
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 86
+                        DataBinding.FieldName = 'FSuttle'
+                      end
+                      object model_2: TcxGridDBColumn
+                        Caption = #23610#23544
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 70
+                        DataBinding.FieldName = 'model'
+                      end
+                      object FProcess_2: TcxGridDBColumn
+                        Caption = #29983#20135#24037#33402
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 133
+                        DataBinding.FieldName = 'FProcess'
+                      end
+                      object FSumSuttle_2: TcxGridDBColumn
+                        Caption = #20928#37325#21512#35745
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 82
+                        DataBinding.FieldName = 'FSumSuttle'
+                      end
+                      object FMakeListRemark_2: TcxGridDBColumn
+                        Caption = #22791#27880
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 88
+                        DataBinding.FieldName = 'FMakeListRemark'
+                      end
+                      object gg_2: TcxGridDBColumn
+                        Caption = #35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 125
+                        DataBinding.FieldName = 'gg'
+                      end
+                      object FName_2: TcxGridDBColumn
+                        Caption = #26448#26009#21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 88
+                        DataBinding.FieldName = 'FName'
+                      end
+                      object UnitName_2: TcxGridDBColumn
+                        Caption = #21333#20301
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 29
+                        DataBinding.FieldName = 'UnitName'
+                      end
+                      object long_2: TcxGridDBColumn
+                        Caption = #38271
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 1
+                        Properties.DisplayFormat = '0.0;-0.0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'long'
+                      end
+                      object width_2: TcxGridDBColumn
+                        Caption = #23485
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 1
+                        Properties.DisplayFormat = '0.0;-0.0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 39
+                        DataBinding.FieldName = 'width'
+                      end
+                      object ssth_2: TcxGridDBColumn
+                        Caption = #25152#23646#22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 91
+                        DataBinding.FieldName = 'ssth'
+                      end
+                      object FFullNumber_2: TcxGridDBColumn
+                        Caption = #38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        SortOrder = soAscending
+                        Width = 146
+                        DataBinding.FieldName = 'FFullNumber'
+                      end
+                      object ssFullNumber_2: TcxGridDBColumn
+                        Caption = #25152#23646#38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 165
+                        DataBinding.FieldName = 'ssFullNumber'
+                      end
+                      object FDesignRemark_2: TcxGridDBColumn
+                        Caption = #35774#35745#22791#27880
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 78
+                        DataBinding.FieldName = 'FDesignRemark'
+                      end
+                      object js_2: TcxGridDBColumn
+                        Caption = 'is'
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 20
+                        DataBinding.FieldName = 'js'
+                      end
+                      object FPartsNumber_2: TcxGridDBColumn
+                        Caption = #37096#20214#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 41
+                        DataBinding.FieldName = 'FPartsNumber'
+                      end
+                      object FMakeParts_2: TcxGridDBColumn
+                        Caption = #29983#20135#31867#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 83
+                        DataBinding.FieldName = 'FMakeParts'
+                      end
+                    end
+                    object cxGL_MList: TcxGridLevel
+                      GridView = cxGV_MList
+                    end
+                  end
+                end
+                object TS_MakeList_Cut: TTabSheet
+                  Caption = #29983#20135#19979#26009#34920
+                  ImageIndex = 2
+                  object cxGrid_MList_Cut: TcxGrid
+                    Left = 0
+                    Top = 0
+                    Width = 732
+                    Height = 257
+                    Align = alClient
+                    PopupMenu = PM
+                    TabOrder = 0
+                    OnContextPopup = cxGrid_MList_CutContextPopup
+                    object cxGV_MList_Cut: TcxGridDBTableView
+                      DataController.DataSource = DS_Mdata_MList_Cut
+                      DataController.Summary.DefaultGroupSummaryItems = <>
+                      DataController.Summary.FooterSummaryItems = <
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSumSuttle'
+                          Column = FSumSuttle_Cut
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          FieldName = 'FQry'
+                          Column = FQry_Cut
+                        end>
+                      DataController.Summary.SummaryGroups = <>
+                      NavigatorButtons.ConfirmDelete = False
+                      NavigatorButtons.PriorPage.Visible = False
+                      NavigatorButtons.NextPage.Visible = False
+                      NavigatorButtons.Insert.Visible = False
+                      NavigatorButtons.Delete.Visible = False
+                      NavigatorButtons.Edit.Visible = False
+                      NavigatorButtons.Post.Visible = False
+                      NavigatorButtons.Cancel.Visible = False
+                      NavigatorButtons.Refresh.Visible = False
+                      NavigatorButtons.SaveBookmark.Visible = False
+                      NavigatorButtons.GotoBookmark.Visible = False
+                      NavigatorButtons.Filter.Visible = False
+                      OptionsData.CancelOnExit = False
+                      OptionsData.Deleting = False
+                      OptionsData.DeletingConfirmation = False
+                      OptionsData.Inserting = False
+                      OptionsView.Navigator = True
+                      OptionsView.Footer = True
+                      OptionsView.GroupByBox = False
+                      object FCode_Cut: TcxGridDBColumn
+                        Caption = #32423#21035
+                        PropertiesClassName = 'TcxButtonEditProperties'
+                        Properties.Buttons = <
+                          item
+                            Default = True
+                            Kind = bkEllipsis
+                          end>
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 30
+                        DataBinding.FieldName = 'FCode'
+                      end
+                      object th_Cut: TcxGridDBColumn
+                        Caption = #22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 119
+                        DataBinding.FieldName = 'th'
+                      end
+                      object mc_Cut: TcxGridDBColumn
+                        Caption = #21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 113
+                        DataBinding.FieldName = 'mc'
+                      end
+                      object gg_Cut: TcxGridDBColumn
+                        Caption = #35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 125
+                        DataBinding.FieldName = 'gg'
+                      end
+                      object FName_Cut: TcxGridDBColumn
+                        Caption = #26448#26009#21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 103
+                        DataBinding.FieldName = 'FName'
+                      end
+                      object FModel_Cut: TcxGridDBColumn
+                        Caption = #26448#26009#35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 110
+                        DataBinding.FieldName = 'FModel'
+                      end
+                      object UnitName_Cut: TcxGridDBColumn
+                        Caption = #21333#20301
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 29
+                        DataBinding.FieldName = 'UnitName'
+                      end
+                      object FQry_Cut: TcxGridDBColumn
+                        Caption = #25968#37327
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 39
+                        DataBinding.FieldName = 'FQry'
+                      end
+                      object FSumQry_Cut: TcxGridDBColumn
+                        Caption = #24635#25968#37327
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 0
+                        Properties.DisplayFormat = '0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'FSumQry'
+                      end
+                      object FSuttle_Cut: TcxGridDBColumn
+                        Caption = #35774#35745#20928#37325
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 86
+                        DataBinding.FieldName = 'FSuttle'
+                      end
+                      object FSumSuttle_Cut: TcxGridDBColumn
+                        Caption = #20928#37325#21512#35745
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 82
+                        DataBinding.FieldName = 'FSumSuttle'
+                      end
+                      object FProcess_Cut: TcxGridDBColumn
+                        Caption = #29983#20135#24037#33402
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 133
+                        DataBinding.FieldName = 'FProcess'
+                      end
+                      object long_Cut: TcxGridDBColumn
+                        Caption = #38271
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 1
+                        Properties.DisplayFormat = '0.0;-0.0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'long'
+                      end
+                      object width_Cut: TcxGridDBColumn
+                        Caption = #23485
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 1
+                        Properties.DisplayFormat = '0.0;-0.0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 39
+                        DataBinding.FieldName = 'width'
+                      end
+                      object model_Cut: TcxGridDBColumn
+                        Caption = #23610#23544
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 70
+                        DataBinding.FieldName = 'model'
+                      end
+                      object FNumber_Cut: TcxGridDBColumn
+                        Caption = #26448#26009#32534#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 98
+                        DataBinding.FieldName = 'FNumber'
+                      end
+                      object FMakeListRemark_Cut: TcxGridDBColumn
+                        Caption = #22791#27880
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 88
+                        DataBinding.FieldName = 'FMakeListRemark'
+                      end
+                      object FDesignRemark_Cut: TcxGridDBColumn
+                        Caption = #35774#35745#22791#27880
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 78
+                        DataBinding.FieldName = 'FDesignRemark'
+                      end
+                      object js_Cut: TcxGridDBColumn
+                        Caption = 'is'
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Width = 20
+                        DataBinding.FieldName = 'js'
+                      end
+                      object FPartsNumber_Cut: TcxGridDBColumn
+                        Caption = #37096#20214#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 41
+                        DataBinding.FieldName = 'FPartsNumber'
+                      end
+                      object FMakeParts_Cut: TcxGridDBColumn
+                        Caption = #29983#20135#31867#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 83
+                        DataBinding.FieldName = 'FMakeParts'
+                      end
+                    end
+                    object cxGL_MList_Cut: TcxGridLevel
+                      GridView = cxGV_MList_Cut
+                    end
+                  end
+                end
+                object TS_MakeList_Pick: TTabSheet
+                  Caption = #29677#32452#39046#26009#21333
+                  ImageIndex = 1
+                  object cxGrid_MList_Pick: TcxGrid
+                    Left = 0
+                    Top = 0
+                    Width = 870
+                    Height = 239
+                    Align = alClient
+                    PopupMenu = PM
+                    TabOrder = 0
+                    OnContextPopup = cxGrid_MList_PickContextPopup
+                    object cxGV_MList_Pick: TcxGridDBTableView
+                      DataController.DataSource = DS_Mdata_MList_Pick
+                      DataController.Summary.DefaultGroupSummaryItems = <>
+                      DataController.Summary.FooterSummaryItems = <
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSumSuttle'
+                          Column = cxGridDBColumn32
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FQry'
+                          Column = cxGridDBColumn28
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSuttle'
+                          Column = cxGridDBColumn26
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSumQry'
+                          Column = cxGridDBColumn25
+                        end>
+                      DataController.Summary.SummaryGroups = <>
+                      NavigatorButtons.ConfirmDelete = False
+                      NavigatorButtons.PriorPage.Visible = False
+                      NavigatorButtons.NextPage.Visible = False
+                      NavigatorButtons.Insert.Visible = False
+                      NavigatorButtons.Delete.Visible = False
+                      NavigatorButtons.Edit.Visible = False
+                      NavigatorButtons.Post.Visible = False
+                      NavigatorButtons.Cancel.Visible = False
+                      NavigatorButtons.Refresh.Visible = False
+                      NavigatorButtons.SaveBookmark.Visible = False
+                      NavigatorButtons.GotoBookmark.Visible = False
+                      NavigatorButtons.Filter.Visible = False
+                      OptionsData.CancelOnExit = False
+                      OptionsData.Deleting = False
+                      OptionsData.DeletingConfirmation = False
+                      OptionsData.Editing = False
+                      OptionsData.Inserting = False
+                      OptionsView.Navigator = True
+                      OptionsView.Footer = True
+                      OptionsView.GroupByBox = False
+                      object cxGridDBColumn17: TcxGridDBColumn
+                        Caption = #32423#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 30
+                        DataBinding.FieldName = 'FCode'
+                      end
+                      object cxGridDBColumn18: TcxGridDBColumn
+                        Caption = #22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 119
+                        DataBinding.FieldName = 'th'
+                      end
+                      object cxGridDBColumn19: TcxGridDBColumn
+                        Caption = #21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 113
+                        DataBinding.FieldName = 'mc'
+                      end
+                      object cxGridDBColumn20: TcxGridDBColumn
+                        Caption = #35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 125
+                        DataBinding.FieldName = 'gg'
+                      end
+                      object cxGridDBColumn21: TcxGridDBColumn
+                        Caption = #27719#24635#37096#20214#31867#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 131
+                        DataBinding.FieldName = 'FParts'
+                      end
+                      object cxGridDBColumn22: TcxGridDBColumn
+                        Caption = #26448#26009#32534#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 124
+                        DataBinding.FieldName = 'FNumber'
+                      end
+                      object cxGridDBColumn23: TcxGridDBColumn
+                        Caption = #26448#26009#21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 142
+                        DataBinding.FieldName = 'FName'
+                      end
+                      object cxGridDBColumn24: TcxGridDBColumn
+                        Caption = #26448#26009#35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 110
+                        DataBinding.FieldName = 'FModel'
+                      end
+                      object cxGridDBColumn25: TcxGridDBColumn
+                        Caption = #24635#25968#37327
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 0
+                        Properties.DisplayFormat = '0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'FSumQry'
+                      end
+                      object cxGridDBColumn26: TcxGridDBColumn
+                        Caption = #35774#35745#20928#37325
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 86
+                        DataBinding.FieldName = 'FSuttle'
+                      end
+                      object cxGridDBColumn27: TcxGridDBColumn
+                        Caption = #25152#23646#22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 91
+                        DataBinding.FieldName = 'ssth'
+                      end
+                      object cxGridDBColumn28: TcxGridDBColumn
+                        Caption = #25968#37327
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 39
+                        DataBinding.FieldName = 'FQry'
+                      end
+                      object cxGridDBColumn29: TcxGridDBColumn
+                        Caption = #20225#31649#31867#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taRightJustify
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 103
+                        DataBinding.FieldName = 'FManageParts'
+                      end
+                      object cxGridDBColumn30: TcxGridDBColumn
+                        Caption = #20837#24211#31867#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 98
+                        DataBinding.FieldName = 'FWorkParts'
+                      end
+                      object cxGridDBColumn31: TcxGridDBColumn
+                        Caption = #37096#20214#31867#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 125
+                        DataBinding.FieldName = 'FPartsSort'
+                      end
+                      object cxGridDBColumn32: TcxGridDBColumn
+                        Caption = #20928#37325#21512#35745
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 82
+                        DataBinding.FieldName = 'FSumSuttle'
+                      end
+                      object cxGridDBColumn33: TcxGridDBColumn
+                        Caption = #25442#31639#20928#37325
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 81
+                        DataBinding.FieldName = 'y_FSuttle'
+                      end
+                      object cxGridDBColumn34: TcxGridDBColumn
+                        Caption = #25442#31639#20928#37325#24046
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 76
+                        DataBinding.FieldName = 'c_FSuttle'
+                      end
+                      object cxGridDBColumn35: TcxGridDBColumn
+                        Caption = #25442#31639#29575
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.ValidateOnEnter = True
+                        Properties.IsDisplayFormatAssigned = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'FMaterialRate'
+                      end
+                      object cxGridDBColumn36: TcxGridDBColumn
+                        Caption = #21333#20301
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 29
+                        DataBinding.FieldName = 'UnitName'
+                      end
+                      object cxGridDBColumn37: TcxGridDBColumn
+                        Caption = #25442#31639#32534#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 96
+                        DataBinding.FieldName = 'y_FNumber'
+                      end
+                      object cxGridDBColumn38: TcxGridDBColumn
+                        Caption = #25442#31639#35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 130
+                        DataBinding.FieldName = 'y_FModel'
+                      end
+                      object cxGridDBColumn39: TcxGridDBColumn
+                        Caption = #35745#20215#25968#37327
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 53
+                        DataBinding.FieldName = 'FPriceQry'
+                      end
+                      object cxGridDBColumn40: TcxGridDBColumn
+                        Caption = #21033#29992#29575
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DisplayFormat = '0.00'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 41
+                        DataBinding.FieldName = 'FUse'
+                      end
+                      object cxGridDBColumn41: TcxGridDBColumn
+                        Caption = #21333#20214#23450#39069
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 86
+                        DataBinding.FieldName = 'FRation'
+                      end
+                      object cxGridDBColumn42: TcxGridDBColumn
+                        Caption = #25442#31639#23450#39069
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 86
+                        DataBinding.FieldName = 'y_FRation'
+                      end
+                      object cxGridDBColumn43: TcxGridDBColumn
+                        Caption = #38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        SortOrder = soAscending
+                        Width = 146
+                        DataBinding.FieldName = 'FFullNumber'
+                      end
+                      object cxGridDBColumn44: TcxGridDBColumn
+                        Caption = #25152#23646#38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 165
+                        DataBinding.FieldName = 'ssFullNumber'
+                      end
+                      object cxGridDBColumn45: TcxGridDBColumn
+                        Caption = #22791#27880
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 88
+                        DataBinding.FieldName = 'Remark'
+                      end
+                      object cxGridDBColumn46: TcxGridDBColumn
+                        Caption = #20840#21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 333
+                        DataBinding.FieldName = 'FFullName'
+                      end
+                    end
+                    object cxGL_MList_Pick: TcxGridLevel
+                      GridView = cxGV_MList_Pick
+                    end
+                  end
+                  object Panel1: TPanel
+                    Left = 0
+                    Top = 239
+                    Width = 870
+                    Height = 41
+                    Align = alBottom
+                    BevelOuter = bvNone
+                    ParentColor = True
+                    TabOrder = 1
+                    object Bevel1: TBevel
+                      Left = 0
+                      Top = 5
+                      Width = 1105
+                      Height = 4
+                    end
+                    object CB_Parts: TcxComboBox
+                      Left = 2
+                      Top = 16
+                      Width = 107
+                      Height = 21
+                      ImeName = #20013#25991' ('#31616#20307') - '#24494#36719#25340#38899#36755#20837#27861' 3.0 '#29256
+                      Properties.Items.Strings = (
+                        #39033#30446
+                        #37096#20214
+                        #29983#20135#31867#21035
+                        '')
+                      Properties.OnChange = CB_PartsPropertiesChange
+                      Style.BorderColor = 8623776
+                      Style.BorderStyle = ebsSingle
+                      Style.Color = 15658734
+                      Style.ButtonTransparency = ebtHideInactive
+                      TabOrder = 0
+                      Text = #29983#20135#37096#20214#31867#21035
+                    end
+                    object CB_Sum: TcxComboBox
+                      Left = 115
+                      Top = 16
+                      Width = 107
+                      Height = 21
+                      ImeName = #20013#25991' ('#31616#20307') - '#24494#36719#25340#38899#36755#20837#27861' 3.0 '#29256
+                      Properties.Items.Strings = (
+                        #38477#32791#25351#20196'(2'#21495')'
+                        #38477#32791#25351#20196'(3'#21495')'
+                        #38477#32791#25351#20196'(4'#21495')'
+                        #38477#32791#25351#20196'(98)')
+                      Style.BorderColor = 8623776
+                      Style.BorderStyle = ebsSingle
+                      Style.Color = 15658734
+                      Style.ButtonTransparency = ebtHideInactive
+                      TabOrder = 1
+                      Text = #38477#32791#25351#20196'(98)'
+                    end
+                  end
+                end
+              end
+              object RzSizePanel1: TRzSizePanel
+                Left = 2
+                Top = 2
+                Width = 878
+                Height = 152
+                Align = alTop
+                Color = 14935011
+                HotSpotVisible = True
+                Side = sdTop
+                SizeBarWidth = 7
+                TabOrder = 1
+                VisualStyle = vsGradient
+                object PageControl3: TPageControl
+                  Left = 0
+                  Top = 0
+                  Width = 878
+                  Height = 144
+                  ActivePage = TabSheet5
+                  Align = alClient
+                  TabOrder = 0
+                  object TabSheet5: TTabSheet
+                    Caption = #20027#34920
+                    object cxGrid_MList_M: TcxGrid
+                      Left = 0
+                      Top = 0
+                      Width = 870
+                      Height = 116
+                      Align = alClient
+                      PopupMenu = PM
+                      TabOrder = 0
+                      OnContextPopup = cxGrid_MList_MContextPopup
+                      object cxGV_MList_M: TcxGridDBTableView
+                        DataController.DataSource = DS_Mdata_MList_M
+                        DataController.Summary.DefaultGroupSummaryItems = <>
+                        DataController.Summary.FooterSummaryItems = <
+                          item
+                            Format = #23567#35745#65306',0.00'
+                            Kind = skSum
+                            FieldName = 'FOrderAmount'
+                          end
+                          item
+                            Format = #23567#35745#65306',0.00'
+                            Kind = skSum
+                            FieldName = 'sumFOrderAmount'
+                          end>
+                        DataController.Summary.SummaryGroups = <>
+                        NavigatorButtons.ConfirmDelete = False
+                        NavigatorButtons.PriorPage.Visible = False
+                        NavigatorButtons.NextPage.Visible = False
+                        NavigatorButtons.Insert.Visible = False
+                        NavigatorButtons.Delete.Visible = False
+                        NavigatorButtons.Edit.Visible = False
+                        NavigatorButtons.Post.Visible = False
+                        NavigatorButtons.Cancel.Visible = False
+                        NavigatorButtons.Refresh.Visible = False
+                        NavigatorButtons.SaveBookmark.Visible = False
+                        NavigatorButtons.GotoBookmark.Visible = False
+                        NavigatorButtons.Filter.Visible = False
+                        OnFocusedRecordChanged = cxGV_MList_MFocusedRecordChanged
+                        OptionsData.CancelOnExit = False
+                        OptionsData.DeletingConfirmation = False
+                        OptionsSelection.MultiSelect = True
+                        OptionsView.Navigator = True
+                        OptionsView.GroupByBox = False
+                        object IsEdit_M2: TcxGridDBColumn
+                          Caption = #8730
+                          PropertiesClassName = 'TcxCheckBoxProperties'
+                          Properties.DisplayUnchecked = 'False'
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 33
+                          DataBinding.FieldName = 'IsEdit'
+                        end
+                        object FMakePartsCode_M2: TcxGridDBColumn
+                          Caption = #29983#20135#31867#21035#20195#30721
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 78
+                          DataBinding.FieldName = 'FMakePartsCode'
+                        end
+                        object FMakeParts_M2: TcxGridDBColumn
+                          Caption = #29983#20135#31867#21035
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 119
+                          DataBinding.FieldName = 'FMakeParts'
+                        end
+                        object FWorkShop_M2: TcxGridDBColumn
+                          Caption = #29983#20135#29677#32452
+                          PropertiesClassName = 'TcxButtonEditProperties'
+                          Properties.Buttons = <
+                            item
+                              Default = True
+                              Kind = bkEllipsis
+                            end>
+                          Properties.OnButtonClick = FWorkShop_M2PropertiesButtonClick
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 91
+                          DataBinding.FieldName = 'FWorkShop'
+                        end
+                        object FColdWorkDate_M2: TcxGridDBColumn
+                          Caption = #20919#20316#23436#25104#26102#38388
+                          PropertiesClassName = 'TcxDateEditProperties'
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 88
+                          DataBinding.FieldName = 'FColdWorkDate'
+                        end
+                        object FMakeStatus_M2: TcxGridDBColumn
+                          Caption = #29366#24577
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 43
+                          DataBinding.FieldName = 'FMakeStatus'
+                        end
+                        object FMakeStatusNotes_M2: TcxGridDBColumn
+                          Caption = #21333#25454#29366#24577
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 63
+                          DataBinding.FieldName = 'FMakeStatusNotes'
+                        end
+                        object FMakeSubmit_M2: TcxGridDBColumn
+                          Caption = #25552'    '#20132
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 60
+                          DataBinding.FieldName = 'FMakeSubmit'
+                        end
+                        object FMakeWriteDate_M2: TcxGridDBColumn
+                          Caption = #22635#21333#26085#26399
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          DataBinding.FieldName = 'FMakeWriteDate'
+                        end
+                        object FMakeSubmitDate_M2: TcxGridDBColumn
+                          Caption = #25552#20132#26085#26399
+                          PropertiesClassName = 'TcxDateEditProperties'
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 78
+                          DataBinding.FieldName = 'FMakeSubmitDate'
+                        end
+                        object FMakeAudit_M2: TcxGridDBColumn
+                          Caption = #23457'    '#26680
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 61
+                          DataBinding.FieldName = 'FMakeAudit'
+                        end
+                        object FMakeAuditDate_M2: TcxGridDBColumn
+                          Caption = #23457#26680#26085#26399
+                          PropertiesClassName = 'TcxDateEditProperties'
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          DataBinding.FieldName = 'FMakeAuditDate'
+                        end
+                        object FMakeItemDate_M2: TcxGridDBColumn
+                          Caption = #26085#26399
+                          PropertiesClassName = 'TcxDateEditProperties'
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderAlignmentVert = vaCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 74
+                          DataBinding.FieldName = 'FMakeItemDate'
+                        end
+                        object FPartsCode_M2: TcxGridDBColumn
+                          Caption = #37096#20214#21495
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 52
+                          DataBinding.FieldName = 'FPartsCode'
+                        end
+                        object FPartsName_M2: TcxGridDBColumn
+                          Caption = #37096#20214#21517#31216
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 122
+                          DataBinding.FieldName = 'FPartsName'
+                        end
+                        object FItemNumber_M2: TcxGridDBColumn
+                          Caption = #22270#21495
+                          PropertiesClassName = 'TcxButtonEditProperties'
+                          Properties.Buttons = <
+                            item
+                              Default = True
+                              Kind = bkEllipsis
+                            end>
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 61
+                          DataBinding.FieldName = 'FItemNumber'
+                        end
+                        object FBranchFileNo_M2: TcxGridDBColumn
+                          Caption = #26723#26696#32534#21495
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 63
+                          DataBinding.FieldName = 'FBranchFileNo'
+                        end
+                        object FFileNo_M2: TcxGridDBColumn
+                          Caption = #26723#26696#21495
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 84
+                          DataBinding.FieldName = 'FFileNo'
+                        end
+                        object FClientFullName_M2: TcxGridDBColumn
+                          Caption = #39033#30446#21517#31216
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderAlignmentVert = vaCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 101
+                          DataBinding.FieldName = 'FClientFullName'
+                        end
+                        object FItemListID_M2: TcxGridDBColumn
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderAlignmentVert = vaCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 79
+                          DataBinding.FieldName = 'FItemListID'
+                        end
+                        object FMakeItemID_M2: TcxGridDBColumn
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderAlignmentVert = vaCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          DataBinding.FieldName = 'FMakeItemID'
+                        end
+                        object FItemModel_M2: TcxGridDBColumn
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentVert = vaCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          Width = 60
+                          DataBinding.FieldName = 'FItemModel'
+                        end
+                        object FProductID_M2: TcxGridDBColumn
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentVert = vaCenter
+                          Options.Editing = False
+                          Options.Filtering = False
+                          DataBinding.FieldName = 'FProductID'
+                        end
+                        object FAgentID_M2: TcxGridDBColumn
+                          FooterAlignmentHorz = taCenter
+                          HeaderAlignmentHorz = taCenter
+                          HeaderGlyphAlignmentHorz = taCenter
+                          DataBinding.FieldName = 'FAgentID'
+                        end
+                      end
+                      object cxGL_MList_M: TcxGridLevel
+                        GridView = cxGV_MList_M
+                      end
+                    end
+                  end
+                end
+              end
+            end
+          end
+          object RzSizePanel3: TRzSizePanel
+            Left = 0
+            Top = 0
+            Width = 228
+            Height = 505
+            Color = 14935011
+            HotSpotVisible = True
+            SizeBarWidth = 7
+            TabOrder = 1
+            VisualStyle = vsGradient
+            object MyTreeView_MList: TTreeView
+              Left = 0
+              Top = 0
+              Width = 220
+              Height = 505
+              Align = alClient
+              AutoExpand = True
+              Ctl3D = False
+              Indent = 19
+              ParentCtl3D = False
+              TabOrder = 0
+              OnChange = MyTreeView_MListChange
+              OnExpanding = MyTreeView_MListExpanding
+            end
+          end
+        end
+        object TS_StockBOM: TRzTabSheet
+          Color = 14935011
+          Caption = #20837#24211'BOM'
+          object RzSizePanel5: TRzSizePanel
+            Left = 0
+            Top = 0
+            Width = 225
+            Height = 505
+            Color = 14935011
+            HotSpotVisible = True
+            SizeBarWidth = 7
+            TabOrder = 0
+            VisualStyle = vsGradient
+            object MyTreeView_SBOM: TTreeView
+              Left = 0
+              Top = 0
+              Width = 217
+              Height = 505
+              Align = alClient
+              AutoExpand = True
+              Ctl3D = False
+              Indent = 19
+              ParentCtl3D = False
+              TabOrder = 0
+              OnChange = MyTreeView_SBOMChange
+              OnExpanding = MyTreeView_SBOMExpanding
+            end
+          end
+          object Panel13: TPanel
+            Left = 225
+            Top = 0
+            Width = 885
+            Height = 505
+            Align = alClient
+            BevelOuter = bvNone
+            Ctl3D = True
+            ParentCtl3D = False
+            TabOrder = 1
+            object Panel14: TPanel
+              Left = 0
+              Top = 0
+              Width = 1358
+              Height = 49
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 0
+            end
+            object Panel15: TPanel
+              Left = 0
+              Top = 0
+              Width = 885
+              Height = 41
+              Align = alTop
+              AutoSize = True
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 1
+              object ToolBar5: TToolBar
+                Left = 0
+                Top = 0
+                Width = 1142
+                Height = 41
+                Align = alNone
+                ButtonHeight = 35
+                ButtonWidth = 55
+                Caption = 'ToolBar1'
+                EdgeBorders = []
+                Font.Charset = ANSI_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = #23435#20307
+                Font.Style = []
+                Images = ImageList
+                ParentFont = False
+                ShowCaptions = True
+                TabOrder = 0
+                object TB_Ref_SBOM: TToolButton
+                  Left = 0
+                  Top = 2
+                  AutoSize = True
+                  Caption = #21047#26032'[&R]'
+                  ImageIndex = 4
+                  OnClick = TB_Ref_SBOMClick
+                end
+                object ToolButton6: TToolButton
+                  Left = 53
+                  Top = 2
+                  AutoSize = True
+                  Caption = #36864#20986'[&E]'
+                  ImageIndex = 7
+                  OnClick = TB_ExitClick
+                end
+              end
+            end
+            object Panel16: TPanel
+              Left = 0
+              Top = 41
+              Width = 885
+              Height = 464
+              Align = alClient
+              TabOrder = 2
+              object PC_StockBOM: TRzPageControl
+                Left = 1
+                Top = 1
+                Width = 883
+                Height = 462
+                ActivePage = TS_StockBOM_Mx
+                Align = alClient
+                TabIndex = 0
+                TabOrder = 0
+                OnChange = PC_StockBOMChange
+                FixedDimension = 19
+                object TS_StockBOM_Mx: TRzTabSheet
+                  Caption = #20837#24211#23450#39069#26126#32454
+                  object cxGrid_SBOM: TcxGrid
+                    Left = 0
+                    Top = 0
+                    Width = 879
+                    Height = 439
+                    Align = alClient
+                    PopupMenu = PM
+                    TabOrder = 0
+                    OnContextPopup = cxGrid_SBOMContextPopup
+                    object cxGV_SBOM: TcxGridDBTableView
+                      DataController.DataSource = DS_Mdata_SBOM
+                      DataController.Summary.DefaultGroupSummaryItems = <>
+                      DataController.Summary.FooterSummaryItems = <
+                        item
+                          Format = '0.0000'
+                          Kind = skSum
+                          FieldName = 'FSumSuttle'
+                          Column = cxGridDBColumn57
+                        end
+                        item
+                          Format = '0.0000'
+                          FieldName = 'FQry'
+                          Column = cxGridDBColumn54
+                        end
+                        item
+                          Format = '0.0000'
+                          Kind = skSum
+                          FieldName = 'FSuttle'
+                          Column = cxGridDBColumn56
+                        end>
+                      DataController.Summary.SummaryGroups = <>
+                      NavigatorButtons.ConfirmDelete = False
+                      NavigatorButtons.PriorPage.Visible = False
+                      NavigatorButtons.NextPage.Visible = False
+                      NavigatorButtons.Insert.Visible = False
+                      NavigatorButtons.Delete.Visible = False
+                      NavigatorButtons.Edit.Visible = False
+                      NavigatorButtons.Post.Visible = False
+                      NavigatorButtons.Cancel.Visible = False
+                      NavigatorButtons.Refresh.Visible = False
+                      NavigatorButtons.SaveBookmark.Visible = False
+                      NavigatorButtons.GotoBookmark.Visible = False
+                      NavigatorButtons.Filter.Visible = False
+                      OptionsData.CancelOnExit = False
+                      OptionsData.Deleting = False
+                      OptionsData.DeletingConfirmation = False
+                      OptionsData.Inserting = False
+                      OptionsView.Navigator = True
+                      OptionsView.Footer = True
+                      OptionsView.GroupByBox = False
+                      object cxGridDBColumn47: TcxGridDBColumn
+                        Caption = #24207#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 29
+                        DataBinding.FieldName = 'Num'
+                      end
+                      object cxGridDBColumn48: TcxGridDBColumn
+                        Caption = #32423#21035
+                        PropertiesClassName = 'TcxButtonEditProperties'
+                        Properties.Buttons = <
+                          item
+                            Default = True
+                            Kind = bkEllipsis
+                          end>
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 30
+                        DataBinding.FieldName = 'FCode'
+                      end
+                      object cxGridDBColumn49: TcxGridDBColumn
+                        Caption = #22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 119
+                        DataBinding.FieldName = 'th'
+                      end
+                      object cxGridDBColumn50: TcxGridDBColumn
+                        Caption = #21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 113
+                        DataBinding.FieldName = 'mc'
+                      end
+                      object cxGridDBColumn51: TcxGridDBColumn
+                        Caption = #35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 125
+                        DataBinding.FieldName = 'gg'
+                      end
+                      object cxGridDBColumn52: TcxGridDBColumn
+                        Caption = #26448#26009#21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 88
+                        DataBinding.FieldName = 'FName'
+                      end
+                      object cxGridDBColumn53: TcxGridDBColumn
+                        Caption = #26448#26009#35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 110
+                        DataBinding.FieldName = 'FModel'
+                      end
+                      object cxGridDBColumn54: TcxGridDBColumn
+                        Caption = #25968#37327
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 39
+                        DataBinding.FieldName = 'FQry'
+                      end
+                      object cxGridDBColumn55: TcxGridDBColumn
+                        Caption = #24635#25968#37327
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 0
+                        Properties.DisplayFormat = '0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'FSumQry'
+                      end
+                      object cxGridDBColumn56: TcxGridDBColumn
+                        Caption = #35774#35745#20928#37325
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 86
+                        DataBinding.FieldName = 'FSuttle'
+                      end
+                      object cxGridDBColumn57: TcxGridDBColumn
+                        Caption = #20928#37325#21512#35745
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 82
+                        DataBinding.FieldName = 'FSumSuttle'
+                      end
+                      object cxGridDBColumn58: TcxGridDBColumn
+                        Caption = #23610#23544
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 70
+                        DataBinding.FieldName = 'model'
+                      end
+                      object cxGridDBColumn59: TcxGridDBColumn
+                        Caption = #29983#20135#24037#33402
+                        PropertiesClassName = 'TcxButtonEditProperties'
+                        Properties.Buttons = <
+                          item
+                            Default = True
+                            Kind = bkEllipsis
+                          end>
+                        Properties.OnButtonClick = FProcessPropertiesButtonClick
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 133
+                        DataBinding.FieldName = 'FProcess'
+                      end
+                      object cxGridDBColumn60: TcxGridDBColumn
+                        Caption = #38271
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'long'
+                      end
+                      object cxGridDBColumn61: TcxGridDBColumn
+                        Caption = #23485
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 39
+                        DataBinding.FieldName = 'width'
+                      end
+                      object cxGridDBColumn62: TcxGridDBColumn
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        DataBinding.FieldName = 'FProductID'
+                      end
+                      object cxGridDBColumn63: TcxGridDBColumn
+                        Caption = #25152#23646#22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 91
+                        DataBinding.FieldName = 'ssth'
+                      end
+                      object cxGridDBColumn64: TcxGridDBColumn
+                        Caption = #21333#20301
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 29
+                        DataBinding.FieldName = 'UnitName'
+                      end
+                      object cxGridDBColumn65: TcxGridDBColumn
+                        Caption = #38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        SortOrder = soAscending
+                        Width = 146
+                        DataBinding.FieldName = 'FFullNumber'
+                      end
+                      object cxGridDBColumn66: TcxGridDBColumn
+                        Caption = #25152#23646#38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 165
+                        DataBinding.FieldName = 'ssFullNumber'
+                      end
+                      object cxGridDBColumn67: TcxGridDBColumn
+                        Caption = #35774#35745#22791#27880
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 96
+                        DataBinding.FieldName = 'FDesignRemark'
+                      end
+                      object cxGridDBColumn68: TcxGridDBColumn
+                        Caption = 'is'
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 20
+                        DataBinding.FieldName = 'js'
+                      end
+                      object cxGridDBColumn69: TcxGridDBColumn
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 95
+                        DataBinding.FieldName = 'FMakeBOMID'
+                      end
+                      object cxGridDBColumn70: TcxGridDBColumn
+                        Caption = #37096#20214#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 41
+                        DataBinding.FieldName = 'FPartsNumber'
+                      end
+                      object cxGridDBColumn71: TcxGridDBColumn
+                        Caption = #20840#21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 312
+                        DataBinding.FieldName = 'FFullName'
+                      end
+                    end
+                    object cxGL_SBOM: TcxGridLevel
+                      GridView = cxGV_SBOM
+                    end
+                  end
+                end
+                object TS_StockBOM_Sum: TRzTabSheet
+                  Caption = #20837#24211#23450#39069#27719#24635#25253#34920
+                  object cxGrid_SBOM_Sum: TcxGrid
+                    Left = 0
+                    Top = 0
+                    Width = 879
+                    Height = 398
+                    Align = alClient
+                    PopupMenu = PM
+                    TabOrder = 0
+                    OnContextPopup = cxGrid_SBOM_SumContextPopup
+                    object cxGV_SBOM_Sum: TcxGridDBTableView
+                      DataController.DataSource = DS_Mdata_SBOM_Sum
+                      DataController.Summary.DefaultGroupSummaryItems = <>
+                      DataController.Summary.FooterSummaryItems = <
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSumSuttle'
+                          Column = cxGridDBColumn82
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FQry'
+                          Column = cxGridDBColumn78
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSuttle'
+                          Column = cxGridDBColumn79
+                        end
+                        item
+                          Format = #23567#35745#65306'0.0000'
+                          Kind = skSum
+                          FieldName = 'FSumQry'
+                          Column = cxGridDBColumn81
+                        end>
+                      DataController.Summary.SummaryGroups = <>
+                      NavigatorButtons.ConfirmDelete = False
+                      NavigatorButtons.PriorPage.Visible = False
+                      NavigatorButtons.NextPage.Visible = False
+                      NavigatorButtons.Insert.Visible = False
+                      NavigatorButtons.Delete.Visible = False
+                      NavigatorButtons.Edit.Visible = False
+                      NavigatorButtons.Post.Visible = False
+                      NavigatorButtons.Cancel.Visible = False
+                      NavigatorButtons.Refresh.Visible = False
+                      NavigatorButtons.SaveBookmark.Visible = False
+                      NavigatorButtons.GotoBookmark.Visible = False
+                      NavigatorButtons.Filter.Visible = False
+                      OptionsData.CancelOnExit = False
+                      OptionsData.Deleting = False
+                      OptionsData.DeletingConfirmation = False
+                      OptionsData.Editing = False
+                      OptionsData.Inserting = False
+                      OptionsView.Navigator = True
+                      OptionsView.Footer = True
+                      OptionsView.GroupByBox = False
+                      object cxGridDBColumn72: TcxGridDBColumn
+                        Caption = #27719#24635#37096#20214#31867#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 131
+                        DataBinding.FieldName = 'FParts'
+                      end
+                      object cxGridDBColumn73: TcxGridDBColumn
+                        Caption = #32423#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 32
+                        DataBinding.FieldName = 'FCode'
+                      end
+                      object cxGridDBColumn74: TcxGridDBColumn
+                        Caption = #22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 119
+                        DataBinding.FieldName = 'th'
+                      end
+                      object cxGridDBColumn75: TcxGridDBColumn
+                        Caption = #21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 114
+                        DataBinding.FieldName = 'mc'
+                      end
+                      object cxGridDBColumn76: TcxGridDBColumn
+                        Caption = #35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 125
+                        DataBinding.FieldName = 'gg'
+                      end
+                      object cxGridDBColumn77: TcxGridDBColumn
+                        Caption = #25152#23646#22270#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 91
+                        DataBinding.FieldName = 'ssth'
+                      end
+                      object cxGridDBColumn78: TcxGridDBColumn
+                        Caption = #25968#37327
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 39
+                        DataBinding.FieldName = 'FQry'
+                      end
+                      object cxGridDBColumn79: TcxGridDBColumn
+                        Caption = #35774#35745#20928#37325
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 114
+                        DataBinding.FieldName = 'FSuttle'
+                      end
+                      object cxGridDBColumn80: TcxGridDBColumn
+                        Caption = #21333#20214#23450#39069
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 86
+                        DataBinding.FieldName = 'FRation'
+                      end
+                      object cxGridDBColumn81: TcxGridDBColumn
+                        Caption = #24635#25968#37327
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 0
+                        Properties.DisplayFormat = '0'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'FSumQry'
+                      end
+                      object cxGridDBColumn82: TcxGridDBColumn
+                        Caption = #20928#37325#21512#35745
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 82
+                        DataBinding.FieldName = 'FSumSuttle'
+                      end
+                      object cxGridDBColumn83: TcxGridDBColumn
+                        Caption = #26448#26009#32534#21495
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 124
+                        DataBinding.FieldName = 'FNumber'
+                      end
+                      object cxGridDBColumn84: TcxGridDBColumn
+                        Caption = #26448#26009#21517#31216
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 119
+                        DataBinding.FieldName = 'FName'
+                      end
+                      object cxGridDBColumn85: TcxGridDBColumn
+                        Caption = #26448#26009#35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 110
+                        DataBinding.FieldName = 'FModel'
+                      end
+                      object cxGridDBColumn86: TcxGridDBColumn
+                        Caption = #21333#20301
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 29
+                        DataBinding.FieldName = 'UnitName'
+                      end
+                      object cxGridDBColumn87: TcxGridDBColumn
+                        Caption = #25442#31639#29575
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.ValidateOnEnter = True
+                        Properties.IsDisplayFormatAssigned = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 41
+                        DataBinding.FieldName = 'FMaterialRate'
+                      end
+                      object cxGridDBColumn88: TcxGridDBColumn
+                        Caption = #25442#31639#32534#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 96
+                        DataBinding.FieldName = 'y_FNumber'
+                      end
+                      object cxGridDBColumn89: TcxGridDBColumn
+                        Caption = #25442#31639#35268#26684
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 130
+                        DataBinding.FieldName = 'y_FModel'
+                      end
+                      object cxGridDBColumn90: TcxGridDBColumn
+                        Caption = #25442#31639#20928#37325
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 81
+                        DataBinding.FieldName = 'y_FSuttle'
+                      end
+                      object cxGridDBColumn91: TcxGridDBColumn
+                        Caption = #25442#31639#20928#37325#24046
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DecimalPlaces = 4
+                        Properties.DisplayFormat = '0.0000;-0.0000'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 76
+                        DataBinding.FieldName = 'c_FSuttle'
+                      end
+                      object cxGridDBColumn92: TcxGridDBColumn
+                        Caption = #21033#29992#29575
+                        PropertiesClassName = 'TcxCurrencyEditProperties'
+                        Properties.DisplayFormat = '0.00'
+                        Properties.ValidateOnEnter = True
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 41
+                        DataBinding.FieldName = 'FUse'
+                      end
+                      object cxGridDBColumn93: TcxGridDBColumn
+                        Caption = #25442#31639#23450#39069
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Width = 86
+                        DataBinding.FieldName = 'y_FRation'
+                      end
+                      object cxGridDBColumn94: TcxGridDBColumn
+                        Caption = #35745#20215#25968#37327
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 53
+                        DataBinding.FieldName = 'FPriceQry'
+                      end
+                      object cxGridDBColumn95: TcxGridDBColumn
+                        Caption = #38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        SortOrder = soAscending
+                        Width = 146
+                        DataBinding.FieldName = 'FFullNumber'
+                      end
+                      object cxGridDBColumn96: TcxGridDBColumn
+                        Caption = #25152#23646#38271#20195#30721
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 165
+                        DataBinding.FieldName = 'ssFullNumber'
+                      end
+                      object cxGridDBColumn97: TcxGridDBColumn
+                        Caption = #37096#20214#31867#21035
+                        FooterAlignmentHorz = taCenter
+                        HeaderAlignmentHorz = taCenter
+                        HeaderGlyphAlignmentHorz = taCenter
+                        Options.Editing = False
+                        Options.Filtering = False
+                        Options.Sorting = False
+                        Width = 125
+                        DataBinding.FieldName = 'FPartsSort'
+                      end
+                    end
+                    object cxGL_SBOM_Sum: TcxGridLevel
+                      GridView = cxGV_SBOM_Sum
+                    end
+                  end
+                  object Panel17: TPanel
+                    Left = 0
+                    Top = 398
+                    Width = 879
+                    Height = 41
+                    Align = alBottom
+                    BevelOuter = bvNone
+                    ParentColor = True
+                    TabOrder = 1
+                    object Bevel3: TBevel
+                      Left = 0
+                      Top = 5
+                      Width = 1105
+                      Height = 4
+                    end
+                    object CB_Parts_SBOM: TcxComboBox
+                      Left = 127
+                      Top = 14
+                      Width = 107
+                      Height = 21
+                      ImeName = #20013#25991' ('#31616#20307') - '#24494#36719#25340#38899#36755#20837#27861' 3.0 '#29256
+                      Properties.Items.Strings = (
+                        #39033#30446
+                        #37096#20214
+                        #29983#20135#31867#21035
+                        '')
+                      Properties.OnChange = CB_Parts_MBOMPropertiesChange
+                      Style.BorderColor = 8623776
+                      Style.BorderStyle = ebsSingle
+                      Style.Color = 15658734
+                      Style.ButtonTransparency = ebtHideInactive
+                      TabOrder = 0
+                      Text = #29983#20135#37096#20214#31867#21035
+                    end
+                    object CB_Switch_SBOM: TcxComboBox
+                      Left = 241
+                      Top = 13
+                      Width = 107
+                      Height = 21
+                      ImeName = #20013#25991' ('#31616#20307') - '#24494#36719#25340#38899#36755#20837#27861' 3.0 '#29256
+                      Properties.Items.Strings = (
+                        #38477#32791#25351#20196'(2'#21495')'
+                        #38477#32791#25351#20196'(3'#21495')'
+                        #38477#32791#25351#20196'(4'#21495')'
+                        #38477#32791#25351#20196'(98)')
+                      Properties.OnChange = CB_Switch_MBOMPropertiesChange
+                      Style.BorderColor = 8623776
+                      Style.BorderStyle = ebsSingle
+                      Style.Color = 15658734
+                      Style.ButtonTransparency = ebtHideInactive
+                      TabOrder = 1
+                      Text = #38477#32791#25351#20196'(98)'
+                    end
+                    object CB_Type_SBOM: TcxComboBox
+                      Left = 15
+                      Top = 14
+                      Width = 107
+                      Height = 21
+                      ImeName = #20013#25991' ('#31616#20307') - '#24494#36719#25340#38899#36755#20837#27861' 3.0 '#29256
+                      Properties.Items.Strings = (
+                        #37096#20214#27719#24635
+                        #26448#26009#27719#24635
+                        #26126#32454#28165#21333)
+                      Properties.OnChange = CB_Type_MBOMPropertiesChange
+                      Style.BorderColor = 8623776
+                      Style.BorderStyle = ebsSingle
+                      Style.Color = 15658734
+                      Style.ButtonTransparency = ebtHideInactive
+                      TabOrder = 2
+                      Text = #26126#32454#28165#21333
+                    end
+                  end
+                end
+              end
+            end
+          end
+        end
+        object TS_StockList: TRzTabSheet
+          Color = 14935011
+          Caption = #20837#24211#28165#21333
+          object RzSizePanel6: TRzSizePanel
+            Left = 0
+            Top = 0
+            Width = 258
+            Height = 505
+            Color = 14935011
+            HotSpotVisible = True
+            SizeBarWidth = 7
+            TabOrder = 0
+            VisualStyle = vsGradient
+            object MyTreeView_SList: TTreeView
+              Left = 0
+              Top = 0
+              Width = 250
+              Height = 505
+              Align = alClient
+              AutoExpand = True
+              Ctl3D = False
+              Indent = 19
+              ParentCtl3D = False
+              TabOrder = 0
+              OnChange = MyTreeView_SListChange
+              OnExpanding = MyTreeView_SListExpanding
+            end
+          end
+          object Panel18: TPanel
+            Left = 258
+            Top = 0
+            Width = 852
+            Height = 505
+            Align = alClient
+            BevelOuter = bvNone
+            Ctl3D = True
+            ParentCtl3D = False
+            TabOrder = 1
+            object Panel19: TPanel
+              Left = 0
+              Top = 0
+              Width = 1358
+              Height = 49
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 0
+            end
+            object Panel20: TPanel
+              Left = 0
+              Top = 0
+              Width = 852
+              Height = 41
+              Align = alTop
+              AutoSize = True
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 1
+              object ToolBar6: TToolBar
+                Left = 0
+                Top = 0
+                Width = 852
+                Height = 41
+                Align = alClient
+                ButtonHeight = 35
+                ButtonWidth = 67
+                Caption = 'ToolBar4'
+                EdgeBorders = []
+                Font.Charset = ANSI_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = #23435#20307
+                Font.Style = []
+                Images = ImageList
+                ParentFont = False
+                ShowCaptions = True
+                TabOrder = 0
+                object TB_Ref_SList: TToolButton
+                  Left = 0
+                  Top = 2
+                  AutoSize = True
+                  Caption = #21047#26032'[&R]'
+                  ImageIndex = 4
+                  OnClick = TB_Ref_SListClick
+                end
+                object TB_PackQry: TToolButton
+                  Left = 53
+                  Top = 2
+                  AutoSize = True
+                  Caption = #21253#35013#26356#26032
+                  ImageIndex = 4
+                  OnClick = TB_PackQryClick
+                end
+                object TB_CheckQry: TToolButton
+                  Left = 112
+                  Top = 2
+                  AutoSize = True
+                  Caption = #26816#39564#26356#26032
+                  ImageIndex = 4
+                  OnClick = TB_CheckQryClick
+                end
+                object TB_Edit: TToolButton
+                  Left = 171
+                  Top = 2
+                  AutoSize = True
+                  Caption = #20462#25913
+                  ImageIndex = 1
+                  OnClick = TB_EditClick
+                end
+                object TB_Save: TToolButton
+                  Left = 206
+                  Top = 2
+                  AutoSize = True
+                  Caption = #20445#23384
+                  ImageIndex = 9
+                  Visible = False
+                  OnClick = TB_SaveClick
+                end
+                object TB_ColdWork: TToolButton
+                  Left = 241
+                  Top = 2
+                  AutoSize = True
+                  Caption = #20919#20316#20219#21153#21333
+                  ImageIndex = 6
+                  Visible = False
+                  OnClick = TB_ColdWorkClick
+                end
+                object TB_CheckStock: TToolButton
+                  Left = 312
+                  Top = 2
+                  Caption = #26816#39564#20219#21153#21333
+                  ImageIndex = 6
+                  Visible = False
+                  OnClick = TB_CheckStockClick
+                end
+                object TB_Stock: TToolButton
+                  Left = 379
+                  Top = 2
+                  AutoSize = True
+                  Caption = #20837#24211#28165#21333
+                  ImageIndex = 6
+                  Visible = False
+                  OnClick = TB_StockClick
+                end
+                object TB_Stock_ML: TToolButton
+                  Left = 438
+                  Top = 2
+                  AutoSize = True
+                  Caption = #30446#24405
+                  ImageIndex = 5
+                  Visible = False
+                  OnClick = TB_Stock_MLClick
+                end
+                object TB_Print_First: TToolButton
+                  Left = 473
+                  Top = 2
+                  AutoSize = True
+                  Caption = #23553#38754
+                  ImageIndex = 5
+                  Visible = False
+                end
+                object ToolButton11: TToolButton
+                  Left = 508
+                  Top = 2
+                  AutoSize = True
+                  Caption = #36864#20986'[&E]'
+                  ImageIndex = 7
+                  OnClick = TB_ExitClick
+                end
+                object ToolButton10: TToolButton
+                  Left = 561
+                  Top = 2
+                  AutoSize = True
+                  Caption = #37325#37327#35745#31639
+                  ImageIndex = 8
+                  Visible = False
+                  OnClick = ToolButton10Click
+                end
+              end
+            end
+            object RzPanel2: TRzPanel
+              Left = 0
+              Top = 41
+              Width = 852
+              Height = 464
+              Align = alClient
+              TabOrder = 2
+              object PC_StockItem: TRzSizePanel
+                Left = 2
+                Top = 2
+                Width = 848
+                Height = 216
+                Align = alTop
+                HotSpotVisible = True
+                Side = sdBottom
+                ParentShowHint = False
+                ShowHint = False
+                SizeBarWidth = 7
+                TabOrder = 0
+                UseDockManager = False
+                object cxGrid_SItem: TcxGrid
+                  Left = 0
+                  Top = 0
+                  Width = 848
+                  Height = 208
+                  Align = alClient
+                  PopupMenu = PM
+                  TabOrder = 0
+                  OnContextPopup = cxGrid_SItemContextPopup
+                  object cxGV_SItem: TcxGridDBTableView
+                    DataController.DataSource = DS_Mdata_SItem
+                    DataController.Summary.DefaultGroupSummaryItems = <>
+                    DataController.Summary.FooterSummaryItems = <
+                      item
+                        Format = #23567#35745#65306',0.00'
+                        Kind = skSum
+                        FieldName = 'FOrderAmount'
+                      end
+                      item
+                        Format = #23567#35745#65306',0.00'
+                        Kind = skSum
+                        FieldName = 'sumFOrderAmount'
+                      end>
+                    DataController.Summary.SummaryGroups = <>
+                    NavigatorButtons.ConfirmDelete = False
+                    NavigatorButtons.PriorPage.Visible = False
+                    NavigatorButtons.NextPage.Visible = False
+                    NavigatorButtons.Insert.Visible = True
+                    NavigatorButtons.Delete.Visible = True
+                    NavigatorButtons.Edit.Visible = False
+                    NavigatorButtons.Post.Visible = True
+                    NavigatorButtons.Cancel.Visible = False
+                    NavigatorButtons.Refresh.Visible = False
+                    NavigatorButtons.SaveBookmark.Visible = False
+                    NavigatorButtons.GotoBookmark.Visible = False
+                    NavigatorButtons.Filter.Visible = False
+                    OnFocusedRecordChanged = cxGV_SItemFocusedRecordChanged
+                    OptionsData.CancelOnExit = False
+                    OptionsData.DeletingConfirmation = False
+                    OptionsData.Editing = False
+                    OptionsSelection.MultiSelect = True
+                    OptionsView.Navigator = True
+                    OptionsView.GroupByBox = False
+                    object FBranchItemNumber_SItem: TcxGridDBColumn
+                      Caption = #20998#22270#21495
+                      PropertiesClassName = 'TcxButtonEditProperties'
+                      Properties.Buttons = <
+                        item
+                          Default = True
+                          Kind = bkEllipsis
+                        end>
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Filtering = False
+                      Width = 64
+                      DataBinding.FieldName = 'FBranchItemNumber'
+                    end
+                    object FPartsCode_SItem: TcxGridDBColumn
+                      Caption = #37096#20214#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      SortOrder = soAscending
+                      Width = 59
+                      DataBinding.FieldName = 'FPartsCode'
+                    end
+                    object FPartsName_SItem: TcxGridDBColumn
+                      Caption = #37096#20214#21517#31216
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 107
+                      DataBinding.FieldName = 'FPartsName'
+                    end
+                    object FWorkPartsNum_SItem: TcxGridDBColumn
+                      Caption = #20837#24211#31867#21035#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 65
+                      DataBinding.FieldName = 'FWorkPartsNum'
+                    end
+                    object FWorkParts_SItem: TcxGridDBColumn
+                      Caption = #20837#24211#31867#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Filtering = False
+                      Width = 96
+                      DataBinding.FieldName = 'FWorkParts'
+                    end
+                    object FStockStatusNotes_SItem: TcxGridDBColumn
+                      Caption = #21333#25454#29366#24577
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 53
+                      DataBinding.FieldName = 'FStockStatusNotes'
+                    end
+                    object FStockStatus_SItem: TcxGridDBColumn
+                      Caption = #29366#24577
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 29
+                      DataBinding.FieldName = 'FStockStatus'
+                    end
+                    object FStockWrite_SItem: TcxGridDBColumn
+                      Caption = #22635'    '#21333
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 57
+                      DataBinding.FieldName = 'FStockWrite'
+                    end
+                    object FStockWriteDate_SItem: TcxGridDBColumn
+                      Caption = #22635#21333#26085#26399
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      DataBinding.FieldName = 'FStockWriteDate'
+                    end
+                    object FStockSubmitDate_SItem: TcxGridDBColumn
+                      Caption = #25552#20132#26085#26399
+                      PropertiesClassName = 'TcxDateEditProperties'
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      DataBinding.FieldName = 'FStockSubmitDate'
+                    end
+                    object FStockAudit_SItem: TcxGridDBColumn
+                      Caption = #23457'    '#26680
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 41
+                      DataBinding.FieldName = 'FStockAudit'
+                    end
+                    object FStockAuditDate_SItem: TcxGridDBColumn
+                      Caption = #23457#26680#26085#26399
+                      PropertiesClassName = 'TcxDateEditProperties'
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      DataBinding.FieldName = 'FStockAuditDate'
+                    end
+                    object FFullNumber_SItem: TcxGridDBColumn
+                      Caption = #20837#24211#31867#21035#20195#30721
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 104
+                      DataBinding.FieldName = 'FFullNumber'
+                    end
+                    object FItemNumber_SItem: TcxGridDBColumn
+                      Caption = #22270#21495
+                      PropertiesClassName = 'TcxButtonEditProperties'
+                      Properties.Buttons = <
+                        item
+                          Default = True
+                          Kind = bkEllipsis
+                        end>
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 61
+                      DataBinding.FieldName = 'FItemNumber'
+                    end
+                    object FBranchFileNo_SItem: TcxGridDBColumn
+                      Caption = #20998#26723#26696#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 53
+                      DataBinding.FieldName = 'FBranchFileNo'
+                    end
+                    object FFileNo_SItem: TcxGridDBColumn
+                      Caption = #26723#26696#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 84
+                      DataBinding.FieldName = 'FFileNo'
+                    end
+                    object FClientFullName_SItem: TcxGridDBColumn
+                      Caption = #39033#30446#21517#31216
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderAlignmentVert = vaCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 130
+                      DataBinding.FieldName = 'FClientFullName'
+                    end
+                    object FItemModel_SItem: TcxGridDBColumn
+                      Caption = #20135#21697#22411#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderAlignmentVert = vaCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 80
+                      DataBinding.FieldName = 'FItemModel'
+                    end
+                    object FFactureName_SItem: TcxGridDBColumn
+                      Caption = #22806#21327#21046#20316#21333#20301
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 131
+                      DataBinding.FieldName = 'FFactureName'
+                    end
+                    object FStockNum_SItem: TcxGridDBColumn
+                      Caption = #28165#21333#32534#30446#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 65
+                      DataBinding.FieldName = 'FStockNum'
+                    end
+                    object FStockItemID_SItem: TcxGridDBColumn
+                      Caption = #20027#34920'ID'
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderAlignmentVert = vaCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 40
+                      DataBinding.FieldName = 'FStockItemID'
+                    end
+                    object FItemId_SItem: TcxGridDBColumn
+                      Caption = #39033#30446'ID'
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentVert = vaCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 40
+                      DataBinding.FieldName = 'FItemId'
+                    end
+                    object WorkFFullNumberSItem: TcxGridDBColumn
+                      Caption = #20316#19994#34920'ID'
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 52
+                      DataBinding.FieldName = 'WorkFFullNumber'
+                    end
+                    object FFactureID_SItem: TcxGridDBColumn
+                      Caption = #23376#20844#21496'ID'
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 52
+                      DataBinding.FieldName = 'FFactureID'
+                    end
+                    object IsEdit_SItem: TcxGridDBColumn
+                      Caption = #8730
+                      PropertiesClassName = 'TcxCheckBoxProperties'
+                      Properties.DisplayUnchecked = 'False'
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 34
+                      DataBinding.FieldName = 'IsEdit'
+                    end
+                  end
+                  object cxGL_SItem: TcxGridLevel
+                    GridView = cxGV_SItem
+                  end
+                end
+              end
+              object cxGrid_SList: TcxGrid
+                Left = 2
+                Top = 218
+                Width = 848
+                Height = 244
+                Align = alClient
+                PopupMenu = PM
+                TabOrder = 1
+                OnContextPopup = cxGrid_SListContextPopup
+                OnExit = cxGrid_SListExit
+                object cxGV_SList: TcxGridDBTableView
+                  DataController.DataSource = DS_Mdata_SList
+                  DataController.Summary.DefaultGroupSummaryItems = <>
+                  DataController.Summary.FooterSummaryItems = <
+                    item
+                      Format = '0.0000'
+                      Kind = skSum
+                      FieldName = 'FSumSuttle'
+                      Column = FSumSuttle_SList
+                    end
+                    item
+                      Format = '0'
+                      Kind = skSum
+                      FieldName = 'FPackQry'
+                    end
+                    item
+                      Format = '0'
+                      Kind = skSum
+                      FieldName = 'FSumQry'
+                      Column = FSumQry_SList
+                    end
+                    item
+                      Format = '0.0000'
+                      Kind = skSum
+                      FieldName = 'FSumCheckYesSuttle'
+                      Column = FSumCheckYesSuttle_SList
+                    end
+                    item
+                      Format = '0'
+                      Kind = skSum
+                      FieldName = 'FSumCheckYesQry'
+                      Column = FSumCheckYesQry_SList
+                    end>
+                  DataController.Summary.SummaryGroups = <>
+                  NavigatorButtons.ConfirmDelete = False
+                  NavigatorButtons.PriorPage.Visible = False
+                  NavigatorButtons.NextPage.Visible = False
+                  NavigatorButtons.Insert.Visible = False
+                  NavigatorButtons.Delete.Visible = True
+                  NavigatorButtons.Edit.Visible = False
+                  NavigatorButtons.Post.Visible = True
+                  NavigatorButtons.Cancel.Visible = False
+                  NavigatorButtons.Refresh.Visible = False
+                  NavigatorButtons.SaveBookmark.Visible = False
+                  NavigatorButtons.GotoBookmark.Visible = False
+                  NavigatorButtons.Filter.Visible = False
+                  OnCustomDrawCell = cxGV_SListCustomDrawCell
+                  OptionsData.CancelOnExit = False
+                  OptionsData.DeletingConfirmation = False
+                  OptionsData.Editing = False
+                  OptionsData.Inserting = False
+                  OptionsSelection.MultiSelect = True
+                  OptionsView.Navigator = True
+                  OptionsView.Footer = True
+                  OptionsView.GroupByBox = False
+                  object Num_SList: TcxGridDBColumn
+                    Caption = #24207#21495
+                    PropertiesClassName = 'TcxTextEditProperties'
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Moving = False
+                    Options.Sorting = False
+                    Width = 38
+                    DataBinding.FieldName = 'Num'
+                  end
+                  object th_SList: TcxGridDBColumn
+                    Caption = #22270#21495
+                    PropertiesClassName = 'TcxButtonEditProperties'
+                    Properties.Buttons = <
+                      item
+                        Default = True
+                        Kind = bkEllipsis
+                      end>
+                    Properties.MaxLength = 0
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Moving = False
+                    Options.Sorting = False
+                    Width = 116
+                    DataBinding.FieldName = 'th'
+                  end
+                  object mcgg_SList: TcxGridDBColumn
+                    Caption = #21517#31216#21450#35268#26684
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 176
+                    DataBinding.FieldName = 'mcgg'
+                  end
+                  object FSumQry_SList: TcxGridDBColumn
+                    Caption = #28165#21333#25968#37327
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Moving = False
+                    Options.Sorting = False
+                    Width = 55
+                    DataBinding.FieldName = 'FSumQry'
+                  end
+                  object FSumCheckYesQry_SList: TcxGridDBColumn
+                    Caption = #26816#39564#21512#26684#25968
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 65
+                    DataBinding.FieldName = 'FSumCheckYesQry'
+                  end
+                  object FSumPackQry_SList: TcxGridDBColumn
+                    Caption = #21253#35013#25968#37327
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 53
+                    DataBinding.FieldName = 'FSumPackQry'
+                  end
+                  object FSuttle_SList: TcxGridDBColumn
+                    Caption = #35774#35745#21333#37325'(kg)'
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Moving = False
+                    Options.Sorting = False
+                    Width = 86
+                    DataBinding.FieldName = 'FSuttle'
+                  end
+                  object FSumSuttle_SList: TcxGridDBColumn
+                    Caption = #35774#35745#24635#37325'(kg)'
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Moving = False
+                    Options.Sorting = False
+                    Width = 82
+                    DataBinding.FieldName = 'FSumSuttle'
+                  end
+                  object FSumCheckYesSuttle_SList: TcxGridDBColumn
+                    Caption = #26816#39564#21512#26684#37325#37327'(kg)'
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 77
+                    DataBinding.FieldName = 'FSumCheckYesSuttle'
+                  end
+                  object FListTeamName_SList: TcxGridDBColumn
+                    Caption = #20919#20316#29677#32452
+                    PropertiesClassName = 'TcxButtonEditProperties'
+                    Properties.Buttons = <
+                      item
+                        Default = True
+                        Kind = bkEllipsis
+                      end>
+                    Properties.OnEditValueChanged = FListTeamName_3PropertiesEditValueChanged
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 53
+                    OnHeaderClick = FListTeamName_SListHeaderClick
+                    DataBinding.FieldName = 'FListTeamName'
+                  end
+                  object Sel: TcxGridDBColumn
+                    PropertiesClassName = 'TcxButtonEditProperties'
+                    Properties.Buttons = <
+                      item
+                        Default = True
+                        Kind = bkEllipsis
+                      end>
+                    Properties.OnButtonClick = SelPropertiesButtonClick
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyph.Data = {
+                      26050000424D26050000000000003604000028000000100000000F0000000100
+                      080000000000F000000000000000000000000001000000000000000000000000
+                      80000080000000808000800000008000800080800000C0C0C000C0DCC000F0C8
+                      A400000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      0000000000000000000000000000000000000000000000000000000000000000
+                      000000000000000000000000000000000000F0FBFF00A4A0A000808080000000
+                      FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00070707070704
+                      FF07070707070707070707070707040404FF0707070707070707070707040404
+                      04FF07070707070707070707040404FF0404FF0707070707070707040404FF07
+                      070404FF070707070707070704FF0707070704FF070707070707070707070707
+                      07070704FF07070707070707070707070707070704FF07070707070707070707
+                      070707070704FF07070707000700070000070707000004FF0707070007000700
+                      0700070007070704FF0707000000070000070700070707070407070007000700
+                      0700070007070707070707070007070000070707000007070707070707070707
+                      07070707070707070707}
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Hidden = True
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 20
+                    DataBinding.FieldName = 'Sel'
+                    IsCaptionAssigned = True
+                  end
+                  object FListWorkShop_SList: TcxGridDBColumn
+                    Caption = #20919#20316#36710#38388
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 53
+                    DataBinding.FieldName = 'FListWorkShop'
+                  end
+                  object FCheckDetail_SList: TcxGridDBColumn
+                    Caption = #26816#39564#21592#21450#26816#39564#21333#21495
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 127
+                    DataBinding.FieldName = 'FCheckDetail'
+                  end
+                  object FPackDetail_SList: TcxGridDBColumn
+                    Caption = #21253#35013#31665#21495
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 64
+                    DataBinding.FieldName = 'FPackDetail'
+                  end
+                  object FListTeamID_SList: TcxGridDBColumn
+                    Caption = 'ID'
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 20
+                    DataBinding.FieldName = 'FListTeamID'
+                  end
+                  object FStockListRemark_SList: TcxGridDBColumn
+                    Caption = #22791#27880
+                    PropertiesClassName = 'TcxButtonEditProperties'
+                    Properties.Buttons = <
+                      item
+                        Default = True
+                        Kind = bkEllipsis
+                      end>
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    MinWidth = 50
+                    Options.Filtering = False
+                    Options.Moving = False
+                    Options.Sorting = False
+                    Width = 119
+                    DataBinding.FieldName = 'FStockListRemark'
+                  end
+                  object FFullNumber_SList: TcxGridDBColumn
+                    Caption = #38271#20195#30721
+                    PropertiesClassName = 'TcxButtonEditProperties'
+                    Properties.Buttons = <
+                      item
+                        Default = True
+                        Kind = bkEllipsis
+                      end>
+                    Properties.MaxLength = 50
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    MinWidth = 50
+                    Options.Filtering = False
+                    Options.Moving = False
+                    Options.Sorting = False
+                    Width = 146
+                    DataBinding.FieldName = 'FFullNumber'
+                  end
+                  object ssFullNumber_SList: TcxGridDBColumn
+                    Caption = #25152#23646#32534#30721
+                    PropertiesClassName = 'TcxButtonEditProperties'
+                    Properties.Buttons = <
+                      item
+                        Default = True
+                        Kind = bkEllipsis
+                      end>
+                    Properties.MaxLength = 50
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Moving = False
+                    Options.Sorting = False
+                    Width = 117
+                    DataBinding.FieldName = 'ssFullNumber'
+                  end
+                  object FPartsNumber_SList: TcxGridDBColumn
+                    Caption = #31867#21035#21495
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 41
+                    DataBinding.FieldName = 'FPartsNumber'
+                  end
+                  object FPartsCode_SList: TcxGridDBColumn
+                    Caption = #37096#20214#21495
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 41
+                    DataBinding.FieldName = 'FPartsCode'
+                  end
+                  object FBranchItemNumber_SList: TcxGridDBColumn
+                    Caption = #39033#30446#21495
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 70
+                    DataBinding.FieldName = 'FBranchItemNumber'
+                  end
+                  object FWorkParts_SList: TcxGridDBColumn
+                    Caption = #20837#24211#31867#21035
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 116
+                    DataBinding.FieldName = 'FWorkParts'
+                  end
+                  object FStockItemID_SList: TcxGridDBColumn
+                    Caption = #20027#34920'ID'
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 40
+                    DataBinding.FieldName = 'FStockItemID'
+                  end
+                  object FStockListID_SList: TcxGridDBColumn
+                    Caption = #38468#34920'ID'
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 40
+                    DataBinding.FieldName = 'FStockListID'
+                  end
+                  object SelRemark_SList: TcxGridDBColumn
+                    Caption = #20837#24211#22791#27880
+                    Visible = False
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    DataBinding.FieldName = 'SelRemark'
+                  end
+                  object IsEdit_SList: TcxGridDBColumn
+                    Caption = #8730
+                    PropertiesClassName = 'TcxCheckBoxProperties'
+                    Properties.DisplayUnchecked = 'False'
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 33
+                    DataBinding.FieldName = 'IsEdit'
+                  end
+                end
+                object cxGL_SList: TcxGridLevel
+                  GridView = cxGV_SList
+                end
+              end
+            end
+          end
+        end
+        object TS_PackItem: TRzTabSheet
+          Color = 14935011
+          Caption = #31665#20214#28165#21333
+          object RzSizePanel9: TRzSizePanel
+            Left = 0
+            Top = 0
+            Width = 231
+            Height = 505
+            Color = 14935011
+            HotSpotVisible = True
+            SizeBarWidth = 7
+            TabOrder = 0
+            VisualStyle = vsGradient
+            object MyTreeView_Pack: TTreeView
+              Left = 0
+              Top = 0
+              Width = 223
+              Height = 505
+              Align = alClient
+              AutoExpand = True
+              Ctl3D = False
+              Indent = 19
+              ParentCtl3D = False
+              TabOrder = 0
+              OnChange = MyTreeView_PackChange
+              OnExpanding = MyTreeView_PackExpanding
+            end
+          end
+          object Panel25: TPanel
+            Left = 231
+            Top = 0
+            Width = 879
+            Height = 505
+            Align = alClient
+            BevelOuter = bvNone
+            ParentColor = True
+            TabOrder = 1
+            object Panel26: TPanel
+              Left = 0
+              Top = 0
+              Width = 879
+              Height = 41
+              Align = alTop
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 0
+              object ToolBar_M2: TToolBar
+                Left = 0
+                Top = 0
+                Width = 879
+                Height = 35
+                AutoSize = True
+                ButtonHeight = 35
+                ButtonWidth = 55
+                Caption = 'ToolBar1'
+                EdgeBorders = []
+                Flat = True
+                Font.Charset = ANSI_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = #23435#20307
+                Font.Style = []
+                Images = ImageList
+                ParentFont = False
+                ShowCaptions = True
+                TabOrder = 0
+                object TB_Ref2: TToolButton
+                  Left = 0
+                  Top = 0
+                  AutoSize = True
+                  Caption = #21047#26032'[&R]'
+                  ImageIndex = 4
+                  OnClick = TB_Ref2Click
+                end
+                object TB_ReNoRef: TToolButton
+                  Left = 53
+                  Top = 0
+                  AutoSize = True
+                  Caption = #35760#24405#21047#26032
+                  ImageIndex = 4
+                end
+                object TB_PackItem: TToolButton
+                  Left = 112
+                  Top = 0
+                  AutoSize = True
+                  Caption = #31665#20214#28165#21333
+                  ImageIndex = 16
+                  Visible = False
+                end
+                object TB_PackList: TToolButton
+                  Left = 171
+                  Top = 0
+                  AutoSize = True
+                  Caption = #35013#31665#21333
+                  ImageIndex = 22
+                  Visible = False
+                end
+                object TB_PackItemFirst: TToolButton
+                  Left = 218
+                  Top = 0
+                  AutoSize = True
+                  Caption = #23553#38754
+                  ImageIndex = 20
+                  Visible = False
+                end
+                object TB_PackItemXLS: TToolButton
+                  Left = 253
+                  Top = 0
+                  AutoSize = True
+                  Caption = #31665#20214#28165#21333
+                  ImageIndex = 6
+                  Visible = False
+                end
+                object TB_PackListXLS: TToolButton
+                  Left = 312
+                  Top = 0
+                  AutoSize = True
+                  Caption = #35013#31665#28165#21333
+                  ImageIndex = 6
+                  Visible = False
+                end
+                object ToolButton1: TToolButton
+                  Left = 371
+                  Top = 0
+                  Width = 8
+                  Caption = 'ToolButton5'
+                  ImageIndex = 4
+                  Style = tbsSeparator
+                end
+                object TB_Out2: TToolButton
+                  Left = 379
+                  Top = 0
+                  AutoSize = True
+                  Caption = #25968#25454#23548#20986
+                  ImageIndex = 6
+                  Visible = False
+                end
+                object TB_Down2: TToolButton
+                  Left = 438
+                  Top = 0
+                  Cursor = crHandPoint
+                  AutoSize = True
+                  Caption = #35774#32622'[&D]'
+                  ImageIndex = 8
+                end
+                object ToolButton4: TToolButton
+                  Left = 491
+                  Top = 0
+                  Width = 8
+                  Caption = 'ToolButton1'
+                  ImageIndex = 9
+                  Style = tbsSeparator
+                end
+                object ToolButton7: TToolButton
+                  Left = 499
+                  Top = 0
+                  AutoSize = True
+                  Caption = #36864#20986'[&X]'
+                  ImageIndex = 7
+                  OnClick = TB_ExitClick
+                end
+              end
+            end
+            object Panel_button2: TPanel
+              Left = 0
+              Top = 460
+              Width = 879
+              Height = 45
+              Align = alBottom
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 1
+              object Bevel4: TBevel
+                Left = 0
+                Top = 5
+                Width = 1105
+                Height = 4
+              end
+              object L_FPackNum1: TLabel
+                Left = 26
+                Top = 19
+                Width = 48
+                Height = 13
+                Caption = #24320#22987#31665#21495
+                Transparent = True
+                Visible = False
+              end
+              object L_FPackNum2: TLabel
+                Left = 154
+                Top = 19
+                Width = 48
+                Height = 13
+                Caption = #32456#27490#31665#21495
+                Transparent = True
+                Visible = False
+              end
+              object E_FPackNum1: TcxButtonEdit
+                Left = 78
+                Top = 16
+                Width = 66
+                Height = 21
+                Hint = #36755#20837#22270#21495#21487#20197#30452#25509#36827#34892#26597#25214#65307
+                ParentShowHint = False
+                Properties.Buttons = <
+                  item
+                    Default = True
+                    Kind = bkEllipsis
+                  end>
+                ShowHint = True
+                Style.BorderColor = 8623776
+                Style.BorderStyle = ebsSingle
+                Style.Color = 15658734
+                Style.ButtonTransparency = ebtHideUnselected
+                TabOrder = 0
+                Visible = False
+                ImeName = #39118#28165#25196#20116#31508#36755#20837#27861' FOR WIN2000'
+              end
+              object E_FPackNum2: TcxButtonEdit
+                Left = 206
+                Top = 16
+                Width = 66
+                Height = 21
+                Hint = #36755#20837#22270#21495#21487#20197#30452#25509#36827#34892#26597#25214#65307
+                ParentShowHint = False
+                Properties.Buttons = <
+                  item
+                    Default = True
+                    Kind = bkEllipsis
+                  end>
+                ShowHint = True
+                Style.BorderColor = 8623776
+                Style.BorderStyle = ebsSingle
+                Style.Color = 15658734
+                Style.ButtonTransparency = ebtHideUnselected
+                TabOrder = 1
+                Visible = False
+                ImeName = #39118#28165#25196#20116#31508#36755#20837#27861' FOR WIN2000'
+              end
+            end
+            object Panel27: TPanel
+              Left = 0
+              Top = 41
+              Width = 879
+              Height = 419
+              Align = alClient
+              BevelOuter = bvNone
+              ParentColor = True
+              TabOrder = 2
+              object RzSizePanel7: TRzSizePanel
+                Left = 0
+                Top = 241
+                Width = 879
+                Height = 178
+                Align = alBottom
+                Color = 14935011
+                HotSpotVisible = True
+                Side = sdTop
+                SizeBarWidth = 7
+                TabOrder = 0
+                VisualStyle = vsGradient
+                object cxGrid_PList: TcxGrid
+                  Left = 0
+                  Top = 8
+                  Width = 879
+                  Height = 170
+                  Align = alClient
+                  TabOrder = 0
+                  object cxGV_PList: TcxGridDBTableView
+                    DataController.DataSource = DS_Mdata_PList
+                    DataController.Summary.DefaultGroupSummaryItems = <>
+                    DataController.Summary.FooterSummaryItems = <
+                      item
+                        Format = '0.0000'
+                        Kind = skSum
+                        FieldName = 'FSumSuttle'
+                        Column = cxGridDBColumn144
+                      end
+                      item
+                        Format = '0'
+                        Kind = skSum
+                        FieldName = 'FPackQry'
+                        Column = FPackQry_2
+                      end
+                      item
+                        Format = '0'
+                        Kind = skSum
+                        FieldName = 'FSumQry'
+                        Column = cxGridDBColumn142
+                      end>
+                    DataController.Summary.SummaryGroups = <>
+                    NavigatorButtons.ConfirmDelete = False
+                    NavigatorButtons.PriorPage.Visible = False
+                    NavigatorButtons.NextPage.Visible = False
+                    NavigatorButtons.Insert.Visible = False
+                    NavigatorButtons.Delete.Visible = True
+                    NavigatorButtons.Edit.Visible = False
+                    NavigatorButtons.Post.Visible = True
+                    NavigatorButtons.Cancel.Visible = False
+                    NavigatorButtons.Refresh.Visible = False
+                    NavigatorButtons.SaveBookmark.Visible = False
+                    NavigatorButtons.GotoBookmark.Visible = False
+                    NavigatorButtons.Filter.Visible = False
+                    OptionsData.CancelOnExit = False
+                    OptionsData.DeletingConfirmation = False
+                    OptionsData.Editing = False
+                    OptionsData.Inserting = False
+                    OptionsSelection.MultiSelect = True
+                    OptionsView.Navigator = True
+                    OptionsView.Footer = True
+                    OptionsView.GroupByBox = False
+                    object cxGridDBColumn138: TcxGridDBColumn
+                      Caption = #8730
+                      PropertiesClassName = 'TcxCheckBoxProperties'
+                      Properties.DisplayUnchecked = 'False'
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 23
+                      DataBinding.FieldName = 'IsEdit'
+                    end
+                    object FListNum2: TcxGridDBColumn
+                      Caption = #24207#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      SortOrder = soAscending
+                      Width = 47
+                      DataBinding.FieldName = 'FListNum'
+                    end
+                    object xh_2: TcxGridDBColumn
+                      Caption = #32534#21495
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 0
+                      Properties.DisplayFormat = '0'
+                      Properties.ValidateOnEnter = True
+                      Visible = False
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 29
+                      DataBinding.FieldName = 'xh'
+                    end
+                    object cxGridDBColumn139: TcxGridDBColumn
+                      Caption = #22270#21495
+                      PropertiesClassName = 'TcxButtonEditProperties'
+                      Properties.Buttons = <
+                        item
+                          Default = True
+                          Kind = bkEllipsis
+                        end>
+                      Properties.MaxLength = 0
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 116
+                      DataBinding.FieldName = 'th'
+                    end
+                    object mcgg_2: TcxGridDBColumn
+                      Caption = #21517#31216#21450#35268#26684
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 176
+                      DataBinding.FieldName = 'mcgg'
+                    end
+                    object cxGridDBColumn140: TcxGridDBColumn
+                      Caption = #21517#31216
+                      PropertiesClassName = 'TcxButtonEditProperties'
+                      Properties.Buttons = <
+                        item
+                          Default = True
+                          Kind = bkEllipsis
+                        end>
+                      Visible = False
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 113
+                      DataBinding.FieldName = 'mc'
+                    end
+                    object cxGridDBColumn141: TcxGridDBColumn
+                      Caption = #35268#26684
+                      PropertiesClassName = 'TcxButtonEditProperties'
+                      Properties.Buttons = <
+                        item
+                          Default = True
+                          Kind = bkEllipsis
+                        end>
+                      Visible = False
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 125
+                      DataBinding.FieldName = 'gg'
+                    end
+                    object SelRemark_2: TcxGridDBColumn
+                      Caption = #20837#24211#22791#27880
+                      PropertiesClassName = 'TcxComboBoxProperties'
+                      Properties.Items.Strings = (
+                        '('#25353#20197#19979#20837#24211')')
+                      Visible = False
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 85
+                      DataBinding.FieldName = 'SelRemark'
+                    end
+                    object FPackLIstRemark_2: TcxGridDBColumn
+                      Caption = #21253#35013#22791#27880
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 103
+                      DataBinding.FieldName = 'FPackLIstRemark'
+                    end
+                    object dw_2: TcxGridDBColumn
+                      Caption = #21333#20301
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 29
+                      DataBinding.FieldName = 'dw'
+                    end
+                    object cxGridDBColumn142: TcxGridDBColumn
+                      Caption = #28165#21333#25968#37327
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 53
+                      DataBinding.FieldName = 'FSumQry'
+                    end
+                    object FPackQry_2: TcxGridDBColumn
+                      Caption = #21253#35013#25968#37327
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 53
+                      DataBinding.FieldName = 'FPackQry'
+                    end
+                    object FPackClass_22: TcxGridDBColumn
+                      Caption = #20195#30721
+                      PropertiesClassName = 'TcxComboBoxProperties'
+                      Properties.Items.Strings = (
+                        ''
+                        'B'
+                        'S'
+                        'G'
+                        'V')
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 29
+                      DataBinding.FieldName = 'FPackClass'
+                    end
+                    object FPackNo_22: TcxGridDBColumn
+                      Caption = #21253#35013#21495
+                      PropertiesClassName = 'TcxCurrencyEditProperties'
+                      Properties.DecimalPlaces = 0
+                      Properties.DisplayFormat = '0'
+                      Properties.ValidateOnEnter = True
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Width = 41
+                      DataBinding.FieldName = 'FPackNo'
+                    end
+                    object cxGridDBColumn143: TcxGridDBColumn
+                      Caption = #21333#37325'(kg)'
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 86
+                      DataBinding.FieldName = 'FSuttle'
+                    end
+                    object cxGridDBColumn144: TcxGridDBColumn
+                      Caption = #24635#37325'(kg)'
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 82
+                      DataBinding.FieldName = 'FSumSuttle'
+                    end
+                    object FStockListRemark_2: TcxGridDBColumn
+                      Caption = #28165#21333#22791#27880
+                      PropertiesClassName = 'TcxButtonEditProperties'
+                      Properties.Buttons = <
+                        item
+                          Default = True
+                          Kind = bkEllipsis
+                        end>
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 119
+                      DataBinding.FieldName = 'FStockListRemark'
+                    end
+                    object cxGridDBColumn145: TcxGridDBColumn
+                      Caption = #38271#20195#30721
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      MinWidth = 50
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 146
+                      DataBinding.FieldName = 'FFullNumber'
+                    end
+                    object cxGridDBColumn146: TcxGridDBColumn
+                      Caption = #25152#23646#32534#30721
+                      PropertiesClassName = 'TcxButtonEditProperties'
+                      Properties.Buttons = <
+                        item
+                          Default = True
+                          Kind = bkEllipsis
+                        end>
+                      Properties.MaxLength = 50
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Moving = False
+                      Options.Sorting = False
+                      Width = 117
+                      DataBinding.FieldName = 'ssFullNumber'
+                    end
+                    object FPackItemID_22: TcxGridDBColumn
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 67
+                      DataBinding.FieldName = 'FPackItemID'
+                    end
+                    object FPackStockListID_2: TcxGridDBColumn
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 75
+                      DataBinding.FieldName = 'FPackStockListID'
+                    end
+                    object cxGridDBColumn147: TcxGridDBColumn
+                      Caption = #31867#21035#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 62
+                      DataBinding.FieldName = 'FPartsNumber'
+                    end
+                    object FPartsCode_2: TcxGridDBColumn
+                      Caption = #37096#20214#21495
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      DataBinding.FieldName = 'FPartsCode'
+                    end
+                    object FWorkParts_2: TcxGridDBColumn
+                      Caption = #20837#24211#31867#21035
+                      FooterAlignmentHorz = taCenter
+                      HeaderAlignmentHorz = taCenter
+                      HeaderGlyphAlignmentHorz = taCenter
+                      Options.Editing = False
+                      Options.Filtering = False
+                      Options.Sorting = False
+                      Width = 116
+                      DataBinding.FieldName = 'FWorkParts'
+                    end
+                  end
+                  object cxGL_PList: TcxGridLevel
+                    GridView = cxGV_PList
+                  end
+                end
+              end
+              object cxGrid_PItem: TcxGrid
+                Left = 0
+                Top = 0
+                Width = 879
+                Height = 241
+                Align = alClient
+                TabOrder = 1
+                object cxGV1: TcxGridDBTableView
+                  DataController.Summary.DefaultGroupSummaryItems = <>
+                  DataController.Summary.FooterSummaryItems = <
+                    item
+                      Format = #23567#35745#65306'0.0000'
+                      Kind = skSum
+                      FieldName = 'FSumSuttle'
+                    end
+                    item
+                      Format = #23567#35745#65306'0.0000'
+                      FieldName = 'FQry'
+                    end>
+                  DataController.Summary.SummaryGroups = <>
+                  NavigatorButtons.ConfirmDelete = False
+                  NavigatorButtons.PriorPage.Visible = False
+                  NavigatorButtons.NextPage.Visible = False
+                  NavigatorButtons.Insert.Visible = False
+                  NavigatorButtons.Delete.Visible = True
+                  NavigatorButtons.Edit.Visible = False
+                  NavigatorButtons.Post.Visible = False
+                  NavigatorButtons.Cancel.Visible = False
+                  NavigatorButtons.Refresh.Visible = False
+                  NavigatorButtons.SaveBookmark.Visible = False
+                  NavigatorButtons.GotoBookmark.Visible = False
+                  NavigatorButtons.Filter.Visible = False
+                  OptionsData.CancelOnExit = False
+                  OptionsData.DeletingConfirmation = False
+                  OptionsData.Editing = False
+                  OptionsData.Inserting = False
+                  OptionsView.Navigator = True
+                  OptionsView.Footer = True
+                  OptionsView.GroupByBox = False
+                end
+                object cxGV_PItem: TcxGridDBBandedTableView
+                  DataController.DataSource = DS_Mdata_PItem
+                  DataController.Summary.DefaultGroupSummaryItems = <>
+                  DataController.Summary.FooterSummaryItems = <
+                    item
+                      Format = '0'
+                      Kind = skSum
+                      FieldName = 'FNet'
+                      Column = FNet
+                    end
+                    item
+                      Format = '0'
+                      Kind = skSum
+                      FieldName = 'FGross'
+                      Column = FGross
+                    end
+                    item
+                      Format = '0.00'
+                      Kind = skSum
+                      FieldName = 'FSteel'
+                      Column = FSteel
+                    end
+                    item
+                      Format = '0.00'
+                      Kind = skSum
+                      FieldName = 'FWood'
+                      Column = FWood
+                    end
+                    item
+                      Format = '0.00'
+                      Kind = skSum
+                      FieldName = 'FPlastic'
+                      Column = FPlastic
+                    end
+                    item
+                      Format = '0.00'
+                      Kind = skSum
+                      FieldName = 'FAsphalt'
+                      Column = FAsphalt
+                    end
+                    item
+                      Format = '0.00'
+                      Kind = skSum
+                      FieldName = 'FColorbar'
+                      Column = FColorbar
+                    end
+                    item
+                      Format = '0.00'
+                      Kind = skSum
+                      FieldName = 'FV'
+                      Column = FV
+                    end>
+                  DataController.Summary.SummaryGroups = <>
+                  NavigatorButtons.ConfirmDelete = False
+                  NavigatorButtons.First.Visible = False
+                  NavigatorButtons.NextPage.Visible = False
+                  NavigatorButtons.Insert.Visible = False
+                  NavigatorButtons.Delete.Visible = False
+                  NavigatorButtons.Edit.Visible = False
+                  NavigatorButtons.Cancel.Visible = False
+                  NavigatorButtons.Refresh.Visible = False
+                  NavigatorButtons.SaveBookmark.Visible = False
+                  NavigatorButtons.GotoBookmark.Visible = False
+                  NavigatorButtons.Filter.Visible = False
+                  OnFocusedRecordChanged = cxGV_PItemFocusedRecordChanged
+                  OptionsData.Editing = False
+                  OptionsSelection.MultiSelect = True
+                  OptionsView.Navigator = True
+                  OptionsView.Footer = True
+                  OptionsView.GroupByBox = False
+                  Bands = <
+                    item
+                      Caption = #31665#20214#21495
+                      Options.HoldOwnColumnsOnly = True
+                      Width = 56
+                    end
+                    item
+                      Caption = #31665#20214#22270#21495
+                      Hidden = True
+                      Options.HoldOwnColumnsOnly = True
+                      Width = 179
+                    end
+                    item
+                      Caption = #31665#20214#21517#31216
+                      Width = 191
+                    end
+                    item
+                      Caption = #21253#35013
+                      Width = 38
+                    end
+                    item
+                      Caption = #37325#37327'(kg)'
+                      Width = 107
+                    end
+                    item
+                      Caption = #22806#24418#23610#23544'(cm)'
+                      Width = 124
+                    end
+                    item
+                      Caption = #20307#31215'(m3)'
+                      Width = 70
+                    end
+                    item
+                      Caption = #21253#35013#26448#26009
+                      Width = 255
+                    end
+                    item
+                      Caption = #21457#36135#22320#28857
+                      Width = 75
+                    end
+                    item
+                      Width = 181
+                    end
+                    item
+                      Caption = #21333#25454#29366#24577
+                    end>
+                  object FPackNum_2: TcxGridDBBandedColumn
+                    Caption = #31665#20214#21495
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Width = 50
+                    Position.BandIndex = 0
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackNum'
+                  end
+                  object FPackNumber_2: TcxGridDBBandedColumn
+                    PropertiesClassName = 'TcxButtonEditProperties'
+                    Properties.Buttons = <
+                      item
+                        Default = True
+                        Kind = bkEllipsis
+                      end>
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Position.BandIndex = 1
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackNumber'
+                    IsCaptionAssigned = True
+                  end
+                  object FPackName_2: TcxGridDBBandedColumn
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Position.BandIndex = 2
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackName'
+                    IsCaptionAssigned = True
+                  end
+                  object FPackMode_2: TcxGridDBBandedColumn
+                    Caption = #26041#24335
+                    PropertiesClassName = 'TcxComboBoxProperties'
+                    Properties.Items.Strings = (
+                      ''
+                      #26694#26550
+                      #25414#35013
+                      #38081#31665
+                      #26408#31665
+                      #35064#35013)
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Position.BandIndex = 3
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackMode'
+                  end
+                  object FNet: TcxGridDBBandedColumn
+                    Caption = #20928#37325
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Width = 55
+                    Position.BandIndex = 4
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FNet'
+                  end
+                  object FGross: TcxGridDBBandedColumn
+                    Caption = #27611#37325
+                    PropertiesClassName = 'TcxCurrencyEditProperties'
+                    Properties.ValidateOnEnter = True
+                    Properties.IsDisplayFormatAssigned = True
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Width = 52
+                    Position.BandIndex = 4
+                    Position.ColIndex = 1
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FGross'
+                  end
+                  object FLength: TcxGridDBBandedColumn
+                    Caption = #38271
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Width = 29
+                    Position.BandIndex = 5
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FLength'
+                  end
+                  object FWidth: TcxGridDBBandedColumn
+                    Caption = #23485
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Width = 35
+                    Position.BandIndex = 5
+                    Position.ColIndex = 1
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FWidth'
+                  end
+                  object FHigh: TcxGridDBBandedColumn
+                    Caption = #39640
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Width = 34
+                    Position.BandIndex = 5
+                    Position.ColIndex = 2
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FHigh'
+                  end
+                  object FV: TcxGridDBBandedColumn
+                    PropertiesClassName = 'TcxCurrencyEditProperties'
+                    Properties.DecimalPlaces = 4
+                    Properties.DisplayFormat = '0.0000'
+                    Properties.ValidateOnEnter = True
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Position.BandIndex = 6
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FV'
+                    IsCaptionAssigned = True
+                  end
+                  object FSteel: TcxGridDBBandedColumn
+                    Caption = #38050#26448
+                    PropertiesClassName = 'TcxCurrencyEditProperties'
+                    Properties.DisplayFormat = '0.00'
+                    Properties.ValidateOnEnter = True
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Width = 44
+                    Position.BandIndex = 7
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FSteel'
+                  end
+                  object FWood: TcxGridDBBandedColumn
+                    Caption = #26408#26448
+                    PropertiesClassName = 'TcxCurrencyEditProperties'
+                    Properties.DisplayFormat = '0.00'
+                    Properties.ValidateOnEnter = True
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Width = 42
+                    Position.BandIndex = 7
+                    Position.ColIndex = 1
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FWood'
+                  end
+                  object FPlastic: TcxGridDBBandedColumn
+                    Caption = #22609#26009#33180
+                    PropertiesClassName = 'TcxCurrencyEditProperties'
+                    Properties.DisplayFormat = '0.00'
+                    Properties.ValidateOnEnter = True
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 48
+                    Position.BandIndex = 7
+                    Position.ColIndex = 2
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPlastic'
+                  end
+                  object FAsphalt: TcxGridDBBandedColumn
+                    Caption = #27833#27611#27617
+                    PropertiesClassName = 'TcxCurrencyEditProperties'
+                    Properties.DisplayFormat = '0.00'
+                    Properties.ValidateOnEnter = True
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 43
+                    Position.BandIndex = 7
+                    Position.ColIndex = 3
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FAsphalt'
+                  end
+                  object FColorbar: TcxGridDBBandedColumn
+                    Caption = #24425#26465
+                    PropertiesClassName = 'TcxCurrencyEditProperties'
+                    Properties.DisplayFormat = '0.00'
+                    Properties.ValidateOnEnter = True
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 43
+                    Position.BandIndex = 7
+                    Position.ColIndex = 4
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FColorbar'
+                  end
+                  object FPlace: TcxGridDBBandedColumn
+                    Caption = #21457#36135#22320#28857
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Position.BandIndex = 8
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPlace'
+                  end
+                  object FPackItemID_2: TcxGridDBBandedColumn
+                    Caption = #31665#21495'ID'
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 62
+                    Position.BandIndex = 9
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackItemID'
+                  end
+                  object FItemID_2: TcxGridDBBandedColumn
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 64
+                    Position.BandIndex = 9
+                    Position.ColIndex = 1
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FItemID'
+                  end
+                  object FBranchItemNumber_2: TcxGridDBBandedColumn
+                    Caption = #20998#22270#21495
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 55
+                    Position.BandIndex = 9
+                    Position.ColIndex = 2
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FBranchItemNumber'
+                  end
+                  object FPackStatus: TcxGridDBBandedColumn
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Width = 66
+                    Position.BandIndex = 10
+                    Position.ColIndex = 4
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackStatus'
+                  end
+                  object FPackStatusNotes: TcxGridDBBandedColumn
+                    Caption = #21333#25454#29366#24577
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Position.BandIndex = 10
+                    Position.ColIndex = 5
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackStatusNotes'
+                  end
+                  object FPackWrite: TcxGridDBBandedColumn
+                    Caption = #22635#21333
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Position.BandIndex = 10
+                    Position.ColIndex = 6
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackWrite'
+                  end
+                  object FPackWriteDate: TcxGridDBBandedColumn
+                    Caption = #22635#21333#26085#26399
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Position.BandIndex = 10
+                    Position.ColIndex = 7
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackWriteDate'
+                  end
+                  object FPackSubmit: TcxGridDBBandedColumn
+                    Caption = #25552#20132
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 30
+                    Position.BandIndex = 10
+                    Position.ColIndex = 0
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackSubmit'
+                  end
+                  object FPackSubmitDate: TcxGridDBBandedColumn
+                    Caption = #25552#20132#26085#26399
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 53
+                    Position.BandIndex = 10
+                    Position.ColIndex = 1
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackSubmitDate'
+                  end
+                  object FPackAudit: TcxGridDBBandedColumn
+                    Caption = #23457#26680
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 29
+                    Position.BandIndex = 10
+                    Position.ColIndex = 2
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackAudit'
+                  end
+                  object FPackAuditDate: TcxGridDBBandedColumn
+                    Caption = #23457#26680#26085#26399
+                    FooterAlignmentHorz = taCenter
+                    HeaderAlignmentHorz = taCenter
+                    HeaderGlyphAlignmentHorz = taCenter
+                    Options.Editing = False
+                    Options.Filtering = False
+                    Options.Sorting = False
+                    Width = 53
+                    Position.BandIndex = 10
+                    Position.ColIndex = 3
+                    Position.RowIndex = 0
+                    DataBinding.FieldName = 'FPackAuditDate'
+                  end
+                end
+                object cxGL_PItem: TcxGridLevel
+                  GridView = cxGV_PItem
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+  object ImageList: TImageList
+    Left = 147
+    Top = 86
+    Bitmap = {
+      494C01011B001D00040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      0000000000003600000028000000400000008000000001002000000000000080
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000A5948400A59484009C8C
+      7B00A59C8C009C8C8400A59484009C8C7B00A58C7B009C8C7B00948C7B009494
+      7B00949484009494840094847B00FFFFF7000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000F7FFFF00F7FFFF00F7FFFF0000000000000000000000
+      0000000000000000000000000000000000000000000000000000000808000000
+      00007B848C008C949C008C8C9400000000000000000000000000000000000000
+      000000000000FFFFFF00FFFFFF00FFFFFF000800000010080000080000000800
+      0000080000000800000008000000100800001000000010080000100800000000
+      00000808000000000000A59C9400FFFFFF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000FFFFFF00000000000000
+      0000000000000000080000000800000010000000080000000000000000000000
+      000000001000FFF7FF00000000000000000000080000FFFFF700000000000008
+      08006B84940000001800000010009CA5AD00ADADAD00ADADAD00ADA59C00ADA5
+      AD0008001000FFF7FF00F7FFFF00EFFFFF0000000000A5A5AD009C9C9C00ADAD
+      AD00A5A59C00B5ADAD00B5ADAD00A5A59C00ADADAD00A5A5A500ADADAD00A59C
+      9C00B5ADA500080000008C8C8400FFFFF7000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFFFF0000000000000000007384
+      7B00BDD6D600ADCEDE00316384004A94B50021637B0000000000CEDECE00C6D6
+      C60000000000FFFFFF00000000000000000000000000FFFFFF0039424200D6EF
+      F700B5E7FF005A8CAD00527B9C00000010007B8C9400848C8C00EFE7E700AD9C
+      A50000000800FFFFFF00F7FFFF00EFFFFF0000001000F7F7FF00EFEFF700DEDE
+      E700EFEFEF00EFE7E700DEDEDE00E7E7E700D6E7E700E7E7EF00E7E7EF00E7E7
+      E700B5ADAD00080000008C8C8400FFFFFF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFFFF00FFFFFF00F7FFFF006B84
+      8400CEF7FF00BDF7FF00106B940039BDFF00299CDE0000001000DEFFFF00DEFF
+      F70000000000FFFFF700000000000000000000000000FFFFFF00D6DEE7001839
+      4200ADEFFF0084DEFF0039A5CE003184AD00000010008C949C00948C9400B5AD
+      AD0008080800FFFFFF00FFFFFF00FFFFFF0000000800EFEFF7006B737300E7E7
+      EF00635A5A006B6363006B6B6B00636B6B005A6363005A636300EFEFEF00635A
+      6300ADA5A50008000000848C8400F7FFF7000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFFFF0000000000F7F7F700848C
+      8C00DEF7FF00B5F7FF0008638C008CFFFF0052B5EF0000082100DEF7FF00DEF7
+      F7000000000000000000000000000000000000000000F7FFFF00E7EFEF002139
+      4A00ADEFFF0052ADC600299CC60031A5CE005AA5C60000001800737B8C008C8C
+      8C0008000000FFFFFF00FFFFFF00FFFFFF0000000000FFFFFF00E7E7E700DEDE
+      DE00FFF7FF00EFE7E700E7E7DE00E7E7E700EFF7F700737B7B00000000000000
+      0000080008008C848400848C8C00FFFFFF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000FFFFFF0000000000F7FFFF007384
+      7B00E7F7FF00C6F7FF0018637B0000638400106B8C0000001000E7FFFF00EFFF
+      FF000000000000000000000000000000000010000000FFFFFF00E7DEE700E7E7
+      F70000000800C6EFFF00A5F7FF0039A5C6002194CE004A9CD600000021008C8C
+      9C0063635A00FFFFF700FFFFFF00FFFFFF0000000000FFFFFF006B6363006B63
+      6300F7EFEF005A5A5A0073736B00E7E7DE00000000008C848400F7EFF700FFFF
+      FF00EFF7F7007373730008100800FFFFFF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000F7FFFF00000000000000
+      0000F7FFFF00DEF7F700CEFFFF00BDFFFF00BDFFFF00C6FFF700D6F7EF00EFF7
+      FF000008080000000000F7FFFF000000000010080000FFFFF700EFE7EF00E7DE
+      EF00E7DEE70000001000BDEFFF00A5FFFF00299CD60039A5DE00528CBD000000
+      180063636300A59C8C00FFFFF700FFFFFF0008000000FFFFFF00F7EFEF00F7EF
+      E700E7E7DE00EFEFE700E7EFDE007B847B00847B7B00FFF7F700FFFFFF00F7F7
+      F700F7F7FF00FFFFFF007373730084847B000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000EFFFFF00426B7300CEFF
+      FF00BDD6CE00EFFFFF00DEFFF700C6FFF700C6FFF700D6FFF700DEFFF700B5D6
+      DE009CC6CE0000000000F7FFFF000000000000000000FFFFFF00DEDEE7009C9C
+      A50094949C00949CA50000000800BDEFFF00B5FFFF00429CC600429CC60063A5
+      C6000000100084847B007B7B6B00FFFFEF0000000800FFF7FF006B6363006B63
+      6300E7E7E700636B6300525A5A0000000000FFFFFF00FFFFFF00FFF7F700FFFF
+      FF00FFFFFF00EFF7F700FFFFFF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000EFFFFF00EFFFFF00E7FFFF003963
+      730000000000C6D6CE00EFFFF700CEFFF700CEFFFF00DEFFF700ADCED6000000
+      100000000800EFFFFF00000000000000000000000000F7FFFF00EFEFF700DEDE
+      EF00EFEFEF00E7E7E700DEE7E70000000800C6EFFF00BDFFFF005AA5C600427B
+      9C00738C9C0000000000949484008C8C730000000800FFFFFF00FFFFFF00FFFF
+      F700FFFFFF00FFFFFF00F7FFFF0000000000FFFFFF00F7F7F700FFF7EF001008
+      0000F7F7E700FFFFF700FFF7F700080008000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000EFFFFF00E7FFF700EFFFFF00E7FF
+      FF00C6F7F70000000000BDCECE00D6FFFF00D6FFFF00ADCED600000010008CC6
+      F7000000100000000000000000000000000000000000F7FFFF00E7EFF7009C9C
+      AD008C849400A59C9C00A59C9400949C940000080800C6DEEF00738494009CA5
+      B5009C9CAD008C8C8C0008080000848C73000000080000000800000000000808
+      000000000000000000000000080000000800FFFFFF00FFFFF700FFFFE7009C8C
+      5A00A58C6300FFFFE700FFF7EF00080008000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000FFFFFF00F7FF
+      FF0039636B00CEFFFF0000000800B5D6DE00A5CED6000000100094C6F7000000
+      420000001800FFFFFF00000000000000000000000800F7FFFF00D6DEDE00EFEF
+      EF00F7EFEF00EFE7E700F7EFE700E7EFE700D6E7DE0000000000FFFFFF00E7DE
+      EF00B5ADBD00A5A5AD009494940000000000F7FFFF00FFFFFF006B736B00FFFF
+      FF00FFFFFF00FFFFFF00F7F7FF007B7B94007B84840000000000FFFFDE00AD94
+      5A00B5946300947B5200FFFFF700847B84000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000000000FFFF
+      FF00EFFFFF00E7FFFF0031637B00B5F7FF008CCED60000000000E7F7FF002100
+      84000800290000000000000000000000000000000000F7FFFF00E7EFDE009C9C
+      8C00A59C9400ADA5A500949C9C008C9C94008C9C94000010000000000000FFFF
+      FF00DEDEEF00A5A5B5008C849C0000001000FFFFFF00FFFFFF0063635A006B6B
+      63005A525A006B636B00FFFFFF00F7F7FF000000000084846300FFFFCE00D6BD
+      8400B5946300AD8C6B0010000000FFFFFF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000000000FFFF
+      F700F7FFFF00EFFFFF00DEFFFF002963730000000800EFFFFF00F7F7FF002108
+      6B0000001800FFFFFF00000000000000000000000000FFFFFF00EFEFDE00EFEF
+      DE00EFE7DE00E7E7E700DEE7EF00E7EFF700E7EFE700000000007B847B000000
+      0000E7E7F700A5A5BD00BDB5CE0000001800FFFFFF00F7F7F700FFFFFF00FFFF
+      FF00FFFFFF00FFF7FF00F7FFFF00F7FFFF00FFFFFF0084846B00211000002910
+      000021080000A58C7300FFFFFF00FFFFFF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000F7FFF700000000000000
+      000000000000F7F7FF00F7FFFF00F7FFFF00EFFFFF00F7FFFF0000000000FFF7
+      FF00F7FFFF0000000000000000000000000008080800F7F7F700FFFFFF00FFF7
+      EF00FFFFFF00FFFFFF00EFF7FF00F7FFFF00FFFFFF0000000000848484000000
+      0000000008000000080000000800FFFFFF006B6B73006B636B00635A5A00736B
+      630063635A00636B5A00F7FFFF00F7FFFF00FFFFFF00FFFFFF00FFFFF700FFFF
+      FF00FFFFF700FFFFF700FFFFFF00F7FFFF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000FFFFFF00FFFFFF00F7FFFF00000000000000000000000000000000000000
+      0000F7FFFF00F7FFFF0000000000000000009CA59C0010080800080000001000
+      000000000000000000000000080000000800000008000000080008000000FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0063636B00FFFFFF00FFFFFF00FFFF
+      FF00FFFFF700F7FFF700EFFFF700EFFFFF00F7FFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00F7FFF700F7FFFF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000FF310000FF310000FF310000FF310000FF310000FF31
+      0000FF310000FF310000FF310000FF310000FFCE9C00CE9C6300CE9C6300CE9C
+      6300CE9C6300CECECE0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000084000000FFFFFF00000000000000000000000000000000000000
+      000000000000000000000000000000000000CE636300CE636300CE636300CE63
+      6300CE636300CE636300CE636300CE636300CE636300CE636300CE636300CE63
+      6300CE636300CE636300CE636300CE6363000000000000000000000000000000
+      00000000000000000000FF310000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FF310000FFCE9C00F7EFBD00F7EFBD00CECE
+      FF00E7E7E700CE9C6300CE9C6300CECECE000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000840000008400000084000000FFFFFF000000000000000000000000000000
+      000000000000000000000000000000000000CE636300FFFFFF00FFFFFF00FFCE
+      CE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFF
+      FF00FFCECE00FFFFFF00FFFFFF00CE6363000000000000000000000000000000
+      00000000000000000000FF310000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FF310000FFCE9C00FFFFFF00FFFFFF00CECE
+      FF00FFFFFF00FFFFFF00E7E7E700CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000008400
+      0000840000008400000084000000FFFFFF000000000000000000000000000000
+      000000000000000000000000000000000000CE636300FFFFFF00FFFFFF00FFCE
+      CE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFF
+      FF00FFCECE00FFFFFF00FFFFFF00CE6363000000000000000000000000000000
+      00000000000000000000FF310000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FF310000FFCE9C00F7EFBD00F7EFBD00CECE
+      FF00F7EFBD00F7EFBD00F7EFBD00CE9C6300CECECE0000000000000000000000
+      0000000000000000000000000000000000000000000000000000840000008400
+      000084000000FFFFFF008400000084000000FFFFFF0000000000000000000000
+      000000000000000000000000000000000000CE636300FFCECE00FFCECE00FFCE
+      CE00FFCECE00FFCECE00FFCECE00FFCECE00FFCECE00FFCECE00FFCECE00FFCE
+      CE00FFCECE00FFCECE00FFCECE00CE636300000000000000000000000000FF31
+      0000FF310000FF310000FF310000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FF310000FFCE9C00FFFFFF00CECECE00CECE
+      FF00FFFFFF00FFFFFF00FFFFFF00E7E7E700CE9C6300CECECE00000000000000
+      0000000000000000000000000000000000000000000084000000840000008400
+      0000FFFFFF0000000000000000008400000084000000FFFFFF00000000000000
+      000000000000000000000000000000000000CE636300FFFFFF00FFFFFF00FFCE
+      CE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFF
+      FF00FFCECE00FFFFFF00FFFFFF00CE636300000000000000000000000000FF31
+      0000FFFFFF00FFFFFF00FF310000FF310000FF310000FF310000FF310000FF31
+      0000FF310000FF310000FF310000FF310000FFCE9C00F7EFBD00F7EFBD00CECE
+      FF00F7EFBD00F7EFBD00F7EFBD00F7EFBD00E7E7E700CE9C6300CE9C6300CE9C
+      6300CECECE00000000000000000000000000000000000000000084000000FFFF
+      FF000000000000000000000000000000000084000000FFFFFF00000000000000
+      000000000000000000000000000000000000CE636300FFFFFF00FFFFFF00FFCE
+      CE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFF
+      FF00FFCECE00FFFFFF00FFFFFF00CE636300000000000000000000000000FF31
+      0000FFFFFF00FFFFFF00FF310000FF310000FF310000FF310000FF310000FF31
+      0000FFCE9C00FF3100006363FF00FF310000FFCE9C00FFFFFF00FFFFFF00CECE
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E7E7
+      E700CE9C6300CE9C6300CE9C6300CECECE000000000000000000000000000000
+      0000000000000000000000000000000000000000000084000000FFFFFF000000
+      000000000000000000000000000000000000CE636300FFCECE00FFCECE000000
+      9C0000009C0000009C0000009C00FFCECE00FFCECE00FFCECE00FFCECE00FFCE
+      CE00FFCECE00FFCECE00FFCECE00CE636300000000000000000000000000FF31
+      0000FFFFFF00FFFFFF00FFCE9C00FF310000FF310000FF310000FF310000FF31
+      0000FF310000FF310000FF310000FFCE9C00FFCE9C00F7EFBD00F7EFBD00CECE
+      FF00F7EFBD00F7EFBD00F7EFBD00F7EFBD00F7EFBD00F7EFBD00F7EFBD00F7EF
+      BD00F7EFBD00F7EFBD00E7E7E700CE9C63000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000084000000FFFF
+      FF0000000000000000000000000000000000CE636300FFFFFF00FFFFFF000000
+      9C00FFFFFF00FFFFFF0000009C00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFF
+      FF00FFCECE00FFFFFF00FFFFFF00CE636300FF310000FF310000FF310000FF31
+      0000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FF310000000000000000000000000000FFCE9C00FFFFFF00FFFFFF00CECE
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000008400
+      0000FFFFFF00000000000000000000000000CE636300FFFFFF00FFFFFF000000
+      9C00FFFFFF00FFFFFF0000009C00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFF
+      FF00FFCECE00FFFFFF00FFFFFF00CE636300FF310000FFFFFF00FFFFFF00FF31
+      0000FF310000FF310000FF310000FF310000FF310000FF310000FF310000FF31
+      0000FF310000000000000000000000000000FFCE9C00F7EFBD00F7EFBD00CECE
+      FF00F7EFBD00F7EFBD00F7EFBD00F7EFBD00F7EFBD00F7EFBD00F7EFBD00F7EF
+      BD00F7EFBD00F7EFBD00F7EFBD00CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000084000000FFFFFF000000000000000000CE636300FFCECE00FFCECE000000
+      9C0000009C0000009C0000009C00FFCECE00FFCECE00FFCECE00FFCECE00FFCE
+      CE00FFCECE00FFCECE00FFCECE00CE636300FF310000FFFFFF00FFFFFF00FF31
+      0000FF310000FF310000FF310000FF310000FF310000FFCE9C00FF3100006363
+      FF00FF310000000000000000000000000000FFCE9C00FFFFFF00CECECE00CECE
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000084000000FFFFFF0000000000CE636300FFFFFF00FFFFFF00FFCE
+      CE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFF
+      FF00FFCECE00FFFFFF00FFFFFF00CE636300FF310000FFFFFF00FFFFFF00FFCE
+      9C00FF310000FF310000FF310000FF310000FF310000FF310000FF310000FF31
+      0000FFCE9C00000000000000000000000000FFCE9C00FFFFFF00FFFFFF00CECE
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000008400000000000000CE636300FFFFFF00FFFFFF00FFCE
+      CE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFFFF00FFCECE00FFFFFF00FFFF
+      FF00FFCECE00FFFFFF00FFFFFF00CE636300FF310000FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FF310000000000000000
+      000000000000000000000000000000000000FFCE9C00FFFFFF00FFFFFF00CECE
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000CE636300FFCECE00CE636300CE63
+      6300FFCECE00FFCECE00FFCECE00FFCECE00FFCECE00FFCECE00FFCECE00FFCE
+      CE00CE636300CE636300FFCECE00CE636300FF310000FF310000FF310000FF31
+      0000FF310000FF310000FF310000FF310000FF310000FF310000000000000000
+      000000000000000000000000000000000000FFCE9C00FFCE9C00FFCE9C00FFCE
+      9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE
+      9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000CE636300FFCECE00FFCECE00FFCE
+      CE00FFCECE00FFCECE00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFCECE00FFCE
+      CE00FFCECE00FFCECE00FFCECE00CE636300FF310000FF310000FF310000FF31
+      0000FF310000FF310000FFCE9C00FF3100006363FF00FF310000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000CE636300CE636300CE636300CE63
+      6300CE636300CE636300CE636300CE636300CE636300CE636300CE636300CE63
+      6300CE636300CE636300CE636300CE636300FFCE9C00FF310000FF310000FF31
+      0000FF310000FF310000FF310000FF310000FF310000FFCE9C00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000008484840084848400848484000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000008484840084848400848484000000000000000000000000000000
+      00000000000000000000000000000000000000000000FF9C0000CE630000CE63
+      0000CE630000CE630000CE630000CE630000CE630000CE630000CE6300000000
+      00000000000000000000000000000000000000000000CE9C6300CE9C6300CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C63000000000000000000000000000000
+      000084848400B5B5B5009C9C9C00B5B5B5008484840084848400000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000084848400B5B5B5009C9C9C00B5B5B5008484840084848400000000000000
+      000000000000000000000000000000000000FF9C0000CE630000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00CE63
+      00000000000000000000000000000000000000000000CE9C6300FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000008484
+      8400B5B5B5009C9C9C00FFFFFF00FFFFFF00B5B5B500B5B5B500848484008484
+      8400000000000000000000000000000000000000000000000000000000008484
+      8400B5B5B5009C9C9C000000000000000000B5B5B500B5B5B500848484008484
+      840000000000000000000000000000000000FF9C0000CE630000E7E7E700E7E7
+      E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700CE63
+      00000000000000000000000000000000000000000000CE9C6300FFFFFF009C31
+      00009C3100009C3100009C3100009C3100009C3100009C3100009C3100009C31
+      00009C3100009C310000FFFFFF00CE9C63000000000000000000000000008484
+      84009C9C9C00FFFFFF009C9C9C009C9C9C00FFFFFF00FFFFFF00B5B5B500B5B5
+      B500848484008484840000000000000000000000000000000000000000008484
+      84009C9C9C00000000009C9C9C009C9C9C000000000000000000B5B5B500B5B5
+      B50084848400848484000000000000000000FF9C0000CE630000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00CE63
+      00000000000000000000000000000000000000000000CE9C6300FFFFFF009C31
+      0000CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C63009C310000FFFFFF00CE9C6300000000000000000084848400B5B5
+      B5009C9C9C00FFFFFF0084848400B5B5B5009C9C9C00FFFFFF00FFFFFF00FFFF
+      FF00B5B5B500B5B5B5008484840000000000000000000000000084848400B5B5
+      B5009C9C9C000000000084848400B5B5B5009C9C9C0000000000000000000000
+      0000B5B5B500B5B5B5008484840000000000FF9C0000CE630000E7E7E700E7E7
+      E700E7E7E700E7E7E700CECECE00CECECE00CECECE00CECECE00CECECE00CE63
+      00000000000000000000000000000000000000000000CE9C6300FFFFFF009C31
+      00009C3100009C3100009C3100009C3100009C3100009C3100009C3100009C31
+      00009C3100009C310000FFFFFF00CE9C63000000000000000000848484009C9C
+      9C00FFFFFF00B5B5B50084848400B5B5B5009C9C9C00FFFFFF00848484008484
+      8400FFFFFF00FFFFFF0084848400000000000000000000000000848484009C9C
+      9C0000000000B5B5B50084848400B5B5B5009C9C9C0000000000848484008484
+      840000000000000000008484840000000000FF9C0000CE630000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700CE63
+      00000000000000000000000000000000000000000000CE9C6300FFFFFF009C31
+      0000CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C63009C310000FFFFFF00CE9C63000000000084848400B5B5B5009C9C
+      9C00FFFFFF00B5B5B500E7E7E700B5B5B500FFFFFF00FFFFFF00FFFFFF00B5B5
+      B50084848400FFFFFF0084848400000000000000000084848400B5B5B5009C9C
+      9C0000000000B5B5B500E7E7E700B5B5B500000000000000000000000000B5B5
+      B50084848400000000008484840000000000FF9C0000CE630000E7E7E700E7E7
+      E700E7E7E700CECECE00CECECE00CECECE00CECECE00CECECE00CECECE00CE63
+      00000000000000000000000000000000000000000000CE9C6300FFFFFF009C31
+      00009C3100009C3100009C3100009C3100009C3100009C3100009C3100009C31
+      00009C3100009C310000FFFFFF00CE9C630000000000848484009C9C9C00FFFF
+      FF00B5B5B500E7E7E700E7E7E700B5B5B500FFFFFF008484840084848400FFFF
+      FF00FFFFFF00FFFFFF00848484000000000000000000848484009C9C9C000000
+      0000B5B5B500E7E7E700E7E7E700B5B5B5000000000084848400848484000000
+      000000000000000000008484840000000000FF9C0000CE630000FFFFFF00FFFF
+      FF00FFFFFF00E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700CE63
+      00000000000000000000000000000000000000000000CE9C6300FFFFFF009C31
+      0000CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C63009C310000FFFFFF00CE9C630084848400B5B5B5009C9C9C00FFFF
+      FF00FFFFFF00FFFFFF00B5B5B500FFFFFF00FFFFFF00FFFFFF00B5B5B5008484
+      8400FFFFFF0084848400000000000000000084848400B5B5B5009C9C9C000000
+      00000000000000000000B5B5B500000000000000000000000000B5B5B5008484
+      840000000000848484000000000000000000FF9C0000CE630000E7E7E700E7E7
+      E700CECECE00CECECE00CE630000CE630000CE630000CE630000CE630000CE63
+      0000CE630000CE630000CE630000CE63000000000000CE9C6300FFFFFF009C31
+      00009C3100009C3100009C3100009C3100009C3100009C3100009C3100009C31
+      00009C3100009C310000FFFFFF00CE9C6300848484009C9C9C00FFFFFF00FFFF
+      FF009C3100009C310000FFFFFF00FFFFFF008484840084848400FFFFFF00FFFF
+      FF00FFFFFF00848484000000000000000000848484009C9C9C00000000000000
+      0000848484008484840000000000000000008484840084848400000000000000
+      000000000000848484000000000000000000FF9C0000CE630000FFFFFF00FFFF
+      FF00E7E7E700CE630000FF9C0000CE630000CE630000CE630000CE630000CE63
+      0000CE630000CE630000CE630000CE63000000000000CE9C6300FFFFFF009C31
+      0000CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C63009C310000FFFFFF00CE9C6300000000009C9C9C009C9C9C00FFFF
+      FF00FFFFFF00B5B5B5009C3100009C310000FFFFFF00FFFFFF0084848400FFFF
+      FF0084848400000000000000000000000000000000009C9C9C009C9C9C000000
+      000000000000B5B5B50084848400848484000000000000000000848484000000
+      000084848400000000000000000000000000FF9C0000CE630000E7E7E700CECE
+      CE00FF9C0000FF9C0000FF9C0000FF9C0000FF9C0000CE630000CE630000CE63
+      0000CE630000CE630000CE6300000000000000000000CE9C6300FFFFFF009C31
+      00009C3100009C3100009C3100009C3100009C3100009C3100009C3100009C31
+      00009C3100009C310000FFFFFF00CE9C63000000000000000000000000009C9C
+      9C009C9C9C00FFFFFF00FFFFFF00B5B5B5009C3100009C310000FFFFFF00FFFF
+      FF00848484000000000000000000000000000000000000000000000000009C9C
+      9C009C9C9C000000000000000000B5B5B5008484840084848400000000000000
+      000084848400000000000000000000000000FF9C0000CE630000FFFFFF00FF9C
+      0000FF9C6300FF9C6300FF9C0000FF9C0000FF9C0000FF9C0000FF9C0000CE63
+      0000CE630000CE630000000000000000000000000000CE9C6300FFFFFF009C31
+      0000CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C63009C310000FFFFFF00CE9C63000000000000000000000000000000
+      0000000000009C9C9C009C9C9C00FFFFFF00FFFFFF00B5B5B500FFFFFF008484
+      8400000000000000000000000000000000000000000000000000000000000000
+      0000000000009C9C9C009C9C9C000000000000000000B5B5B500000000008484
+      840000000000000000000000000000000000FF9C0000CE630000FF9C0000FF9C
+      6300FF9C6300FF9C6300FF9C6300FF9C6300FF9C0000FF9C0000FF9C0000FF9C
+      0000CE63000000000000000000000000000000000000CE9C6300FFFFFF009C31
+      00009C3100009C3100009C3100009C3100009C3100009C3100009C3100009C31
+      00009C3100009C310000FFFFFF00CE9C63000000000000000000000000000000
+      00000000000000000000000000009C9C9C009C9C9C00FFFFFF00FFFFFF008484
+      8400000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000009C9C9C009C9C9C0000000000000000008484
+      840000000000000000000000000000000000FF9C0000FF9C0000FF9C6300FF9C
+      6300FF9C6300FF9C6300FF9C6300FF9C6300FF9C6300FF9C6300FF9C0000CE63
+      00000000000000000000000000000000000000000000CE9C6300FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      000000000000000000000000000000000000000000009C9C9C009C9C9C000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000009C9C9C009C9C9C000000
+      00000000000000000000000000000000000000000000FF9C00009C9C9C00FFFF
+      FF009C9C9C00FFFFFF009C9C9C00FFFFFF009C9C9C00FFFFFF009C9C9C00FFFF
+      FF000000000000000000000000000000000000000000CE9C6300CE9C6300CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000009C9C9C00CECE
+      CE009C9C9C00CECECE009C9C9C00CECECE009C9C9C00CECECE009C9C9C000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000006B73
+      7300212121006B7373000000000000000000000000006B7373006B7373000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000008484840000000000000000008484840000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000002121
+      2100101010002121210000000000000000000000000021212100212121000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000084848400FFFFFF0000000000000000008484840000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000006B73
+      7300212121006B7373000000000000000000000000006B7373006B7373000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000FF000000840000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000FFFFFF00FFFFFF0000000000FFFFFF00FFFFFF0000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000FF0000009C0000009C0000008400000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000FFFFFF000000000000000000FFFFFF008484840084848400000000000000
+      0000000000000000000000000000000000000000000000000000000000006B73
+      73006B7373006B7373006B7373006B7373006B7373006B737300C6C6C6000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000008400000084000000840000008400000084000000840000008400
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000FF0000009C000000840000009C00000084000000
+      0000000000000000000000000000000000000000000084848400000000000000
+      0000000000000000000000000000848484000000000000000000000000000000
+      000000000000000000000000000063639C0000000000000000006B7373001010
+      10001010100010101000101010001010100010101000101010006B7373000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000008400000084000000840000008400000084000000840000008400
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000FF0000009C0000009C000000840000009C000000
+      84000000000000000000000000000000000084848400FFFFFF00FFFFFF000000
+      0000FFFFFF000000000000000000C6C6C6000000000000000000000000000000
+      0000000000000000000063639C00319CCE000000000000000000101010002121
+      21000000000000000000000000000000000000000000C6C6C60010101000C6C6
+      C600000000000000000000000000000000000000000000000000000000000000
+      0000000000008400000084000000840000008400000084000000840000008400
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF00CE9C630000009C0000009C0000009C000000FF000000
+      9C000000840000000000000000000000000084848400FFFFFF00000000000000
+      0000FFFFFF0084848400C6C6C600FFFFFF008484840000000000FFFFFF008484
+      84000000000063639C00319CCE0063CEFF000000000000000000101010001010
+      1000000000001010100010101000000000001010100000000000101010006B73
+      7300000000000000000000000000000000000000000000000000000000000000
+      000000000000840000008400000084000000FFFFFF0084000000840000008400
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000FFFFFF00FFCE9C00FFCE9C0000009C000000FF000000FF000000
+      FF0000009C000000840000000000000000008484840000000000000000000000
+      0000848484000000000000000000FFFFFF0000000000FFFFFF00FFFFFF00FFFF
+      FF0063639C00319CCE0063CEFF00000000000000000000000000101010000000
+      0000000000000000000000000000000000000000000000000000212121001010
+      1000000000000000000000000000000000000000000000000000000000000000
+      000000000000840000008400000084000000FFFFFF0084000000840000008400
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000FFFFFF00FFCE9C00FFCE9C00FFFFFF00FFFFFF000000FF00319CFF00319C
+      FF00319CFF0000009C0000000000000000000000000000000000000000008484
+      8400000000000000000000000000000000000000000000000000FFFFFF006363
+      9C00319CCE0063CEFF00000000000000000000000000000000006B7373001010
+      10000000000010101000101010000000000010101000000000006B7373001010
+      10006B7373000000000000000000000000000000000000000000000000000000
+      0000000000008400000084000000840000008400000084000000840000008400
+      000000000000000000000000000000000000000000000000000000000000FFFF
+      FF00FFCE9C00FFCE9C00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000009C000000
+      9C0000009C000000000000000000000000000000000000000000C6C6C600C6C6
+      C6000000000000000000FFFFFF0000000000000000000000000063639C00319C
+      CE0063CEFF000000000000000000000000000000000021212100C6C6C6000000
+      0000000000000000000000000000000000000000000000000000000000001010
+      1000101010000000000000000000000000000000000000000000000000000000
+      0000000000000000000084000000000000000000000000000000840000000000
+      0000000000000000000000000000000000000000000000000000FFFFFF00FFCE
+      9C00FFCE9C00FFFFFF00FFFFFF00FFFFFF00CE9C6300CE9C6300000000000000
+      0000000000000000000000000000000000000000000084848400C6C6C600FFFF
+      FF0000000000FFFFFF00FFFFFF00FFFFFF000000000063639C00319CCE0063CE
+      FF00000000000000000000000000000000000000000010101000C6C6C6002121
+      2100000000001010100010101000000000001010100000000000000000001010
+      1000101010006B73730000000000000000000000000000000000000000000000
+      0000000000000000000084000000000000000000000000000000840000000000
+      00000000000000000000000000000000000000000000FFFFFF00FFCE9C00FFCE
+      9C00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000848484008484
+      84000000000000000000FFFFFF00FFFFFF0063639C00319CCE0063CEFF000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000101010001010100000000000000000000000000000000000000000000000
+      0000000000000000000084000000000000000000000000000000840000000000
+      000000000000000000000000000000000000FFFFFF00FFCE9C00FFCE9C00FFFF
+      FF00FFFFFF00FFFFFF00CE9C63000000FF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000063639C00319CCE0063CEFF00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00006B737300101010006B7373006B7373000000000000000000000000000000
+      0000000000000000000000000000840000008400000084000000000000000000
+      000000000000000000000000000000000000CE9C6300FFCE9C00FFFFFF00FFFF
+      FF00FFFFFF00CE9C63000000FF00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000063639C00319CCE0063CEFF0000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000C6C6C6001010100010101000101010000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000CE9C6300FFFFFF00FFFF
+      FF00CE9C63000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000063639C00319CCE0063CEFF000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000C6C6C600C6C6C600C6C6C6000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000CE9C6300CE9C
+      6300000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000009C3100009C310000CE6300009C310000CE6300009C3100000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000063CECE0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000009C310000CE6300009C310000CE6300009C3100009C3100000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000063CECE00009CCE00000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000009C3100009C310000CE6300009C310000CE6300009C3100000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000CE9C63009C3100009C310000CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000063CECE00009CCE000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000009C9C9C009C3100009C3100009C3100009C3100009C9C9C000000
+      000000000000000000000000000000000000000000000000000000000000C6C6
+      C60000FFFF000000000000000000000000000000000000000000C6C6C6000000
+      000000FFFF000000000000000000000000000000000000000000000000009C31
+      00009C310000CE630000CE6300009C3100000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000063CECE009CFFFF00009CCE0000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000009C9C9C00FFFFFF00FFCECE0063636300000000000000
+      00000000000000000000000000000000000000000000000000000000000000FF
+      FF00C6C6C6000000000000000000000000000000000000000000C6C6C6000000
+      0000C6C6C60000000000000000000000000000000000000000009C310000CE63
+      0000CE6300009C3100009C310000CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000063CECE00009CCE00009CCE00009CCE0063FFFF00009CCE00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000009C9C9C00FFFFFF00FFCECE0063636300000000000000
+      000000000000000000000000000000000000000000000000000000000000C6C6
+      C60000FFFF000000000000000000000000000000000000000000C6C6C6000000
+      000000FFFF0000000000000000000000000000000000CE9C63009C310000CE63
+      00009C310000CE9C630000000000000000009C3100009C3100009C3100009C31
+      00009C3100009C3100009C310000000000000000000000000000000000000000
+      000063CECE009CFFFF0063FFFF0063FFFF0063FFFF0063FFFF00009CCE000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000009C9C9C00FFFFFF00FFCECE0063636300000000000000
+      000000000000000000000000000000000000000000000000000000000000C6C6
+      C60000FFFF00C6C6C600C6C6C60000FFFF00C6C6C60000FFFF0000FFFF00C6C6
+      C60000FFFF00000000000000000000000000000000009C310000CE6300009C31
+      0000CE9C63000000000000000000000000009C310000CE630000CE630000CE63
+      0000CE630000CE6300009C310000000000000000000000000000000000000000
+      00000000000063CECE009CFFFF0063FFFF00009CCE0063CECE0063CECE0063CE
+      CE00000000000000000000000000000000000000000000000000000000000000
+      000000000000000000009C9C9C00FFFFFF00FFCECE0063636300000000000000
+      00000000000000000000000000000000000000000000000000000000000000FF
+      FF00C6C6C60000000000000000000000000000000000000000000000000000FF
+      FF00C6C6C600000000000000000000000000000000009C310000CE6300009C31
+      000000000000000000000000000000000000000000009C310000CE630000CE63
+      0000CE630000CE6300009C310000000000000000000000000000000000000000
+      00000000000063CECE009CFFFF0063FFFF0063FFFF00009CCE00000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000009C9C9C00FFFFFF00FFCECE0063636300000000000000
+      000000000000000000000000000000000000000000000000000000000000C6C6
+      C60000000000C6C6C600C6C6C600C6C6C600C6C6C600C6C6C600C6C6C6000000
+      000000FFFF00000000000000000000000000000000009C310000CE6300009C31
+      0000CE9C630000000000000000000000000000000000CE9C63009C310000CE63
+      0000CE630000CE6300009C31000000000000000000000000000063CECE00009C
+      CE00009CCE00009CCE00009CCE009CFFFF0063FFFF0063FFFF00009CCE000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000063636300636363006363630063636300000000000000
+      00000000000000000000000000006363630000000000000000000000000000FF
+      FF0000000000C6C6C600C6C6C600C6C6C600C6C6C600C6C6C600C6C6C6000000
+      0000C6C6C60000000000000000000000000000000000CE9C63009C310000CE63
+      00009C310000CE9C630000000000CE9C63009C3100009C310000CE6300009C31
+      0000CE630000CE6300009C31000000000000000000000000000063CECE009CFF
+      FF009CFFFF0063FFFF0063FFFF0063FFFF0063FFFF0063FFFF0063FFFF00009C
+      CE00000000000000000000000000000000000000000063636300636363000000
+      000000000000636363009C9C9C009C9C9C009C9C9C009C9C9C00636363000000
+      00000000000000000000636363006363630000000000000000000000000000FF
+      FF0000000000C6C6C600C6C6C600C6C6C600C6C6C600C6C6C600C6C6C6000000
+      0000C6C6C60000000000000000000000000000000000000000009C310000CE63
+      0000CE6300009C3100009C3100009C310000CE630000CE6300009C310000CE9C
+      63009C310000CE6300009C3100000000000000000000000000000000000063CE
+      CE009CFFFF009CFFFF0063FFFF0063FFFF00009CCE0063CECE0063CECE0063CE
+      CE00000000000000000000000000000000009C9C9C009C9C9C009C9C9C006363
+      6300636363009C9C9C00CECECE00CECECE00CECECE009C9C9C00636363006363
+      63006363630063636300CECECE0063636300000000000000000000000000C6C6
+      C60000000000C6C6C600C6C6C600C6C6C600C6C6C600C6C6C600C6C6C6000000
+      0000000000000000000000000000000000000000000000000000000000009C31
+      00009C310000CE630000CE630000CE6300009C3100009C310000000000000000
+      0000000000009C3100009C3100000000000000000000000000000000000063CE
+      CE009CFFFF009CFFFF009CFFFF0063FFFF0063FFFF00009CCE00000000000000
+      0000000000000000000000000000000000009C9C9C00FFFFFF00CECECE00CECE
+      CE00CECECE00CECECE00CECECE00CECECE00CECECE00CECECE009C9C9C009C9C
+      9C009C9C9C00CECECE00636363000000000000000000000000000000000000FF
+      FF0000000000C6C6C600C6C6C600C6C6C600C6C6C600C6C6C600C6C6C6000000
+      0000C6C6C6000000000000000000000000000000000000000000000000000000
+      0000CE9C63009C3100009C3100009C310000CE9C630000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000063CECE009CFFFF009CFFFF009CFFFF0063FFFF0063FFFF00009CCE000000
+      0000000000000000000000000000000000009C9C9C00FFFFFF00CECECE00CECE
+      CE00FFFFFF00CECECE00CECECE00CECECE00CECECE00CECECE00CECECE00CECE
+      CE00CECECE009C9C9C0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000063CECE009CFFFF009CFFFF009CFFFF0063FFFF0063FFFF0063FFFF00009C
+      CE00000000000000000000000000000000009C9C9C00FFFFFF00FFFFFF009C9C
+      9C009C9C9C00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF009C9C
+      9C009C9C9C000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000063CECE009CFFFF009CFFFF009CFFFF0063FFFF0063FFFF0063FF
+      FF00009CCE00000000000000000000000000000000009C9C9C009C9C9C000000
+      0000000000009C9C9C009C9C9C009C9C9C009C9C9C009C9C9C009C9C9C000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000063CECE0063CECE0063CECE0063CECE0063CECE0063CECE0063CE
+      CE0063CECE0063CECE0000000000000000000000000008080000080000000800
+      0000100808000000000000000000000800000008000008080000100000001000
+      080000000800BDC6C60000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000E7EFF700000000000000000000000000000000000000
+      0000000000000000000000000000000000008C8C8C00C6C6C600CED6D600CED6
+      CE00BDCEC600BDCEC600BDDEC600B5D6C600BDD6C600C6CECE00CECECE00CEC6
+      CE0000000000C6D6D600000000000000000000000000000000009C3100009C31
+      00009C3100009C3100009C3100009C3100009C3100009C3100009C3100009C31
+      00009C310000000000000000000000000000948C390029A56B00318C4A00088C
+      2900108C3100188C3900298C4200218C4200108C3100088C2900188C3900218C
+      4200298C4200108C3100218C390000000000000000000000000000000000E7EF
+      F700E7E7E700CECECE00E7E7E700E7EFF7000000000000000000000000000000
+      00000000000000000000000000000000000084848C00F7FFFF00E7FFFF00D6FF
+      F700D6FFFF00BDFFF70021845200B5FFDE00DEFFFF00DEEFFF00EFFFFF00BDCE
+      D60000000800C6C6CE00000000000000000000000000CE9C6300FFCE9C00FFCE
+      9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00CE9C
+      6300CE9C63009C31000000000000000000009C8C4A00318C4A00A5DE9C00FFF7
+      FF00F7EFF700EFEFE700DEEFDE00E7EFE700F7EFEF00F7EFF700EFEFEF00E7EF
+      E700DEEFDE00F7F7EF00218C39000000000000000000E7EFF700E7E7E700B5B5
+      B500CE9C9C009C6363009C636300B5B5B500CECECE00E7E7E700E7EFF7000000
+      000000000000000000000000000000000000848C8C00EFFFFF00D6FFFF00CEFF
+      FF00B5FFEF00107B5200108C5200B5FFE700BDFFE700DEFFFF00D6F7F700B5CE
+      CE0000080800BDC6C6000000000000000000CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      63009C310000CE9C63009C31000000000000AD8C5200188C3100EFEFEF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00218C390000000000E7E7E700CE9C9C009C636300CE9C
+      9C00CE9C9C00FFFFFF009C6363009C9C9C009C9C9C00B5B5B500E7E7E7000000
+      00000000000000000000000000000000000073848C00EFFFFF00DEFFFF00BDFF
+      EF0010845200088C520008844A0018844A00317B4200D6FFDE00DEFFF700B5CE
+      CE0000080800CECECE000000000000000000CE9C6300FFFFFF00FFCE9C00FFCE
+      9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE
+      9C00CE9C63009C3100009C31000000000000AD8C5A00108C2900DEE7DE00CEE7
+      CE00E7EFE700E7EFE700E7EFE700E7EFE700DEEFDE00DEEFDE00B5D6B500A5CE
+      A500B5D6B50094BD9400218C3900000000009C636300CE9C9C00FFCE9C00FFCE
+      9C00FFCECE00FFFFFF009C63630031639C0031639C0031639C00E7EFF7000000
+      00000000000000000000000000000000000073848400EFFFFF00CEFFEF00CEFF
+      F700A5FFDE00108C4A0010845200BDFFE7003984390029632100D6FFDE00BDD6
+      CE0000000000C6BDC6000000000000000000CE9C6300FFFFFF00FFCE9C00FFCE
+      9C00FFCE9C00FFCE9C0000CE0000009C0000FFCE9C000000FF000000CE00FFCE
+      9C00CE9C6300CE9C63009C31000000000000AD8C520018943100E7F7E700187B
+      1800187B1800187B1800187B1800187B18004A944A0073B5730042944200187B
+      1800187B180031843100218C3900000000009C636300FFCE9C00FFCE9C00FFCE
+      9C00FFCECE00FFFFFF009C63630063CECE0063CECE00009CCE00FFFFFF00FFCE
+      CE00000000000000000000000000000000007B8C8400F7FFFF00E7FFF700CEFF
+      DE00CEFFEF00B5FFE70021846300ADFFDE00DEFFDE0029521800E7FFF700BDD6
+      CE0000000800D6CEDE000000000000000000CE9C6300FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00CE9C6300CE9C6300CE9C63009C310000A58C4A00218C3900E7EFE700CECE
+      CE00187B1800187B1800187B1800187B180063A563008CCE8C00187B1800187B
+      180018731800E7F7E700218C3900000000009C636300FFCE9C00FFCE9C00FFCE
+      9C00FFCECE00FFFFFF009C63630063CECE0063CEFF00319CCE00FFCECE00CE63
+      0000000000000000000000000000000000008C8C8400F7FFF700E7FFEF00295A
+      3900D6FFE700C6FFEF00ADFFEF00BDFFEF00D6FFDE00395A3900DEFFEF00B5CE
+      CE0000000800D6C6DE000000000000000000CE9C6300FFFFFF00FFCE9C00FFCE
+      9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE9C00FFCE
+      9C00CE9C6300CE9C6300CE9C63009C31000000000000298C4200CEE7CE00FFFF
+      FF00CED6CE00187B1800187B1800187B180094CE9400187B1800187B18005294
+      5200107B1000A5CEA500218C3900000000009C636300FFCE9C00CE9C9C00CE9C
+      6300FFCECE00FFFFFF009C6363009CCECE009CCEFF00B5B5B500FF630000CE63
+      0000000000000000000000000000000000008C848400FFFFFF00F7FFF7003152
+      3900E7FFF700C6FFE700188C5200A5FFDE00CEFFF700D6FFEF00DEFFF700BDD6
+      CE0000000800CEC6D600000000000000000000000000CE9C6300CE9C6300CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300FFCE
+      9C00FFCE9C00CE9C6300CE9C63009C31000000000000298C4200CEE7CE00FFFF
+      FF00FFFFFF00B5CEB500187B18008CCE8C00187B1800187B180084B58400BDD6
+      BD00ADD6AD00DEDEDE00218C3900000000009C636300FFCE9C009C636300FFFF
+      FF00FFCECE00FFFFFF009C6363009CCECE00C6C6C600CE630000CE630000CE63
+      0000CE630000CE630000CE63000000000000948C8C00FFFFFF00EFFFEF003152
+      39004A735A00CEFFE700108C4200088C4200B5FFE700D6FFFF00DEFFF700BDD6
+      CE0000000000CECECE0000000000000000000000000000000000CE9C6300FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00CE9C
+      6300FFCE9C00FFCE9C00CE9C63009C31000000000000188C3900D6E7D600FFFF
+      FF00F7FFF7008CD68C0084BD8400187B1800187B1800187B18004A944A00BDE7
+      BD00FFFFFF00FFFFFF00218C3900000000009C636300FFCE9C00CE9C9C009C63
+      6300FFCECE00FFFFFF009C63630000000000CE630000CE630000CE630000CE63
+      0000CE630000CE630000CE630000000000007B847B00FFFFFF00F7FFFF00D6F7
+      E7004A7B5A00297B4A0010944200088C3900187B4A00CEFFEF00EFFFF700C6CE
+      C60008100800C6CEC6000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700FFFFFF00CE9C
+      6300CE9C6300CE9C63009C31000000000000AD8C5A00108C2900E7E7E700FFFF
+      FF008CCE8C007BBD7B00187B1800187B1800187B1800187B1800187B1800428C
+      4200A5D6A500FFFFFF00218C3900000000009C636300FFCE9C00FFCE9C00FFCE
+      9C00FFCECE00FFFFFF009C63630000000000CE9C9C00CE630000CE630000CE63
+      0000CE630000CE630000CE63000000000000848C8C00FFFFFF00EFF7FF00EFFF
+      FF00E7FFF700CEFFE70021944A0010844200BDFFE700DEFFF700BDD6C600CED6
+      C60000000000CECECE000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00CE9C6300000000000000000000000000AD8C5A00188C3100EFEFEF006BC6
+      6B0052AD5200187B1800187B180084B58400DEDEDE004A944A00187B1800187B
+      1800106B100084CE8400218C3900000000009C636300FFCE9C00FFCE9C00FFCE
+      9C00FFCECE00FFFFFF009C636300CECECE00E7EFF700CE9C9C00FF630000CE63
+      000000000000000000000000000000000000848C8400F7FFFF00FFFFFF00F7FF
+      FF00EFFFFF00DEFFF700317B5A00BDFFEF00D6FFF70000080000000800000000
+      000000000000CEC6CE0000000000000000000000000000000000000000000000
+      0000CE9C6300FFFFFF00E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700FFFF
+      FF00CE9C6300000000000000000000000000AD8C5200218C3900E7EFE70094B5
+      9400187B1800187B180094C69400F7FFF700FFFFFF00E7E7E7009CBD9C00187B
+      1800187B1800D6D6D600218C3900000000009C636300FFCE9C00FFCE9C00FFCE
+      9C00FFCECE00FFFFFF009C6363009CCECE00000000009CCECE00FFCE9C00CE63
+      0000000000000000000000000000000000007B848400FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00EFFFFF00CEF7EF00D6FFFF00DEFFEF007B8C8400F7F7FF000808
+      1000D6CEDE00FFF7FF0000000000000000000000000000000000000000000000
+      0000CE9C6300FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00CE9C6300000000000000000000000000218C3900E7F7E700FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00218C3900000000009C636300CE9C9C00FFCE9C00FFCE
+      9C00FFCECE00FFFFFF009C636300CECECE0000000000319CCE0000000000FFCE
+      9C0000000000000000000000000000000000848C8C00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00F7FFFF00EFFFFF00EFFFFF007384840000000800BDBD
+      CE00FFFFFF00FFF7FF0000000000000000000000000000000000000000000000
+      000000000000CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C6300CE9C630000000000000000009C8C4A00399C52008CA5840063AD
+      63006BAD6B0073AD730084AD84007BAD7B006BAD6B0063AD630073AD730084AD
+      840084AD84006BAD6B00218C39000000000000000000C6C6C600CE9C6300CE9C
+      9C00CECE9C00FFFFFF009C636300009CCE00009CCE00009CCE00000000000000
+      0000000000000000000000000000000000007B8484008C8C8C009C848400947B
+      7B00948C8400848C8400848484007B8484007B8C7B00738C8400C6CED600FFFF
+      FF00FFF7FF00FFFFFF0000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000009C8C4A00429C63004A944A00428C
+      4200428C42004A8C4A004A8C4A004A8C4A004A8C4A00428C42004A8C4A004A8C
+      4A004A8C4A004A8C4A00218C390000000000000000000000000000000000CECE
+      CE00CE9C9C009C6363009C636300000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000000000CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000CE9C6300CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C6300CE9C63000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000031313100000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      9C00000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000FF00000000000000000000000000CE9C6300FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00CE9C63000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63003131310063636300636363006363
+      6300000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000003131CE000000
+      FF0000009C000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000CE9C6300FFFF
+      FF00E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7
+      E700FFFFFF00CE9C63000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00FFFFFF00CECECE00CECECE00CECECE00CECECE00CECECE00CECE
+      CE00CECECE00FFFFFF00FFFFFF00CE9C6300000000009C9C9C00CECECE009C9C
+      9C00636363006363630000000000000000000000000000000000000000000000
+      00000000000000000000000000000000000000000000000000003131CE00319C
+      FF000000FF0000009C0000000000000000000000000000000000000000000000
+      0000000000000000FF0000000000000000000000000000000000CE9C6300FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00CE9C6300000000000000000000009C000000000000000000CE9C
+      6300FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C6300000000009C9C9C00CECECE00CECE
+      CE009C9C9C009C9C9C0063636300636363000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000003131
+      CE000063FF000000CE0000000000000000000000000000000000000000000000
+      00000000FF000000000000000000000000000000000000000000CE9C6300FFFF
+      FF00E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7
+      E700FFFFFF00CE9C630000000000000000000000CE0000009C0000000000CE9C
+      6300FFFFFF009C3100009C3100009C3100009C3100009C3100009C3100009C31
+      00009C3100009C310000FFFFFF00CE9C630000000000000000009C9C9C00CECE
+      CE00CECECE009C9C9C009C9C9C009C9C9C006363630063636300000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000CE000000FF0000009C00000000000000000000000000000000000000
+      FF0000009C000000000000000000000000000000000000000000CE9C6300FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00CE9C630000000000000000000000FF000000CE0000009C00CE9C
+      6300FFFFFF009C310000CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C63009C310000FFFFFF00CE9C630000000000000000009C9C9C00E7E7
+      E700CECECE00CECECE009C9C9C009C9C9C009C9C9C009C310000633100006331
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000CE000000FF0000009C0000000000000000000000FF000000
+      9C00000000000000000000000000000000000000000000000000CE9C6300FFFF
+      FF00E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7
+      E700FFFFFF00CE9C630000000000000000000000FF000000CE0000000000CE9C
+      6300FFFFFF009C3100009C3100009C3100009C3100009C3100009C3100009C31
+      00009C3100009C310000FFFFFF00CE9C63000000000000000000000000009C9C
+      9C00E7E7E700CECECE00CECECE009C9C9C009C3100009C3100009C3100009C31
+      0000633100000000000000000000000000000000000000000000000000000000
+      000000000000000000000000CE000000FF0000009C000000FF0000009C000000
+      0000000000000000000000000000000000000000000000000000CE9C6300FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00CE9C630000000000000000000000FF000000000000000000CE9C
+      6300FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000009C9C
+      9C00FFFFFF00E7E7E700CECECE009C3100009C3100009C3100009C3100009C31
+      00009C3100006331000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000CE000000FF0000009C00000000000000
+      0000000000000000000000000000000000000000000000000000CE9C6300FFFF
+      FF00E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700E7E7
+      E700FFFFFF00CE9C63000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00FFFFFF00CECECE00CECECE00CECECE00CECECE00CECECE00CECE
+      CE00CECECE00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      00009C9C9C00FFFFFF009C310000CE6331009C3100009C3100009C3100009C31
+      00009C3100009C31000063310000000000000000000000000000000000000000
+      000000000000000000000000CE000000FF0000009C000000CE0000009C000000
+      0000000000000000000000000000000000000000000000000000CE9C6300FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00CE9C63000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      00009C9C9C009C310000CE6331009C310000CE6331009C3100009C3100009C31
+      00009C3100009C3100009C310000633100000000000000000000000000000000
+      0000000000000000CE000000FF0000009C0000000000000000000000CE000000
+      9C00000000000000000000000000000000000000000000000000CE9C6300FFFF
+      FF00E7E7E700E7E7E700E7E7E700E7E7E700E7E7E700FFFFFF00CE9C6300CE9C
+      6300CE9C6300CE9C63000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00FFFFFF00CECECE00CECECE00CECECE00CECECE00CECECE00CECE
+      CE00CECECE00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      0000000000009C3100009C310000CE6331009C310000CE6331009C3100009C31
+      00009C3100009C3100009C3100009C3100000000000000000000000000000000
+      CE000000FF000000FF0000009C00000000000000000000000000000000000000
+      CE0000009C000000000000000000000000000000000000000000CE9C6300FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00CE9C6300E7E7
+      E700CE9C6300000000000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      0000000000009C3100009C3100009C310000CE6331009C310000CE6331009C31
+      00009C3100009C3100009C3100009C9C9C0000000000000000000000CE00319C
+      FF000000FF0000009C0000000000000000000000000000000000000000000000
+      00000000CE0000009C0000000000000000000000000000000000CE9C6300FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00CE9C6300CE9C
+      630000000000000000000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00FFFFFF00CECECE00CECECE00CECECE00CECECE00CECECE00CECE
+      CE00CECECE00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      000000000000000000009C3100009C3100009C310000CE6331009C310000CE63
+      31009C3100009C3100009C9C9C009C9C9C00000000000000000063639C000000
+      CE0063639C000000000000000000000000000000000000000000000000000000
+      000000000000000000000000CE00000000000000000000000000CE9C6300CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C63000000
+      000000000000000000000000000000000000000000000000000000000000CE9C
+      6300FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00CE9C63000000000000000000000000000000
+      00000000000000000000000000009C3100009C3100009C310000CE6331009C31
+      00009C310000CECECE00CECECE009C9C9C000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000000000000000000000000000CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C6300CE9C
+      6300CE9C6300CE9C6300CE9C6300CE9C63000000000000000000000000000000
+      0000000000000000000000000000000000009C3100009C3100009C3100009C31
+      0000E7E7E700E7E7E700CECECE00CECECE000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000000000000000000000000000000000000424D3E000000000000003E000000
+      2800000040000000800000000100010000000000000400000000000000000000
+      000000000000000000000000FFFFFF0000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000000000000000000FFFFFFFF80000000FC7F800800000000
+      A003000000000000600300000000000000030000000000004007000000000000
+      4007000000000000800100000000000080010000000000000003000000000000
+      0007000000000000C003000000400000E007000000000000E003000000000000
+      B827000000000000F1F3000000000000FFFFFFFFFFFFFC0003FFF9FF0000FC00
+      00FFF0FF0000FC0000FFE0FF0000FC00007FC07F0000E000003F863F0000E000
+      0007CF3F0000E0000000FF9F0000E0000000FFCF000000070000FFE700000007
+      0000A9C3000000070000AAB900000007000089BD0000003F0000AABF0000003F
+      0000D9CF0000003FFFFFFFFF0000003FFFFFF8FFF8FF801F8000F03FF03F000F
+      8000E00FE30F000F8000E003E4C3000F8000C001C471000F8000C001C84D000F
+      8000800188E5000F80008001909D000F800000031DCB000080000003333B0000
+      8000800798D700018000E007E63700038000F80FF9AF00078000FE0FFE6F000F
+      8000FF9FFF9F800F8000FFFFFFFFC01FFCFFE39FFFFFFFFFF87FE39FFFFFFFFF
+      F07FE39FFFFFFE7FE07FFFFFFFFFFC3FC03FE01FF80FFC1F803EC01FF80FFC0F
+      001CCF8FF80FF8070008C94FF80FF8030001DFCFF80FF0038003C947F80FE007
+      80079FE7FDDFC03F800F8963FDDF80FFC01FFFF3FDDF00FFE03FFFF0FE3F01FF
+      F07FFFF0FFFF87FFF8FFFFF8FFFFCFFFF81FFFFFFFFFFBFFF81FFFFFFFFFF9FF
+      F81FE003F0FFFCFFF81FC003E0FFFC7FFC3FC003C0FFF03FFC3FC0038301F01F
+      FC3FC0038701F80FFC3FC0038F81F83FFC3FC0038781C01FFC3EC0038201C00F
+      981CC003C001E00F0000C003E039E03F0001C003F07FF01F0003C003FFFFF00F
+      0007FFFFFFFFF807981FFFFFFFFFF8038003FFFFFFFFFDFF0003C0070001E0FF
+      000380030001801F000300010001001F000300010001001F000300010001000F
+      000300000001000F000300008001000F00038000800100010003C00080010101
+      0003E001000101010003E0070001000F0003F0070001008F0003F003800100AF
+      0003F8030001803F0003FFFF0001E1FFFFFFE000FFFFFFFFC003E0003FFFEFFD
+      C003E0000FFFC7FFC003E00083FFC3FBC003600080FFE3F7C0032000C03FF1E7
+      C0030000C00FF8CFC0032000E007FC1FC0036000E003FE3FC003E000F001FC1F
+      C003E000F000F8CFC003E000F800E1E7C007E000F800C3F3C00FE000FC00C7FD
+      C01FE000FE00FFFFFFFFE000FF00FFFF00000000000000000000000000000000
+      000000000000}
+  end
+  object frReport: TfrReport
+    Dataset = frDBDataSet
+    InitialZoom = pzDefault
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit]
+    StoreInDFM = True
+    RebuildPrinter = False
+    Left = 179
+    Top = 40
+    ReportForm = {
+      19000000AD000000190000000011004850204C617365724A657420313032326E
+      00FFFFFFFFFF09000000340800009A0B00000000000000000000000000000000
+      000000FFFF00000000FFFF000000000000000000050050616765310003040046
+      6F726D000F0000FFDC000000780000007C0100002C01000004000000FEFEFF00
+      0000000000000000000000FDFF0100000000FC00000000000000000000000000
+      0000005800F2D0B278B47EE4407EAB3AD1D6E7E440}
+  end
+  object frDBDataSet: TfrDBDataSet
+    DataSource = DS_Mdata_MList
+    Left = 147
+    Top = 40
+  end
+  object MData_MBOM: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    AfterEdit = MData_MBOMAfterEdit
+    Left = 67
+    Top = 77
+    object MData_MBOMFCode: TStringField
+      FieldName = 'FCode'
+    end
+    object MData_MBOMth1: TStringField
+      FieldName = 'th'
+    end
+    object MData_MBOMmc1: TStringField
+      FieldName = 'mc'
+    end
+    object MData_MBOMgg1: TStringField
+      FieldName = 'gg'
+    end
+    object MData_MBOMSelRemark_1: TStringField
+      FieldName = 'SelRemark'
+    end
+    object MData_MBOMssth1: TStringField
+      FieldName = 'ssth'
+    end
+    object MData_MBOMFK3Number_1: TStringField
+      FieldName = 'FK3Number'
+    end
+    object MData_MBOMFName1: TStringField
+      FieldName = 'FName'
+    end
+    object MData_MBOMFModel1: TStringField
+      FieldName = 'FModel'
+    end
+    object MData_MBOMunitName1: TStringField
+      FieldName = 'unitName'
+    end
+    object MData_MBOMjs1: TStringField
+      FieldName = 'js'
+    end
+    object MData_MBOMFSumQry1: TFloatField
+      FieldName = 'FSumQry'
+    end
+    object MData_MBOMFQry1: TFloatField
+      FieldName = 'FQry'
+    end
+    object MData_MBOMFSuttle1: TFloatField
+      FieldName = 'FSuttle'
+    end
+    object MData_MBOMFNumber1: TStringField
+      FieldName = 'FNumber'
+    end
+    object MData_MBOMFParentNumber1: TStringField
+      FieldName = 'FParentNumber'
+    end
+    object MData_MBOMFFullNumber1: TStringField
+      FieldName = 'FFullNumber'
+    end
+    object MData_MBOMNum: TStringField
+      FieldName = 'Num'
+    end
+    object MData_MBOMabc: TStringField
+      FieldName = 'abc'
+    end
+    object MData_MBOMFFStockInListRemark: TStringField
+      FieldName = 'FFStockInListRemark'
+    end
+    object MData_MBOMFStockInListID: TIntegerField
+      FieldName = 'FStockInListID'
+    end
+    object MData_MBOMFInSumSuttle: TFloatField
+      FieldName = 'FInSumSuttle'
+    end
+    object MData_MBOMFInQry: TFloatField
+      FieldName = 'FInQry'
+    end
+    object MData_MBOMFInSumQry: TFloatField
+      FieldName = 'FInSumQry'
+    end
+  end
+  object DS_Mdata_MBOM: TDataSource
+    DataSet = MData_MBOM
+    Left = 27
+    Top = 77
+  end
+  object DS_Mdata_MList: TDataSource
+    DataSet = MData_MList
+    Left = 27
+    Top = 123
+  end
+  object MData_MList: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    AfterEdit = MData_MListAfterEdit
+    Left = 67
+    Top = 123
+    object StringField1: TStringField
+      FieldName = 'FCode'
+    end
+    object StringField15: TStringField
+      FieldName = 'Num'
+    end
+    object StringField2: TStringField
+      FieldName = 'th'
+    end
+    object StringField3: TStringField
+      FieldName = 'mc'
+    end
+    object StringField4: TStringField
+      FieldName = 'gg'
+    end
+    object StringField5: TStringField
+      FieldName = 'SelRemark'
+    end
+    object StringField6: TStringField
+      FieldName = 'ssth'
+    end
+    object StringField7: TStringField
+      FieldName = 'FK3Number'
+    end
+    object StringField8: TStringField
+      FieldName = 'FName'
+    end
+    object StringField9: TStringField
+      FieldName = 'FModel'
+    end
+    object StringField10: TStringField
+      FieldName = 'unitName'
+    end
+    object StringField11: TStringField
+      FieldName = 'js'
+    end
+    object FloatField1: TFloatField
+      FieldName = 'FSumQry'
+    end
+    object FloatField2: TFloatField
+      FieldName = 'FQry'
+    end
+    object FloatField3: TFloatField
+      FieldName = 'FSuttle'
+    end
+    object StringField12: TStringField
+      FieldName = 'FNumber'
+    end
+    object StringField13: TStringField
+      FieldName = 'FParentNumber'
+    end
+    object StringField14: TStringField
+      FieldName = 'FFullNumber'
+    end
+    object StringField16: TStringField
+      FieldName = 'abc'
+    end
+    object StringField17: TStringField
+      FieldName = 'FFStockInListRemark'
+    end
+    object IntegerField1: TIntegerField
+      FieldName = 'FStockInListID'
+    end
+    object FloatField4: TFloatField
+      FieldName = 'FInSumSuttle'
+    end
+    object FloatField5: TFloatField
+      FieldName = 'FInQry'
+    end
+    object FloatField6: TFloatField
+      FieldName = 'FInSumQry'
+    end
+  end
+  object MData_DBOM: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    Left = 67
+    Top = 32
+    object StringField18: TStringField
+      FieldName = 'FCode'
+    end
+    object StringField19: TStringField
+      FieldName = 'th'
+    end
+    object StringField20: TStringField
+      FieldName = 'mc'
+    end
+    object StringField21: TStringField
+      FieldName = 'gg'
+    end
+    object StringField22: TStringField
+      FieldName = 'SelRemark'
+    end
+    object StringField23: TStringField
+      FieldName = 'ssth'
+    end
+    object StringField24: TStringField
+      FieldName = 'FK3Number'
+    end
+    object StringField25: TStringField
+      FieldName = 'FName'
+    end
+    object StringField26: TStringField
+      FieldName = 'FModel'
+    end
+    object StringField27: TStringField
+      FieldName = 'unitName'
+    end
+    object StringField28: TStringField
+      FieldName = 'js'
+    end
+    object FloatField7: TFloatField
+      FieldName = 'FSumQry'
+    end
+    object FloatField8: TFloatField
+      FieldName = 'FQry'
+    end
+    object FloatField9: TFloatField
+      FieldName = 'FSuttle'
+    end
+    object StringField29: TStringField
+      FieldName = 'FNumber'
+    end
+    object StringField30: TStringField
+      FieldName = 'FParentNumber'
+    end
+    object StringField31: TStringField
+      FieldName = 'FFullNumber'
+    end
+    object StringField32: TStringField
+      FieldName = 'Num'
+    end
+    object StringField33: TStringField
+      FieldName = 'abc'
+    end
+    object StringField34: TStringField
+      FieldName = 'FFStockInListRemark'
+    end
+    object IntegerField2: TIntegerField
+      FieldName = 'FStockInListID'
+    end
+    object FloatField10: TFloatField
+      FieldName = 'FInSumSuttle'
+    end
+    object FloatField11: TFloatField
+      FieldName = 'FInQry'
+    end
+    object FloatField12: TFloatField
+      FieldName = 'FInSumQry'
+    end
+    object MData_DBOMFItemListID: TIntegerField
+      FieldName = 'FItemListID'
+    end
+  end
+  object DS_Mdata_DBOM: TDataSource
+    DataSet = MData_DBOM
+    Left = 27
+    Top = 32
+  end
+  object SaveDialog1: TSaveDialog
+    Left = 187
+    Top = 75
+  end
+  object actionList: TActionList
+    Images = ImageList
+    Left = 144
+    Top = 312
+    object Act_Parts: TAction
+      Category = #25968#25454#25805#20316
+      Caption = #37096#20214#21010#20998
+      ImageIndex = 24
+      OnExecute = Act_PartsExecute
+    end
+    object Act_Weigth: TAction
+      Category = #25968#25454#25805#20316
+      Caption = 'Act_Weigth'
+      OnExecute = Act_WeigthExecute
+    end
+    object Act_PC_MakeList: TAction
+      Category = #39029#36873#25805#20316
+      Caption = #29983#20135#20316#19994#34920#39029#36873
+      ImageIndex = 12
+      OnExecute = Act_PC_MakeListExecute
+    end
+    object Act_PC_MakeBOM: TAction
+      Category = #39029#36873#25805#20316
+      Caption = #29983#20135'BOM'#39029#36873
+      ImageIndex = 21
+      OnExecute = Act_PC_MakeBOMExecute
+    end
+    object Act_PackQry: TAction
+      Category = #25968#25454#25805#20316
+      Caption = 'Act_PackQry'
+      OnExecute = Act_PackQryExecute
+    end
+    object Act_PC_DBOM: TAction
+      Category = #39029#36873#25805#20316
+      Caption = #19979#25512#29983#20135'BOM'
+      ImageIndex = 19
+      OnExecute = Act_PC_DBOMExecute
+    end
+    object Act_MakeList_Sum: TAction
+      Category = #29983#20135#20316#19994#34920#27719#24635
+      Caption = #29983#20135#20316#19994#34920#27719#24635
+      ImageIndex = 6
+      OnExecute = Act_MakeList_SumExecute
+    end
+    object Act_MakeBOM_Sum: TAction
+      Category = #29983#20135'BOM'#27719#24635
+      Caption = #29983#20135'BOM'#27719#24635
+      ImageIndex = 6
+      OnExecute = Act_MakeBOM_SumExecute
+    end
+    object Act_MakeBOM_Switch: TAction
+      Category = #29983#20135'BOM'#27719#24635
+      Caption = #26448#26009#20195#29992
+      ImageIndex = 6
+      OnExecute = Act_MakeBOM_SwitchExecute
+    end
+    object Act_DBOM_Switch: TAction
+      Category = #35774#35745'BOM'#27719#24635
+      Caption = 'Act_DBOM_Switch'
+      OnExecute = Act_DBOM_SwitchExecute
+    end
+    object Act_PC_StockBOM: TAction
+      Category = #39029#36873#25805#20316
+      Caption = 'Act_PC_StockBOM'
+      OnExecute = Act_PC_StockBOMExecute
+    end
+    object Act_StockBOM_Switch: TAction
+      Category = #20837#24211'BOM'#27719#24635
+      Caption = 'Act_StockBOM_Switch'
+      OnExecute = Act_StockBOM_SwitchExecute
+    end
+    object Act_PC_STockLIst: TAction
+      Category = #39029#36873#25805#20316
+      Caption = 'Act_PC_STockLIst'
+      OnExecute = Act_PC_STockLIstExecute
+    end
+    object Act_Menu: TAction
+      Category = #33756#21333
+      Caption = 'Act_Menu'
+      OnExecute = Act_MenuExecute
+    end
+    object Act_Menu_Set: TAction
+      Category = #33756#21333
+      Caption = 'Act_Menu_Set'
+      OnExecute = Act_Menu_SetExecute
+    end
+    object Act_CheckQry: TAction
+      Category = #25968#25454#25805#20316
+      Caption = 'Act_CheckQry'
+      OnExecute = Act_CheckQryExecute
+    end
+  end
+  object MData_MList_M: TdxMemData
+    Active = True
+    Indexes = <>
+    SortOptions = []
+    Left = 67
+    Top = 199
+    object StringField52: TStringField
+      FieldName = 'Num'
+    end
+    object StringField53: TStringField
+      DisplayWidth = 50
+      FieldName = 'th'
+    end
+    object StringField54: TStringField
+      FieldName = 'mc'
+    end
+    object StringField55: TStringField
+      FieldName = 'gg'
+    end
+    object StringField56: TStringField
+      FieldName = 'SelRemark'
+    end
+    object StringField57: TStringField
+      DisplayWidth = 50
+      FieldName = 'FFullNumber'
+      Size = 50
+    end
+    object StringField58: TStringField
+      DisplayWidth = 50
+      FieldName = 'ssFullNumber'
+      Size = 50
+    end
+    object IntegerField4: TIntegerField
+      FieldName = 'FQry'
+    end
+    object FloatField19: TFloatField
+      FieldName = 'FSuttle'
+    end
+    object IntegerField5: TIntegerField
+      FieldName = 'FSumQry'
+    end
+    object FloatField20: TFloatField
+      FieldName = 'FSumSuttle'
+    end
+    object StringField59: TStringField
+      FieldName = 'FK3Number'
+    end
+    object StringField60: TStringField
+      FieldName = 'FModel'
+    end
+    object StringField61: TStringField
+      FieldName = 'FName'
+    end
+    object StringField62: TStringField
+      FieldName = 'UnitName'
+    end
+    object StringField63: TStringField
+      FieldName = 'FStockInListRemark'
+    end
+    object IntegerField6: TIntegerField
+      FieldName = 'js'
+    end
+    object IntegerField7: TIntegerField
+      FieldName = 'FStockInListID'
+    end
+    object StringField64: TStringField
+      FieldName = 'FPartsNumber'
+    end
+    object StringField65: TStringField
+      FieldName = 'FWorkParts'
+    end
+    object IntegerField8: TIntegerField
+      FieldName = 'FK3ItemID'
+    end
+    object IntegerField9: TIntegerField
+      FieldName = 'FItemListID'
+    end
+    object StringField66: TStringField
+      FieldName = 'FPartsCode'
+    end
+    object IntegerField10: TIntegerField
+      FieldName = 'xh'
+    end
+    object IntegerField11: TIntegerField
+      FieldName = 'ss'
+    end
+    object StringField67: TStringField
+      FieldName = 'abc'
+    end
+    object StringField68: TStringField
+      FieldName = 'FUnitName'
+    end
+  end
+  object DS_Mdata_MList_M: TDataSource
+    DataSet = MData_MList_M
+    Left = 27
+    Top = 199
+  end
+  object MData_DBOM_Sum: TdxMemData
+    Active = True
+    Indexes = <>
+    SortOptions = []
+    Left = 66
+    Top = 232
+    object StringField35: TStringField
+      FieldName = 'cpth'
+    end
+    object StringField36: TStringField
+      FieldName = 'cpmc'
+    end
+    object StringField37: TStringField
+      FieldName = 'cpxh'
+    end
+    object StringField38: TStringField
+      FieldName = 'dah'
+    end
+    object StringField39: TStringField
+      FieldName = 'jsdj'
+    end
+    object StringField40: TStringField
+      FieldName = 'djrq'
+    end
+    object StringField41: TStringField
+      FieldName = 'lkdh'
+    end
+    object StringField42: TStringField
+      FieldName = 'pqgy'
+    end
+    object StringField43: TStringField
+      FieldName = 'clf'
+    end
+    object StringField44: TStringField
+      FieldName = 'gz'
+    end
+    object StringField45: TStringField
+      FieldName = 'glf'
+    end
+    object StringField46: TStringField
+      FieldName = 'clfje'
+    end
+    object StringField47: TStringField
+      FieldName = 'gzje'
+    end
+    object StringField48: TStringField
+      FieldName = 'glfje'
+    end
+    object StringField49: TStringField
+      FieldName = 'bz'
+    end
+    object StringField50: TStringField
+      FieldName = 'jssl'
+    end
+    object StringField51: TStringField
+      FieldName = 'jsje'
+    end
+    object StringField69: TStringField
+      FieldName = 'yfmc'
+    end
+  end
+  object DS_Mdata_DBOM_Sum: TDataSource
+    DataSet = MData_DBOM_Sum
+    Left = 27
+    Top = 240
+  end
+  object MData_MList_Pick: TdxMemData
+    Active = True
+    Indexes = <>
+    SortOptions = []
+    Left = 66
+    Top = 280
+    object StringField70: TStringField
+      FieldName = 'cpth'
+    end
+    object StringField71: TStringField
+      FieldName = 'cpmc'
+    end
+    object StringField72: TStringField
+      FieldName = 'cpxh'
+    end
+    object StringField73: TStringField
+      FieldName = 'dah'
+    end
+    object StringField74: TStringField
+      FieldName = 'jsdj'
+    end
+    object StringField75: TStringField
+      FieldName = 'djrq'
+    end
+    object StringField76: TStringField
+      FieldName = 'lkdh'
+    end
+    object StringField77: TStringField
+      FieldName = 'pqgy'
+    end
+    object StringField78: TStringField
+      FieldName = 'clf'
+    end
+    object StringField79: TStringField
+      FieldName = 'gz'
+    end
+    object StringField80: TStringField
+      FieldName = 'glf'
+    end
+    object StringField81: TStringField
+      FieldName = 'clfje'
+    end
+    object StringField82: TStringField
+      FieldName = 'gzje'
+    end
+    object StringField83: TStringField
+      FieldName = 'glfje'
+    end
+    object StringField84: TStringField
+      FieldName = 'bz'
+    end
+    object StringField85: TStringField
+      FieldName = 'jssl'
+    end
+    object StringField86: TStringField
+      FieldName = 'jsje'
+    end
+    object StringField87: TStringField
+      FieldName = 'yfmc'
+    end
+  end
+  object DS_Mdata_MList_Pick: TDataSource
+    DataSet = MData_MList_Pick
+    Left = 27
+    Top = 280
+  end
+  object DS_Mdata_MBOM_Sum: TDataSource
+    DataSet = MData_MBOM_Sum
+    Left = 27
+    Top = 368
+  end
+  object MData_MBOM_Sum: TdxMemData
+    Active = True
+    Indexes = <>
+    SortOptions = []
+    Left = 66
+    Top = 368
+    object StringField88: TStringField
+      FieldName = 'cpth'
+    end
+    object StringField89: TStringField
+      FieldName = 'cpmc'
+    end
+    object StringField90: TStringField
+      FieldName = 'cpxh'
+    end
+    object StringField91: TStringField
+      FieldName = 'dah'
+    end
+    object StringField92: TStringField
+      FieldName = 'jsdj'
+    end
+    object StringField93: TStringField
+      FieldName = 'djrq'
+    end
+    object StringField94: TStringField
+      FieldName = 'lkdh'
+    end
+    object StringField95: TStringField
+      FieldName = 'pqgy'
+    end
+    object StringField96: TStringField
+      FieldName = 'clf'
+    end
+    object StringField97: TStringField
+      FieldName = 'gz'
+    end
+    object StringField98: TStringField
+      FieldName = 'glf'
+    end
+    object StringField99: TStringField
+      FieldName = 'clfje'
+    end
+    object StringField100: TStringField
+      FieldName = 'gzje'
+    end
+    object StringField101: TStringField
+      FieldName = 'glfje'
+    end
+    object StringField102: TStringField
+      FieldName = 'bz'
+    end
+    object StringField103: TStringField
+      FieldName = 'jssl'
+    end
+    object StringField104: TStringField
+      FieldName = 'jsje'
+    end
+    object StringField105: TStringField
+      FieldName = 'yfmc'
+    end
+  end
+  object DS_Mdata_MList_Cut: TDataSource
+    DataSet = MData_MList_Cut
+    Left = 27
+    Top = 331
+  end
+  object MData_MList_Cut: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    Left = 67
+    Top = 331
+    object StringField106: TStringField
+      FieldName = 'FCode'
+    end
+    object StringField107: TStringField
+      FieldName = 'Num'
+    end
+    object StringField108: TStringField
+      FieldName = 'th'
+    end
+    object StringField109: TStringField
+      FieldName = 'mc'
+    end
+    object StringField110: TStringField
+      FieldName = 'gg'
+    end
+    object StringField111: TStringField
+      FieldName = 'SelRemark'
+    end
+    object StringField112: TStringField
+      FieldName = 'ssth'
+    end
+    object StringField113: TStringField
+      FieldName = 'FK3Number'
+    end
+    object StringField114: TStringField
+      FieldName = 'FName'
+    end
+    object StringField115: TStringField
+      FieldName = 'FModel'
+    end
+    object StringField116: TStringField
+      FieldName = 'unitName'
+    end
+    object StringField117: TStringField
+      FieldName = 'js'
+    end
+    object FloatField13: TFloatField
+      FieldName = 'FSumQry'
+    end
+    object FloatField14: TFloatField
+      FieldName = 'FQry'
+    end
+    object FloatField15: TFloatField
+      FieldName = 'FSuttle'
+    end
+    object StringField118: TStringField
+      FieldName = 'FNumber'
+    end
+    object StringField119: TStringField
+      FieldName = 'FParentNumber'
+    end
+    object StringField120: TStringField
+      FieldName = 'FFullNumber'
+    end
+    object StringField121: TStringField
+      FieldName = 'abc'
+    end
+    object StringField122: TStringField
+      FieldName = 'FFStockInListRemark'
+    end
+    object IntegerField3: TIntegerField
+      FieldName = 'FStockInListID'
+    end
+    object FloatField16: TFloatField
+      FieldName = 'FInSumSuttle'
+    end
+    object FloatField17: TFloatField
+      FieldName = 'FInQry'
+    end
+    object FloatField18: TFloatField
+      FieldName = 'FInSumQry'
+    end
+  end
+  object DS_Mdata_SBOM_Sum: TDataSource
+    DataSet = MData_SBOM_Sum
+    Left = 147
+    Top = 171
+  end
+  object MData_SBOM_Sum: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    Left = 195
+    Top = 171
+  end
+  object MData_SBOM: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    Left = 195
+    Top = 133
+  end
+  object DS_Mdata_SBOM: TDataSource
+    DataSet = MData_SBOM
+    Left = 147
+    Top = 141
+  end
+  object MData_SItem: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    Left = 195
+    Top = 215
+  end
+  object DS_Mdata_SItem: TDataSource
+    DataSet = MData_SItem
+    Left = 155
+    Top = 215
+  end
+  object DS_Mdata_SList: TDataSource
+    DataSet = Mdata_SList
+    Left = 155
+    Top = 255
+  end
+  object Mdata_SList: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    AfterEdit = Mdata_SListAfterEdit
+    Left = 203
+    Top = 255
+  end
+  object PM: TPopupMenu
+    Left = 812
+    Top = 208
+    object N_Edit: TMenuItem
+      Caption = #32534#36753
+      OnClick = N_EditClick
+    end
+    object N_Filter: TMenuItem
+      Caption = #36807#28388
+      OnClick = N_FilterClick
+    end
+    object N_Sort: TMenuItem
+      Caption = #25490#24207
+      OnClick = N_SortClick
+    end
+    object N_Group: TMenuItem
+      Caption = #20998#32452
+      OnClick = N_GroupClick
+    end
+    object N_Set: TMenuItem
+      Caption = #21462#28040#35774#32622
+      OnClick = N_SetClick
+    end
+    object N_Out: TMenuItem
+      Caption = #23548#20986
+      OnClick = N_OutClick
+    end
+  end
+  object MData_PItem: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    Left = 75
+    Top = 432
+    object StringField123: TStringField
+      FieldName = 'FCode'
+    end
+    object StringField124: TStringField
+      FieldName = 'th'
+    end
+    object StringField125: TStringField
+      FieldName = 'mc'
+    end
+    object StringField126: TStringField
+      FieldName = 'gg'
+    end
+    object StringField127: TStringField
+      FieldName = 'SelRemark'
+    end
+    object StringField128: TStringField
+      FieldName = 'ssth'
+    end
+    object StringField129: TStringField
+      FieldName = 'FK3Number'
+    end
+    object StringField130: TStringField
+      FieldName = 'FName'
+    end
+    object StringField131: TStringField
+      FieldName = 'FModel'
+    end
+    object StringField132: TStringField
+      FieldName = 'unitName'
+    end
+    object StringField133: TStringField
+      FieldName = 'js'
+    end
+    object FloatField31: TFloatField
+      FieldName = 'FSumQry'
+    end
+    object FloatField32: TFloatField
+      FieldName = 'FQry'
+    end
+    object FloatField33: TFloatField
+      FieldName = 'FSuttle'
+    end
+    object StringField134: TStringField
+      FieldName = 'FNumber'
+    end
+    object StringField135: TStringField
+      FieldName = 'FParentNumber'
+    end
+    object StringField136: TStringField
+      FieldName = 'FFullNumber'
+    end
+    object StringField137: TStringField
+      FieldName = 'Num'
+    end
+    object StringField138: TStringField
+      FieldName = 'abc'
+    end
+    object StringField139: TStringField
+      FieldName = 'FFStockInListRemark'
+    end
+    object IntegerField12: TIntegerField
+      FieldName = 'FStockInListID'
+    end
+    object FloatField34: TFloatField
+      FieldName = 'FInSumSuttle'
+    end
+    object FloatField35: TFloatField
+      FieldName = 'FInQry'
+    end
+    object FloatField36: TFloatField
+      FieldName = 'FInSumQry'
+    end
+  end
+  object DS_Mdata_PItem: TDataSource
+    DataSet = MData_PItem
+    Left = 27
+    Top = 432
+  end
+  object DS_Mdata_PList: TDataSource
+    DataSet = MData_PList
+    Left = 27
+    Top = 464
+  end
+  object MData_PList: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    Left = 75
+    Top = 464
+    object StringField140: TStringField
+      FieldName = 'FCode'
+    end
+    object StringField141: TStringField
+      FieldName = 'th'
+    end
+    object StringField142: TStringField
+      FieldName = 'mc'
+    end
+    object StringField143: TStringField
+      FieldName = 'gg'
+    end
+    object StringField144: TStringField
+      FieldName = 'SelRemark'
+    end
+    object StringField145: TStringField
+      FieldName = 'ssth'
+    end
+    object StringField146: TStringField
+      FieldName = 'FK3Number'
+    end
+    object StringField147: TStringField
+      FieldName = 'FName'
+    end
+    object StringField148: TStringField
+      FieldName = 'FModel'
+    end
+    object StringField149: TStringField
+      FieldName = 'unitName'
+    end
+    object StringField150: TStringField
+      FieldName = 'js'
+    end
+    object FloatField37: TFloatField
+      FieldName = 'FSumQry'
+    end
+    object FloatField38: TFloatField
+      FieldName = 'FQry'
+    end
+    object FloatField39: TFloatField
+      FieldName = 'FSuttle'
+    end
+    object StringField151: TStringField
+      FieldName = 'FNumber'
+    end
+    object StringField152: TStringField
+      FieldName = 'FParentNumber'
+    end
+    object StringField153: TStringField
+      FieldName = 'FFullNumber'
+    end
+    object StringField154: TStringField
+      FieldName = 'Num'
+    end
+    object StringField155: TStringField
+      FieldName = 'abc'
+    end
+    object StringField156: TStringField
+      FieldName = 'FFStockInListRemark'
+    end
+    object IntegerField13: TIntegerField
+      FieldName = 'FStockInListID'
+    end
+    object FloatField40: TFloatField
+      FieldName = 'FInSumSuttle'
+    end
+    object FloatField41: TFloatField
+      FieldName = 'FInQry'
+    end
+    object FloatField42: TFloatField
+      FieldName = 'FInSumQry'
+    end
+  end
+end
